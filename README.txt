@@ -1,3 +1,4 @@
-Please do not break this repository
+Sync when you BEGIN working BEFORE making any changes to pull any working changes to your
+local copy.
 
-use your own branch when working on code and do a merge when you want to share code with the rest of us
+ONLY sync again when the changes you make build correctly.

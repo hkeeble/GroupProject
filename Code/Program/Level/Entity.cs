@@ -33,7 +33,6 @@ namespace CreatureGame
             if (_position.X % Level.Map.TileWidth != 1 || _position.Y % Level.Map.TileHeight != 1)
             {
                 _currentTile = new Point((int)(_position.X / Level.Map.TileWidth), (int)(_position.Y / Level.Map.TileHeight));
-                Console.Out.WriteLine(_position.X + " " + _position.Y + "\n");
                 if (_velocity.X != 0 || _velocity.Y != 0)
                 {
                     if (Level.Map.Passable[_currentTile.Y, _currentTile.X + (int)_velocity.X] == false)
