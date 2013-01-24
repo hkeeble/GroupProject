@@ -22,7 +22,7 @@ namespace CreatureGame
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            this.Components.Add(new InputHandler(this));
+            Components.Add(new InputHandler(this));
         }
 
         protected override void Initialize()
@@ -62,13 +62,15 @@ namespace CreatureGame
         {
             try
             {
-                TextReader tr = new StreamReader(Directory.GetCurrentDirectory() + "config.txt");
+                TextReader tr = new StreamReader(Directory.GetCurrentDirectory() + "//config.txt");
                 string fScreen = tr.ReadLine();
                 string[] split = fScreen.Split('=');
                 if (split[1] == "true")
-                    graphics.IsFullScreen = true;
+                    if (graphics.IsFullScreen == false)
+                        graphics.ToggleFullScreen();
                 else if (split[1] == "false")
-                    graphics.IsFullScreen = false;
+                    if (graphics.IsFullScreen == true)
+                        graphics.ToggleFullScreen();
                 else
                 {
                     graphics.IsFullScreen = false;
@@ -83,6 +85,7 @@ namespace CreatureGame
                     string screenHeight = tr.ReadLine();
                     split = screenHeight.Split('=');
                     graphics.PreferredBackBufferHeight = Convert.ToInt32(split[1]);
+                    graphics.ApplyChanges();
                 }
             }
             catch (FileNotFoundException e)
