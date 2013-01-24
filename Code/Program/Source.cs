@@ -51,8 +51,8 @@ namespace CreatureGame
 
         protected override void Draw(GameTime gameTime)
         {
-            //GraphicsDevice.Clear(Color.OldLace);
-
+            GraphicsDevice.Clear(Color.OldLace);
+            // stop messin with this lovely clear setting
             base.Draw(gameTime);
         }
 
