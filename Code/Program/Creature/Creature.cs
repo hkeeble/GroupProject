@@ -16,21 +16,6 @@ namespace CreatureGame
         private AttackTypes avTacks;
 
 	    //Constructors
-        public Creature()
-            : base(null, Vector2.Zero, 1.0f)
-        {
-            Traits temp = new Traits();
-            temp.Pelvis = true;
-            temp.Spine = true;
-            temp.SpinalColumns = 4;
-            temp.Tail = true;
-            temp.TailColumns = 6;
-            Dominant = temp;
-            Recessive = temp;
-            CreateAttacks();
-            BattlesLost = 0;
-        }
-
         public Creature(short ID, Texture2D texture, Vector2 position2D, float moveSpeed)
             : base(texture, position2D, moveSpeed)
         {
@@ -93,7 +78,6 @@ namespace CreatureGame
 	    }
         
 	    // Methods
-
         void CreateAttacks()
         {
             avTacks = new AttackTypes(this.Dominant);

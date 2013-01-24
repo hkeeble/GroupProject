@@ -34,3 +34,7 @@
 
 1:Error on fullscreen line of config.txt.
 
+1:Error on fullscreen line of config.txt.
+
+1:Error on fullscreen line of config.txt.
+

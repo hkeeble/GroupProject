@@ -130,10 +130,12 @@ namespace CreatureGame
             }
             catch (FileNotFoundException e)
             {
+                e.ToString();
                 DebugLog.WriteLine("Level " + fileName + " failed to load. File not found.\n");
             }
             catch (Exception e)
             {
+                e.ToString();
                 DebugLog.WriteLine("Error loading level named " + fileName + " error message: \n" + e.Message);
             }
 

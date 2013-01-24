@@ -15,7 +15,6 @@ namespace CreatureGame
     public class Game1 : Microsoft.Xna.Framework.Game
     {
         GraphicsDeviceManager graphics;
-        Creature test;
 
         public Game1()
         {
@@ -26,10 +25,9 @@ namespace CreatureGame
         protected override void Initialize()
         {
             this.IsMouseVisible = true;
-            test = new Creature();
             ReadConfig();
             base.Initialize();
-
+            
             Components.Add(new InputHandler(this));
             Components.Add(new SpriteBatchComponent(this));
             Components.Add(new Viewport(this));
