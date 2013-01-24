@@ -30,7 +30,9 @@ namespace CreatureGame
             short temporary = 2345;
             this.IsMouseVisible = true;
             test = new Creature(temporary);
-            ReadConfig();
+            //ReadConfig();
+            graphics.IsFullScreen = true;
+            graphics.ApplyChanges();
             base.Initialize();
         }
 
