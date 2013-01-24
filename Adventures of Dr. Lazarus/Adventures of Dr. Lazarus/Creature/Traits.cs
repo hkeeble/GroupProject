@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CreatureGame.Creature
+namespace CreatureGame
 {
     public struct Traits
     {
