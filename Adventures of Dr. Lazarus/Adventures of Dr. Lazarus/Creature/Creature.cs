@@ -16,7 +16,7 @@ namespace CreatureGame
         private AttackTypes avTacks;
 
 	    //Constructors
-        public Creature(GraphicsDevice graphicsDevice)
+        public Creature()
         {
             Traits temp = new Traits();
             temp.Pelvis = true;
@@ -26,7 +26,20 @@ namespace CreatureGame
             temp.TailColumns = 6;
             Dominant = temp;
             Recessive = temp;
-            CreateModel(graphicsDevice);
+            CreateAttacks();
+            BattlesLost = 0;
+        }
+
+        public Creature(short ID)
+        {
+            Traits temp = new Traits();
+            temp.Pelvis = true;
+            temp.Spine = true;
+            temp.SpinalColumns = 4;
+            temp.Tail = true;
+            temp.TailColumns = 6;
+            Dominant = temp;
+            Recessive = temp;
             CreateAttacks();
             BattlesLost = 0;
         }
@@ -72,15 +85,9 @@ namespace CreatureGame
 		    else
 			    Dominant.TailColumns=a.Dominant.TailColumns;
 
-		    CreateModel(graphicsDevice);
             CreateAttacks();
             BattlesLost = 0;
 	    }
-        
-	    // Methods
-        void CreateModel(GraphicsDevice graphicsDevice)
-        {
-        }
 
         void CreateAttacks()
         {

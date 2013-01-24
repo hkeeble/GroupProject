@@ -25,6 +25,8 @@ namespace CreatureGame
 
         protected override void Initialize()
         {
+            short temporary = 2345;
+            test = new Creature(temporary);
             base.Initialize();
         }
 
