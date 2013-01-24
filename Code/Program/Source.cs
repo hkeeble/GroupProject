@@ -15,28 +15,29 @@ namespace CreatureGame
     public class Game1 : Microsoft.Xna.Framework.Game
     {
         GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
         Creature test;
 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            Components.Add(new InputHandler(this));
         }
 
         protected override void Initialize()
         {
-            short temporary = 2345;
             this.IsMouseVisible = true;
-            test = new Creature(temporary);
+            test = new Creature();
             ReadConfig();
             base.Initialize();
+
+            Components.Add(new InputHandler(this));
+            Components.Add(new SpriteBatchComponent(this));
+            Components.Add(new Viewport(this));
+            Components.Add(new HandlerEntity(this));
         }
 
         protected override void LoadContent()
         {
-            spriteBatch = new SpriteBatch(GraphicsDevice);
         }
 
         protected override void UnloadContent()
@@ -54,7 +55,7 @@ namespace CreatureGame
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.OldLace);
-            // stop messin with this lovely clear setting
+
             base.Draw(gameTime);
         }
 

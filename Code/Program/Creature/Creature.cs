@@ -31,23 +31,8 @@ namespace CreatureGame
             BattlesLost = 0;
         }
 
-        public Creature(short ID, Texture2D sprite, Vector2 Pos2D, float moveSpeed)
-            : base(sprite, Pos2D, moveSpeed)
-        {
-            Traits temp = new Traits();
-            temp.Pelvis = true;
-            temp.Spine = true;
-            temp.SpinalColumns = 4;
-            temp.Tail = true;
-            temp.TailColumns = 6;
-            Dominant = temp;
-            Recessive = temp;
-            CreateAttacks();
-            BattlesLost = 0;
-        }
-
-        public Creature(short ID)
-            : base(null, Vector2.Zero, 1.0f)
+        public Creature(short ID, Texture2D texture, Vector2 position2D, float moveSpeed)
+            : base(texture, position2D, moveSpeed)
         {
             Traits temp = new Traits();
             temp.Pelvis = true;

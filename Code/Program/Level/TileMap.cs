@@ -20,7 +20,16 @@ namespace CreatureGame
         // Creature Code Array?
         Point[] _applePositions, _nestPositions;
         string _fileName;
+        bool isLoaded = false;
         // Apple Array?
+
+        public TileMap()
+        {//NEEDS WORK BLANK MAP
+            _width = 0;
+            _height = 0;
+            _tileHeight = 0;
+            _tileWidth = 0;
+        }
 
         /// <summary>
         /// Creates a new map from a file.
@@ -45,6 +54,7 @@ namespace CreatureGame
                     FileStream tileSetStream = File.OpenRead(Directory.GetCurrentDirectory() + "\\Tilesets\\" + _tileSetPath);
                     _tileSet = Texture2D.FromStream(graphicsDevice, tileSetStream);
                     tileSetStream.Close();
+                    isLoaded = true;//CHECK THIS PLEASE
                 }
                 catch(FileNotFoundException e)
                 {
@@ -133,17 +143,13 @@ namespace CreatureGame
         /// <summary>
         /// Draws the level's tiles and the lab.
         /// </summary>
-        public void draw(SpriteBatch spriteBatch)
+        public void Draw()
         {
-            spriteBatch.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend);
+            if (isLoaded)
                 for (int x = 0; x < _width; x++)
-                {
                     for (int y = 0; y < _height; y++)
-                    {
-                            spriteBatch.Draw(_tileSet, Camera.Transform(new Vector2(x*_tileWidth, y*_tileHeight)), new Rectangle(_tiles[y,x].X*_tileWidth,
-                                _tiles[y,x].Y*_tileHeight, _tileWidth, _tileHeight), Color.White);
-                    }
-                }
+                            SpriteBatchComponent.Draw(_tileSet, Camera.Transform(new Vector2(x*_tileWidth, y*_tileHeight)), new Rectangle(_tiles[y,x].X*_tileWidth, _tiles[y,x].Y*_tileHeight, _tileWidth, _tileHeight), Color.White);
+
 
                 //for (int i = 0; i < _numberOfApples; i++)
                 //{
@@ -156,7 +162,6 @@ namespace CreatureGame
                 //}
 
                 // DRAW LAB
-            spriteBatch.End();
         }
 
         /// <summary>
