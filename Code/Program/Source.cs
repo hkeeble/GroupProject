@@ -52,7 +52,7 @@ namespace CreatureGame
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.OldLace);
-
+            //Problems?
             base.Draw(gameTime);
         }
 
