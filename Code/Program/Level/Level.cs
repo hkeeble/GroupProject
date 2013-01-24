@@ -24,10 +24,10 @@ namespace CreatureGame
             Camera.ViewPortSize = new Vector2(graphicsDevice.Viewport.Width, graphicsDevice.Viewport.Height);
 
             this.handler = handler;
-            this.handler.Position = new Vector2(_tileMap.PlayerSpawn.X, _tileMap.PlayerSpawn.Y);
+            this.handler.player.Position = new Vector2(_tileMap.PlayerSpawn.X, _tileMap.PlayerSpawn.Y);
 
-            Camera.Position = new Vector2((_tileMap.PlayerSpawn.X + (handler.Texture.Width / 2)) - (graphicsDevice.Viewport.Width / 2),
-                (_tileMap.PlayerSpawn.Y + (handler.Texture.Height / 2)) - (graphicsDevice.Viewport.Height / 2));
+            Camera.Position = new Vector2((_tileMap.PlayerSpawn.X + (handler.player.Texture.Width / 2)) - (graphicsDevice.Viewport.Width / 2),
+                (_tileMap.PlayerSpawn.Y + (handler.player.Texture.Height / 2)) - (graphicsDevice.Viewport.Height / 2));
 
             //_miniMap = new Minimap(_tileMap);
         }
@@ -42,7 +42,7 @@ namespace CreatureGame
             if(entities.Count > 0)
                 foreach (Entity e in entities)
                     e.draw(spriteBatch);
-            handler.draw(spriteBatch);
+            handler.player.draw(spriteBatch);
             spriteBatch.End();
             
             //_miniMap.draw(spriteBatch);
@@ -53,10 +53,10 @@ namespace CreatureGame
             if(entities.Count > 0)
                 foreach (Entity e in entities)
                     e.Update();
-            handler.Update();
+            handler.player.Update();
 
-            Camera.Position = new Vector2((handler.Position.X + (handler.Texture.Width / 2)) - (viewPort.Width / 2),
-                                 (handler.Position.Y + (handler.Texture.Height / 2)) - (viewPort.Height / 2));
+            Camera.Position = new Vector2((handler.player.Position.X + (handler.player.Texture.Width / 2)) - (viewPort.Width / 2),
+                                 (handler.player.Position.Y + (handler.player.Texture.Height / 2)) - (viewPort.Height / 2));
             // UPDATE PLAYER
             // UPDATE CREATURES
             // UPDATE CAMERA

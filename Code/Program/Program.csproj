@@ -81,7 +81,7 @@
     <Compile Include="Level\Camera.cs" />
     <Compile Include="DebugLog.cs" />
     <Compile Include="Level\Entity.cs" />
-    <Compile Include="Level\HandlerEntity.cs" />
+    <Compile Include="HandlerEntity.cs" />
     <Compile Include="InputHandler.cs" />
     <Compile Include="Level\Item.cs" />
     <Compile Include="Level\ItemEntity.cs" />

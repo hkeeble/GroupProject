@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace CreatureGame
 {
-    class Creature
+    class Creature : Entity
     {
         //private CreatureModel creatureModel;
 
@@ -17,6 +17,22 @@ namespace CreatureGame
 
 	    //Constructors
         public Creature()
+            : base(null, Vector2.Zero, 1.0f)
+        {
+            Traits temp = new Traits();
+            temp.Pelvis = true;
+            temp.Spine = true;
+            temp.SpinalColumns = 4;
+            temp.Tail = true;
+            temp.TailColumns = 6;
+            Dominant = temp;
+            Recessive = temp;
+            CreateAttacks();
+            BattlesLost = 0;
+        }
+
+        public Creature(short ID, Texture2D sprite, Vector2 Pos2D, float moveSpeed)
+            : base(sprite, Pos2D, moveSpeed)
         {
             Traits temp = new Traits();
             temp.Pelvis = true;
@@ -31,6 +47,7 @@ namespace CreatureGame
         }
 
         public Creature(short ID)
+            : base(null, Vector2.Zero, 1.0f)
         {
             Traits temp = new Traits();
             temp.Pelvis = true;
@@ -44,7 +61,9 @@ namespace CreatureGame
             BattlesLost = 0;
         }
 
-        public Creature(ref Creature a, ref Creature b, GraphicsDevice graphicsDevice) // Could Gene Samples be included here, and passed in as a parameter, with a null default value?
+        public Creature(ref Creature a, ref Creature b, GraphicsDevice graphicsDevice)
+            : base(null, Vector2.Zero, 1.0f)
+            // Could Gene Samples be included here, and passed in as a parameter, with a null default value?
 	    {                                                                              // If you don't want to implement them then I can do it, would just need another class and a few small modifications here.
 		    if(a.Recessive.Tail&b.Recessive.Tail)
 		    {
