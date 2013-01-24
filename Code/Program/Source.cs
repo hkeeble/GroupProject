@@ -27,6 +27,7 @@ namespace CreatureGame
         protected override void Initialize()
         {
             short temporary = 2345;
+            this.IsMouseVisible = true;
             test = new Creature(temporary);
             base.Initialize();
         }
@@ -50,7 +51,7 @@ namespace CreatureGame
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.OldLace);
 
             base.Draw(gameTime);
         }
