@@ -66,8 +66,12 @@ namespace CreatureGame
                 string fScreen = tr.ReadLine();
                 string[] split = fScreen.Split('=');
                 if (split[1] == "true")
-                    if (graphics.IsFullScreen == false)
+                    {
+                        graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
+                        graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
+                        graphics.ApplyChanges();
                         graphics.ToggleFullScreen();
+                    }
                 else if (split[1] == "false")
                     if (graphics.IsFullScreen == true)
                         graphics.ToggleFullScreen();
