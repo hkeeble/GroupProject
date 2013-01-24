@@ -100,7 +100,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Adventures of Dr. LazarusContent\Content.contentproj">
+    <ProjectReference Include="..\Content\Content.contentproj">
       <Name>Content</Name>
       <XnaReferenceType>Content</XnaReferenceType>
       <Project>{B5E43326-559C-43B5-B77E-42C566234D00}</Project>
