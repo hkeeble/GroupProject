@@ -46,6 +46,8 @@ namespace CreatureGame
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
+            if (InputHandler.KeyPressed(Keys.Escape))
+                this.Exit();
 
             base.Update(gameTime);
         }
@@ -65,15 +67,17 @@ namespace CreatureGame
                 string fScreen = tr.ReadLine();
                 string[] split = fScreen.Split('=');
                 if (split[1] == "true")
-                    {
-                        graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
-                        graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
-                        graphics.ApplyChanges();
-                        graphics.ToggleFullScreen();
-                    }
+                {
+                    graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
+                    graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
+                    graphics.ApplyChanges();
+                    graphics.ToggleFullScreen();
+                }
                 else if (split[1] == "false")
+                {
                     if (graphics.IsFullScreen == true)
                         graphics.ToggleFullScreen();
+                }
                 else
                 {
                     graphics.IsFullScreen = false;
