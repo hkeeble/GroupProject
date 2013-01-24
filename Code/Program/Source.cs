@@ -29,6 +29,7 @@ namespace CreatureGame
             short temporary = 2345;
             this.IsMouseVisible = true;
             test = new Creature(temporary);
+            ReadConfig();
             base.Initialize();
         }
 
@@ -60,7 +61,7 @@ namespace CreatureGame
         {
             try
             {
-                TextReader tr = new StreamReader(Directory.GetCurrentDirectory() + "\\config.txt");
+                TextReader tr = new StreamReader(Directory.GetCurrentDirectory() + "config.txt");
                 string fScreen = tr.ReadLine();
                 string[] split = fScreen.Split('=');
                 if (split[1] == "true")
