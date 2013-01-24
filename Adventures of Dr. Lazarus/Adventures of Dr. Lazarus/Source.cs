@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using Creature;
 
 namespace CreatureGame
 {
@@ -15,6 +16,7 @@ namespace CreatureGame
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        Creature test;
 
         public Game1()
         {
