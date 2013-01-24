@@ -22,6 +22,7 @@ namespace CreatureGame
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            this.Components.Add(new InputHandler(this));
         }
 
         protected override void Initialize()
