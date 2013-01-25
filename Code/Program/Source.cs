@@ -16,6 +16,8 @@ namespace CreatureGame
     {
         GraphicsDeviceManager graphics;
 
+        Texture2D handlerTex;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -24,22 +26,32 @@ namespace CreatureGame
 
         protected override void Initialize()
         {
+            DebugLog.Init();
+           
             this.IsMouseVisible = true;
             ReadConfig();
             base.Initialize();
-            
+
+            HandlerEntity handler = new HandlerEntity(this);
+
             Components.Add(new InputHandler(this));
             Components.Add(new SpriteBatchComponent(this));
             Components.Add(new Viewport(this));
-            Components.Add(new HandlerEntity(this));
+            Components.Add(handler);
+
+            handler.Enabled = true;
+            HandlerEntity.TileMap = new TileMap("TestMap.txt", graphics.GraphicsDevice);
+            HandlerEntity.player = new Creature(2345, handlerTex, HandlerEntity.TileMap.PlayerSpawn, 1f);
         }
 
         protected override void LoadContent()
         {
+            handlerTex = Content.Load<Texture2D>("handler");
         }
 
         protected override void UnloadContent()
         {
+            DebugLog.Close();
         }
 
         protected override void Update(GameTime gameTime)
@@ -55,7 +67,6 @@ namespace CreatureGame
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.OldLace);
-
             base.Draw(gameTime);
         }
 

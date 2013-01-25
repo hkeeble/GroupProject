@@ -16,7 +16,7 @@ namespace CreatureGame
         private Point[,] _tiles;
         private bool[,] _passable;
         private int[,] _attribute;
-        Point _playerSpawn, _bossSpawn, _labPos;
+        Vector2 _playerSpawn, _bossSpawn, _labPos;
         // Creature Code Array?
         Point[] _applePositions, _nestPositions;
         string _fileName;
@@ -40,7 +40,7 @@ namespace CreatureGame
         {
             try
             {
-                _fileName = Directory.GetCurrentDirectory() + "\\Levels\\" + fileName;
+                _fileName = Directory.GetCurrentDirectory() + "\\Maps\\" + fileName;
                 TextReader tr = new StreamReader(_fileName);
 
                 _width = Convert.ToInt32(tr.ReadLine());
@@ -58,7 +58,7 @@ namespace CreatureGame
                 }
                 catch(FileNotFoundException e)
                 {
-                    DebugLog.WriteLine("Error loading tilset for level " + fileName + " error message: \n" + e.Message);
+                    DebugLog.WriteLine("Error loading tileset for level " + fileName + " error message: \n" + e.Message);
                 }
 
                 _tiles = new Point[_width, _height];
@@ -201,8 +201,8 @@ namespace CreatureGame
         // Public Accessors
         public Point[] ApplePositions { get { return _applePositions; } set { _applePositions = value; } }
         public Point[] NestPositions { get { return _nestPositions; } }
-        public Point PlayerSpawn { get { return _playerSpawn; } }
-        public Point BossSpawn { get { return _bossSpawn; } }
+        public Vector2 PlayerSpawn { get { return _playerSpawn; } }
+        public Vector2 BossSpawn { get { return _bossSpawn; } }
         public int Width { get { return _width; } }
         public int Height { get { return _height; } }
         public int TileWidth { get { return _tileWidth; } }

@@ -10,11 +10,25 @@ namespace CreatureGame
     {
         private static int errorCount = 0;
 
+        public static void Init()
+        {
+            StreamWriter tw = File.AppendText("debugLog.txt");
+            tw.WriteLine(("----- Program executed on " + Convert.ToString(DateTime.Now.Date) + " at " + Convert.ToString(DateTime.Now.TimeOfDay) + " -----"));
+            tw.Close();
+        }
+
+        public static void Close()
+        {
+            StreamWriter tw = File.AppendText("debugLog.txt");
+            tw.WriteLine(("----- Program execution finished on " + Convert.ToString(DateTime.Now.Date) + " at " + Convert.ToString(DateTime.Now.TimeOfDay) + " -----"));
+            tw.Close();
+        }
+
         public static void WriteLine(string text)
         {
             StreamWriter tw = File.AppendText("debugLog.txt");
             errorCount++;
-            tw.WriteLine(errorCount + ":" + text + "\n");
+            tw.WriteLine("\t" + errorCount + ":" + text + "\n");
             tw.Close();
         }
 

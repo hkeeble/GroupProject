@@ -1,0 +1,109 @@
+1:Error loading level named TestMap.txt error message: 
+Could not find a part of the path 'C:\Users\Henri\Documents\GitHub\GroupProject\Build\Levels\TestMap.txt'.
+
+1:Error loading level named TestMap.txt error message: 
+Could not find a part of the path 'C:\Users\Henri\Documents\GitHub\GroupProject\Build\Levels\TestMap.txt'.
+
+1:Error loading level named TestMap.txt error message: 
+Could not find a part of the path 'C:\Users\Henri\Documents\GitHub\GroupProject\Build\Levels\TestMap.txt'.
+
+1:Error loading level named TestMap.txt error message: 
+Could not find a part of the path 'C:\Users\Henri\Documents\GitHub\GroupProject\Build\Levels\TestMap.txt'.
+
+1:Error loading level named TestMap.txt error message: 
+Could not find a part of the path 'C:\Users\Henri\Documents\GitHub\GroupProject\Build\Levels\TestMap.txt'.
+
+1:Error loading level named TestMap.txt error message: 
+Could not find a part of the path 'C:\Users\Henri\Documents\GitHub\GroupProject\Build\Levels\TestMap.txt'.
+
+1:Error loading level named TestMap.txt error message: 
+Could not find a part of the path 'C:\Users\Henri\Documents\GitHub\GroupProject\Build\Levels\TestMap.txt'.
+
+1:Error loading level named TestMap.txt error message: 
+Could not find a part of the path 'C:\Users\Henri\Documents\GitHub\GroupProject\Build\Levels\TestMap.txt'.
+
+1:Error loading tileset for level TestMap.txt error message: 
+Could not find file 'C:\Users\Henri\Documents\GitHub\GroupProject\Build\Maps\Tileset.png'.
+
+1:Error loading level named TestMap.txt error message: 
+Input string was not in a correct format.
+
+1:Error loading level named TestMap.txt error message: 
+Input string was not in a correct format.
+
+1:Error loading level named TestMap.txt error message: 
+Input string was not in a correct format.
+
+1:Error loading level named TestMap.txt error message: 
+Input string was not in a correct format.
+
+	1:Error loading level named TestMap.txt error message: 
+Input string was not in a correct format.
+
+----- Program executed on 25/01/2013 00:00:00 at 11:27:18.0946948 -----
+----- Program executed on 25/01/2013 00:00:00 at 11:28:00.1240988 -----
+	1:Error loading level named TestMap.txt error message: 
+Input string was not in a correct format.
+
+----- Program executed on 25/01/2013 00:00:00 at 11:29:09.1690479 -----
+	1:Error loading level named TestMap.txt error message: 
+Input string was not in a correct format.
+
+----- Program execution finished on 25/01/2013 00:00:00 at 11:29:11.1691623 -----
+----- Program executed on 25/01/2013 00:00:00 at 11:30:10.0105279 -----
+	1:Error loading level named TestMap.txt error message: 
+Input string was not in a correct format.
+
+----- Program execution finished on 25/01/2013 00:00:00 at 11:30:13.8707486 -----
+----- Program executed on 25/01/2013 00:00:00 at 11:30:37.7371137 -----
+	1:Error loading level named TestMap.txt error message: 
+Input string was not in a correct format.
+
+----- Program execution finished on 25/01/2013 00:00:00 at 11:30:40.0802477 -----
+----- Program executed on 25/01/2013 00:00:00 at 11:31:13.0601341 -----
+----- Program executed on 25/01/2013 00:00:00 at 11:32:08.3582970 -----
+	1:Error loading level named TestMap.txt error message: 
+Input string was not in a correct format.
+
+----- Program executed on 25/01/2013 00:00:00 at 11:33:30.9750224 -----
+	1:Error loading level named TestMap.txt error message: 
+Input string was not in a correct format.
+
+----- Program execution finished on 25/01/2013 00:00:00 at 11:33:38.6374606 -----
+----- Program executed on 25/01/2013 00:00:00 at 11:33:52.8982763 -----
+	1:Error loading level named TestMap.txt error message: 
+Input string was not in a correct format.
+
+----- Program execution finished on 25/01/2013 00:00:00 at 11:33:54.8643888 -----
+----- Program executed on 25/01/2013 00:00:00 at 11:34:23.3850200 -----
+	1:Error loading level named TestMap.txt error message: 
+Input string was not in a correct format.
+
+----- Program execution finished on 25/01/2013 00:00:00 at 11:34:24.9331086 -----
+----- Program executed on 25/01/2013 00:00:00 at 11:35:05.7094409 -----
+----- Program executed on 25/01/2013 00:00:00 at 11:35:20.0932636 -----
+----- Program executed on 25/01/2013 00:00:00 at 11:36:25.7050163 -----
+----- Program executed on 25/01/2013 00:00:00 at 11:36:46.6282131 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 11:36:51.4154869 -----
+----- Program executed on 25/01/2013 00:00:00 at 11:37:35.9540344 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 11:37:40.0062661 -----
+----- Program executed on 25/01/2013 00:00:00 at 11:38:52.5854174 -----
+----- Program executed on 25/01/2013 00:00:00 at 11:43:44.2390991 -----
+----- Program executed on 25/01/2013 00:00:00 at 11:44:54.3171073 -----
+----- Program executed on 25/01/2013 00:00:00 at 11:45:24.8448534 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 11:45:34.5894107 -----
+----- Program executed on 25/01/2013 00:00:00 at 11:47:11.7999709 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 11:47:22.7035945 -----
+----- Program executed on 25/01/2013 00:00:00 at 11:54:31.8261389 -----
+----- Program executed on 25/01/2013 00:00:00 at 11:54:47.1920178 -----
+----- Program executed on 25/01/2013 00:00:00 at 11:55:08.7162489 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 11:55:33.7776823 -----
+----- Program executed on 25/01/2013 00:00:00 at 11:56:02.6253323 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 11:56:09.0817016 -----
+----- Program executed on 25/01/2013 00:00:00 at 11:56:45.9818122 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 11:56:49.3080024 -----
+----- Program executed on 25/01/2013 00:00:00 at 11:57:06.1079633 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 11:57:11.5502746 -----
+----- Program executed on 25/01/2013 00:00:00 at 11:57:30.1423380 -----
+----- Program executed on 25/01/2013 00:00:00 at 11:58:30.6407983 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 11:58:45.0786241 -----

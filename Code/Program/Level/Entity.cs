@@ -13,7 +13,7 @@ namespace CreatureGame
         private Vector2 _position;
         protected Point _currentTile;
         private float _moveSpeed = 0.0f;
-        protected Vector2 _velocity = Vector2.Zero;
+        public Vector2 Direction = Vector2.Zero;
 
         public Entity()
         {
@@ -39,18 +39,18 @@ namespace CreatureGame
 
         public virtual void Update()
         {
-            if (_position.X % HandlerEntity.TileMap.TileWidth != 1 || _position.Y % HandlerEntity.TileMap.TileHeight != 1)
-            {
-                _currentTile = new Point((int)(_position.X / HandlerEntity.TileMap.TileWidth), (int)(_position.Y / HandlerEntity.TileMap.TileHeight));
-                if (_velocity.X != 0 || _velocity.Y != 0)
-                {
-                    if (HandlerEntity.TileMap.Passable[_currentTile.Y, _currentTile.X + (int)_velocity.X] == false)
-                        _velocity.X = 0;
-                    if (HandlerEntity.TileMap.Passable[_currentTile.Y + (int)_velocity.Y, _currentTile.X] == false)
-                        _velocity.Y = 0;
-                }
-            }
-            _position += (_velocity*_moveSpeed);
+            //if (_position.X % HandlerEntity.TileMap.TileWidth != 1 || _position.Y % HandlerEntity.TileMap.TileHeight != 1)
+            //{
+            //    _currentTile = new Point((int)(_position.X / HandlerEntity.TileMap.TileWidth), (int)(_position.Y / HandlerEntity.TileMap.TileHeight));
+            //    if (Direction.X != 0 || Direction.Y != 0)
+            //    {
+            //        if (HandlerEntity.TileMap.Passable[_currentTile.Y, _currentTile.X + (int)Direction.X] == false)
+            //            Direction.X = 0;
+            //        if (HandlerEntity.TileMap.Passable[_currentTile.Y + (int)Direction.Y, _currentTile.X] == false)
+            //            Direction.Y = 0;
+            //    }
+            //}
+            _position += (Direction * _moveSpeed);
         }
 
         public Texture2D Texture { get { return _texture; } }

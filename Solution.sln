@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adventures of Dr. Lazarus", "Code\Program\Program.csproj", "{1DC434A9-9CEA-44C3-A42A-33DD7A50C260}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Program", "Code\Program\Program.csproj", "{1DC434A9-9CEA-44C3-A42A-33DD7A50C260}"
 EndProject
-Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "Content", "Code\Content\Content.contentproj", "{B5E43326-559C-43B5-B77E-42C566234D00}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Content", "Code\Content\Content.contentproj", "{B5E43326-559C-43B5-B77E-42C566234D00}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
