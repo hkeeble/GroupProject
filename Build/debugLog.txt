@@ -111,3 +111,104 @@ Input string was not in a correct format.
 ----- Program execution finished on 25/01/2013 00:00:00 at 12:05:57.2849723 -----
 ----- Program executed on 25/01/2013 00:00:00 at 12:08:32.2369775 -----
 ----- Program execution finished on 25/01/2013 00:00:00 at 12:09:26.5737210 -----
+----- Program executed on 25/01/2013 00:00:00 at 12:10:52.8762518 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 12:11:16.3425940 -----
+----- Program executed on 25/01/2013 00:00:00 at 12:13:46.8542027 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 12:14:38.7781726 -----
+----- Program executed on 25/01/2013 00:00:00 at 12:16:00.8938694 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 12:16:05.4331290 -----
+----- Program executed on 25/01/2013 00:00:00 at 12:16:51.0967408 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 12:16:55.5119934 -----
+----- Program executed on 25/01/2013 00:00:00 at 12:21:21.2531929 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 12:23:34.9228384 -----
+----- Program executed on 25/01/2013 00:00:00 at 12:26:09.0646548 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 12:26:11.0807701 -----
+----- Program executed on 25/01/2013 00:00:00 at 12:26:34.2470951 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 12:27:01.4686521 -----
+----- Program executed on 25/01/2013 00:00:00 at 12:27:20.7347541 -----
+----- Program executed on 25/01/2013 00:00:00 at 12:30:38.1510456 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 12:30:43.5493544 -----
+----- Program executed on 25/01/2013 00:00:00 at 12:31:02.6844489 -----
+----- Program executed on 25/01/2013 00:00:00 at 12:31:09.0218113 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 12:31:17.8163143 -----
+----- Program executed on 25/01/2013 00:00:00 at 12:31:45.0928745 -----
+----- Program executed on 25/01/2013 00:00:00 at 12:32:01.5498158 -----
+----- Program executed on 25/01/2013 00:00:00 at 12:32:56.9749859 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 12:33:13.0789070 -----
+----- Program executed on 25/01/2013 00:00:00 at 12:33:48.9419582 -----
+----- Program executed on 25/01/2013 00:00:00 at 12:34:28.8712421 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 12:34:38.8418123 -----
+----- Program executed on 25/01/2013 00:00:00 at 12:39:35.4477772 -----
+----- Program executed on 25/01/2013 00:00:00 at 12:39:55.0388978 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 12:40:13.4059483 -----
+----- Program executed on 25/01/2013 00:00:00 at 12:41:58.4299553 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 12:42:18.1080809 -----
+----- Program executed on 25/01/2013 00:00:00 at 12:43:48.5912562 -----
+----- Program executed on 25/01/2013 00:00:00 at 12:44:27.4344779 -----
+----- Program executed on 25/01/2013 00:00:00 at 12:48:43.1301029 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 12:49:00.9571225 -----
+----- Program executed on 25/01/2013 00:00:00 at 12:49:54.8982078 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 12:51:00.2629464 -----
+----- Program executed on 25/01/2013 00:00:00 at 12:51:17.5529354 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 12:52:23.0666825 -----
+----- Program executed on 25/01/2013 00:00:00 at 12:55:07.3270777 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 12:55:27.0812076 -----
+----- Program executed on 25/01/2013 00:00:00 at 12:56:12.6868160 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 12:56:50.2989673 -----
+----- Program executed on 25/01/2013 00:00:00 at 12:57:26.7600528 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 12:57:41.4068905 -----
+----- Program executed on 25/01/2013 00:00:00 at 12:57:47.1252176 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 12:58:44.1174774 -----
+----- Program executed on 25/01/2013 00:00:00 at 12:59:49.2292016 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 13:00:26.3323237 -----
+----- Program executed on 25/01/2013 00:00:00 at 13:00:58.8291825 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 13:01:35.0942567 -----
+----- Program executed on 25/01/2013 00:00:00 at 13:02:36.2407541 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 13:02:45.1832656 -----
+----- Program executed on 25/01/2013 00:00:00 at 13:03:16.7260697 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 13:03:56.8453644 -----
+----- Program executed on 25/01/2013 00:00:00 at 13:04:06.9929448 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 13:04:43.2550189 -----
+----- Program executed on 25/01/2013 00:00:00 at 13:04:50.5674371 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 13:06:04.4946655 -----
+----- Program executed on 25/01/2013 00:00:00 at 13:08:57.2805483 -----
+----- Program executed on 25/01/2013 00:00:00 at 13:09:34.3016658 -----
+----- Program executed on 25/01/2013 00:00:00 at 13:09:54.5078215 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 13:10:20.3933021 -----
+----- Program executed on 25/01/2013 00:00:00 at 13:10:42.5005665 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 13:10:44.2966693 -----
+----- Program executed on 25/01/2013 00:00:00 at 13:11:17.6495770 -----
+----- Program executed on 25/01/2013 00:00:00 at 13:11:34.1795224 -----
+----- Program executed on 25/01/2013 00:00:00 at 13:12:39.0932353 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 13:14:05.7401912 -----
+----- Program executed on 25/01/2013 00:00:00 at 13:14:32.2727088 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 13:14:56.7581092 -----
+----- Program executed on 25/01/2013 00:00:00 at 13:18:07.4810180 -----
+----- Program executed on 25/01/2013 00:00:00 at 13:18:57.0958558 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 13:19:27.8046122 -----
+----- Program executed on 25/01/2013 00:00:00 at 13:19:40.2363233 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 13:20:18.4225074 -----
+----- Program executed on 25/01/2013 00:00:00 at 13:20:29.0161133 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 13:20:55.0306013 -----
+----- Program executed on 25/01/2013 00:00:00 at 13:29:54.6954683 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 13:30:10.6783825 -----
+----- Program executed on 25/01/2013 00:00:00 at 13:30:21.0069733 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 13:30:35.0887787 -----
+----- Program executed on 25/01/2013 00:00:00 at 13:35:19.0980231 -----
+----- Program executed on 25/01/2013 00:00:00 at 13:36:49.1171719 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 13:37:15.9377059 -----
+----- Program executed on 25/01/2013 00:00:00 at 13:37:39.2430389 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 13:37:52.6068033 -----
+----- Program executed on 25/01/2013 00:00:00 at 13:47:25.2745580 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 13:47:51.7570727 -----
+----- Program executed on 25/01/2013 00:00:00 at 13:48:14.9613999 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 13:48:41.8269366 -----
+----- Program executed on 25/01/2013 00:00:00 at 13:49:10.9726036 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 13:49:45.0335518 -----
+----- Program executed on 25/01/2013 00:00:00 at 13:50:39.1346462 -----
+----- Program executed on 25/01/2013 00:00:00 at 13:57:32.8983121 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 13:58:21.5650957 -----
+----- Program executed on 25/01/2013 00:00:00 at 13:58:28.7945092 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 13:59:11.3349424 -----
+----- Program executed on 25/01/2013 00:00:00 at 14:02:07.0679937 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 14:02:43.8690986 -----

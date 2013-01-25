@@ -210,5 +210,10 @@ namespace CreatureGame
         public Texture2D TileSet { get { return _tileSet; } }
         public bool[,] Passable { get { return _passable; } }
         public int[,] Attribute { get { return _attribute; } }
+
+        /// <summary>
+        /// Returns the size of the map in pixels (mapSize*tileSize)
+        /// </summary>
+        public Rectangle PixelSize { get { return new Rectangle(0, 0, _width * _tileWidth, _height * _tileHeight); } }
     }
 }

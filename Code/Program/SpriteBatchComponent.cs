@@ -32,6 +32,11 @@ namespace CreatureGame
             spriteBatch.Draw(texture, position, color);
         }
 
+        public static void Draw(Texture2D texture, Vector2 position, Color color, float layerDepth)   
+        {
+            spriteBatch.Draw(texture, position, null, color, 0f, Vector2.Zero, new Vector2(1,1), SpriteEffects.None, layerDepth);
+        }
+
         public static void Draw(Texture2D texture, Vector2 position, Rectangle rectangle, Color color)
         {
             spriteBatch.Draw(texture, position, rectangle, color);
