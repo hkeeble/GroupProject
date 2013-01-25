@@ -43,8 +43,6 @@ namespace CreatureGame
             if (_position.X % HandlerEntity.TileMap.TileWidth == 0 && _position.Y % HandlerEntity.TileMap.TileHeight == 0)
                 _newLoc = NewLocation;
             
-            Console.Out.WriteLine(_newLoc.X + " + " + _newLoc.Y);
-            
             if(HandlerEntity.TileMap.Passable[_newLoc.Y, _newLoc.X] == false)
             {
                 if(Direction.X != 0)
