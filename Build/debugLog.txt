@@ -214,3 +214,78 @@ Input string was not in a correct format.
 ----- Program execution finished on 25/01/2013 00:00:00 at 14:02:43.8690986 -----
 ----- Program executed on 25/01/2013 00:00:00 at 15:02:23.2493346 -----
 ----- Program execution finished on 25/01/2013 00:00:00 at 15:03:09.5063076 -----
+----- Program executed on 25/01/2013 00:00:00 at 19:01:18.8903164 -----
+	1:Level TestMap.txt failed to load. File not found.
+
+
+----- Program executed on 25/01/2013 00:00:00 at 19:03:04.0626027 -----
+	1:Level TestMap.txt failed to load. File not found.
+
+
+----- Program executed on 25/01/2013 00:00:00 at 19:03:29.3962233 -----
+	1:Level TestMap.txt failed to load. File not found.
+
+
+----- Program executed on 25/01/2013 00:00:00 at 19:03:59.5916088 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 19:04:11.3175164 -----
+----- Program executed on 25/01/2013 00:00:00 at 19:05:32.5302422 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 19:05:43.7858058 -----
+----- Program executed on 25/01/2013 00:00:00 at 19:06:01.3342194 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 19:06:06.9378894 -----
+----- Program executed on 25/01/2013 00:00:00 at 19:08:38.3999328 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 19:08:46.0643261 -----
+----- Program executed on 25/01/2013 00:00:00 at 19:09:17.1769127 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 19:09:45.3067275 -----
+----- Program executed on 25/01/2013 00:00:00 at 19:12:43.0176944 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 19:12:45.4156226 -----
+----- Program executed on 25/01/2013 00:00:00 at 19:14:36.2620831 -----
+	1:Level TestMap.txt failed to load. File not found.
+
+
+----- Program executed on 25/01/2013 00:00:00 at 19:15:33.2713380 -----
+	1:Error loading level named Level/TestMap.txt error message: 
+Could not find a part of the path 'C:\Users\Administrator\Documents\GitHub\GroupProject\Build\Maps\Level\TestMap.txt'.
+
+----- Program executed on 25/01/2013 00:00:00 at 19:15:59.5694516 -----
+	1:Error loading level named Level/TestMap.txt error message: 
+Could not find a part of the path 'C:\Users\Administrator\Documents\GitHub\GroupProject\Build\Maps\Level\TestMap.txt'.
+
+----- Program executed on 25/01/2013 00:00:00 at 19:16:09.6072560 -----
+	1:Error loading level named Level//TestMap.txt error message: 
+Could not find a part of the path 'C:\Users\Administrator\Documents\GitHub\GroupProject\Build\Maps\Level\TestMap.txt'.
+
+----- Program executed on 25/01/2013 00:00:00 at 19:16:16.6312456 -----
+	1:Error loading level named Level\TestMap.txt error message: 
+Could not find a part of the path 'C:\Users\Administrator\Documents\GitHub\GroupProject\Build\Maps\Level\TestMap.txt'.
+
+----- Program executed on 25/01/2013 00:00:00 at 19:16:23.8281966 -----
+	1:Error loading level named \Level\TestMap.txt error message: 
+Could not find a part of the path 'C:\Users\Administrator\Documents\GitHub\GroupProject\Build\Maps\Level\TestMap.txt'.
+
+----- Program executed on 25/01/2013 00:00:00 at 19:17:01.4350598 -----
+	1:Error loading tileset for level TestMap.txt error message: 
+Could not find file 'C:\Users\Administrator\Documents\GitHub\GroupProject\Build\Tilesets\Tileset.png'.
+
+----- Program execution finished on 25/01/2013 00:00:00 at 19:17:04.3719299 -----
+----- Program executed on 25/01/2013 00:00:00 at 19:17:20.8994140 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 19:17:27.3611350 -----
+----- Program executed on 25/01/2013 00:00:00 at 19:21:50.9228128 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 19:21:57.7681590 -----
+----- Program executed on 25/01/2013 00:00:00 at 19:23:20.0052400 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 19:23:25.5879974 -----
+----- Program executed on 25/01/2013 00:00:00 at 19:24:38.2328806 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 19:25:00.9206860 -----
+----- Program executed on 25/01/2013 00:00:00 at 19:42:21.8645532 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 19:42:24.1178375 -----
+----- Program executed on 25/01/2013 00:00:00 at 19:42:33.9530866 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 19:42:35.4873965 -----
+----- Program executed on 25/01/2013 00:00:00 at 19:46:00.2848664 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 19:46:04.5794170 -----
+----- Program executed on 25/01/2013 00:00:00 at 19:48:59.1258025 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 19:49:02.8584395 -----
+----- Program executed on 25/01/2013 00:00:00 at 19:49:16.6724212 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 19:49:24.7335638 -----
+----- Program executed on 25/01/2013 00:00:00 at 19:52:39.7050845 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 19:52:42.0202733 -----
+----- Program executed on 25/01/2013 00:00:00 at 19:54:24.8497447 -----
+----- Program execution finished on 25/01/2013 00:00:00 at 19:54:26.7165318 -----

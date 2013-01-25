@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<XnaContent>
+  <Asset Type="Game_Library.Configuration">
+    <Width>1024</Width>
+    <Height>600</Height>
+    <Fullscreen>false</Fullscreen>
+  </Asset>
+</XnaContent>

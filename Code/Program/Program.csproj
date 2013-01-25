@@ -7,7 +7,7 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CreatureGame</RootNamespace>
+    <RootNamespace>VOiD</RootNamespace>
     <AssemblyName>Adventures of Dr.Lazarus</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
@@ -75,40 +75,45 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\Configuration.cs" />
     <Compile Include="Creature\AttackTypes.cs" />
     <Compile Include="Creature\Creature.cs" />
     <Compile Include="Creature\Traits.cs" />
     <Compile Include="Level\Camera.cs" />
-    <Compile Include="DebugLog.cs" />
+    <Compile Include="Components\DebugLog.cs" />
     <Compile Include="Level\Entity.cs" />
-    <Compile Include="HandlerEntity.cs" />
-    <Compile Include="InputHandler.cs" />
+    <Compile Include="Components\GameHandler.cs" />
+    <Compile Include="Components\InputHandler.cs" />
     <Compile Include="Level\Item.cs" />
     <Compile Include="Level\ItemEntity.cs" />
     <Compile Include="Level\Minimap.cs" />
     <Compile Include="Level\TileMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Program.cs" />
-    <Compile Include="Viewport.cs" />
+    <Compile Include="Components\Viewport.cs" />
     <Compile Include="Source.cs" />
-    <Compile Include="SpriteBatchComponent.cs" />
+    <Compile Include="Components\SpriteBatchComponent.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Maps\TestMap.txt">
+    <Content Include="Level\Maps\TestMap.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Properties\Game.ico" />
     <Content Include="Properties\GameThumbnail.png">
       <XnaPlatformSpecific>true</XnaPlatformSpecific>
     </Content>
-    <Content Include="Tilesets\handler.png">
+    <Content Include="Level\Tilesets\handler.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Tilesets\Tileset.png">
+    <Content Include="Level\Tilesets\Tileset.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Game_Library\Game_Library.csproj">
+      <Project>{bb82b312-04be-4bc0-ab60-0295ae56365b}</Project>
+      <Name>Game_Library</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Content\Content.contentproj">
       <Name>Content</Name>
       <XnaReferenceType>Content</XnaReferenceType>

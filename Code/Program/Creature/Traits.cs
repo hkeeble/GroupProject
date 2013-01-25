@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CreatureGame
+namespace VOiD
 {
     public struct Traits
     {

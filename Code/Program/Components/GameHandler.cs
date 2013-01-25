@@ -5,9 +5,9 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace CreatureGame
+namespace VOiD.Components
 {
-    class HandlerEntity : DrawableGameComponent
+    class GameHandler : DrawableGameComponent
     {
         public static TileMap TileMap;
         private static List<Entity> entities = new List<Entity>();
@@ -15,22 +15,23 @@ namespace CreatureGame
         public static Creature player;
         //public static Inventory inventory;
 
-        public HandlerEntity(Game game):base(game)
+        public GameHandler(Game game)
+            : base(game)
         {
-            TileMap = new TileMap();
-            player = new Creature(00000000, new Texture2D(game.GraphicsDevice, 1, 1), Vector2.Zero, 1f);
+            TileMap = new TileMap("TestMap.txt", game.GraphicsDevice);
+            player = new Creature(2345, game.Content.Load<Texture2D>("handler"), GameHandler.TileMap.PlayerSpawn, 1f);
+
         }
 
         public void LoadSave(Game game, string filePath)
         {
             TileMap = new TileMap(filePath, game.GraphicsDevice);
             Camera.MapRectangle = new Rectangle(0, 0, TileMap.Width * TileMap.TileWidth, TileMap.Height * TileMap.TileHeight);
-            Camera.ViewPortSize = new Vector2(game.GraphicsDevice.Viewport.Width, game.GraphicsDevice.Viewport.Height);
 
-            HandlerEntity.player.Position = new Vector2(TileMap.PlayerSpawn.X, TileMap.PlayerSpawn.Y);
+            GameHandler.player.Position = new Vector2(TileMap.PlayerSpawn.X, TileMap.PlayerSpawn.Y);
 
-            Camera.Position = new Vector2((TileMap.PlayerSpawn.X + (HandlerEntity.player.Texture.Width / 2)) - (game.GraphicsDevice.Viewport.Width / 2),
-                (TileMap.PlayerSpawn.Y + (HandlerEntity.player.Texture.Height / 2)) - (game.GraphicsDevice.Viewport.Height / 2));
+            Camera.Position = new Vector2((TileMap.PlayerSpawn.X + (GameHandler.player.Texture.Width / 2)) - (Viewport.Width / 2),
+                (TileMap.PlayerSpawn.Y + (GameHandler.player.Texture.Height / 2)) - (Viewport.Height / 2));
 
             //_miniMap = new Minimap(TileMap);
             player = new Creature(00000000, new Texture2D(game.GraphicsDevice,1,1), Vector2.Zero, 1f);
@@ -42,8 +43,8 @@ namespace CreatureGame
                 foreach (Entity e in entities)
                     e.Update();
 
-            Camera.Position = new Vector2((HandlerEntity.player.Position.X + (HandlerEntity.player.Texture.Width / 2)) - (Game.GraphicsDevice.Viewport.Width / 2),
-                                 (HandlerEntity.player.Position.Y + (HandlerEntity.player.Texture.Height / 2)) - (Game.GraphicsDevice.Viewport.Height / 2));
+            Camera.Position = new Vector2((GameHandler.player.Position.X + (GameHandler.player.Texture.Width / 2)) - (Viewport.Width / 2),
+                                 (GameHandler.player.Position.Y + (GameHandler.player.Texture.Height / 2)) - (Viewport.Height / 2));
 
             if (player.Direction.Y == 0)
             {

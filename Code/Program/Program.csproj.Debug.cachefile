@@ -1,4 +1,5 @@
 Content\handler.xnb
-Maps\TestMap.txt
-Tilesets\handler.png
-Tilesets\Tileset.png
+Content\Configuration.xnb
+Level\Maps\TestMap.txt
+Level\Tilesets\handler.png
+Level\Tilesets\Tileset.png

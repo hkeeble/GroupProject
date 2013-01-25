@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using VOiD.Components;
 
-namespace CreatureGame
+namespace VOiD
 {
     class Entity
     {
@@ -40,10 +41,10 @@ namespace CreatureGame
 
         public virtual void Update()
         {
-            if (_position.X % HandlerEntity.TileMap.TileWidth == 0 && _position.Y % HandlerEntity.TileMap.TileHeight == 0)
+            if (_position.X % GameHandler.TileMap.TileWidth == 0 && _position.Y % GameHandler.TileMap.TileHeight == 0)
                 _newLoc = NewLocation;
             
-            if(HandlerEntity.TileMap.Passable[_newLoc.Y, _newLoc.X] == false)
+            if(GameHandler.TileMap.Passable[_newLoc.Y, _newLoc.X] == false)
             {
                 if(Direction.X != 0)
                     Direction.X = 0;
@@ -58,10 +59,10 @@ namespace CreatureGame
                 _position.X = 0;
             if (_position.Y < 0)
                 _position.Y = 0;
-            if (_position.X > HandlerEntity.TileMap.PixelSize.Width)
-                _position.X = HandlerEntity.TileMap.PixelSize.Width;
-            if (_position.X > HandlerEntity.TileMap.PixelSize.Height)
-                _position.X = HandlerEntity.TileMap.PixelSize.Height;
+            if (_position.X > GameHandler.TileMap.PixelSize.Width)
+                _position.X = GameHandler.TileMap.PixelSize.Width;
+            if (_position.X > GameHandler.TileMap.PixelSize.Height)
+                _position.X = GameHandler.TileMap.PixelSize.Height;
         }
 
         public Texture2D Texture { get { return _texture; } }
@@ -71,15 +72,15 @@ namespace CreatureGame
         {
             get
             {
-                Point location = new Point((int)(_position.X / HandlerEntity.TileMap.TileWidth) + (int)Direction.X, (int)(_position.Y / HandlerEntity.TileMap.TileHeight) + (int)Direction.Y);
+                Point location = new Point((int)(_position.X / GameHandler.TileMap.TileWidth) + (int)Direction.X, (int)(_position.Y / GameHandler.TileMap.TileHeight) + (int)Direction.Y);
                 if (location.X < 0)
                     location.X = 0;
                 if (location.Y < 0)
                     location.Y = 0;
-                if (location.X > HandlerEntity.TileMap.Width)
-                    location.X = HandlerEntity.TileMap.Width;
-                if (location.Y > HandlerEntity.TileMap.Height)
-                    location.Y = HandlerEntity.TileMap.Height;
+                if (location.X > GameHandler.TileMap.Width)
+                    location.X = GameHandler.TileMap.Width;
+                if (location.Y > GameHandler.TileMap.Height)
+                    location.Y = GameHandler.TileMap.Height;
                 return location;
             }
         }

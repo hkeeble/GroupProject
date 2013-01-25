@@ -5,8 +5,9 @@ using System.Text;
 using System.IO;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using VOiD.Components;
 
-namespace CreatureGame
+namespace VOiD
 {
     class TileMap
     {
@@ -40,7 +41,7 @@ namespace CreatureGame
         {
             try
             {
-                _fileName = Directory.GetCurrentDirectory() + "\\Maps\\" + fileName;
+                _fileName = Directory.GetCurrentDirectory() + "\\Level\\Maps\\" + fileName;
                 TextReader tr = new StreamReader(_fileName);
 
                 _width = Convert.ToInt32(tr.ReadLine());
@@ -51,7 +52,7 @@ namespace CreatureGame
 
                 try
                 {
-                    FileStream tileSetStream = File.OpenRead(Directory.GetCurrentDirectory() + "\\Tilesets\\" + _tileSetPath);
+                    FileStream tileSetStream = File.OpenRead(Directory.GetCurrentDirectory() + "\\Level\\Tilesets\\" + _tileSetPath);
                     _tileSet = Texture2D.FromStream(graphicsDevice, tileSetStream);
                     tileSetStream.Close();
                     isLoaded = true;//CHECK THIS PLEASE

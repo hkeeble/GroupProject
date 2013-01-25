@@ -1,6 +1,6 @@
 using System;
 
-namespace CreatureGame
+namespace VOiD
 {
 #if WINDOWS || XBOX
     static class Program

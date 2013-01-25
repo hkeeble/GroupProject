@@ -5,12 +5,11 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace CreatureGame
+namespace VOiD
 {
     static class Camera
     {
         private static Vector2 _position = Vector2.Zero;
-        private static Vector2 _viewPortSize = Vector2.Zero;
         private static Rectangle _mapRect = new Rectangle(0, 0, 0, 0);
 
         /// <summary>
@@ -20,15 +19,6 @@ namespace CreatureGame
         {
             get { return _position; }
             set { _position = value; }
-        }
-
-        /// <summary>
-        /// Returns the current viewport size stored by the camera.
-        /// </summary>
-        public static Vector2 ViewPortSize
-        {
-            get { return _viewPortSize; }
-            set { _viewPortSize = value; }
         }
 
         /// <summary>
