@@ -76,6 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Components\Configuration.cs" />
+    <Compile Include="Components\Interface.cs" />
     <Compile Include="Creature\AttackTypes.cs" />
     <Compile Include="Creature\Creature.cs" />
     <Compile Include="Creature\Traits.cs" />

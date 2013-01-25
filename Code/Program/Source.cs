@@ -32,6 +32,7 @@ namespace VOiD
             Components.Add(new DebugLog(this));
             Components.Add(new GameHandler(this));
             Components.Add(new Configuration(this, graphics));
+            Components.Add(new Interface(this));
             base.Initialize();
         }
 
