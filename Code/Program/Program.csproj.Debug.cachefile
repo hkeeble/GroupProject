@@ -1,6 +1,7 @@
 Content\handler.xnb
 Content\Configuration.xnb
 Content\Introface.xnb
+Content\Background.xnb
 Level\Maps\TestMap.txt
 Level\Tilesets\handler.png
 Level\Tilesets\Tileset.png

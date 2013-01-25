@@ -6,37 +6,7 @@
       <Rotation>0</Rotation>
       <RotationAni>false</RotationAni>
       <isCentered>false</isCentered>
-      <Children>
-        <Item Type="GameLibrary.GraphicObject">
-          <Area>400 400 32 32</Area>
-          <Rotation>1</Rotation>
-          <RotationAni>true</RotationAni>
-          <isCentered>false</isCentered>
-          <Children>
-            <Item Type="GameLibrary.GraphicObject">
-              <Area>32 19 32 32</Area>
-              <Rotation>0</Rotation>
-              <RotationAni>false</RotationAni>
-              <isCentered>false</isCentered>
-              <Children>
-                <Item Type="GameLibrary.GraphicObject">
-                  <Area>32 19 32 32</Area>
-                  <Rotation>0</Rotation>
-                  <RotationAni>false</RotationAni>
-                  <isCentered>false</isCentered>
-                  <Children></Children>
-                  <TextureLocation>revy</TextureLocation>
-                  <fullscreen>false</fullscreen>
-                </Item>
-              </Children>
-              <TextureLocation>revy</TextureLocation>
-              <fullscreen>false</fullscreen>
-            </Item>
-          </Children>
-          <TextureLocation>revy</TextureLocation>
-          <fullscreen>false</fullscreen>
-        </Item>
-      </Children>
+      <Children></Children>
       <TextureLocation>Background</TextureLocation>
       <fullscreen>true</fullscreen>
     </Item>
