@@ -44,8 +44,8 @@ namespace CreatureGame
                 foreach (Entity e in entities)
                     e.Update();
 
-            Camera.Position = new Vector2((HandlerEntity.player.Position.X + (HandlerEntity.player.Texture.Width / 2)) - (Viewport.Width / 2),
-                                 (HandlerEntity.player.Position.Y + (HandlerEntity.player.Texture.Height / 2)) - (Viewport.Height / 2));
+            Camera.Position = new Vector2((HandlerEntity.player.Position.X + (HandlerEntity.player.Texture.Width / 2)) - (Game.GraphicsDevice.Viewport.Width / 2),
+                                 (HandlerEntity.player.Position.Y + (HandlerEntity.player.Texture.Height / 2)) - (Game.GraphicsDevice.Viewport.Height / 2));
             
             if (InputHandler.KeyDown(Microsoft.Xna.Framework.Input.Keys.Down))
                 player.Direction.Y = 1;
