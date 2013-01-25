@@ -5,8 +5,8 @@ namespace VOiD.Components
 {
     public class Viewport : GameComponent
     {
-        public static int Width = 640;
-        public static int Height = 480;
+        public static int Width { get { return Configuration.Width; } set { Configuration.Width = value; } }
+        public static int Height { get { return Configuration.Height; } set { Configuration.Height = value; } }
         public static float AspectRatio = 1.0f;
         public static Rectangle Bounds;
         public static Rectangle TitleSafeArea;
