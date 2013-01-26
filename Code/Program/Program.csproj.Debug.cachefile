@@ -1,8 +1,8 @@
 Content\handler.xnb
-Content\Configuration.xnb
-Content\Intro.xnb
 Content\DNA.xnb
 Content\Vignette.xnb
+Content\Configuration.xnb
+Content\Intro.xnb
 Content\SegoeUI.xnb
 Level\Maps\TestMap.txt
 Level\Tilesets\handler.png

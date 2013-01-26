@@ -30,8 +30,8 @@ namespace VOiD.Components
 
             GameHandler.player.Position = new Vector2(TileMap.PlayerSpawn.X, TileMap.PlayerSpawn.Y);
 
-            Camera.Position = new Vector2((TileMap.PlayerSpawn.X + (GameHandler.player.Texture.Width / 2)) - (Viewport.Width / 2),
-                (TileMap.PlayerSpawn.Y + (GameHandler.player.Texture.Height / 2)) - (Viewport.Height / 2));
+            Camera.Position = new Vector2((TileMap.PlayerSpawn.X + (GameHandler.player.Texture.Width / 2)) - (Configuration.Width / 2),
+                (TileMap.PlayerSpawn.Y + (GameHandler.player.Texture.Height / 2)) - (Configuration.Height / 2));
 
             //_miniMap = new Minimap(TileMap);
             player = new Creature(00000000, new Texture2D(game.GraphicsDevice,1,1), Vector2.Zero, 1f);
@@ -43,8 +43,8 @@ namespace VOiD.Components
                 foreach (Entity e in entities)
                     e.Update();
 
-            Camera.Position = new Vector2((GameHandler.player.Position.X + (GameHandler.player.Texture.Width / 2)) - (Viewport.Width / 2),
-                                 (GameHandler.player.Position.Y + (GameHandler.player.Texture.Height / 2)) - (Viewport.Height / 2));
+            Camera.Position = new Vector2((GameHandler.player.Position.X + (GameHandler.player.Texture.Width / 2)) - (Configuration.Width / 2),
+                                 (GameHandler.player.Position.Y + (GameHandler.player.Texture.Height / 2)) - (Configuration.Height / 2));
 
             if (player.Direction.Y == 0)
             {

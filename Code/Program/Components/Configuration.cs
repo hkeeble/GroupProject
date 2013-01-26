@@ -15,9 +15,13 @@ namespace VOiD.Components
         public static int Height;
         public static bool Fullscreen;
 
+        public static float AspectRatio { get { return (float)Width / Height; } }
+        public static Rectangle Bounds { get { return new Rectangle(0, 0, Width, Height); } }
+
         public Configuration(Game game, GraphicsDeviceManager graphics)
             : base(game)
         {
+            
             Game_Library.Configuration config = game.Content.Load<Game_Library.Configuration>("Configuration");
             Width = config.Width;
             Height = config.Height;
@@ -39,6 +43,13 @@ namespace VOiD.Components
                 if (graphics.IsFullScreen == true)
                     graphics.ToggleFullScreen();
             }
+            game.Window.ClientSizeChanged += new EventHandler<EventArgs>(OnResize);
+        }
+
+        void OnResize(object sender, EventArgs e)
+        {
+            Width = Game.GraphicsDevice.Viewport.Width;
+            Height = Game.GraphicsDevice.Viewport.Height;
         }
     }
 }

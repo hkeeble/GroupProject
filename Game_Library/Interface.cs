@@ -14,28 +14,20 @@ namespace GameLibrary
 
     public class Object2D
     {
-        public Rectangle Area;
-        public float Rotation;
-        public bool RotationAni;
+        public Vector2 Size;
+        public string Location;
         public bool isCentered;
         public List<Object2D> Children;
         public Object2D()
         {
             Children = new List<Object2D>();
-            offset = Vector2.Zero;
             isCentered = false;
             Init = false;
         }
 
-
+        
         [ContentSerializerIgnore]
         public bool Init;
-        [ContentSerializerIgnore]
-        public float currentRotation;
-        [ContentSerializerIgnore]
-        public float currentRotation2;
-        [ContentSerializerIgnore]
-        public Vector2 offset;
         [ContentSerializerIgnore]
         public Vector2 Position;
     }

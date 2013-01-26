@@ -56,6 +56,28 @@ namespace VOiD.Components
 
         private void DrawTextComponent(TextObject component, ref Object2D parent)
         {
+            if (!component.Init)
+            {
+                Vector2 ye=Vector2.Zero;
+                if (component.Location == "TopLeft")
+                    ye = new Vector2(0, 0);
+                else if (component.Location == "TopCenter")
+                    ye = new Vector2(parent.Size.X / 2, 0);
+                else if (component.Location == "TopRight")
+                    ye = new Vector2(parent.Size.X, 0);
+                else
+                    ye = new Vector2(parent.Size.X, parent.Size.Y);
+
+
+
+                component.Position = ye + parent.Position;
+                component.Init = true;
+                if (component.isCentered)
+                    component.Position-=Game.Content.Load<SpriteFont>("SegoeUI").MeasureString(component.Text) / 2; 
+
+            }
+
+
             SpriteBatchComponent.spriteBatch.DrawString(Game.Content.Load<SpriteFont>("SegoeUI"), component.Text, component.Position, Color.White);
         }
 
@@ -67,33 +89,38 @@ namespace VOiD.Components
 
             if (!component.Init)
             {
-                component.Rotation = MathHelper.ToRadians(component.Rotation);
-                component.currentRotation = MathHelper.ToRadians(component.Rotation);
                 component.Init = true;
-                component.Position.X = component.Area.X;
-                component.Position.Y = component.Area.Y;
-                //if (component.isCentered)
-                component.offset += new Vector2(component.Texture.Width, component.Texture.Height) / 2;
+                Vector2 ye = Vector2.Zero;
+                if (component.Location == "TopLeft")
+                    ye = new Vector2(0, 0);
+                else if (component.Location == "TopCenter")
+                    ye = new Vector2(parent.Size.X / 2, 0);
+                else if (component.Location == "TopRight")
+                    ye = new Vector2(parent.Size.X, 0);
+                else
+                    ye = new Vector2(parent.Size.X, parent.Size.Y);
+
+
+
+                component.Position = ye + parent.Position;
+
+                if(component.isCentered)
+                    component.Position -= new Vector2(component.Texture.Width, component.Texture.Height) / 2;
 
             }
-
-            if (component.RotationAni)
-                component.currentRotation += component.Rotation;
 
             if (component.fullscreen)
             {
-                component.Area.X = 0;
-                component.Area.Y = 0;
-                component.Area.Height = Game.GraphicsDevice.Viewport.Height;
-                component.Area.Width = Game.GraphicsDevice.Viewport.Width;
-                SpriteBatchComponent.spriteBatch.Draw(component.Texture, component.Area, Color.White);
+                component.Position.X = 0;
+                component.Position.Y = 0;
+                component.Size.X = Game.GraphicsDevice.Viewport.Width;
+                component.Size.Y = Game.GraphicsDevice.Viewport.Height;
+
+                SpriteBatchComponent.spriteBatch.Draw(component.Texture, Configuration.Bounds, Color.White);
             }
             else
             {
-                component.currentRotation2 = component.currentRotation + parent.currentRotation2;
-                component.Area.X = (int)component.Position.X + parent.Area.X + (int)((float)parent.Area.X * Math.Cos(parent.currentRotation2));
-                component.Area.Y = (int)component.Position.Y + parent.Area.Y + (int)((float)parent.Area.Y * Math.Sin(parent.currentRotation2));
-                SpriteBatchComponent.spriteBatch.Draw(component.Texture, component.Area, null, Color.White, component.currentRotation2, component.offset, SpriteEffects.None, 0);
+                SpriteBatchComponent.spriteBatch.Draw(component.Texture, component.Position, Color.White);
             }
         }
 

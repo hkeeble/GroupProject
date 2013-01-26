@@ -28,7 +28,6 @@ namespace VOiD
         {
             Components.Add(new InputHandler(this));
             Components.Add(new SpriteBatchComponent(this));
-            Components.Add(new VOiD.Components.Viewport(this));
             Components.Add(new DebugLog(this));
             Components.Add(new GameHandler(this));
             Components.Add(new Configuration(this, graphics));

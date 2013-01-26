@@ -309,3 +309,71 @@ Could not find file 'C:\Users\Administrator\Documents\GitHub\GroupProject\Build\
 ----- Program execution finished on 26/01/2013 00:00:00 at 11:50:36.3578557 -----
 ----- Program executed on 26/01/2013 00:00:00 at 11:57:34.5904996 -----
 ----- Program execution finished on 26/01/2013 00:00:00 at 11:57:41.4925758 -----
+----- Program executed on 26/01/2013 00:00:00 at 12:33:46.4881770 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 12:33:48.6661201 -----
+----- Program executed on 26/01/2013 00:00:00 at 12:45:03.9604142 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 12:45:06.5676818 -----
+----- Program executed on 26/01/2013 00:00:00 at 12:45:18.9132311 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 12:45:21.1840325 -----
+----- Program executed on 26/01/2013 00:00:00 at 12:46:04.8116958 -----
+----- Program executed on 26/01/2013 00:00:00 at 12:46:58.1150284 -----
+----- Program executed on 26/01/2013 00:00:00 at 12:47:22.8451826 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 12:47:25.7843611 -----
+----- Program executed on 26/01/2013 00:00:00 at 12:47:30.4813812 -----
+----- Program executed on 26/01/2013 00:00:00 at 12:47:52.5492175 -----
+----- Program executed on 26/01/2013 00:00:00 at 12:48:19.7732477 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 12:48:33.4846518 -----
+----- Program executed on 26/01/2013 00:00:00 at 12:56:25.0537675 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 12:56:26.0358673 -----
+----- Program executed on 26/01/2013 00:00:00 at 12:56:31.9284566 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 12:56:35.6696239 -----
+----- Program executed on 26/01/2013 00:00:00 at 12:56:44.7854988 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 12:57:24.2024439 -----
+----- Program executed on 26/01/2013 00:00:00 at 12:57:55.2382683 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 12:58:21.4695806 -----
+----- Program executed on 26/01/2013 00:00:00 at 13:02:05.8843565 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 13:02:08.8866553 -----
+----- Program executed on 26/01/2013 00:00:00 at 13:02:40.9093160 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 13:02:47.2869016 -----
+----- Program executed on 26/01/2013 00:00:00 at 13:03:01.9677692 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 13:03:03.9871547 -----
+----- Program executed on 26/01/2013 00:00:00 at 13:03:07.9991882 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 13:03:09.1871320 -----
+----- Program executed on 26/01/2013 00:00:00 at 13:04:07.2533524 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 13:04:11.4046792 -----
+----- Program executed on 26/01/2013 00:00:00 at 13:04:33.7244153 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 13:04:42.8689413 -----
+----- Program executed on 26/01/2013 00:00:00 at 13:04:48.6247591 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 13:04:50.4883501 -----
+----- Program executed on 26/01/2013 00:00:00 at 13:05:01.1626089 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 13:05:04.3935357 -----
+----- Program executed on 26/01/2013 00:00:00 at 13:05:11.1906214 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 13:05:17.6378911 -----
+----- Program executed on 26/01/2013 00:00:00 at 13:05:22.5746519 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 13:05:30.8043599 -----
+----- Program executed on 26/01/2013 00:00:00 at 13:05:34.3104433 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 13:05:37.3206499 -----
+----- Program executed on 26/01/2013 00:00:00 at 13:05:54.0808629 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 13:05:57.0217348 -----
+----- Program executed on 26/01/2013 00:00:00 at 13:06:10.6019928 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 13:06:28.8720611 -----
+----- Program executed on 26/01/2013 00:00:00 at 13:06:59.4254219 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 13:07:01.5207181 -----
+----- Program executed on 26/01/2013 00:00:00 at 13:13:13.9531158 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 13:13:16.3552798 -----
+----- Program executed on 26/01/2013 00:00:00 at 13:13:20.7851472 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 13:13:21.9557981 -----
+----- Program executed on 26/01/2013 00:00:00 at 13:14:15.4980655 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 13:14:19.3397820 -----
+----- Program executed on 26/01/2013 00:00:00 at 13:14:28.9857939 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 13:14:30.3066939 -----
+----- Program executed on 26/01/2013 00:00:00 at 13:23:18.1369631 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 13:23:31.7078137 -----
+----- Program executed on 26/01/2013 00:00:00 at 13:24:01.7665518 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 13:24:08.7583193 -----
+----- Program executed on 26/01/2013 00:00:00 at 13:27:54.6330747 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 13:27:59.6665774 -----
+----- Program executed on 26/01/2013 00:00:00 at 13:36:00.7776391 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 13:36:03.6926887 -----
+----- Program executed on 26/01/2013 00:00:00 at 13:36:59.6886109 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 13:37:17.0268227 -----
