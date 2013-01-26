@@ -4,27 +4,21 @@
     <content>
       <Item Type="GameLibrary.GraphicObject">
         <Size>0 0</Size>
-        <Location>TopLeft</Location>
         <Position>0 0</Position>
-        <isCentered>false</isCentered>
-        <Children></Children>
         <isClickable>false</isClickable>
         <TextureLocation>Vignette</TextureLocation>
         <fullscreen>true</fullscreen>
         <Action></Action>
+        <Children></Children>
       </Item>
       <Item Type="GameLibrary.GraphicObject">
         <Size>0 0</Size>
-        <Location>TopLeft</Location>
         <Position>0 0</Position>
-        <isCentered>false</isCentered>
-        <Children>
-
-        </Children>
         <isClickable>false</isClickable>
         <TextureLocation>Level</TextureLocation>
         <fullscreen>true</fullscreen>
         <Action></Action>
+        <Children></Children>
       </Item>
     </content>
     <backgroundColor>ff000000</backgroundColor>

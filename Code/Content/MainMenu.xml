@@ -4,72 +4,60 @@
     <content>
       <Item Type="GameLibrary.GraphicObject">
         <Size>0 0</Size>
-        <Location>TopLeft</Location>
         <Position>0 0</Position>
-        <isCentered>false</isCentered>
-        <Children></Children>
         <isClickable>false</isClickable>
         <TextureLocation>Vignette</TextureLocation>
         <fullscreen>true</fullscreen>
         <Action></Action>
+        <Children></Children>
       </Item>
       <Item Type="GameLibrary.GraphicObject">
         <Size>0 0</Size>
-        <Location>TopLeft</Location>
         <Position>0 0</Position>
-        <isCentered>false</isCentered>
-        <Children>
-          <Item Type="GameLibrary.GraphicObject">
-            <Size>300 32</Size>
-            <Location>TopCenter</Location>
-            <Position>0 32</Position>
-            <isCentered>true</isCentered>
-            <Children>
-              <Item Type="GameLibrary.TextObject">
-                <Size>0 0</Size>
-                <Location>TopCenter</Location>
-                <Position>0 16</Position>
-                <isCentered>true</isCentered>
-                <Children></Children>
-                <Text>Adventures of Dr.Lazarus</Text>
-                <Font>SegoeUI</Font>
-                <fontSize>12</fontSize>
-                <fontColor>ffffffff</fontColor>
-              </Item>
-            </Children>
-            <isClickable>false</isClickable>
-            <TextureLocation>handler</TextureLocation>
-            <fullscreen>false</fullscreen>
-            <Action></Action>
-          </Item>
-          <Item Type="GameLibrary.GraphicObject">
-            <Size>128 32</Size>
-            <Location>MiddleCenter</Location>
-            <Position>300 32</Position>
-            <isCentered>true</isCentered>
-            <Children>
-              <Item Type="GameLibrary.TextObject">
-                <Size>0 0</Size>
-                <Location>TopCenter</Location>
-                <Position>0 16</Position>
-                <isCentered>true</isCentered>
-                <Children></Children>
-                <Text>Continue</Text>
-                <Font>SegoeUI</Font>
-                <fontSize>12</fontSize>
-                <fontColor>ffffffff</fontColor>
-              </Item>
-            </Children>
-            <isClickable>true</isClickable>
-            <TextureLocation>handler</TextureLocation>
-            <fullscreen>false</fullscreen>
-            <Action>continue</Action>
-          </Item>
-        </Children>
         <isClickable>false</isClickable>
         <TextureLocation>DNA</TextureLocation>
         <fullscreen>true</fullscreen>
         <Action></Action>
+        <Children>
+          <Item Type="GameLibrary.TextObject">
+            <Text>Adventures of Dr.Lazarus</Text>
+            <fontColor>ffffffff</fontColor>
+            <Location>TopLeft</Location>
+            <offset>200 70</offset>
+          </Item>
+          <Item Type="GameLibrary.GraphicObject">
+            <Size>128 32</Size>
+            <Position>72.5 53</Position>
+            <isClickable>true</isClickable>
+            <TextureLocation></TextureLocation>
+            <fullscreen>false</fullscreen>
+            <Action>continue</Action>
+            <Children>
+              <Item Type="GameLibrary.TextObject">
+                <Text>Continue</Text>
+                <fontColor>ffffffff</fontColor>
+                <Location>MiddleCenter</Location>
+                <offset>0 0</offset>
+              </Item>
+            </Children>
+          </Item>
+          <Item Type="GameLibrary.GraphicObject">
+            <Size>128 32</Size>
+            <Position>43 82</Position>
+            <isClickable>true</isClickable>
+            <TextureLocation></TextureLocation>
+            <fullscreen>false</fullscreen>
+            <Action>Quit</Action>
+            <Children>
+              <Item Type="GameLibrary.TextObject">
+                <Text>Quit</Text>
+                <fontColor>ffffffff</fontColor>
+                <Location>MiddleCenter</Location>
+                <offset>0 0</offset>
+              </Item>
+            </Children>
+          </Item>
+        </Children>
       </Item>
     </content>
     <backgroundColor>a1bd68ff</backgroundColor>

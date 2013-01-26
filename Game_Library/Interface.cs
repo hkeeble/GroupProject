@@ -19,39 +19,39 @@ namespace GameLibrary
 
     public class Object2D
     {
-        public Vector2 Size;
-        public string Location;
-        public Vector2 Position;
-        public bool isCentered;
-        public List<Object2D> Children;
-        public Object2D()
-        {
-            Children = new List<Object2D>();
-            isCentered = false;
-            Init = false;
-        }
-
-        
         [ContentSerializerIgnore]
-        public bool Init;
+        public bool Init=false;
+        
     }
 
     public class GraphicObject : Object2D
     {
+        public Vector2 Size;
+        public Vector2 Position;
         public bool isClickable;
         public string TextureLocation;
         public bool fullscreen;
         public string Action;
         [ContentSerializerIgnore]
         public Texture2D Texture = null;
+        public List<Object2D> Children;
+        public GraphicObject()
+        {
+            Children = new List<Object2D>();
+        }
     }
 
     public class TextObject : Object2D
     {
         public string Text;
-        public string Font;
-        public byte fontSize;
         public Color fontColor;
+        public string Location;
+        //[ContentSerializerIgnore]
+        public Vector2 offset;
+        public TextObject()
+        {
+            offset = Vector2.Zero;
+        }
     }
 
 

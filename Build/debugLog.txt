@@ -2262,3 +2262,163 @@ Could not find file 'C:\Users\Administrator\Documents\GitHub\GroupProject\Build\
 	1:Button Clicked Action =  continue 
 
 ----- Program execution finished on 26/01/2013 00:00:00 at 14:56:15.9735791 -----
+----- Program executed on 26/01/2013 00:00:00 at 17:29:28.9869756 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 17:29:33.6313061 -----
+----- Program executed on 26/01/2013 00:00:00 at 17:29:54.2422624 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 17:30:06.0487886 -----
+----- Program executed on 26/01/2013 00:00:00 at 17:30:21.0044813 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 17:30:22.4821716 -----
+----- Program executed on 26/01/2013 00:00:00 at 17:30:27.9874763 -----
+	1:Button Clicked Action =  continue 
+
+----- Program execution finished on 26/01/2013 00:00:00 at 17:30:45.7148792 -----
+----- Program executed on 26/01/2013 00:00:00 at 17:31:54.2771382 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 17:33:19.1494450 -----
+----- Program executed on 26/01/2013 00:00:00 at 17:33:24.6544354 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 17:33:28.8151516 -----
+----- Program executed on 26/01/2013 00:00:00 at 17:35:30.3966434 -----
+	1:Button Clicked Action =  continue 
+
+----- Program execution finished on 26/01/2013 00:00:00 at 17:35:42.3333166 -----
+----- Program executed on 26/01/2013 00:00:00 at 17:35:45.8402579 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 17:42:09.4998673 -----
+----- Program executed on 26/01/2013 00:00:00 at 17:42:45.8866125 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 17:42:50.4637788 -----
+----- Program executed on 26/01/2013 00:00:00 at 17:46:10.2529021 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 17:46:17.1512635 -----
+----- Program executed on 26/01/2013 00:00:00 at 17:48:54.1855038 -----
+	1:Button Clicked Action =  continue 
+
+----- Program execution finished on 26/01/2013 00:00:00 at 17:51:07.2077315 -----
+----- Program executed on 26/01/2013 00:00:00 at 18:37:46.1980548 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 18:38:00.2286114 -----
+----- Program executed on 26/01/2013 00:00:00 at 18:38:29.1872082 -----
+	1:Button Clicked Action =  continue 
+
+----- Program execution finished on 26/01/2013 00:00:00 at 18:38:37.2992617 -----
+----- Program executed on 26/01/2013 00:00:00 at 18:48:49.4643731 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 18:49:22.2807350 -----
+----- Program executed on 26/01/2013 00:00:00 at 19:02:08.1811293 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 19:02:15.6740132 -----
+----- Program executed on 26/01/2013 00:00:00 at 19:18:21.4963268 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 19:18:23.2187434 -----
+----- Program executed on 26/01/2013 00:00:00 at 19:18:30.7055544 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 19:18:35.4517025 -----
+----- Program executed on 26/01/2013 00:00:00 at 19:18:42.9955273 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 19:18:53.4180485 -----
+----- Program executed on 26/01/2013 00:00:00 at 19:33:54.0504164 -----
+----- Program executed on 26/01/2013 00:00:00 at 19:34:42.5086436 -----
+	1:Button Clicked Action =  continue 
+
+----- Program execution finished on 26/01/2013 00:00:00 at 19:34:46.4216874 -----
+----- Program executed on 26/01/2013 00:00:00 at 19:37:25.2711567 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 19:37:31.7217687 -----
+----- Program executed on 26/01/2013 00:00:00 at 19:38:09.1630432 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 19:38:14.1552724 -----
+----- Program executed on 26/01/2013 00:00:00 at 19:40:35.1304366 -----
+	1:Button Clicked Action =  continue 
+
+----- Program execution finished on 26/01/2013 00:00:00 at 19:40:52.2396092 -----
+----- Program executed on 26/01/2013 00:00:00 at 19:47:04.1373626 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 19:47:58.7901766 -----
+----- Program executed on 26/01/2013 00:00:00 at 19:48:12.8586827 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 19:48:14.3580457 -----
+----- Program executed on 26/01/2013 00:00:00 at 19:48:19.2442480 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 19:48:20.1074559 -----
+----- Program executed on 26/01/2013 00:00:00 at 19:48:23.9454432 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 19:48:25.1407635 -----
+----- Program executed on 26/01/2013 00:00:00 at 19:48:30.3040845 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 19:48:31.6884188 -----
+----- Program executed on 26/01/2013 00:00:00 at 19:48:38.6651070 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 19:48:39.9744469 -----
+----- Program executed on 26/01/2013 00:00:00 at 19:48:45.0246907 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 19:48:46.4410336 -----
+----- Program executed on 26/01/2013 00:00:00 at 19:48:50.8521007 -----
+	1:Button Clicked Action =  continue 
+
+----- Program execution finished on 26/01/2013 00:00:00 at 19:50:54.2250102 -----
+----- Program executed on 26/01/2013 00:00:00 at 19:54:03.5861053 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 19:54:06.6078363 -----
+----- Program executed on 26/01/2013 00:00:00 at 19:54:39.8553646 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 19:54:44.8745998 -----
+----- Program executed on 26/01/2013 00:00:00 at 20:33:42.0439856 -----
+	1:Button Clicked Action =  continue 
+
+----- Program execution finished on 26/01/2013 00:00:00 at 20:33:47.2333093 -----
+----- Program executed on 26/01/2013 00:00:00 at 20:44:51.6185900 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 20:44:53.7851141 -----
+----- Program executed on 26/01/2013 00:00:00 at 20:45:02.8493067 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 20:45:04.0165891 -----
+----- Program executed on 26/01/2013 00:00:00 at 20:45:11.4264037 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 20:45:16.5506432 -----
+----- Program executed on 26/01/2013 00:00:00 at 20:45:43.9116042 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 20:45:49.0009505 -----
+----- Program executed on 26/01/2013 00:00:00 at 20:45:57.8362057 -----
+	1:Button Clicked Action =  continue 
+
+----- Program execution finished on 26/01/2013 00:00:00 at 20:46:08.4009047 -----
+----- Program executed on 26/01/2013 00:00:00 at 20:48:24.2966985 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 20:48:27.2844963 -----
+----- Program executed on 26/01/2013 00:00:00 at 20:49:12.7603017 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 20:49:15.2669080 -----
+----- Program executed on 26/01/2013 00:00:00 at 20:49:20.8503589 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 20:49:23.0509122 -----
+----- Program executed on 26/01/2013 00:00:00 at 20:49:27.9181169 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 20:49:29.0333869 -----
+----- Program executed on 26/01/2013 00:00:00 at 20:49:32.7583210 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 20:49:37.4185101 -----
+----- Program executed on 26/01/2013 00:00:00 at 20:49:43.1969301 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 20:49:50.2366741 -----
+----- Program executed on 26/01/2013 00:00:00 at 20:50:24.3173422 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 20:50:25.8677172 -----
+----- Program executed on 26/01/2013 00:00:00 at 20:51:40.9555008 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 20:51:41.8847246 -----
+----- Program executed on 26/01/2013 00:00:00 at 20:51:49.3195957 -----
+----- Program executed on 26/01/2013 00:00:00 at 20:51:58.4388016 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 20:52:01.3024523 -----
+----- Program executed on 26/01/2013 00:00:00 at 20:52:09.1924846 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 20:52:11.9521521 -----
+----- Program executed on 26/01/2013 00:00:00 at 20:55:33.6337389 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 20:55:37.2406114 -----
+----- Program executed on 26/01/2013 00:00:00 at 20:55:45.3146137 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 20:55:47.4522112 -----
+----- Program executed on 26/01/2013 00:00:00 at 20:56:29.9518048 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 20:56:36.6064145 -----
+----- Program executed on 26/01/2013 00:00:00 at 20:56:51.5282248 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 20:56:53.6357466 -----
+----- Program executed on 26/01/2013 00:00:00 at 20:56:57.7408027 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 20:57:00.8855634 -----
+----- Program executed on 26/01/2013 00:00:00 at 20:57:06.0518131 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 20:57:11.8032496 -----
+----- Program executed on 26/01/2013 00:00:00 at 20:58:01.6397872 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 20:58:03.7863062 -----
+----- Program executed on 26/01/2013 00:00:00 at 20:58:09.6797729 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 20:58:11.2031402 -----
+----- Program executed on 26/01/2013 00:00:00 at 20:58:15.3201502 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 20:58:18.4199880 -----
+----- Program executed on 26/01/2013 00:00:00 at 20:58:22.2660278 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 20:58:24.4025447 -----
+----- Program executed on 26/01/2013 00:00:00 at 20:58:30.0089008 -----
+	1:Button Clicked Action =  continue 
+
+----- Program execution finished on 26/01/2013 00:00:00 at 20:58:35.2742054 -----
+----- Program executed on 26/01/2013 00:00:00 at 20:59:46.9329019 -----
+	1:Button Clicked Action =  continue 
+
+	2:Button Clicked Action =  Quit 
+
+----- Program execution finished on 26/01/2013 00:00:00 at 20:59:52.2572820 -----
+----- Program executed on 26/01/2013 00:00:00 at 21:06:23.6681095 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 21:06:26.7379172 -----
+----- Program executed on 26/01/2013 00:00:00 at 21:08:16.7153946 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 21:08:19.4540757 -----
+----- Program executed on 26/01/2013 00:00:00 at 21:08:32.9184906 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 21:08:35.1220233 -----
+----- Program executed on 26/01/2013 00:00:00 at 21:08:55.9091825 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 21:08:58.4217906 -----
+----- Program executed on 26/01/2013 00:00:00 at 21:09:05.5765507 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 21:09:07.9711945 -----
+----- Program executed on 26/01/2013 00:00:00 at 21:09:12.6793910 -----
+	1:Button Clicked Action =  Quit 
+
+----- Program execution finished on 26/01/2013 00:00:00 at 21:09:25.3245933 -----

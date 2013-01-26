@@ -40,10 +40,12 @@ namespace VOiD.Components
             }
             else if (component.GetType() == typeof(TextObject))
             {
-                DrawTextComponent((component as TextObject), ref parent);
+                if (parent.GetType() == typeof(GraphicObject))
+                    DrawTextComponent((component as TextObject), (parent as GraphicObject));
             }
 
-            DrawComponent(component.Children, ref component);
+            if(component.GetType() == typeof(GraphicObject))
+                DrawComponent((component as GraphicObject).Children, ref component);
         }
 
         private void DrawComponent(List<Object2D> children, ref Object2D parent)
@@ -54,79 +56,56 @@ namespace VOiD.Components
             }
         }
 
-        private void DrawTextComponent(TextObject component, ref Object2D parent)
+        private void DrawTextComponent(TextObject component, GraphicObject parent)
         {
             if (!component.Init)
             {
-                Vector2 ye=Vector2.Zero;
-                if (component.Location == "TopLeft")
-                    ye = new Vector2(0, 0);
-                else if (component.Location == "TopCenter")
-                    ye = new Vector2(parent.Size.X / 2, 0);
-                else if (component.Location == "TopRight")
-                    ye = new Vector2(parent.Size.X, 0);
-                else if (component.Location == "MiddleLeft")
-                    ye = new Vector2(0, parent.Size.Y / 2);
-                else if (component.Location == "MiddleCenter")
-                    ye = new Vector2(parent.Size.X / 2, parent.Size.Y / 2);
-                else if (component.Location == "MiddleRight")
-                    ye = new Vector2(parent.Size.X, parent.Size.Y / 2);
-                else if (component.Location == "BottomLeft")
-                    ye = new Vector2(0, parent.Size.Y);
-                else if (component.Location == "BottomCenter")
-                    ye = new Vector2(parent.Size.X / 2, parent.Size.Y);
-                else if (component.Location == "BottomRight")
-                    ye = new Vector2(parent.Size.X, parent.Size.Y);
 
 
+                component.offset += yep(component, parent);
 
-                component.Position += ye + parent.Position;
+                //component.Position += ye + parent.Position;
                 component.Init = true;
-                if (component.isCentered)
-                    component.Position-=Game.Content.Load<SpriteFont>("SegoeUI").MeasureString(component.Text) / 2; 
-
+                
+                //if (component.isCentered)
+                    component.offset-=Game.Content.Load<SpriteFont>("SegoeUI").MeasureString(component.Text) / 2; 
+                
             }
 
-
-            SpriteBatchComponent.spriteBatch.DrawString(Game.Content.Load<SpriteFont>("SegoeUI"), component.Text, component.Position, Color.White);
+            SpriteBatchComponent.spriteBatch.DrawString(Game.Content.Load<SpriteFont>("SegoeUI"), component.Text, parent.Position+component.offset, Color.White);
         }
+
 
         private void DrawGraphicComponent(GraphicObject component, ref Object2D parent)
         {
             // if texture is not yet loaded load it
             if (component.Texture == null)
-                component.Texture = Game.Content.Load<Texture2D>((component as GraphicObject).TextureLocation);
+                if (component.TextureLocation != "")
+                    component.Texture = Game.Content.Load<Texture2D>((component as GraphicObject).TextureLocation);
+                else
+                    component.Texture = new Texture2D(Game.GraphicsDevice, 1, 1);
 
             if (!component.Init)
             {
                 component.Init = true;
-                Vector2 ye = Vector2.Zero;
-                if (component.Location == "TopLeft")
-                    ye = new Vector2(0, 0);
-                else if (component.Location == "TopCenter")
-                    ye = new Vector2(parent.Size.X / 2, 0);
-                else if (component.Location == "TopRight")
-                    ye = new Vector2(parent.Size.X, 0);
-                else if (component.Location == "MiddleLeft")
-                    ye = new Vector2(0, parent.Size.Y / 2);
-                else if (component.Location == "MiddleCenter")
-                    ye = new Vector2(parent.Size.X / 2, parent.Size.Y / 2);
-                else if (component.Location == "MiddleRight")
-                    ye = new Vector2(parent.Size.X, parent.Size.Y / 2);
-                else if (component.Location == "BottomLeft")
-                    ye = new Vector2(0, parent.Size.Y);
-                else if (component.Location == "BottomCenter")
-                    ye = new Vector2(parent.Size.X / 2, parent.Size.Y);
-                else if (component.Location == "BottomRight")
-                    ye = new Vector2(parent.Size.X, parent.Size.Y);
+                Vector2 yesh = Vector2.Zero;
+                if ((component.GetType() == typeof(GraphicObject)) && (parent.GetType() == typeof(GraphicObject)))
+                {
+                    yesh = (parent as GraphicObject).Position;
+                    component.Position += yesh;
+
+                    component.Position.X = ((parent as GraphicObject).Size.X / 100 * component.Position.X);
+                    component.Position.Y = ((parent as GraphicObject).Size.Y / 100 * component.Position.Y);
+                }
 
 
+                
 
-                component.Position += ye + parent.Position;
-
+                
+                /*
                 if(component.isCentered)
-                    component.Position -= new Vector2(component.Size.X, component.Size.Y) / 2;
-
+                    component.offset = new Vector2(component.Size.X, component.Size.Y) / 2;
+                */
             }
 
             if (component.fullscreen)
@@ -140,7 +119,7 @@ namespace VOiD.Components
             }
             else
             {
-                SpriteBatchComponent.spriteBatch.Draw(component.Texture, new Rectangle((int)component.Position.X, (int)component.Position.Y, (int)component.Size.X, (int)component.Size.Y), Color.White);
+                SpriteBatchComponent.spriteBatch.Draw(component.Texture, new Rectangle((int)component.Position.X, (int)component.Position.Y, (int)component.Size.X, (int)component.Size.Y), null, Color.White);
             }
         }
 
@@ -153,7 +132,31 @@ namespace VOiD.Components
 
 
 
+        private Vector2 yep(TextObject component,GraphicObject parent)
+        {
+            Vector2 ye;
+            
+            if (component.Location == "TopCenter")
+                ye = new Vector2(parent.Size.X / 2, 0);
+            else if (component.Location == "TopRight")
+                ye = new Vector2(parent.Size.X, 0);
+            else if (component.Location == "MiddleLeft")
+                ye = new Vector2(0, parent.Size.Y / 2);
+            else if (component.Location == "MiddleCenter")
+                ye = new Vector2(parent.Size.X / 2, parent.Size.Y / 2);
+            else if (component.Location == "MiddleRight")
+                ye = new Vector2(parent.Size.X, parent.Size.Y / 2);
+            else if (component.Location == "BottomLeft")
+                ye = new Vector2(0, parent.Size.Y);
+            else if (component.Location == "BottomCenter")
+                ye = new Vector2(parent.Size.X / 2, parent.Size.Y);
+            else if (component.Location == "BottomRight")
+                ye = new Vector2(parent.Size.X, parent.Size.Y);
+            else // TopLeft
+                ye = new Vector2(0, 0);
 
+            return ye;
+        }
 
 
         private void ClickableComponent(GraphicObject component)
@@ -164,6 +167,8 @@ namespace VOiD.Components
             {
                 if (component.Action.Equals("continue"))
                     currentScreen = Screens.LevelMenu;
+                if (component.Action.Equals("Quit"))
+                    Game.Exit();
                 DebugLog.WriteLine(string.Format("Button Clicked Action =  {0} ", component.Action));
             }
         }
@@ -181,11 +186,10 @@ namespace VOiD.Components
         {
             if (component.GetType() == typeof(GraphicObject))
             {
+                UpdateComponent((component as GraphicObject).Children);
                 if ((component as GraphicObject).isClickable)
                     ClickableComponent((component as GraphicObject));
             }
-
-            UpdateComponent(component.Children);
         }
 
 
