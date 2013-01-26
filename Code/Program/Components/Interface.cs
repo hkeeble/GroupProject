@@ -12,16 +12,16 @@ namespace VOiD.Components
     {
         Intro,
         MainMenu,
+        LevelMenu,
         BLANK
     }
 
     class Interface : DrawableGameComponent
     {
-        public static Color BackgroundColor { get { return _color; } }
-        private static Color _color=Color.Black;
+        private static GameLibrary.Interface temp;
+        public static Color BackgroundColor { get { return temp.backgroundColor; } }
         private static Screens lastScreen;
         public static Screens currentScreen;
-        private static List<Object2D> content = new List<Object2D>();
 
         private void DrawComponent(List<Object2D> Interface)
         {
@@ -65,12 +65,22 @@ namespace VOiD.Components
                     ye = new Vector2(parent.Size.X / 2, 0);
                 else if (component.Location == "TopRight")
                     ye = new Vector2(parent.Size.X, 0);
-                else
+                else if (component.Location == "MiddleLeft")
+                    ye = new Vector2(0, parent.Size.Y / 2);
+                else if (component.Location == "MiddleCenter")
+                    ye = new Vector2(parent.Size.X / 2, parent.Size.Y / 2);
+                else if (component.Location == "MiddleRight")
+                    ye = new Vector2(parent.Size.X, parent.Size.Y / 2);
+                else if (component.Location == "BottomLeft")
+                    ye = new Vector2(0, parent.Size.Y);
+                else if (component.Location == "BottomCenter")
+                    ye = new Vector2(parent.Size.X / 2, parent.Size.Y);
+                else if (component.Location == "BottomRight")
                     ye = new Vector2(parent.Size.X, parent.Size.Y);
 
 
 
-                component.Position = ye + parent.Position;
+                component.Position += ye + parent.Position;
                 component.Init = true;
                 if (component.isCentered)
                     component.Position-=Game.Content.Load<SpriteFont>("SegoeUI").MeasureString(component.Text) / 2; 
@@ -97,15 +107,25 @@ namespace VOiD.Components
                     ye = new Vector2(parent.Size.X / 2, 0);
                 else if (component.Location == "TopRight")
                     ye = new Vector2(parent.Size.X, 0);
-                else
+                else if (component.Location == "MiddleLeft")
+                    ye = new Vector2(0, parent.Size.Y / 2);
+                else if (component.Location == "MiddleCenter")
+                    ye = new Vector2(parent.Size.X / 2, parent.Size.Y / 2);
+                else if (component.Location == "MiddleRight")
+                    ye = new Vector2(parent.Size.X, parent.Size.Y / 2);
+                else if (component.Location == "BottomLeft")
+                    ye = new Vector2(0, parent.Size.Y);
+                else if (component.Location == "BottomCenter")
+                    ye = new Vector2(parent.Size.X / 2, parent.Size.Y);
+                else if (component.Location == "BottomRight")
                     ye = new Vector2(parent.Size.X, parent.Size.Y);
 
 
 
-                component.Position = ye + parent.Position;
+                component.Position += ye + parent.Position;
 
                 if(component.isCentered)
-                    component.Position -= new Vector2(component.Texture.Width, component.Texture.Height) / 2;
+                    component.Position -= new Vector2(component.Size.X, component.Size.Y) / 2;
 
             }
 
@@ -120,52 +140,96 @@ namespace VOiD.Components
             }
             else
             {
-                SpriteBatchComponent.spriteBatch.Draw(component.Texture, component.Position, Color.White);
+                SpriteBatchComponent.spriteBatch.Draw(component.Texture, new Rectangle((int)component.Position.X, (int)component.Position.Y, (int)component.Size.X, (int)component.Size.Y), Color.White);
             }
         }
-
-
-
-
-
-
-
 
         public Interface(Game game)
             : base(game)
         {
-
-            currentScreen = Screens.Intro;
+            currentScreen = Screens.MainMenu;
             lastScreen = Screens.BLANK;
         }
+
+
+
+
+
+
+        private void ClickableComponent(GraphicObject component)
+        {
+            Rectangle TextureRectangle = new Rectangle((int)component.Position.X, (int)component.Position.Y, (int)component.Size.X, (int)component.Size.Y);
+
+            if (TextureRectangle.Contains(InputHandler.mouseState.X, InputHandler.mouseState.Y)&&InputHandler.mouseState.LeftButton== Microsoft.Xna.Framework.Input.ButtonState.Pressed)
+            {
+                if (component.Action.Equals("continue"))
+                    currentScreen = Screens.LevelMenu;
+                DebugLog.WriteLine(string.Format("Button Clicked Action =  {0} ", component.Action));
+            }
+        }
+
+
+        private void UpdateComponent(List<Object2D> components)
+        {
+            foreach (Object2D thing in components)
+            {
+                UpdateComponent(thing);
+            }
+        }
+
+        private void UpdateComponent(Object2D component)
+        {
+            if (component.GetType() == typeof(GraphicObject))
+            {
+                if ((component as GraphicObject).isClickable)
+                    ClickableComponent((component as GraphicObject));
+            }
+
+            UpdateComponent(component.Children);
+        }
+
+
+
+
+
+
+
 
         public override void Update(GameTime gameTime)
         {
             if (currentScreen != lastScreen)
             {
                 // if screen has changed
-                content.Clear();
-                if (currentScreen == Screens.Intro)
+                temp = new GameLibrary.Interface();
+
+                if (currentScreen == Screens.MainMenu)
                 {
-                    GameLibrary.Interface temp = (Game.Content.Load<GameLibrary.Interface>("Intro"));
-                    content = temp.content;
-                    _color = temp.backgroundColor;
+                    temp = (Game.Content.Load<GameLibrary.Interface>("MainMenu"));
+                }
+                else if (currentScreen == Screens.LevelMenu)
+                {
+                    temp = (Game.Content.Load<GameLibrary.Interface>("LevelMenu"));
+                }
+                else
+                {
+                    temp = new GameLibrary.Interface();
                 }
 
             }
-            else
-            {
-                // Do any logic required for this type of screen
-            }
+
+            // Do any logic required for this type of screen
+            lastScreen = currentScreen;
+            UpdateComponent(temp.content);
 
             base.Update(gameTime);
-            lastScreen = currentScreen;
         }
 
         public override void Draw(GameTime gameTime)
         {
+            if (temp.Overlay)
+                GraphicsDevice.Clear(BackgroundColor);
             SpriteBatchComponent.spriteBatch.Begin();
-            DrawComponent(content);
+            DrawComponent(temp.content);
             SpriteBatchComponent.spriteBatch.End();
             base.Draw(gameTime);
         }

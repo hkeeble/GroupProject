@@ -9,13 +9,19 @@ namespace GameLibrary
     public class Interface
     {
         public List<Object2D> content;
-        public Color backgroundColor;
+        public Color backgroundColor=Color.Black;
+        public bool Overlay;
+        public Interface()
+        {
+            content = new List<Object2D>();
+        }
     }
 
     public class Object2D
     {
         public Vector2 Size;
         public string Location;
+        public Vector2 Position;
         public bool isCentered;
         public List<Object2D> Children;
         public Object2D()
@@ -28,15 +34,14 @@ namespace GameLibrary
         
         [ContentSerializerIgnore]
         public bool Init;
-        [ContentSerializerIgnore]
-        public Vector2 Position;
     }
 
     public class GraphicObject : Object2D
     {
+        public bool isClickable;
         public string TextureLocation;
         public bool fullscreen;
-        //public string Action;
+        public string Action;
         [ContentSerializerIgnore]
         public Texture2D Texture = null;
     }

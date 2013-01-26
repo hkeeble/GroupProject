@@ -377,3 +377,1880 @@ Could not find file 'C:\Users\Administrator\Documents\GitHub\GroupProject\Build\
 ----- Program execution finished on 26/01/2013 00:00:00 at 13:36:03.6926887 -----
 ----- Program executed on 26/01/2013 00:00:00 at 13:36:59.6886109 -----
 ----- Program execution finished on 26/01/2013 00:00:00 at 13:37:17.0268227 -----
+----- Program executed on 26/01/2013 00:00:00 at 13:42:39.7058534 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 13:42:43.6110120 -----
+----- Program executed on 26/01/2013 00:00:00 at 13:42:48.3252139 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 13:42:52.2938804 -----
+----- Program executed on 26/01/2013 00:00:00 at 13:42:58.4239821 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 13:43:08.2939320 -----
+----- Program executed on 26/01/2013 00:00:00 at 13:43:16.5091047 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 13:43:24.9613026 -----
+----- Program executed on 26/01/2013 00:00:00 at 13:44:36.5910261 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 13:44:40.9787042 -----
+----- Program executed on 26/01/2013 00:00:00 at 13:44:47.3242758 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 13:44:49.2779476 -----
+----- Program executed on 26/01/2013 00:00:00 at 13:44:53.3652809 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 13:44:54.3942765 -----
+----- Program executed on 26/01/2013 00:00:00 at 13:46:16.0760218 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 13:46:18.3452478 -----
+----- Program executed on 26/01/2013 00:00:00 at 13:46:28.0689370 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 13:46:29.7623106 -----
+----- Program executed on 26/01/2013 00:00:00 at 13:46:35.2046733 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 13:46:40.5449969 -----
+----- Program executed on 26/01/2013 00:00:00 at 13:46:51.9972534 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 13:46:57.8114023 -----
+----- Program executed on 26/01/2013 00:00:00 at 13:49:48.3087516 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 13:49:49.6784418 -----
+----- Program executed on 26/01/2013 00:00:00 at 13:50:01.9611204 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 13:50:04.8951284 -----
+----- Program executed on 26/01/2013 00:00:00 at 13:50:10.1129122 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 13:50:13.6116190 -----
+----- Program executed on 26/01/2013 00:00:00 at 13:50:24.6286519 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 13:50:34.6128035 -----
+----- Program executed on 26/01/2013 00:00:00 at 13:50:45.5585116 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 13:50:47.6629225 -----
+----- Program executed on 26/01/2013 00:00:00 at 13:51:15.6578282 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 13:51:18.5948637 -----
+----- Program executed on 26/01/2013 00:00:00 at 13:51:23.7920383 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 13:51:29.4620570 -----
+----- Program executed on 26/01/2013 00:00:00 at 13:51:40.4079016 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 13:51:58.4623548 -----
+----- Program executed on 26/01/2013 00:00:00 at 13:52:05.9750364 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 13:52:09.1298208 -----
+----- Program executed on 26/01/2013 00:00:00 at 13:52:21.5748592 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 13:52:59.6456419 -----
+----- Program executed on 26/01/2013 00:00:00 at 13:53:45.2078766 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 13:53:48.9124714 -----
+----- Program executed on 26/01/2013 00:00:00 at 13:55:09.8887022 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 13:55:12.1142958 -----
+----- Program executed on 26/01/2013 00:00:00 at 13:55:27.7344650 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 13:55:32.1963861 -----
+----- Program executed on 26/01/2013 00:00:00 at 13:57:07.7934090 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 13:57:14.4298238 -----
+----- Program executed on 26/01/2013 00:00:00 at 13:58:16.2614343 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 13:58:32.5470064 -----
+----- Program executed on 26/01/2013 00:00:00 at 13:58:52.1038505 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 14:00:17.7301287 -----
+----- Program executed on 26/01/2013 00:00:00 at 14:04:27.5271384 -----
+----- Program executed on 26/01/2013 00:00:00 at 14:05:15.0598837 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 14:05:24.8180314 -----
+----- Program executed on 26/01/2013 00:00:00 at 14:16:18.6139283 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 14:16:20.1664278 -----
+----- Program executed on 26/01/2013 00:00:00 at 14:16:39.2890553 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 14:16:43.4503833 -----
+----- Program executed on 26/01/2013 00:00:00 at 14:16:51.1322055 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 14:18:19.7344334 -----
+----- Program executed on 26/01/2013 00:00:00 at 14:23:14.1666550 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 14:23:42.1015300 -----
+----- Program executed on 26/01/2013 00:00:00 at 14:40:32.7031467 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 14:40:34.8539635 -----
+----- Program executed on 26/01/2013 00:00:00 at 14:40:45.2657408 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 14:40:58.7875966 -----
+----- Program executed on 26/01/2013 00:00:00 at 14:41:24.2348605 -----
+	1:Object Hightlighted = yep 
+
+	2:Object Hightlighted = yep 
+
+	3:Object Hightlighted = yep 
+
+	4:Object Hightlighted = yep 
+
+	5:Object Hightlighted = yep 
+
+	6:Object Hightlighted = yep 
+
+	7:Object Hightlighted = yep 
+
+	8:Object Hightlighted = yep 
+
+	9:Object Hightlighted = yep 
+
+	10:Object Hightlighted = yep 
+
+	11:Object Hightlighted = yep 
+
+	12:Object Hightlighted = yep 
+
+	13:Object Hightlighted = yep 
+
+	14:Object Hightlighted = yep 
+
+	15:Object Hightlighted = yep 
+
+	16:Object Hightlighted = yep 
+
+	17:Object Hightlighted = yep 
+
+	18:Object Hightlighted = yep 
+
+	19:Object Hightlighted = yep 
+
+	20:Object Hightlighted = yep 
+
+	21:Object Hightlighted = yep 
+
+	22:Object Hightlighted = yep 
+
+	23:Object Hightlighted = yep 
+
+	24:Object Hightlighted = yep 
+
+	25:Object Hightlighted = yep 
+
+	26:Object Hightlighted = yep 
+
+	27:Object Hightlighted = yep 
+
+	28:Object Hightlighted = yep 
+
+	29:Object Hightlighted = yep 
+
+	30:Object Hightlighted = yep 
+
+	31:Object Hightlighted = yep 
+
+	32:Object Hightlighted = yep 
+
+	33:Object Hightlighted = yep 
+
+	34:Object Hightlighted = yep 
+
+	35:Object Hightlighted = yep 
+
+	36:Object Hightlighted = yep 
+
+	37:Object Hightlighted = yep 
+
+	38:Object Hightlighted = yep 
+
+	39:Object Hightlighted = yep 
+
+	40:Object Hightlighted = yep 
+
+	41:Object Hightlighted = yep 
+
+	42:Object Hightlighted = yep 
+
+	43:Object Hightlighted = yep 
+
+	44:Object Hightlighted = yep 
+
+	45:Object Hightlighted = yep 
+
+	46:Object Hightlighted = yep 
+
+	47:Object Hightlighted = yep 
+
+	48:Object Hightlighted = yep 
+
+	49:Object Hightlighted = yep 
+
+	50:Object Hightlighted = yep 
+
+	51:Object Hightlighted = yep 
+
+	52:Object Hightlighted = yep 
+
+	53:Object Hightlighted = yep 
+
+	54:Object Hightlighted = yep 
+
+	55:Object Hightlighted = yep 
+
+	56:Object Hightlighted = yep 
+
+	57:Object Hightlighted = yep 
+
+	58:Object Hightlighted = yep 
+
+	59:Object Hightlighted = yep 
+
+	60:Object Hightlighted = yep 
+
+	61:Object Hightlighted = yep 
+
+	62:Object Hightlighted = yep 
+
+	63:Object Hightlighted = yep 
+
+	64:Object Hightlighted = yep 
+
+	65:Object Hightlighted = yep 
+
+	66:Object Hightlighted = yep 
+
+	67:Object Hightlighted = yep 
+
+	68:Object Hightlighted = yep 
+
+	69:Object Hightlighted = yep 
+
+	70:Object Hightlighted = yep 
+
+	71:Object Hightlighted = yep 
+
+	72:Object Hightlighted = yep 
+
+	73:Object Hightlighted = yep 
+
+	74:Object Hightlighted = yep 
+
+	75:Object Hightlighted = yep 
+
+	76:Object Hightlighted = yep 
+
+	77:Object Hightlighted = yep 
+
+	78:Object Hightlighted = yep 
+
+	79:Object Hightlighted = yep 
+
+	80:Object Hightlighted = yep 
+
+	81:Object Hightlighted = yep 
+
+	82:Object Hightlighted = yep 
+
+	83:Object Hightlighted = yep 
+
+	84:Object Hightlighted = yep 
+
+	85:Object Hightlighted = yep 
+
+	86:Object Hightlighted = yep 
+
+	87:Object Hightlighted = yep 
+
+	88:Object Hightlighted = yep 
+
+	89:Object Hightlighted = yep 
+
+	90:Object Hightlighted = yep 
+
+	91:Object Hightlighted = yep 
+
+	92:Object Hightlighted = yep 
+
+	93:Object Hightlighted = yep 
+
+	94:Object Hightlighted = yep 
+
+	95:Object Hightlighted = yep 
+
+	96:Object Hightlighted = yep 
+
+	97:Object Hightlighted = yep 
+
+	98:Object Hightlighted = yep 
+
+	99:Object Hightlighted = yep 
+
+	100:Object Hightlighted = yep 
+
+	101:Object Hightlighted = yep 
+
+	102:Object Hightlighted = yep 
+
+	103:Object Hightlighted = yep 
+
+	104:Object Hightlighted = yep 
+
+	105:Object Hightlighted = yep 
+
+	106:Object Hightlighted = yep 
+
+	107:Object Hightlighted = yep 
+
+	108:Object Hightlighted = yep 
+
+	109:Object Hightlighted = yep 
+
+	110:Object Hightlighted = yep 
+
+	111:Object Hightlighted = yep 
+
+	112:Object Hightlighted = yep 
+
+	113:Object Hightlighted = yep 
+
+	114:Object Hightlighted = yep 
+
+	115:Object Hightlighted = yep 
+
+	116:Object Hightlighted = yep 
+
+	117:Object Hightlighted = yep 
+
+	118:Object Hightlighted = yep 
+
+	119:Object Hightlighted = yep 
+
+	120:Object Hightlighted = yep 
+
+	121:Object Hightlighted = yep 
+
+	122:Object Hightlighted = yep 
+
+	123:Object Hightlighted = yep 
+
+	124:Object Hightlighted = yep 
+
+	125:Object Hightlighted = yep 
+
+	126:Object Hightlighted = yep 
+
+	127:Object Hightlighted = yep 
+
+	128:Object Hightlighted = yep 
+
+	129:Object Hightlighted = yep 
+
+	130:Object Hightlighted = yep 
+
+	131:Object Hightlighted = yep 
+
+	132:Object Hightlighted = yep 
+
+	133:Object Hightlighted = yep 
+
+	134:Object Hightlighted = yep 
+
+	135:Object Hightlighted = yep 
+
+	136:Object Hightlighted = yep 
+
+	137:Object Hightlighted = yep 
+
+	138:Object Hightlighted = yep 
+
+	139:Object Hightlighted = yep 
+
+	140:Object Hightlighted = yep 
+
+	141:Object Hightlighted = yep 
+
+	142:Object Hightlighted = yep 
+
+	143:Object Hightlighted = yep 
+
+	144:Object Hightlighted = yep 
+
+	145:Object Hightlighted = yep 
+
+	146:Object Hightlighted = yep 
+
+	147:Object Hightlighted = yep 
+
+	148:Object Hightlighted = yep 
+
+	149:Object Hightlighted = yep 
+
+	150:Object Hightlighted = yep 
+
+	151:Object Hightlighted = yep 
+
+	152:Object Hightlighted = yep 
+
+	153:Object Hightlighted = yep 
+
+	154:Object Hightlighted = yep 
+
+	155:Object Hightlighted = yep 
+
+	156:Object Hightlighted = yep 
+
+	157:Object Hightlighted = yep 
+
+	158:Object Hightlighted = yep 
+
+	159:Object Hightlighted = yep 
+
+	160:Object Hightlighted = yep 
+
+	161:Object Hightlighted = yep 
+
+	162:Object Hightlighted = yep 
+
+	163:Object Hightlighted = yep 
+
+	164:Object Hightlighted = yep 
+
+	165:Object Hightlighted = yep 
+
+	166:Object Hightlighted = yep 
+
+	167:Object Hightlighted = yep 
+
+	168:Object Hightlighted = yep 
+
+	169:Object Hightlighted = yep 
+
+	170:Object Hightlighted = yep 
+
+	171:Object Hightlighted = yep 
+
+	172:Object Hightlighted = yep 
+
+	173:Object Hightlighted = yep 
+
+----- Program execution finished on 26/01/2013 00:00:00 at 14:41:31.2377133 -----
+----- Program executed on 26/01/2013 00:00:00 at 14:41:51.7992317 -----
+	1:Object Hightlighted = yep 
+
+	2:Object Hightlighted = yep 
+
+	3:Object Hightlighted = yep 
+
+	4:Object Hightlighted = yep 
+
+	5:Object Hightlighted = yep 
+
+	6:Object Hightlighted = yep 
+
+	7:Object Hightlighted = yep 
+
+	8:Object Hightlighted = yep 
+
+	9:Object Hightlighted = yep 
+
+	10:Object Hightlighted = yep 
+
+	11:Object Hightlighted = yep 
+
+	12:Object Hightlighted = yep 
+
+	13:Object Hightlighted = yep 
+
+	14:Object Hightlighted = yep 
+
+	15:Object Hightlighted = yep 
+
+	16:Object Hightlighted = yep 
+
+	17:Object Hightlighted = yep 
+
+	18:Object Hightlighted = yep 
+
+	19:Object Hightlighted = yep 
+
+	20:Object Hightlighted = yep 
+
+	21:Object Hightlighted = yep 
+
+	22:Object Hightlighted = yep 
+
+	23:Object Hightlighted = yep 
+
+	24:Object Hightlighted = yep 
+
+	25:Object Hightlighted = yep 
+
+	26:Object Hightlighted = yep 
+
+	27:Object Hightlighted = yep 
+
+	28:Object Hightlighted = yep 
+
+	29:Object Hightlighted = yep 
+
+	30:Object Hightlighted = yep 
+
+	31:Object Hightlighted = yep 
+
+	32:Object Hightlighted = yep 
+
+	33:Object Hightlighted = yep 
+
+	34:Object Hightlighted = yep 
+
+	35:Object Hightlighted = yep 
+
+	36:Object Hightlighted = yep 
+
+	37:Object Hightlighted = yep 
+
+	38:Object Hightlighted = yep 
+
+	39:Object Hightlighted = yep 
+
+	40:Object Hightlighted = yep 
+
+	41:Object Hightlighted = yep 
+
+	42:Object Hightlighted = yep 
+
+	43:Object Hightlighted = yep 
+
+	44:Object Hightlighted = yep 
+
+	45:Object Hightlighted = yep 
+
+	46:Object Hightlighted = yep 
+
+	47:Object Hightlighted = yep 
+
+	48:Object Hightlighted = yep 
+
+	49:Object Hightlighted = yep 
+
+	50:Object Hightlighted = yep 
+
+	51:Object Hightlighted = yep 
+
+	52:Object Hightlighted = yep 
+
+	53:Object Hightlighted = yep 
+
+	54:Object Hightlighted = yep 
+
+	55:Object Hightlighted = yep 
+
+	56:Object Hightlighted = yep 
+
+	57:Object Hightlighted = yep 
+
+	58:Object Hightlighted = yep 
+
+	59:Object Hightlighted = yep 
+
+	60:Object Hightlighted = yep 
+
+	61:Object Hightlighted = yep 
+
+	62:Object Hightlighted = yep 
+
+	63:Object Hightlighted = yep 
+
+	64:Object Hightlighted = yep 
+
+	65:Object Hightlighted = yep 
+
+	66:Object Hightlighted = yep 
+
+	67:Object Hightlighted = yep 
+
+	68:Object Hightlighted = yep 
+
+	69:Object Hightlighted = yep 
+
+	70:Object Hightlighted = yep 
+
+	71:Object Hightlighted = yep 
+
+	72:Object Hightlighted = yep 
+
+	73:Object Hightlighted = yep 
+
+	74:Object Hightlighted = yep 
+
+	75:Object Hightlighted = yep 
+
+	76:Object Hightlighted = yep 
+
+	77:Object Hightlighted = yep 
+
+	78:Object Hightlighted = yep 
+
+	79:Object Hightlighted = yep 
+
+	80:Object Hightlighted = yep 
+
+	81:Object Hightlighted = yep 
+
+	82:Object Hightlighted = yep 
+
+	83:Object Hightlighted = yep 
+
+	84:Object Hightlighted = yep 
+
+	85:Object Hightlighted = yep 
+
+	86:Object Hightlighted = yep 
+
+	87:Object Hightlighted = yep 
+
+	88:Object Hightlighted = yep 
+
+	89:Object Hightlighted = yep 
+
+	90:Object Hightlighted = yep 
+
+	91:Object Hightlighted = yep 
+
+	92:Object Hightlighted = yep 
+
+	93:Object Hightlighted = yep 
+
+	94:Object Hightlighted = yep 
+
+	95:Object Hightlighted = yep 
+
+	96:Object Hightlighted = yep 
+
+	97:Object Hightlighted = yep 
+
+	98:Object Hightlighted = yep 
+
+	99:Object Hightlighted = yep 
+
+	100:Object Hightlighted = yep 
+
+	101:Object Hightlighted = yep 
+
+	102:Object Hightlighted = yep 
+
+	103:Object Hightlighted = yep 
+
+	104:Object Hightlighted = yep 
+
+----- Program execution finished on 26/01/2013 00:00:00 at 14:41:59.4046360 -----
+----- Program executed on 26/01/2013 00:00:00 at 14:43:55.8438476 -----
+	1:Object Hightlighted = yep 
+
+	2:Object Hightlighted = yep 
+
+	3:Object Hightlighted = yep 
+
+	4:Object Hightlighted = yep 
+
+	5:Object Hightlighted = yep 
+
+	6:Object Hightlighted = yep 
+
+	7:Object Hightlighted = yep 
+
+	8:Object Hightlighted = yep 
+
+	9:Object Hightlighted = yep 
+
+	10:Object Hightlighted = yep 
+
+	11:Object Hightlighted = yep 
+
+	12:Object Hightlighted = yep 
+
+	13:Object Hightlighted = yep 
+
+	14:Object Hightlighted = yep 
+
+	15:Object Hightlighted = yep 
+
+	16:Object Hightlighted = yep 
+
+	17:Object Hightlighted = yep 
+
+	18:Object Hightlighted = yep 
+
+	19:Object Hightlighted = yep 
+
+	20:Object Hightlighted = yep 
+
+	21:Object Hightlighted = yep 
+
+	22:Object Hightlighted = yep 
+
+	23:Object Hightlighted = yep 
+
+	24:Object Hightlighted = yep 
+
+	25:Object Hightlighted = yep 
+
+	26:Object Hightlighted = yep 
+
+	27:Object Hightlighted = yep 
+
+	28:Object Hightlighted = yep 
+
+	29:Object Hightlighted = yep 
+
+	30:Object Hightlighted = yep 
+
+	31:Object Hightlighted = yep 
+
+	32:Object Hightlighted = yep 
+
+	33:Object Hightlighted = yep 
+
+	34:Object Hightlighted = yep 
+
+	35:Object Hightlighted = yep 
+
+	36:Object Hightlighted = yep 
+
+	37:Object Hightlighted = yep 
+
+	38:Object Hightlighted = yep 
+
+	39:Object Hightlighted = yep 
+
+	40:Object Hightlighted = yep 
+
+	41:Object Hightlighted = yep 
+
+	42:Object Hightlighted = yep 
+
+	43:Object Hightlighted = yep 
+
+	44:Object Hightlighted = yep 
+
+	45:Object Hightlighted = yep 
+
+	46:Object Hightlighted = yep 
+
+	47:Object Hightlighted = yep 
+
+	48:Object Hightlighted = yep 
+
+	49:Object Hightlighted = yep 
+
+	50:Object Hightlighted = yep 
+
+	51:Object Hightlighted = yep 
+
+	52:Object Hightlighted = yep 
+
+	53:Object Hightlighted = yep 
+
+	54:Object Hightlighted = yep 
+
+	55:Object Hightlighted = yep 
+
+	56:Object Hightlighted = yep 
+
+	57:Object Hightlighted = yep 
+
+	58:Object Hightlighted = yep 
+
+	59:Object Hightlighted = yep 
+
+	60:Object Hightlighted = yep 
+
+	61:Object Hightlighted = yep 
+
+	62:Object Hightlighted = yep 
+
+	63:Object Hightlighted = yep 
+
+	64:Object Hightlighted = yep 
+
+	65:Object Hightlighted = yep 
+
+	66:Object Hightlighted = yep 
+
+	67:Object Hightlighted = yep 
+
+	68:Object Hightlighted = yep 
+
+	69:Object Hightlighted = yep 
+
+	70:Object Hightlighted = yep 
+
+	71:Object Hightlighted = yep 
+
+	72:Object Hightlighted = yep 
+
+	73:Object Hightlighted = yep 
+
+	74:Object Hightlighted = yep 
+
+	75:Object Hightlighted = yep 
+
+	76:Object Hightlighted = yep 
+
+	77:Object Hightlighted = yep 
+
+	78:Object Hightlighted = yep 
+
+	79:Object Hightlighted = yep 
+
+	80:Object Hightlighted = yep 
+
+	81:Object Hightlighted = yep 
+
+	82:Object Hightlighted = yep 
+
+	83:Object Hightlighted = yep 
+
+	84:Object Hightlighted = yep 
+
+----- Program execution finished on 26/01/2013 00:00:00 at 14:44:02.4881856 -----
+----- Program executed on 26/01/2013 00:00:00 at 14:45:48.7289650 -----
+	1:Object Hightlighted = yep 
+
+	2:Object Hightlighted = yep 
+
+	3:Object Hightlighted = yep 
+
+	4:Object Hightlighted = yep 
+
+	5:Object Hightlighted = yep 
+
+	6:Object Hightlighted = yep 
+
+	7:Object Hightlighted = yep 
+
+	8:Object Hightlighted = yep 
+
+	9:Object Hightlighted = yep 
+
+	10:Object Hightlighted = yep 
+
+	11:Object Hightlighted = yep 
+
+	12:Object Hightlighted = yep 
+
+	13:Object Hightlighted = yep 
+
+	14:Object Hightlighted = yep 
+
+	15:Object Hightlighted = yep 
+
+	16:Object Hightlighted = yep 
+
+	17:Object Hightlighted = yep 
+
+----- Program execution finished on 26/01/2013 00:00:00 at 14:45:51.0381896 -----
+----- Program executed on 26/01/2013 00:00:00 at 14:46:06.7269534 -----
+	1:Object Hightlighted =  
+
+	2:Object Hightlighted =  
+
+	3:Object Hightlighted =  
+
+	4:Object Hightlighted =  
+
+	5:Object Hightlighted =  
+
+	6:Object Hightlighted =  
+
+	7:Object Hightlighted =  
+
+	8:Object Hightlighted =  
+
+	9:Object Hightlighted =  
+
+	10:Object Hightlighted =  
+
+	11:Object Hightlighted =  
+
+	12:Object Hightlighted =  
+
+	13:Object Hightlighted =  
+
+	14:Object Hightlighted =  
+
+	15:Object Hightlighted =  
+
+	16:Object Hightlighted =  
+
+	17:Object Hightlighted =  
+
+	18:Object Hightlighted =  
+
+	19:Object Hightlighted =  
+
+	20:Object Hightlighted =  
+
+----- Program execution finished on 26/01/2013 00:00:00 at 14:46:09.0388764 -----
+----- Program executed on 26/01/2013 00:00:00 at 14:46:24.7728292 -----
+	1:Object Hightlighted = @continue 
+
+	2:Object Hightlighted = @continue 
+
+	3:Object Hightlighted = @continue 
+
+	4:Object Hightlighted = @continue 
+
+	5:Object Hightlighted = @continue 
+
+	6:Object Hightlighted = @continue 
+
+	7:Object Hightlighted = @continue 
+
+	8:Object Hightlighted = @continue 
+
+	9:Object Hightlighted = @continue 
+
+	10:Object Hightlighted = @continue 
+
+	11:Object Hightlighted = @continue 
+
+	12:Object Hightlighted = @continue 
+
+	13:Object Hightlighted = @continue 
+
+	14:Object Hightlighted = @continue 
+
+	15:Object Hightlighted = @continue 
+
+----- Program execution finished on 26/01/2013 00:00:00 at 14:46:28.8050624 -----
+----- Program executed on 26/01/2013 00:00:00 at 14:47:17.3902943 -----
+	1:Object Hightlighted = @continue 
+
+	2:Object Hightlighted = @continue 
+
+	3:Object Hightlighted = @continue 
+
+	4:Object Hightlighted = @continue 
+
+	5:Object Hightlighted = @continue 
+
+	6:Object Hightlighted = @continue 
+
+	7:Object Hightlighted = @continue 
+
+	8:Object Hightlighted = @continue 
+
+	9:Object Hightlighted = @continue 
+
+	10:Object Hightlighted = @continue 
+
+	11:Object Hightlighted = @continue 
+
+	12:Object Hightlighted = @continue 
+
+	13:Object Hightlighted = @continue 
+
+	14:Object Hightlighted = @continue 
+
+	15:Object Hightlighted = @continue 
+
+	16:Object Hightlighted = @continue 
+
+	17:Object Hightlighted = @continue 
+
+	18:Object Hightlighted = @continue 
+
+	19:Object Hightlighted = @continue 
+
+	20:Object Hightlighted = @continue 
+
+	21:Object Hightlighted = @continue 
+
+	22:Object Hightlighted = @continue 
+
+	23:Object Hightlighted = @continue 
+
+	24:Object Hightlighted = @continue 
+
+	25:Object Hightlighted = @continue 
+
+	26:Object Hightlighted = @continue 
+
+	27:Object Hightlighted = @continue 
+
+	28:Object Hightlighted = @continue 
+
+	29:Object Hightlighted = @continue 
+
+	30:Object Hightlighted = @continue 
+
+	31:Object Hightlighted = @continue 
+
+	32:Object Hightlighted = @continue 
+
+	33:Object Hightlighted = @continue 
+
+	34:Object Hightlighted = @continue 
+
+	35:Object Hightlighted = @continue 
+
+	36:Object Hightlighted = @continue 
+
+----- Program execution finished on 26/01/2013 00:00:00 at 14:47:22.5721654 -----
+----- Program executed on 26/01/2013 00:00:00 at 14:47:34.7013965 -----
+	1:Object Hightlighted = continue 
+
+	2:Object Hightlighted = continue 
+
+	3:Object Hightlighted = continue 
+
+	4:Object Hightlighted = continue 
+
+	5:Object Hightlighted = continue 
+
+	6:Object Hightlighted = continue 
+
+	7:Object Hightlighted = continue 
+
+	8:Object Hightlighted = continue 
+
+	9:Object Hightlighted = continue 
+
+	10:Object Hightlighted = continue 
+
+	11:Object Hightlighted = continue 
+
+	12:Object Hightlighted = continue 
+
+	13:Object Hightlighted = continue 
+
+	14:Object Hightlighted = continue 
+
+	15:Object Hightlighted = continue 
+
+	16:Object Hightlighted = continue 
+
+	17:Object Hightlighted = continue 
+
+	18:Object Hightlighted = continue 
+
+	19:Object Hightlighted = continue 
+
+	20:Object Hightlighted = continue 
+
+	21:Object Hightlighted = continue 
+
+	22:Object Hightlighted = continue 
+
+	23:Object Hightlighted = continue 
+
+	24:Object Hightlighted = continue 
+
+	25:Object Hightlighted = continue 
+
+	26:Object Hightlighted = continue 
+
+	27:Object Hightlighted = continue 
+
+	28:Object Hightlighted = continue 
+
+	29:Object Hightlighted = continue 
+
+	30:Object Hightlighted = continue 
+
+	31:Object Hightlighted = continue 
+
+	32:Object Hightlighted = continue 
+
+	33:Object Hightlighted = continue 
+
+	34:Object Hightlighted = continue 
+
+	35:Object Hightlighted = continue 
+
+	36:Object Hightlighted = continue 
+
+	37:Object Hightlighted = continue 
+
+	38:Object Hightlighted = continue 
+
+	39:Object Hightlighted = continue 
+
+	40:Object Hightlighted = continue 
+
+	41:Object Hightlighted = continue 
+
+	42:Object Hightlighted = continue 
+
+	43:Object Hightlighted = continue 
+
+	44:Object Hightlighted = continue 
+
+	45:Object Hightlighted = continue 
+
+	46:Object Hightlighted = continue 
+
+	47:Object Hightlighted = continue 
+
+	48:Object Hightlighted = continue 
+
+	49:Object Hightlighted = continue 
+
+	50:Object Hightlighted = continue 
+
+	51:Object Hightlighted = continue 
+
+	52:Object Hightlighted = continue 
+
+	53:Object Hightlighted = continue 
+
+	54:Object Hightlighted = continue 
+
+	55:Object Hightlighted = continue 
+
+	56:Object Hightlighted = continue 
+
+	57:Object Hightlighted = continue 
+
+	58:Object Hightlighted = continue 
+
+----- Program execution finished on 26/01/2013 00:00:00 at 14:47:39.9721445 -----
+----- Program executed on 26/01/2013 00:00:00 at 14:48:05.1099636 -----
+	1:Object Hightlighted = continue 
+
+	2:Object Hightlighted = continue 
+
+	3:Object Hightlighted = continue 
+
+	4:Object Hightlighted = continue 
+
+	5:Object Hightlighted = continue 
+
+	6:Object Hightlighted = continue 
+
+	7:Object Hightlighted = continue 
+
+	8:Object Hightlighted = continue 
+
+	9:Object Hightlighted = continue 
+
+	10:Object Hightlighted = continue 
+
+	11:Object Hightlighted = continue 
+
+	12:Object Hightlighted = continue 
+
+	13:Object Hightlighted = continue 
+
+	14:Object Hightlighted = continue 
+
+	15:Object Hightlighted = continue 
+
+	16:Object Hightlighted = continue 
+
+	17:Object Hightlighted = continue 
+
+	18:Object Hightlighted = continue 
+
+	19:Object Hightlighted = continue 
+
+	20:Object Hightlighted = continue 
+
+	21:Object Hightlighted = continue 
+
+	22:Object Hightlighted = continue 
+
+	23:Object Hightlighted = continue 
+
+	24:Object Hightlighted = continue 
+
+	25:Object Hightlighted = continue 
+
+	26:Object Hightlighted = continue 
+
+	27:Object Hightlighted = continue 
+
+	28:Object Hightlighted = continue 
+
+	29:Object Hightlighted = continue 
+
+	30:Object Hightlighted = continue 
+
+	31:Object Hightlighted = continue 
+
+	32:Object Hightlighted = continue 
+
+	33:Object Hightlighted = continue 
+
+	34:Object Hightlighted = continue 
+
+	35:Object Hightlighted = continue 
+
+	36:Object Hightlighted = continue 
+
+	37:Object Hightlighted = continue 
+
+	38:Object Hightlighted = continue 
+
+	39:Object Hightlighted = continue 
+
+	40:Object Hightlighted = continue 
+
+	41:Object Hightlighted = continue 
+
+	42:Object Hightlighted = continue 
+
+	43:Object Hightlighted = continue 
+
+	44:Object Hightlighted = continue 
+
+	45:Object Hightlighted = continue 
+
+	46:Object Hightlighted = continue 
+
+	47:Object Hightlighted = continue 
+
+	48:Object Hightlighted = continue 
+
+	49:Object Hightlighted = continue 
+
+	50:Object Hightlighted = continue 
+
+	51:Object Hightlighted = continue 
+
+	52:Object Hightlighted = continue 
+
+	53:Object Hightlighted = continue 
+
+	54:Object Hightlighted = continue 
+
+	55:Object Hightlighted = continue 
+
+	56:Object Hightlighted = continue 
+
+	57:Object Hightlighted = continue 
+
+	58:Object Hightlighted = continue 
+
+	59:Object Hightlighted = continue 
+
+	60:Object Hightlighted = continue 
+
+	61:Object Hightlighted = continue 
+
+	62:Object Hightlighted = continue 
+
+	63:Object Hightlighted = continue 
+
+	64:Object Hightlighted = continue 
+
+	65:Object Hightlighted = continue 
+
+	66:Object Hightlighted = continue 
+
+	67:Object Hightlighted = continue 
+
+	68:Object Hightlighted = continue 
+
+	69:Object Hightlighted = continue 
+
+	70:Object Hightlighted = continue 
+
+	71:Object Hightlighted = continue 
+
+	72:Object Hightlighted = continue 
+
+	73:Object Hightlighted = continue 
+
+	74:Object Hightlighted = continue 
+
+	75:Object Hightlighted = continue 
+
+	76:Object Hightlighted = continue 
+
+	77:Object Hightlighted = continue 
+
+	78:Object Hightlighted = continue 
+
+	79:Object Hightlighted = continue 
+
+	80:Object Hightlighted = continue 
+
+	81:Object Hightlighted = continue 
+
+	82:Object Hightlighted = continue 
+
+	83:Object Hightlighted = continue 
+
+	84:Object Hightlighted = continue 
+
+	85:Object Hightlighted = continue 
+
+	86:Object Hightlighted = continue 
+
+	87:Object Hightlighted = continue 
+
+	88:Object Hightlighted = continue 
+
+	89:Object Hightlighted = continue 
+
+	90:Object Hightlighted = continue 
+
+	91:Object Hightlighted = continue 
+
+	92:Object Hightlighted = continue 
+
+	93:Object Hightlighted = continue 
+
+	94:Object Hightlighted = continue 
+
+	95:Object Hightlighted = continue 
+
+	96:Object Hightlighted = continue 
+
+	97:Object Hightlighted = continue 
+
+	98:Object Hightlighted = continue 
+
+	99:Object Hightlighted = continue 
+
+	100:Object Hightlighted = continue 
+
+	101:Object Hightlighted = continue 
+
+	102:Object Hightlighted = continue 
+
+	103:Object Hightlighted = continue 
+
+	104:Object Hightlighted = continue 
+
+	105:Object Hightlighted = continue 
+
+	106:Object Hightlighted = continue 
+
+	107:Object Hightlighted = continue 
+
+	108:Object Hightlighted = continue 
+
+	109:Object Hightlighted = continue 
+
+	110:Object Hightlighted = continue 
+
+	111:Object Hightlighted = continue 
+
+	112:Object Hightlighted = continue 
+
+	113:Object Hightlighted = continue 
+
+	114:Object Hightlighted = continue 
+
+	115:Object Hightlighted = continue 
+
+	116:Object Hightlighted = continue 
+
+	117:Object Hightlighted = continue 
+
+	118:Object Hightlighted = continue 
+
+	119:Object Hightlighted = continue 
+
+	120:Object Hightlighted = continue 
+
+	121:Object Hightlighted = continue 
+
+	122:Object Hightlighted = continue 
+
+	123:Object Hightlighted = continue 
+
+	124:Object Hightlighted = continue 
+
+	125:Object Hightlighted = continue 
+
+	126:Object Hightlighted = continue 
+
+	127:Object Hightlighted = continue 
+
+	128:Object Hightlighted = continue 
+
+	129:Object Hightlighted = continue 
+
+	130:Object Hightlighted = continue 
+
+	131:Object Hightlighted = continue 
+
+	132:Object Hightlighted = continue 
+
+	133:Object Hightlighted = continue 
+
+	134:Object Hightlighted = continue 
+
+	135:Object Hightlighted = continue 
+
+	136:Object Hightlighted = continue 
+
+	137:Object Hightlighted = continue 
+
+	138:Object Hightlighted = continue 
+
+	139:Object Hightlighted = continue 
+
+	140:Object Hightlighted = continue 
+
+	141:Object Hightlighted = continue 
+
+	142:Object Hightlighted = continue 
+
+	143:Object Hightlighted = continue 
+
+	144:Object Hightlighted = continue 
+
+	145:Object Hightlighted = continue 
+
+	146:Object Hightlighted = continue 
+
+	147:Object Hightlighted = continue 
+
+	148:Object Hightlighted = continue 
+
+	149:Object Hightlighted = continue 
+
+	150:Object Hightlighted = continue 
+
+	151:Object Hightlighted = continue 
+
+	152:Object Hightlighted = continue 
+
+	153:Object Hightlighted = continue 
+
+	154:Object Hightlighted = continue 
+
+	155:Object Hightlighted = continue 
+
+	156:Object Hightlighted = continue 
+
+	157:Object Hightlighted = continue 
+
+	158:Object Hightlighted = continue 
+
+	159:Object Hightlighted = continue 
+
+	160:Object Hightlighted = continue 
+
+	161:Object Hightlighted = continue 
+
+	162:Object Hightlighted = continue 
+
+	163:Object Hightlighted = continue 
+
+	164:Object Hightlighted = continue 
+
+	165:Object Hightlighted = continue 
+
+	166:Object Hightlighted = continue 
+
+	167:Object Hightlighted = continue 
+
+	168:Object Hightlighted = continue 
+
+	169:Object Hightlighted = continue 
+
+	170:Object Hightlighted = continue 
+
+	171:Object Hightlighted = continue 
+
+	172:Object Hightlighted = continue 
+
+	173:Object Hightlighted = continue 
+
+	174:Object Hightlighted = continue 
+
+	175:Object Hightlighted = continue 
+
+	176:Object Hightlighted = continue 
+
+	177:Object Hightlighted = continue 
+
+	178:Object Hightlighted = continue 
+
+	179:Object Hightlighted = continue 
+
+	180:Object Hightlighted = continue 
+
+	181:Object Hightlighted = continue 
+
+	182:Object Hightlighted = continue 
+
+	183:Object Hightlighted = continue 
+
+	184:Object Hightlighted = continue 
+
+	185:Object Hightlighted = continue 
+
+	186:Object Hightlighted = continue 
+
+	187:Object Hightlighted = continue 
+
+	188:Object Hightlighted = continue 
+
+	189:Object Hightlighted = continue 
+
+	190:Object Hightlighted = continue 
+
+	191:Object Hightlighted = continue 
+
+	192:Object Hightlighted = continue 
+
+	193:Object Hightlighted = continue 
+
+	194:Object Hightlighted = continue 
+
+	195:Object Hightlighted = continue 
+
+	196:Object Hightlighted = continue 
+
+	197:Object Hightlighted = continue 
+
+	198:Object Hightlighted = continue 
+
+	199:Object Hightlighted = continue 
+
+	200:Object Hightlighted = continue 
+
+	201:Object Hightlighted = continue 
+
+	202:Object Hightlighted = continue 
+
+	203:Object Hightlighted = continue 
+
+	204:Object Hightlighted = continue 
+
+	205:Object Hightlighted = continue 
+
+	206:Object Hightlighted = continue 
+
+	207:Object Hightlighted = continue 
+
+	208:Object Hightlighted = continue 
+
+	209:Object Hightlighted = continue 
+
+	210:Object Hightlighted = continue 
+
+	211:Object Hightlighted = continue 
+
+	212:Object Hightlighted = continue 
+
+	213:Object Hightlighted = continue 
+
+	214:Object Hightlighted = continue 
+
+	215:Object Hightlighted = continue 
+
+	216:Object Hightlighted = continue 
+
+	217:Object Hightlighted = continue 
+
+	218:Object Hightlighted = continue 
+
+	219:Object Hightlighted = continue 
+
+	220:Object Hightlighted = continue 
+
+	221:Object Hightlighted = continue 
+
+	222:Object Hightlighted = continue 
+
+	223:Object Hightlighted = continue 
+
+	224:Object Hightlighted = continue 
+
+	225:Object Hightlighted = continue 
+
+	226:Object Hightlighted = continue 
+
+	227:Object Hightlighted = continue 
+
+	228:Object Hightlighted = continue 
+
+	229:Object Hightlighted = continue 
+
+	230:Object Hightlighted = continue 
+
+	231:Object Hightlighted = continue 
+
+	232:Object Hightlighted = continue 
+
+	233:Object Hightlighted = continue 
+
+	234:Object Hightlighted = continue 
+
+	235:Object Hightlighted = continue 
+
+	236:Object Hightlighted = continue 
+
+	237:Object Hightlighted = continue 
+
+	238:Object Hightlighted = continue 
+
+	239:Object Hightlighted = continue 
+
+	240:Object Hightlighted = continue 
+
+	241:Object Hightlighted = continue 
+
+	242:Object Hightlighted = continue 
+
+	243:Object Hightlighted = continue 
+
+	244:Object Hightlighted = continue 
+
+	245:Object Hightlighted = continue 
+
+	246:Object Hightlighted = continue 
+
+	247:Object Hightlighted = continue 
+
+	248:Object Hightlighted = continue 
+
+	249:Object Hightlighted = continue 
+
+	250:Object Hightlighted = continue 
+
+	251:Object Hightlighted = continue 
+
+	252:Object Hightlighted = continue 
+
+	253:Object Hightlighted = continue 
+
+	254:Object Hightlighted = continue 
+
+	255:Object Hightlighted = continue 
+
+	256:Object Hightlighted = continue 
+
+	257:Object Hightlighted = continue 
+
+	258:Object Hightlighted = continue 
+
+	259:Object Hightlighted = continue 
+
+	260:Object Hightlighted = continue 
+
+	261:Object Hightlighted = continue 
+
+	262:Object Hightlighted = continue 
+
+	263:Object Hightlighted = continue 
+
+	264:Object Hightlighted = continue 
+
+	265:Object Hightlighted = continue 
+
+	266:Object Hightlighted = continue 
+
+	267:Object Hightlighted = continue 
+
+	268:Object Hightlighted = continue 
+
+	269:Object Hightlighted = continue 
+
+	270:Object Hightlighted = continue 
+
+	271:Object Hightlighted = continue 
+
+	272:Object Hightlighted = continue 
+
+	273:Object Hightlighted = continue 
+
+	274:Object Hightlighted = continue 
+
+	275:Object Hightlighted = continue 
+
+	276:Object Hightlighted = continue 
+
+	277:Object Hightlighted = continue 
+
+	278:Object Hightlighted = continue 
+
+	279:Object Hightlighted = continue 
+
+	280:Object Hightlighted = continue 
+
+	281:Object Hightlighted = continue 
+
+	282:Object Hightlighted = continue 
+
+	283:Object Hightlighted = continue 
+
+	284:Object Hightlighted = continue 
+
+	285:Object Hightlighted = continue 
+
+	286:Object Hightlighted = continue 
+
+	287:Object Hightlighted = continue 
+
+	288:Object Hightlighted = continue 
+
+	289:Object Hightlighted = continue 
+
+	290:Object Hightlighted = continue 
+
+	291:Object Hightlighted = continue 
+
+	292:Object Hightlighted = continue 
+
+	293:Object Hightlighted = continue 
+
+	294:Object Hightlighted = continue 
+
+	295:Object Hightlighted = continue 
+
+	296:Object Hightlighted = continue 
+
+	297:Object Hightlighted = continue 
+
+	298:Object Hightlighted = continue 
+
+	299:Object Hightlighted = continue 
+
+	300:Object Hightlighted = continue 
+
+	301:Object Hightlighted = continue 
+
+	302:Object Hightlighted = continue 
+
+	303:Object Hightlighted = continue 
+
+	304:Object Hightlighted = continue 
+
+	305:Object Hightlighted = continue 
+
+	306:Object Hightlighted = continue 
+
+	307:Object Hightlighted = continue 
+
+	308:Object Hightlighted = continue 
+
+	309:Object Hightlighted = continue 
+
+	310:Object Hightlighted = continue 
+
+	311:Object Hightlighted = continue 
+
+	312:Object Hightlighted = continue 
+
+	313:Object Hightlighted = continue 
+
+	314:Object Hightlighted = continue 
+
+	315:Object Hightlighted = continue 
+
+	316:Object Hightlighted = continue 
+
+	317:Object Hightlighted = continue 
+
+	318:Object Hightlighted = continue 
+
+	319:Object Hightlighted = continue 
+
+	320:Object Hightlighted = continue 
+
+	321:Object Hightlighted = continue 
+
+	322:Object Hightlighted = continue 
+
+	323:Object Hightlighted = continue 
+
+	324:Object Hightlighted = continue 
+
+	325:Object Hightlighted = continue 
+
+	326:Object Hightlighted = continue 
+
+	327:Object Hightlighted = continue 
+
+	328:Object Hightlighted = continue 
+
+	329:Object Hightlighted = continue 
+
+	330:Object Hightlighted = continue 
+
+	331:Object Hightlighted = continue 
+
+	332:Object Hightlighted = continue 
+
+	333:Object Hightlighted = continue 
+
+	334:Object Hightlighted = continue 
+
+	335:Object Hightlighted = continue 
+
+	336:Object Hightlighted = continue 
+
+	337:Object Hightlighted = continue 
+
+	338:Object Hightlighted = continue 
+
+	339:Object Hightlighted = continue 
+
+	340:Object Hightlighted = continue 
+
+	341:Object Hightlighted = continue 
+
+	342:Object Hightlighted = continue 
+
+	343:Object Hightlighted = continue 
+
+	344:Object Hightlighted = continue 
+
+	345:Object Hightlighted = continue 
+
+	346:Object Hightlighted = continue 
+
+	347:Object Hightlighted = continue 
+
+	348:Object Hightlighted = continue 
+
+	349:Object Hightlighted = continue 
+
+	350:Object Hightlighted = continue 
+
+	351:Object Hightlighted = continue 
+
+	352:Object Hightlighted = continue 
+
+	353:Object Hightlighted = continue 
+
+	354:Object Hightlighted = continue 
+
+	355:Object Hightlighted = continue 
+
+	356:Object Hightlighted = continue 
+
+	357:Object Hightlighted = continue 
+
+	358:Object Hightlighted = continue 
+
+	359:Object Hightlighted = continue 
+
+	360:Object Hightlighted = continue 
+
+	361:Object Hightlighted = continue 
+
+	362:Object Hightlighted = continue 
+
+	363:Object Hightlighted = continue 
+
+----- Program execution finished on 26/01/2013 00:00:00 at 14:48:46.3393258 -----
+----- Program executed on 26/01/2013 00:00:00 at 14:49:25.8042062 -----
+	1:Object Hightlighted = continue 
+
+	2:Object Hightlighted = continue 
+
+	3:Object Hightlighted = continue 
+
+	4:Object Hightlighted = continue 
+
+	5:Object Hightlighted = continue 
+
+	6:Object Hightlighted = continue 
+
+	7:Object Hightlighted = continue 
+
+	8:Object Hightlighted = continue 
+
+	9:Object Hightlighted = continue 
+
+	10:Object Hightlighted = continue 
+
+	11:Object Hightlighted = continue 
+
+	12:Object Hightlighted = continue 
+
+	13:Object Hightlighted = continue 
+
+	14:Object Hightlighted = continue 
+
+	15:Object Hightlighted = continue 
+
+	16:Object Hightlighted = continue 
+
+	17:Object Hightlighted = continue 
+
+----- Program execution finished on 26/01/2013 00:00:00 at 14:49:29.2059523 -----
+----- Program executed on 26/01/2013 00:00:00 at 14:50:19.4942726 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 14:50:22.9062339 -----
+----- Program executed on 26/01/2013 00:00:00 at 14:51:14.4682024 -----
+	1:Object Hightlighted = continue 
+
+----- Program execution finished on 26/01/2013 00:00:00 at 14:51:19.5560297 -----
+----- Program executed on 26/01/2013 00:00:00 at 14:51:33.0367796 -----
+	1:Object Hightlighted = continue 
+
+----- Program execution finished on 26/01/2013 00:00:00 at 14:51:48.5063455 -----
+----- Program executed on 26/01/2013 00:00:00 at 14:53:15.8264331 -----
+	1:Button Clicked Action =  continue 
+
+----- Program execution finished on 26/01/2013 00:00:00 at 14:53:24.2062311 -----

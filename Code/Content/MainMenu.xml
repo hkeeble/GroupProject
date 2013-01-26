@@ -5,25 +5,31 @@
       <Item Type="GameLibrary.GraphicObject">
         <Size>0 0</Size>
         <Location>TopLeft</Location>
+        <Position>0 0</Position>
         <isCentered>false</isCentered>
         <Children></Children>
+        <isClickable>false</isClickable>
         <TextureLocation>Vignette</TextureLocation>
         <fullscreen>true</fullscreen>
+        <Action></Action>
       </Item>
       <Item Type="GameLibrary.GraphicObject">
         <Size>0 0</Size>
         <Location>TopLeft</Location>
+        <Position>0 0</Position>
         <isCentered>false</isCentered>
         <Children>
           <Item Type="GameLibrary.GraphicObject">
-            <Size>32 32</Size>
-            <Location>TopLeft</Location>
-            <isCentered>false</isCentered>
+            <Size>300 32</Size>
+            <Location>TopCenter</Location>
+            <Position>0 32</Position>
+            <isCentered>true</isCentered>
             <Children>
               <Item Type="GameLibrary.TextObject">
                 <Size>0 0</Size>
-                <Location>TopLeft</Location>
-                <isCentered>false</isCentered>
+                <Location>TopCenter</Location>
+                <Position>0 16</Position>
+                <isCentered>true</isCentered>
                 <Children></Children>
                 <Text>Adventures of Dr.Lazarus</Text>
                 <Font>SegoeUI</Font>
@@ -31,15 +37,19 @@
                 <fontColor>ffffffff</fontColor>
               </Item>
             </Children>
+            <isClickable>true</isClickable>
             <TextureLocation>handler</TextureLocation>
             <fullscreen>false</fullscreen>
+            <Action>continue</Action>
           </Item>
-          
         </Children>
+        <isClickable>false</isClickable>
         <TextureLocation>DNA</TextureLocation>
         <fullscreen>true</fullscreen>
+        <Action></Action>
       </Item>
     </content>
     <backgroundColor>a1bd68ff</backgroundColor>
+    <Overlay>true</Overlay>
   </Asset>
 </XnaContent>
