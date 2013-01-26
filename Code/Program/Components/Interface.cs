@@ -111,7 +111,7 @@ namespace VOiD.Components
                 // if screen has changed
                 content.Clear();
                 if (currentScreen == Screens.Intro)
-                    content = (Game.Content.Load<List<Object2D>>("Introface"));
+                    content = (Game.Content.Load<List<Object2D>>("Intro"));
 
             }
             else

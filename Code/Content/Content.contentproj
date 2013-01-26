@@ -50,8 +50,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Introface.xml">
-      <Name>Introface</Name>
+    <Compile Include="Intro.xml">
+      <Name>Intro</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
       <SubType>Designer</SubType>
