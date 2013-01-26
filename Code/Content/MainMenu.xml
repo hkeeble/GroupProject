@@ -37,6 +37,29 @@
                 <fontColor>ffffffff</fontColor>
               </Item>
             </Children>
+            <isClickable>false</isClickable>
+            <TextureLocation>handler</TextureLocation>
+            <fullscreen>false</fullscreen>
+            <Action></Action>
+          </Item>
+          <Item Type="GameLibrary.GraphicObject">
+            <Size>128 32</Size>
+            <Location>MiddleCenter</Location>
+            <Position>300 32</Position>
+            <isCentered>true</isCentered>
+            <Children>
+              <Item Type="GameLibrary.TextObject">
+                <Size>0 0</Size>
+                <Location>TopCenter</Location>
+                <Position>0 16</Position>
+                <isCentered>true</isCentered>
+                <Children></Children>
+                <Text>Continue</Text>
+                <Font>SegoeUI</Font>
+                <fontSize>12</fontSize>
+                <fontColor>ffffffff</fontColor>
+              </Item>
+            </Children>
             <isClickable>true</isClickable>
             <TextureLocation>handler</TextureLocation>
             <fullscreen>false</fullscreen>

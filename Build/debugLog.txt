@@ -2254,3 +2254,11 @@ Could not find file 'C:\Users\Administrator\Documents\GitHub\GroupProject\Build\
 	1:Button Clicked Action =  continue 
 
 ----- Program execution finished on 26/01/2013 00:00:00 at 14:53:24.2062311 -----
+----- Program executed on 26/01/2013 00:00:00 at 14:55:36.4305753 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 14:55:56.6738650 -----
+----- Program executed on 26/01/2013 00:00:00 at 14:56:05.0757926 -----
+----- Program execution finished on 26/01/2013 00:00:00 at 14:56:06.9073539 -----
+----- Program executed on 26/01/2013 00:00:00 at 14:56:11.4176202 -----
+	1:Button Clicked Action =  continue 
+
+----- Program execution finished on 26/01/2013 00:00:00 at 14:56:15.9735791 -----
