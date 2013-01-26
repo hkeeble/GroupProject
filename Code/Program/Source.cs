@@ -46,7 +46,7 @@ namespace VOiD
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.OldLace);
+            GraphicsDevice.Clear(Interface.BackgroundColor);
             base.Draw(gameTime);
         }
     }

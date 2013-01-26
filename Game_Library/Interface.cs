@@ -6,6 +6,12 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace GameLibrary
 {
+    public class Interface
+    {
+        public List<Object2D> content;
+        public Color backgroundColor;
+    }
+
     public class Object2D
     {
         public Rectangle Area;

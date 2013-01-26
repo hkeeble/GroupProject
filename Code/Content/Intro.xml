@@ -1,14 +1,38 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <XnaContent>
-  <Asset Type="System.Collections.Generic.List[GameLibrary.Object2D]">
-    <Item Type="GameLibrary.GraphicObject">
-      <Area>0 0 0 0</Area>
-      <Rotation>0</Rotation>
-      <RotationAni>false</RotationAni>
-      <isCentered>false</isCentered>
-      <Children></Children>
-      <TextureLocation>Background</TextureLocation>
-      <fullscreen>true</fullscreen>
-    </Item>
+  <Asset Type="GameLibrary.Interface">
+    <content>
+      <Item Type="GameLibrary.GraphicObject">
+        <Area>0 0 0 0</Area>
+        <Rotation>0</Rotation>
+        <RotationAni>false</RotationAni>
+        <isCentered>false</isCentered>
+        <Children></Children>
+        <TextureLocation>Vignette</TextureLocation>
+        <fullscreen>true</fullscreen>
+      </Item>
+      <Item Type="GameLibrary.GraphicObject">
+        <Area>0 0 0 0</Area>
+        <Rotation>0</Rotation>
+        <RotationAni>false</RotationAni>
+        <isCentered>false</isCentered>
+        <Children>
+          <Item Type="GameLibrary.TextObject">
+            <Area>0 0 0 0</Area>
+            <Rotation>0</Rotation>
+            <RotationAni>false</RotationAni>
+            <isCentered>false</isCentered>
+            <Children></Children>
+            <Text>DNA</Text>
+            <Font>SegoeUI</Font>
+            <fontSize>12</fontSize>
+            <fontColor>ffffffff</fontColor>
+          </Item>
+        </Children>
+        <TextureLocation>DNA</TextureLocation>
+        <fullscreen>true</fullscreen>
+      </Item>
+    </content>
+    <backgroundColor>a1bd68ff</backgroundColor>
   </Asset>
 </XnaContent>

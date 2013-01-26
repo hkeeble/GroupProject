@@ -17,6 +17,8 @@ namespace VOiD.Components
 
     class Interface : DrawableGameComponent
     {
+        public static Color BackgroundColor { get { return _color; } }
+        private static Color _color=Color.Black;
         private static Screens lastScreen;
         public static Screens currentScreen;
         private static List<Object2D> content = new List<Object2D>();
@@ -38,6 +40,7 @@ namespace VOiD.Components
             }
             else if (component.GetType() == typeof(TextObject))
             {
+                DrawTextComponent((component as TextObject), ref parent);
             }
 
             DrawComponent(component.Children, ref component);
@@ -49,6 +52,11 @@ namespace VOiD.Components
             {
                 DrawComponent(thing, ref parent);
             }
+        }
+
+        private void DrawTextComponent(TextObject component, ref Object2D parent)
+        {
+            SpriteBatchComponent.spriteBatch.DrawString(Game.Content.Load<SpriteFont>("SegoeUI"), component.Text, component.Position, Color.White);
         }
 
         private void DrawGraphicComponent(GraphicObject component, ref Object2D parent)
@@ -111,7 +119,11 @@ namespace VOiD.Components
                 // if screen has changed
                 content.Clear();
                 if (currentScreen == Screens.Intro)
-                    content = (Game.Content.Load<List<Object2D>>("Intro"));
+                {
+                    GameLibrary.Interface temp = (Game.Content.Load<GameLibrary.Interface>("Intro"));
+                    content = temp.content;
+                    _color = temp.backgroundColor;
+                }
 
             }
             else

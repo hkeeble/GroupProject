@@ -1,7 +1,9 @@
 Content\handler.xnb
 Content\Configuration.xnb
-Content\Introface.xnb
-Content\Background.xnb
+Content\Intro.xnb
+Content\DNA.xnb
+Content\Vignette.xnb
+Content\SegoeUI.xnb
 Level\Maps\TestMap.txt
 Level\Tilesets\handler.png
 Level\Tilesets\Tileset.png
