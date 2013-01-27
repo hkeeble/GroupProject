@@ -151,7 +151,7 @@ namespace VOiD
             if (isLoaded)
                 for (int x = 0; x < _width; x++)
                     for (int y = 0; y < _height; y++)
-                            SpriteBatchComponent.Draw(_tileSet, Camera.Transform(new Vector2(x*_tileWidth, y*_tileHeight)), new Rectangle(_tiles[y,x].X*_tileWidth, _tiles[y,x].Y*_tileHeight, _tileWidth, _tileHeight), Color.White);
+                        SpriteManager.Draw(_tileSet, Camera.Transform(new Vector2(x * _tileWidth, y * _tileHeight)), new Rectangle(_tiles[y, x].X * _tileWidth, _tiles[y, x].Y * _tileHeight, _tileWidth, _tileHeight), Color.White);
 
 
                 //for (int i = 0; i < _numberOfApples; i++)

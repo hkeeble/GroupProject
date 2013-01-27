@@ -78,9 +78,9 @@ namespace VOiD.Components
                 Text = Configuration.Width.ToString() + "x" + Configuration.Height.ToString();
 
             if (component.isCentered)
-                off-=Game.Content.Load<SpriteFont>("SegoeUI").MeasureString(Text) / 2; 
-            
-            SpriteBatchComponent.spriteBatch.DrawString(Game.Content.Load<SpriteFont>("SegoeUI"), Text, parent.Position+off, Color.White);
+                off-=Game.Content.Load<SpriteFont>("SegoeUI").MeasureString(Text) / 2;
+
+            SpriteManager.DrawString(Game.Content.Load<SpriteFont>("SegoeUI"), Text, parent.Position + off, Color.White);
         }
 
 
@@ -118,11 +118,11 @@ namespace VOiD.Components
                 component.Size.X = Game.GraphicsDevice.Viewport.Width;
                 component.Size.Y = Game.GraphicsDevice.Viewport.Height;
 
-                SpriteBatchComponent.spriteBatch.Draw(component.Texture, Configuration.Bounds, Color.White);
+                SpriteManager.Draw(component.Texture, Configuration.Bounds, Color.White);
             }
             else
             {
-                SpriteBatchComponent.spriteBatch.Draw(component.Texture, new Rectangle((int)component.Position.X, (int)component.Position.Y, (int)component.Size.X, (int)component.Size.Y), null, Color.White);
+                SpriteManager.Draw(component.Texture, new Rectangle((int)component.Position.X, (int)component.Position.Y, (int)component.Size.X, (int)component.Size.Y), null, Color.White);
             }
         }
 
@@ -235,10 +235,10 @@ namespace VOiD.Components
         {
             if (temp.Overlay)
                 GraphicsDevice.Clear(BackgroundColor);
-            SpriteBatchComponent.spriteBatch.Begin();
+            SpriteManager.Begin();
             DrawComponent(temp.content);
             DrawComponent(subMenu.content);
-            SpriteBatchComponent.spriteBatch.End();
+            SpriteManager.End();
             base.Draw(gameTime);
         }
     }

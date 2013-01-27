@@ -3829,3 +3829,17 @@ Could not find file 'C:\Users\Administrator\Documents\GitHub\GroupProject\Build\
 	1:Button Clicked Action =  Options 
 
 ----- Program execution finished on 27/01/2013 00:00:00 at 00:36:36.3710548 -----
+----- Program executed on 27/01/2013 00:00:00 at 22:15:14.8654885 -----
+	1:Button Clicked Action =  continue 
+
+----- Program execution finished on 27/01/2013 00:00:00 at 22:15:20.5332572 -----
+----- Program executed on 27/01/2013 00:00:00 at 22:17:13.2920677 -----
+	1:Button Clicked Action =  continue 
+
+----- Program execution finished on 27/01/2013 00:00:00 at 22:17:15.8996387 -----
+----- Program executed on 27/01/2013 00:00:00 at 22:18:31.7055291 -----
+	1:Button Clicked Action =  continue 
+
+	2:Button Clicked Action =  continue 
+
+----- Program execution finished on 27/01/2013 00:00:00 at 22:18:37.7502163 -----

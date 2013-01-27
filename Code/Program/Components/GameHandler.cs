@@ -72,7 +72,7 @@ namespace VOiD.Components
 
         public override void Draw(GameTime gameTime)
         {
-            SpriteBatchComponent.Begin();
+            SpriteManager.Begin(SpriteSortMode.FrontToBack,BlendState.AlphaBlend);
             // DRAW PLAYER
             // DRAW CREATURES
 
@@ -84,7 +84,7 @@ namespace VOiD.Components
                     e.Draw();
 
             //_miniMap.draw(spriteBatch);
-            SpriteBatchComponent.End();
+            SpriteManager.End();
         }
     }
 }

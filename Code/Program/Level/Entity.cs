@@ -36,7 +36,9 @@ namespace VOiD
         public void Draw()
         {
             if (_texture != null)
-                SpriteBatchComponent.Draw(_texture, Camera.Transform(_position), Color.White, 1f);
+            {
+                SpriteManager.Draw(_texture, Camera.Transform(_position), null, Color.White, 0f, Vector2.Zero, new Vector2(1, 1), SpriteEffects.None, 1f);
+            }
         }
 
         public virtual void Update()

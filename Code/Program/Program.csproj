@@ -92,7 +92,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Program.cs" />
     <Compile Include="Source.cs" />
-    <Compile Include="Components\SpriteBatchComponent.cs" />
+    <Compile Include="Components\SpriteManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Level\Maps\TestMap.txt">
