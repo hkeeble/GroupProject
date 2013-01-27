@@ -15,13 +15,11 @@ namespace VOiD
 {
     public class Game1 : Microsoft.Xna.Framework.Game
     {
-        GraphicsDeviceManager graphics;
-
         public Game1()
         {
-            graphics = new GraphicsDeviceManager(this);
             this.IsMouseVisible = true;
             Content.RootDirectory = "Content";
+            Components.Add(new Configuration(this));//Very Important DO NOT MOVE
         }
 
         protected override void Initialize()
@@ -30,7 +28,6 @@ namespace VOiD
             Components.Add(new SpriteBatchComponent(this));
             Components.Add(new DebugLog(this));
             Components.Add(new GameHandler(this));
-            Components.Add(new Configuration(this, graphics));
             Components.Add(new Interface(this));
             base.Initialize();
         }

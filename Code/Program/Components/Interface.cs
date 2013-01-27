@@ -19,12 +19,16 @@ namespace VOiD.Components
     class Interface : DrawableGameComponent
     {
         private static GameLibrary.Interface temp;
+        private static GameLibrary.Interface subMenu;
         public static Color BackgroundColor { get { return temp.backgroundColor; } }
         private static Screens lastScreen;
         public static Screens currentScreen;
+        private static short ResID = 0;
+        private DisplayMode[] dm;
 
         private void DrawComponent(List<Object2D> Interface)
         {
+            
             Object2D sam = new Object2D();
             foreach (Object2D thing in Interface)
             {
@@ -58,21 +62,25 @@ namespace VOiD.Components
 
         private void DrawTextComponent(TextObject component, GraphicObject parent)
         {
-            if (!component.Init)
-            {
 
+                component.offset.X = parent.Size.X / 100 * component.ioffset.X;
+                component.offset.Y = parent.Size.Y / 100 * component.ioffset.Y;
 
-                component.offset += yep(component, parent);
-
-                //component.Position += ye + parent.Position;
                 component.Init = true;
                 
                 //if (component.isCentered)
-                    component.offset-=Game.Content.Load<SpriteFont>("SegoeUI").MeasureString(component.Text) / 2; 
-                
-            }
 
-            SpriteBatchComponent.spriteBatch.DrawString(Game.Content.Load<SpriteFont>("SegoeUI"), component.Text, parent.Position+component.offset, Color.White);
+
+            string Text = component.Text;
+            Vector2 off = component.offset;
+
+            if (component.Text.StartsWith("@currentRes"))
+                Text = Configuration.Width.ToString() + "x" + Configuration.Height.ToString();
+
+            if (component.isCentered)
+                off-=Game.Content.Load<SpriteFont>("SegoeUI").MeasureString(Text) / 2; 
+            
+            SpriteBatchComponent.spriteBatch.DrawString(Game.Content.Load<SpriteFont>("SegoeUI"), Text, parent.Position+off, Color.White);
         }
 
 
@@ -85,28 +93,23 @@ namespace VOiD.Components
                 else
                     component.Texture = new Texture2D(Game.GraphicsDevice, 1, 1);
 
-            if (!component.Init)
-            {
-                component.Init = true;
-                Vector2 yesh = Vector2.Zero;
+            
+
                 if ((component.GetType() == typeof(GraphicObject)) && (parent.GetType() == typeof(GraphicObject)))
                 {
-                    yesh = (parent as GraphicObject).Position;
-                    component.Position += yesh;
-
-                    component.Position.X = ((parent as GraphicObject).Size.X / 100 * component.Position.X);
-                    component.Position.Y = ((parent as GraphicObject).Size.Y / 100 * component.Position.Y);
+                    
+                    component.Size.X = ((parent as GraphicObject).Size.X / 100 * component.iSize.X);
+                    component.Size.Y = ((parent as GraphicObject).Size.Y / 100 * component.iSize.Y);
+                    component.Position.X = ((parent as GraphicObject).Size.X / 100 * component.iPosition.X) - (component.Size.X / 2);
+                    component.Position.Y = ((parent as GraphicObject).Size.Y / 100 * component.iPosition.Y) - (component.Size.Y / 2);
+                    component.Position += (parent as GraphicObject).Position;
                 }
-
-
-                
-
                 
                 /*
                 if(component.isCentered)
                     component.offset = new Vector2(component.Size.X, component.Size.Y) / 2;
                 */
-            }
+            
 
             if (component.fullscreen)
             {
@@ -128,36 +131,8 @@ namespace VOiD.Components
         {
             currentScreen = Screens.MainMenu;
             lastScreen = Screens.BLANK;
+            dm = Game.GraphicsDevice.Adapter.SupportedDisplayModes.ToArray<DisplayMode>();
         }
-
-
-
-        private Vector2 yep(TextObject component,GraphicObject parent)
-        {
-            Vector2 ye;
-            
-            if (component.Location == "TopCenter")
-                ye = new Vector2(parent.Size.X / 2, 0);
-            else if (component.Location == "TopRight")
-                ye = new Vector2(parent.Size.X, 0);
-            else if (component.Location == "MiddleLeft")
-                ye = new Vector2(0, parent.Size.Y / 2);
-            else if (component.Location == "MiddleCenter")
-                ye = new Vector2(parent.Size.X / 2, parent.Size.Y / 2);
-            else if (component.Location == "MiddleRight")
-                ye = new Vector2(parent.Size.X, parent.Size.Y / 2);
-            else if (component.Location == "BottomLeft")
-                ye = new Vector2(0, parent.Size.Y);
-            else if (component.Location == "BottomCenter")
-                ye = new Vector2(parent.Size.X / 2, parent.Size.Y);
-            else if (component.Location == "BottomRight")
-                ye = new Vector2(parent.Size.X, parent.Size.Y);
-            else // TopLeft
-                ye = new Vector2(0, 0);
-
-            return ye;
-        }
-
 
         private void ClickableComponent(GraphicObject component)
         {
@@ -169,6 +144,31 @@ namespace VOiD.Components
                     currentScreen = Screens.LevelMenu;
                 if (component.Action.Equals("Quit"))
                     Game.Exit();
+                if (component.Action.Equals("Options"))
+                    subMenu = Game.Content.Load<GameLibrary.Interface>("SubMenuOptions");
+                if (component.Action.Equals("DeleteSubMenu"))
+                    subMenu = new GameLibrary.Interface();
+                if (component.Action.Equals("PlusRes"))
+                {
+                    DisplayMode tmp = dm[ResID];
+                    Configuration.Width = tmp.Width;
+                    Configuration.Height = tmp.Height;
+
+                    ResID++;
+                    if (ResID >= Game.GraphicsDevice.Adapter.SupportedDisplayModes.Count<DisplayMode>())
+                        ResID = 0;
+                }
+                if (component.Action.Equals("MinusRes"))
+                {
+                    DisplayMode tmp = dm[ResID];
+                    Configuration.Width = tmp.Width;
+                    Configuration.Height = tmp.Height;
+
+                    
+                    if (ResID <= 0)
+                        ResID = (short)(Game.GraphicsDevice.Adapter.SupportedDisplayModes.Count<DisplayMode>());
+                    ResID--;
+                }
                 DebugLog.WriteLine(string.Format("Button Clicked Action =  {0} ", component.Action));
             }
         }
@@ -218,12 +218,15 @@ namespace VOiD.Components
                 {
                     temp = new GameLibrary.Interface();
                 }
-
+                subMenu = new GameLibrary.Interface();
             }
 
             // Do any logic required for this type of screen
             lastScreen = currentScreen;
-            UpdateComponent(temp.content);
+            if (subMenu.content.Count == 0)
+                UpdateComponent(temp.content);
+            else
+                UpdateComponent(subMenu.content);
 
             base.Update(gameTime);
         }
@@ -234,6 +237,7 @@ namespace VOiD.Components
                 GraphicsDevice.Clear(BackgroundColor);
             SpriteBatchComponent.spriteBatch.Begin();
             DrawComponent(temp.content);
+            DrawComponent(subMenu.content);
             SpriteBatchComponent.spriteBatch.End();
             base.Draw(gameTime);
         }

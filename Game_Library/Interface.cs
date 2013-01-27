@@ -26,8 +26,12 @@ namespace GameLibrary
 
     public class GraphicObject : Object2D
     {
-        public Vector2 Size;
-        public Vector2 Position;
+        public Vector2 iSize;
+        public Vector2 iPosition;
+        [ContentSerializerIgnore]
+        public Vector2 Size=Vector2.Zero;
+        [ContentSerializerIgnore]
+        public Vector2 Position=Vector2.Zero;
         public bool isClickable;
         public string TextureLocation;
         public bool fullscreen;
@@ -45,13 +49,10 @@ namespace GameLibrary
     {
         public string Text;
         public Color fontColor;
-        public string Location;
-        //[ContentSerializerIgnore]
-        public Vector2 offset;
-        public TextObject()
-        {
-            offset = Vector2.Zero;
-        }
+        public bool isCentered = false;
+        public Vector2 ioffset;
+        [ContentSerializerIgnore]
+        public Vector2 offset=Vector2.Zero;
     }
 
 

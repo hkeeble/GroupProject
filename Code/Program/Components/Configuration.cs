@@ -11,17 +11,34 @@ namespace VOiD.Components
 {
     class Configuration : GameComponent
     {
-        public static int Width;
-        public static int Height;
-        public static bool Fullscreen;
+        public static int Width 
+        {
+            get { return graphics.GraphicsDevice.Viewport.Width; }
+            set
+            {
+                graphics.PreferredBackBufferWidth = value;
+                graphics.ApplyChanges();
+            }
+        }
+        public static int Height
+        {
+            get { return graphics.GraphicsDevice.Viewport.Height; }
+            set
+            {
+                graphics.PreferredBackBufferHeight = value;
+                graphics.ApplyChanges();
+            }
+        }
 
+        public static bool Fullscreen;
+        private static GraphicsDeviceManager graphics;
         public static float AspectRatio { get { return (float)Width / Height; } }
         public static Rectangle Bounds { get { return new Rectangle(0, 0, Width, Height); } }
 
-        public Configuration(Game game, GraphicsDeviceManager graphics)
+        public Configuration(Game game)
             : base(game)
         {
-            
+            graphics = new GraphicsDeviceManager(game);
             Game_Library.Configuration config = game.Content.Load<Game_Library.Configuration>("Configuration");
             Width = config.Width;
             Height = config.Height;

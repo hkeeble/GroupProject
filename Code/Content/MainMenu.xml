@@ -3,8 +3,8 @@
   <Asset Type="GameLibrary.Interface">
     <content>
       <Item Type="GameLibrary.GraphicObject">
-        <Size>0 0</Size>
-        <Position>0 0</Position>
+        <iSize>0 0</iSize>
+        <iPosition>0 0</iPosition>
         <isClickable>false</isClickable>
         <TextureLocation>Vignette</TextureLocation>
         <fullscreen>true</fullscreen>
@@ -12,8 +12,8 @@
         <Children></Children>
       </Item>
       <Item Type="GameLibrary.GraphicObject">
-        <Size>0 0</Size>
-        <Position>0 0</Position>
+        <iSize>100 100</iSize>
+        <iPosition>0 0</iPosition>
         <isClickable>false</isClickable>
         <TextureLocation>DNA</TextureLocation>
         <fullscreen>true</fullscreen>
@@ -22,12 +22,12 @@
           <Item Type="GameLibrary.TextObject">
             <Text>Adventures of Dr.Lazarus</Text>
             <fontColor>ffffffff</fontColor>
-            <Location>TopLeft</Location>
-            <offset>200 70</offset>
+            <isCentered>false</isCentered>
+            <ioffset>14 10</ioffset>
           </Item>
           <Item Type="GameLibrary.GraphicObject">
-            <Size>128 32</Size>
-            <Position>72.5 53</Position>
+            <iSize>10 5</iSize>
+            <iPosition>78.6 55.4</iPosition>
             <isClickable>true</isClickable>
             <TextureLocation></TextureLocation>
             <fullscreen>false</fullscreen>
@@ -36,14 +36,14 @@
               <Item Type="GameLibrary.TextObject">
                 <Text>Continue</Text>
                 <fontColor>ffffffff</fontColor>
-                <Location>MiddleCenter</Location>
-                <offset>0 0</offset>
+                <isCentered>true</isCentered>
+                <ioffset>50 50</ioffset>
               </Item>
             </Children>
           </Item>
           <Item Type="GameLibrary.GraphicObject">
-            <Size>128 32</Size>
-            <Position>43 82</Position>
+            <iSize>10 5</iSize>
+            <iPosition>49 85.5</iPosition>
             <isClickable>true</isClickable>
             <TextureLocation></TextureLocation>
             <fullscreen>false</fullscreen>
@@ -52,8 +52,24 @@
               <Item Type="GameLibrary.TextObject">
                 <Text>Quit</Text>
                 <fontColor>ffffffff</fontColor>
-                <Location>MiddleCenter</Location>
-                <offset>0 0</offset>
+                <isCentered>true</isCentered>
+                <ioffset>50 50</ioffset>
+              </Item>
+            </Children>
+          </Item>
+          <Item Type="GameLibrary.GraphicObject">
+            <iSize>10 5</iSize>
+            <iPosition>67.2 72.7</iPosition>
+            <isClickable>true</isClickable>
+            <TextureLocation></TextureLocation>
+            <fullscreen>false</fullscreen>
+            <Action>Options</Action>
+            <Children>
+              <Item Type="GameLibrary.TextObject">
+                <Text>Options</Text>
+                <fontColor>ffffffff</fontColor>
+                <isCentered>true</isCentered>
+                <ioffset>50 50</ioffset>
               </Item>
             </Children>
           </Item>
