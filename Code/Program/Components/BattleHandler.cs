@@ -37,10 +37,14 @@ namespace VOiD.Components
             if (InSession)
             {
                 //do battle logic here
-
-                bool BattleEnd = true;
+                GameHandler.Enabled = false;
+                bool BattleEnd = false;
                 if (BattleEnd)
+                {
                     InSession = false;
+                    Interface.currentScreen = Screens.LevelMenu;
+                    GameHandler.Enabled = true;
+                }
             }
 
 

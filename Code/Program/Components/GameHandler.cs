@@ -17,7 +17,7 @@ namespace VOiD.Components
         //private Minimap _miniMap;
         public static Creature player;
         public static Inventory inventory;
-
+        public static bool Enabled = true;
         const int NUMBER_OF_ITEM_TYPES = 5;
 
         public GameHandler(Game game)
@@ -56,37 +56,41 @@ namespace VOiD.Components
 
         public override void Update(GameTime gameTime)
         {
-            if (nests.Count > 0)
-                foreach (Nest n in nests)
-                    n.Update();
-
-            Camera.Position = new Vector2((GameHandler.player.Position.X + (GameHandler.player.Texture.Width / 2)) - (Configuration.Width / 2),
-                                 (GameHandler.player.Position.Y + (GameHandler.player.Texture.Height / 2)) - (Configuration.Height / 2));
-
-            HandlePlayerMovement();
-
-            for(int i = 0; i < items.Count; i++) // NOT VERY EFFICIENT - MAY NEED REPLACING
+            if (Enabled)
             {
-                if (player.CollisionRect.Intersects(items[i].CollisionRect))
-                {
-                    inventory.AddItem(items[i]);
-                    items.Remove(items[i]);
-                }
-            }
+                if (nests.Count > 0)
+                    foreach (Nest n in nests)
+                        n.Update();
 
-            for (int i = 0; i < nests.Count; i++)
-            {
-                for (int j = 0; j < nests[i].Creatures.Count; j++)
+                Camera.Position = new Vector2((GameHandler.player.Position.X + (GameHandler.player.Texture.Width / 2)) - (Configuration.Width / 2),
+                                     (GameHandler.player.Position.Y + (GameHandler.player.Texture.Height / 2)) - (Configuration.Height / 2));
+
+                HandlePlayerMovement();
+
+                for (int i = 0; i < items.Count; i++) // NOT VERY EFFICIENT - MAY NEED REPLACING
                 {
-                    if (nests[i].Creatures[j].CollisionRect.Intersects(player.CollisionRect))
+                    if (player.CollisionRect.Intersects(items[i].CollisionRect))
                     {
-                        // INVOKE BATTLE HERE
+                        inventory.AddItem(items[i]);
+                        items.Remove(items[i]);
                     }
                 }
-            }
 
-            player.Update();
-            base.Update(gameTime);
+                for (int i = 0; i < nests.Count; i++)
+                {
+                    for (int j = 0; j < nests[i].Creatures.Count; j++)
+                    {
+                        if (nests[i].Creatures[j].CollisionRect.Intersects(player.CollisionRect))
+                        {
+                            // INVOKE BATTLE HERE
+                            BattleHandler.InitiateBattle(nests[i].Creatures[j], player);
+                        }
+                    }
+                }
+
+                player.Update();
+                base.Update(gameTime);
+            }
         }
 
         private void HandlePlayerMovement()
@@ -124,23 +128,26 @@ namespace VOiD.Components
 
         public override void Draw(GameTime gameTime)
         {
-            SpriteManager.Begin(SpriteSortMode.FrontToBack,BlendState.AlphaBlend);
-            // DRAW PLAYER
-            // DRAW CREATURES
+            if (Enabled)
+            {
+                SpriteManager.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend);
+                // DRAW PLAYER
+                // DRAW CREATURES
 
-            player.Draw();
-            TileMap.Draw();
+                player.Draw();
+                TileMap.Draw();
 
-            if (nests.Count > 0)
-                foreach (Nest n in nests)
-                    n.Draw();
+                if (nests.Count > 0)
+                    foreach (Nest n in nests)
+                        n.Draw();
 
-            if (items.Count > 0)
-                foreach (ItemEntity i in items)
-                    i.Draw();
+                if (items.Count > 0)
+                    foreach (ItemEntity i in items)
+                        i.Draw();
 
-            //_miniMap.draw(spriteBatch);
-            SpriteManager.End();
+                //_miniMap.draw(spriteBatch);
+                SpriteManager.End();
+            }
         }
     }
 }

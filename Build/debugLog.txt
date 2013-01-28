@@ -384,3 +384,25 @@ Parameter name: minValue
 	1:Button Clicked Action =  continue 
 
 ----- Program execution finished on 28/01/2013 00:00:00 at 17:03:14.0133404 -----
+----- Program executed on 28/01/2013 00:00:00 at 19:43:13.2388381 -----
+	1:Button Clicked Action =  continue 
+
+	2:Player collected item ID 3
+
+	3:Player collected item ID 4
+
+	4:Player collected item ID 5
+
+----- Program execution finished on 28/01/2013 00:00:00 at 19:44:21.6054420 -----
+----- Program executed on 28/01/2013 00:00:00 at 19:49:03.7575666 -----
+	1:Button Clicked Action =  continue 
+
+----- Program execution finished on 28/01/2013 00:00:00 at 19:49:38.2001998 -----
+----- Program executed on 28/01/2013 00:00:00 at 19:55:20.0353749 -----
+	1:Button Clicked Action =  continue 
+
+----- Program execution finished on 28/01/2013 00:00:00 at 19:55:43.2852637 -----
+----- Program executed on 28/01/2013 00:00:00 at 19:55:51.1642779 -----
+	1:Button Clicked Action =  continue 
+
+----- Program execution finished on 28/01/2013 00:00:00 at 19:56:04.8858455 -----
