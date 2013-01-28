@@ -69,6 +69,23 @@
                   </Item>
                 </Children>
               </Item>
+
+              <Item Type="GameLibrary.GraphicObject">
+                <iSize>80 10</iSize>
+                <iPosition>50 40</iPosition>
+                <isClickable>true</isClickable>
+                <TextureLocation>trans</TextureLocation>
+                <fullscreen>false</fullscreen>
+                <Action>DeleteSubMenu</Action>
+                <Children>
+                  <Item Type="GameLibrary.TextObject">
+                    <Text>Close</Text>
+                    <fontColor>ffffffff</fontColor>
+                    <isCentered>true</isCentered>
+                    <ioffset>50 50</ioffset>
+                  </Item>
+                </Children>
+              </Item>
               
             </Children>
           </Item>

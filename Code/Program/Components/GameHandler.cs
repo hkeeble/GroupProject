@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace VOiD.Components
@@ -78,31 +79,31 @@ namespace VOiD.Components
         {
             if (player.Direction.Y == 0 && player.Position.X % TileMap.TileWidth == 0)
             {
-                if (InputHandler.KeyDown(Microsoft.Xna.Framework.Input.Keys.Down))
+                if (InputHandler.KeyDown(Keys.Down))
                     player.Direction.Y = 1;
-                else if (InputHandler.KeyDown(Microsoft.Xna.Framework.Input.Keys.Up))
+                else if (InputHandler.KeyDown(Keys.Up))
                     player.Direction.Y = -1;
             }
             else if (player.Position.Y % TileMap.TileHeight == 0)
             {
-                if (player.Direction.Y == 1 && !InputHandler.KeyDown(Microsoft.Xna.Framework.Input.Keys.Down))
+                if (player.Direction.Y == 1 && !InputHandler.KeyDown(Keys.Down))
                     player.Direction.Y = 0;
-                if (player.Direction.Y == -1 && !InputHandler.KeyDown(Microsoft.Xna.Framework.Input.Keys.Up))
+                if (player.Direction.Y == -1 && !InputHandler.KeyDown(Keys.Up))
                     player.Direction.Y = 0;
             }
 
             if (player.Direction.X == 0 && player.Position.Y % TileMap.TileHeight == 0)
             {
-                if (InputHandler.KeyDown(Microsoft.Xna.Framework.Input.Keys.Left))
+                if (InputHandler.KeyDown(Keys.Left))
                     player.Direction.X = -1;
-                else if (InputHandler.KeyDown(Microsoft.Xna.Framework.Input.Keys.Right))
+                else if (InputHandler.KeyDown(Keys.Right))
                     player.Direction.X = 1;
             }
             else if (player.Position.X % TileMap.TileWidth == 0)
             {
-                if (player.Direction.X == 1 && !InputHandler.KeyDown(Microsoft.Xna.Framework.Input.Keys.Right))
+                if (player.Direction.X == 1 && !InputHandler.KeyDown(Keys.Right))
                     player.Direction.X = 0;
-                if (player.Direction.X == -1 && !InputHandler.KeyDown(Microsoft.Xna.Framework.Input.Keys.Left))
+                if (player.Direction.X == -1 && !InputHandler.KeyDown(Keys.Left))
                     player.Direction.X = 0;
             }
         }

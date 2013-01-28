@@ -75,6 +75,7 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\BattleHandler.cs" />
     <Compile Include="Components\Configuration.cs" />
     <Compile Include="Components\Interface.cs" />
     <Compile Include="Creature\AttackTypes.cs" />

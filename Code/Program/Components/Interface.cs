@@ -13,6 +13,7 @@ namespace VOiD.Components
         Intro,
         MainMenu,
         LevelMenu,
+        Battle,
         BLANK
     }
 
@@ -138,7 +139,7 @@ namespace VOiD.Components
         {
             Rectangle TextureRectangle = new Rectangle((int)component.Position.X, (int)component.Position.Y, (int)component.Size.X, (int)component.Size.Y);
 
-            if (TextureRectangle.Contains(InputHandler.mouseState.X, InputHandler.mouseState.Y)&&InputHandler.mouseState.LeftButton== Microsoft.Xna.Framework.Input.ButtonState.Pressed)
+            if (TextureRectangle.Contains(InputHandler.MouseX, InputHandler.MouseY)&&InputHandler.LeftClickPressed)
             {
                 if (component.Action.Equals("continue"))
                     currentScreen = Screens.LevelMenu;

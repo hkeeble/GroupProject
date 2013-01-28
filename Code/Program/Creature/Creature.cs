@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace VOiD
 {
-    class Creature : Entity
+    public class Creature : Entity
     {
         //private CreatureModel creatureModel;
 

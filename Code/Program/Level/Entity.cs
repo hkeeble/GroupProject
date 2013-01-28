@@ -8,7 +8,7 @@ using VOiD.Components;
 
 namespace VOiD
 {
-    class Entity
+    public class Entity
     {
         private Texture2D _texture;
         private Vector2 _position;

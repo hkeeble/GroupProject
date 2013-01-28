@@ -4425,3 +4425,85 @@ Error loading "CreatureGeneric". File not found.
 	1:Button Clicked Action =  continue 
 
 ----- Program execution finished on 28/01/2013 00:00:00 at 11:55:15.1909878 -----
+----- Program executed on 28/01/2013 00:00:00 at 12:29:19.7214468 -----
+	1:Button Clicked Action =  continue 
+
+	2:Player collected item ID 3
+
+	3:Player collected item ID 2
+
+	4:Player collected item ID 1
+
+	5:Player collected item ID 4
+
+	6:Player collected item ID 5
+
+----- Program execution finished on 28/01/2013 00:00:00 at 12:30:23.8228653 -----
+----- Program executed on 28/01/2013 00:00:00 at 12:42:34.1949156 -----
+	1:Button Clicked Action =  continue 
+
+	2:Button Clicked Action =  Options 
+
+	3:Button Clicked Action =  PlusRes 
+
+----- Program execution finished on 28/01/2013 00:00:00 at 12:42:41.8593073 -----
+----- Program executed on 28/01/2013 00:00:00 at 12:54:38.2660448 -----
+	1:Button Clicked Action =  Options 
+
+	2:Button Clicked Action =  PlusRes 
+
+	3:Button Clicked Action =  PlusRes 
+
+	4:Button Clicked Action =  PlusRes 
+
+	5:Button Clicked Action =  PlusRes 
+
+	6:Button Clicked Action =  PlusRes 
+
+	7:Button Clicked Action =  PlusRes 
+
+	8:Button Clicked Action =  PlusRes 
+
+	9:Button Clicked Action =  PlusRes 
+
+	10:Button Clicked Action =  PlusRes 
+
+	11:Button Clicked Action =  PlusRes 
+
+	12:Button Clicked Action =  PlusRes 
+
+	13:Button Clicked Action =  PlusRes 
+
+	14:Button Clicked Action =  PlusRes 
+
+	15:Button Clicked Action =  PlusRes 
+
+	16:Button Clicked Action =  PlusRes 
+
+	17:Button Clicked Action =  PlusRes 
+
+	18:Button Clicked Action =  PlusRes 
+
+	19:Button Clicked Action =  PlusRes 
+
+	20:Button Clicked Action =  PlusRes 
+
+	21:Button Clicked Action =  PlusRes 
+
+	22:Button Clicked Action =  PlusRes 
+
+	23:Button Clicked Action =  PlusRes 
+
+----- Program execution finished on 28/01/2013 00:00:00 at 12:55:06.5884677 -----
+----- Program executed on 28/01/2013 00:00:00 at 12:56:51.2064133 -----
+	1:Button Clicked Action =  Options 
+
+	2:Button Clicked Action =  DeleteSubMenu 
+
+	3:Button Clicked Action =  Options 
+
+	4:Button Clicked Action =  DeleteSubMenu 
+
+	5:Button Clicked Action =  Quit 
+
+----- Program execution finished on 28/01/2013 00:00:00 at 12:56:58.6857342 -----
