@@ -110,17 +110,17 @@ namespace VOiD
 
                 GameHandler.Boss = new Creature(Convert.ToInt16(tr.ReadLine()), content.Load<Texture2D>("Sprites\\CreatureGeneric"),_bossSpawn, 1f);
 
-                //_numberOfNests = Convert.ToInt32(tr.ReadLine());
-                //_nestPositions = new Point[_numberOfNests];
-                //for (int i = 0; i < _numberOfNests; i++)
-                //{
-                //    // READ CREATURE CODE - READLINE
-                //    _nestPositions[i].X = Convert.ToInt32(tr.Read());
-                //    _nestPositions[i].Y = Convert.ToInt32(tr.Read());
-                //    tr.ReadLine(); // Move to next line
-                //}
+                _numberOfNests = Convert.ToInt32(tr.ReadLine());
 
-                //tr.ReadLine();
+                for (int i = 0; i < _numberOfNests; i++)
+                {
+                    string cPos = tr.ReadLine();
+                    split = cPos.Split('-');
+                    GameHandler.AddNest(new Nest(content.Load<Texture2D>("Sprites\\Nest"), content.Load<Texture2D>("Sprites\\CreatureGeneric"),
+                        new Point(Convert.ToInt32(split[0])*_tileWidth,Convert.ToInt32(split[1])*_tileHeight), Convert.ToInt16(tr.ReadLine()), new Point(_width, _height),
+                        new Point(_tileWidth, _tileHeight)));
+                }
+
                 tr.Close();
             }
             catch (FileNotFoundException e)
@@ -138,7 +138,7 @@ namespace VOiD
         }
 
         /// <summary>
-        /// Draws the level's tiles and the lab.
+        /// Draws the level's tiles.
         /// </summary>
         public void Draw()
         {
@@ -147,19 +147,6 @@ namespace VOiD
                     for (int y = 0; y < _height; y++)
                         SpriteManager.Draw(_tileSet, Camera.Transform(new Vector2(x * _tileWidth, y * _tileHeight)), new Rectangle(_tiles[y, x].X * _tileWidth, _tiles[y, x].Y * _tileHeight, _tileWidth, _tileHeight), Color.White,
                             0f, Vector2.Zero, new Vector2(1, 1), SpriteEffects.None, 0f);
-
-
-                //for (int i = 0; i < _numberOfApples; i++)
-                //{
-                //    // DRAW APPLES
-                //}
-
-                //for (int i = 0; i < _numberOfNests; i++)
-                //{
-                //    // DRAW NESTS
-                //}
-
-                // DRAW LAB
         }
 
         /// <summary>

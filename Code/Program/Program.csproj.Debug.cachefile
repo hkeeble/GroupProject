@@ -17,5 +17,6 @@ Content\MainMenu.xnb
 Content\LevelMenu.xnb
 Content\SubMenuOptions.xnb
 Content\SegoeUI.xnb
+Content\Sprites\Nest.xnb
 Level\Maps\TestMap.txt
 Level\Tilesets\Tileset.png

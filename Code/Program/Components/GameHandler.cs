@@ -35,6 +35,11 @@ namespace VOiD.Components
             items.Add(item);
         }
 
+        public static void AddNest(Nest nest)
+        {
+            nests.Add(nest);
+        }
+
         public void LoadSave(Game game, string filePath)
         {
             TileMap = new TileMap(filePath, game.GraphicsDevice, game.Content);

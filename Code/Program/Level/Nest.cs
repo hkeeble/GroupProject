@@ -12,15 +12,15 @@ namespace VOiD
     {
         private Vector2 _position;
         private Texture2D _texture;
-        private List<Creature> creatures;
+        private List<Creature> creatures = new List<Creature>();
         private Rectangle _moveArea;
 
         private Random rand;
 
         const int MAX_CREATURES = 4;
-        const int MOVE_AREA_SIZE = 10;
+        const int MOVE_AREA_SIZE = 5;
 
-        public Nest(Texture2D texture, Texture2D creatureTexture, Point position, short ID)
+        public Nest(Texture2D texture, Texture2D creatureTexture, Point position, short ID, Point mapDimensions, Point tileDimensions)
         {
             rand = new Random(DateTime.Now.Millisecond);
             _texture = texture;
@@ -31,14 +31,19 @@ namespace VOiD
                 _moveArea.X = 0;
             if(_moveArea.Y < 0)
                 _moveArea.Y = 0;
-            if(_moveArea.X+MOVE_AREA_SIZE > GameHandler.TileMap.Width)
-                _moveArea.Width = GameHandler.TileMap.Width;
-            if(_moveArea.Y+MOVE_AREA_SIZE > GameHandler.TileMap.Height)
-                _moveArea.Height = GameHandler.TileMap.Height;
+            //if (_moveArea.X + MOVE_AREA_SIZE > mapDimensions.X)
+            //    _moveArea.Width = mapDimensions.Y;
+            //if (_moveArea.Y + MOVE_AREA_SIZE > mapDimensions.Y)
+            //    _moveArea.Height = mapDimensions.Y;
 
             for(int i = 0; i < MAX_CREATURES; i++)
             {
-                creatures.Add(new Creature(ID, creatureTexture, new Vector2(rand.Next(_moveArea.X, _moveArea.Width), rand.Next(_moveArea.Y, _moveArea.Height)), 1f));
+                Vector2 Position = new Vector2(rand.Next(_moveArea.X, (_moveArea.X + _moveArea.Width)),
+                    rand.Next(_moveArea.Y / tileDimensions.Y, (_moveArea.Y + _moveArea.Height) / tileDimensions.Y));
+
+                DebugLog.WriteLine(Convert.ToString(Position.X) + " " + Convert.ToString(Position.Y));
+
+                creatures.Add(new Creature(ID, creatureTexture, new Vector2(Position.X, Position.Y), 1f));
             }
         }
 
@@ -49,7 +54,7 @@ namespace VOiD
 
         public void Draw()
         {
-            SpriteManager.Draw(_texture, _position, null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0.5f);
+            SpriteManager.Draw(_texture, Camera.Transform(_position), null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0.5f);
 
             foreach (Creature e in creatures)
                 e.Draw();

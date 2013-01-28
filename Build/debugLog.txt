@@ -34,3 +34,343 @@
 	3:Player collected item ID 3
 
 ----- Program execution finished on 28/01/2013 00:00:00 at 15:59:06.9603015 -----
+----- Program executed on 28/01/2013 00:00:00 at 16:06:31.4777265 -----
+	1:Error loading level named TestMap.txt error message: 
+Input string was not in a correct format.
+
+	2:Button Clicked Action =  continue 
+
+----- Program executed on 28/01/2013 00:00:00 at 16:07:41.0687068 -----
+	1:Error loading level named TestMap.txt error message: 
+Error loading "Sprites\Nest". File not found.
+
+	2:Button Clicked Action =  continue 
+
+----- Program execution finished on 28/01/2013 00:00:00 at 16:07:48.7071437 -----
+----- Program executed on 28/01/2013 00:00:00 at 16:09:09.1137427 -----
+	1:Error loading level named TestMap.txt error message: 
+Object reference not set to an instance of an object.
+
+	2:Button Clicked Action =  continue 
+
+----- Program execution finished on 28/01/2013 00:00:00 at 16:09:16.5281668 -----
+----- Program executed on 28/01/2013 00:00:00 at 16:09:41.4795939 -----
+----- Program executed on 28/01/2013 00:00:00 at 16:10:33.0325426 -----
+	1:Error loading level named TestMap.txt error message: 
+Object reference not set to an instance of an object.
+
+----- Program execution finished on 28/01/2013 00:00:00 at 16:10:42.0540586 -----
+----- Program executed on 28/01/2013 00:00:00 at 16:11:03.4252810 -----
+	1:Error loading level named TestMap.txt error message: 
+Object reference not set to an instance of an object.
+
+	2:Button Clicked Action =  continue 
+
+----- Program executed on 28/01/2013 00:00:00 at 16:11:44.4056249 -----
+----- Program executed on 28/01/2013 00:00:00 at 16:12:27.6991011 -----
+----- Program executed on 28/01/2013 00:00:00 at 16:13:39.6902188 -----
+----- Program executed on 28/01/2013 00:00:00 at 16:14:12.1660763 -----
+----- Program executed on 28/01/2013 00:00:00 at 16:15:07.1622219 -----
+	1:Error loading level named TestMap.txt error message: 
+Object reference not set to an instance of an object.
+
+	2:Button Clicked Action =  continue 
+
+----- Program execution finished on 28/01/2013 00:00:00 at 16:15:16.0967329 -----
+----- Program executed on 28/01/2013 00:00:00 at 16:15:59.6002212 -----
+----- Program executed on 28/01/2013 00:00:00 at 16:17:49.6445154 -----
+	1:Error loading level named TestMap.txt error message: 
+'minValue' cannot be greater than maxValue.
+Parameter name: minValue
+
+----- Program execution finished on 28/01/2013 00:00:00 at 16:17:54.4367895 -----
+----- Program executed on 28/01/2013 00:00:00 at 16:18:29.1647758 -----
+	1:Button Clicked Action =  continue 
+
+----- Program execution finished on 28/01/2013 00:00:00 at 16:18:37.2332373 -----
+----- Program executed on 28/01/2013 00:00:00 at 16:19:06.0778871 -----
+	1:Button Clicked Action =  continue 
+
+----- Program execution finished on 28/01/2013 00:00:00 at 16:19:17.9765677 -----
+----- Program executed on 28/01/2013 00:00:00 at 16:24:10.2482847 -----
+	1:Button Clicked Action =  continue 
+
+----- Program execution finished on 28/01/2013 00:00:00 at 16:24:21.1859103 -----
+----- Program executed on 28/01/2013 00:00:00 at 16:26:25.1209989 -----
+	1:320 320
+
+	2:320 320
+
+	3:320 320
+
+	4:320 320
+
+	5:416 416
+
+	6:416 416
+
+	7:416 416
+
+	8:416 416
+
+	9:Button Clicked Action =  continue 
+
+----- Program execution finished on 28/01/2013 00:00:00 at 16:26:32.7144333 -----
+----- Program executed on 28/01/2013 00:00:00 at 16:26:43.3590421 -----
+----- Program executed on 28/01/2013 00:00:00 at 16:27:13.7037777 -----
+	1:320 320
+
+	2:320 320
+
+	3:320 320
+
+	4:320 320
+
+	5:416 416
+
+	6:416 416
+
+	7:416 416
+
+	8:416 416
+
+	9:Button Clicked Action =  continue 
+
+----- Program execution finished on 28/01/2013 00:00:00 at 16:27:24.2933834 -----
+----- Program executed on 28/01/2013 00:00:00 at 16:28:29.0420868 -----
+	1:320 320
+
+----- Program executed on 28/01/2013 00:00:00 at 16:29:26.2773605 -----
+	1:320 320
+
+	2:320 320
+
+	3:320 320
+
+	4:320 320
+
+	5:416 416
+
+	6:416 416
+
+	7:416 416
+
+	8:416 416
+
+----- Program execution finished on 28/01/2013 00:00:00 at 16:29:31.2246435 -----
+----- Program executed on 28/01/2013 00:00:00 at 16:29:36.4529425 -----
+----- Program executed on 28/01/2013 00:00:00 at 16:29:54.1869568 -----
+----- Program executed on 28/01/2013 00:00:00 at 16:30:18.0133196 -----
+	1:320 320
+
+	2:320 320
+
+	3:320 320
+
+	4:320 320
+
+	5:416 416
+
+	6:416 416
+
+	7:416 416
+
+	8:416 416
+
+	9:Button Clicked Action =  continue 
+
+----- Program execution finished on 28/01/2013 00:00:00 at 16:30:25.7337612 -----
+----- Program executed on 28/01/2013 00:00:00 at 16:31:11.1273576 -----
+	1:320 320
+
+	2:320 320
+
+	3:320 320
+
+	4:320 320
+
+	5:416 416
+
+	6:416 416
+
+	7:416 416
+
+	8:416 416
+
+----- Program executed on 28/01/2013 00:00:00 at 16:31:38.0278962 -----
+	1:320 320
+
+	2:320 320
+
+	3:320 320
+
+	4:320 320
+
+	5:416 416
+
+	6:416 416
+
+	7:416 416
+
+	8:416 416
+
+----- Program execution finished on 28/01/2013 00:00:00 at 16:31:41.4640927 -----
+----- Program executed on 28/01/2013 00:00:00 at 16:31:52.9787513 -----
+	1:9 9
+
+	2:9 9
+
+	3:9 9
+
+	4:9 9
+
+	5:12 12
+
+	6:12 12
+
+	7:12 12
+
+	8:12 12
+
+	9:Button Clicked Action =  continue 
+
+----- Program execution finished on 28/01/2013 00:00:00 at 16:31:57.9660366 -----
+----- Program executed on 28/01/2013 00:00:00 at 16:32:29.4218358 -----
+	1:317 9
+
+	2:315 9
+
+	3:319 9
+
+	4:310 9
+
+	5:413 12
+
+	6:415 12
+
+	7:414 12
+
+	8:415 12
+
+	9:Button Clicked Action =  continue 
+
+----- Program execution finished on 28/01/2013 00:00:00 at 16:32:46.0377861 -----
+----- Program executed on 28/01/2013 00:00:00 at 16:33:04.4218376 -----
+	1:9 9
+
+	2:9 9
+
+	3:9 9
+
+	4:9 9
+
+	5:12 12
+
+	6:12 12
+
+	7:12 12
+
+	8:12 12
+
+	9:Button Clicked Action =  continue 
+
+----- Program executed on 28/01/2013 00:00:00 at 16:33:25.6610525 -----
+	1:10127 9
+
+	2:9935 9
+
+	3:10163 9
+
+	4:9928 9
+
+	5:13213 12
+
+	6:13135 12
+
+	7:13204 12
+
+	8:13287 12
+
+	9:Button Clicked Action =  continue 
+
+----- Program execution finished on 28/01/2013 00:00:00 at 16:33:29.7252849 -----
+----- Program executed on 28/01/2013 00:00:00 at 16:34:02.0101315 -----
+	1:9 9
+
+	2:9 9
+
+	3:9 9
+
+	4:9 9
+
+	5:12 12
+
+	6:12 12
+
+	7:12 12
+
+	8:12 12
+
+	9:Button Clicked Action =  continue 
+
+----- Program execution finished on 28/01/2013 00:00:00 at 16:34:05.5323330 -----
+----- Program executed on 28/01/2013 00:00:00 at 16:35:03.6006543 -----
+	1:9 9
+
+	2:9 9
+
+	3:9 9
+
+	4:9 9
+
+	5:12 12
+
+	6:12 12
+
+	7:12 12
+
+	8:12 12
+
+	9:Button Clicked Action =  continue 
+
+----- Program execution finished on 28/01/2013 00:00:00 at 16:35:08.2489201 -----
+----- Program executed on 28/01/2013 00:00:00 at 16:35:43.8959590 -----
+	1:313 9
+
+	2:319 9
+
+	3:319 9
+
+	4:314 9
+
+	5:410 12
+
+	6:409 12
+
+	7:414 12
+
+	8:409 12
+
+	9:Button Clicked Action =  continue 
+
+----- Program execution finished on 28/01/2013 00:00:00 at 16:36:03.1150583 -----
+----- Program executed on 28/01/2013 00:00:00 at 16:36:10.2584669 -----
+	1:315 9
+
+	2:316 9
+
+	3:319 9
+
+	4:317 9
+
+	5:411 12
+
+	6:414 12
+
+	7:414 12
+
+	8:412 12
+
+	9:Button Clicked Action =  continue 
+
+----- Program execution finished on 28/01/2013 00:00:00 at 16:36:24.1632622 -----
