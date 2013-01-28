@@ -12,11 +12,11 @@ Content\Sprites\GoldenApple.xnb
 Content\Sprites\Honey.xnb
 Content\Sprites\SpringWater.xnb
 Content\Sprites\CreatureGeneric.xnb
+Content\Sprites\Nest.xnb
 Content\Configuration.xnb
 Content\MainMenu.xnb
 Content\LevelMenu.xnb
 Content\SubMenuOptions.xnb
 Content\SegoeUI.xnb
-Content\Sprites\Nest.xnb
 Level\Maps\TestMap.txt
 Level\Tilesets\Tileset.png

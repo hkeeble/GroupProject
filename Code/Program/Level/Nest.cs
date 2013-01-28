@@ -26,24 +26,22 @@ namespace VOiD
             _texture = texture;
             _position = new Vector2(position.X, position.Y);
 
-            _moveArea = new Rectangle((int)_position.X - MOVE_AREA_SIZE, (int)_position.Y - MOVE_AREA_SIZE, MOVE_AREA_SIZE, MOVE_AREA_SIZE);
+            _moveArea = new Rectangle((int)(_position.X / tileDimensions.X) - MOVE_AREA_SIZE, (int)(_position.Y / tileDimensions.Y) - MOVE_AREA_SIZE, MOVE_AREA_SIZE, MOVE_AREA_SIZE);
             if(_moveArea.X < 0)
                 _moveArea.X = 0;
             if(_moveArea.Y < 0)
                 _moveArea.Y = 0;
-            //if (_moveArea.X + MOVE_AREA_SIZE > mapDimensions.X)
-            //    _moveArea.Width = mapDimensions.Y;
-            //if (_moveArea.Y + MOVE_AREA_SIZE > mapDimensions.Y)
-            //    _moveArea.Height = mapDimensions.Y;
+            if (_moveArea.X + MOVE_AREA_SIZE > mapDimensions.X)
+                _moveArea.Width = mapDimensions.Y;
+            if (_moveArea.Y + MOVE_AREA_SIZE > mapDimensions.Y)
+                _moveArea.Height = mapDimensions.Y;
 
-            for(int i = 0; i < MAX_CREATURES; i++)
+            for (int i = 0; i < MAX_CREATURES; i++)
             {
-                Vector2 Position = new Vector2(rand.Next(_moveArea.X, (_moveArea.X + _moveArea.Width)),
-                    rand.Next(_moveArea.Y / tileDimensions.Y, (_moveArea.Y + _moveArea.Height) / tileDimensions.Y));
+                Point Position = new Point(rand.Next(_moveArea.X, _moveArea.X + _moveArea.Width),
+                    rand.Next(_moveArea.Y, _moveArea.Y + _moveArea.Height));
 
-                DebugLog.WriteLine(Convert.ToString(Position.X) + " " + Convert.ToString(Position.Y));
-
-                creatures.Add(new Creature(ID, creatureTexture, new Vector2(Position.X, Position.Y), 1f));
+                creatures.Add(new Creature(ID, creatureTexture, new Vector2(Position.X * tileDimensions.X, Position.Y * tileDimensions.Y), 1f));
             }
         }
 
@@ -59,5 +57,7 @@ namespace VOiD
             foreach (Creature e in creatures)
                 e.Draw();
         }
+
+        public List<Creature> Creatures { get { return creatures; } }
     }
 }

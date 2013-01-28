@@ -74,6 +74,17 @@ namespace VOiD.Components
                 }
             }
 
+            for (int i = 0; i < nests.Count; i++)
+            {
+                for (int j = 0; j < nests[i].Creatures.Count; j++)
+                {
+                    if (nests[i].Creatures[j].CollisionRect.Intersects(player.CollisionRect))
+                    {
+                        // INVOKE BATTLE HERE
+                    }
+                }
+            }
+
             player.Update();
             base.Update(gameTime);
         }
