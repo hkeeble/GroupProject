@@ -90,7 +90,7 @@ namespace VOiD.Components
             // if texture is not yet loaded load it
             if (component.Texture == null)
                 if (component.TextureLocation != "")
-                    component.Texture = Game.Content.Load<Texture2D>((component as GraphicObject).TextureLocation);
+                    component.Texture = Game.Content.Load<Texture2D>("Interface/"+(component as GraphicObject).TextureLocation);
                 else
                     component.Texture = new Texture2D(Game.GraphicsDevice, 1, 1);
 

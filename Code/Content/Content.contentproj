@@ -58,14 +58,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DNA.png">
+    <Compile Include="Interface\DNA.png">
       <Name>DNA</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Vignette.png">
+    <Compile Include="Interface\Vignette.png">
       <Name>Vignette</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
@@ -79,7 +79,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Level.png">
+    <Compile Include="Interface\Level.png">
       <Name>Level</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
@@ -97,27 +97,28 @@
       <Name>SubMenuOptions</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
+      <SubType>Designer</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="btrans.png">
+    <Compile Include="Interface\btrans.png">
       <Name>btrans</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="trans.png">
+    <Compile Include="Interface\trans.png">
       <Name>trans</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="arrow-left.jpg">
+    <Compile Include="Interface\arrow-left.jpg">
       <Name>arrow-left</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="arrow-right.jpg">
+    <Compile Include="Interface\arrow-right.jpg">
       <Name>arrow-right</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
