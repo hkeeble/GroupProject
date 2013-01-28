@@ -10,12 +10,12 @@ namespace VOiD
     {
         private List<Item> items;
 
-        public Inventory(int numberOfItemTypes)
+        public Inventory(int numberOfItemTypes, Microsoft.Xna.Framework.Content.ContentManager content)
         {
             items = new List<Item>(numberOfItemTypes);
 
             for(int i = 0; i < numberOfItemTypes; i++)
-                items.Add(new Item(i));
+                items.Add(new Item(i, content));
         }
 
         public void AddItem(Item item, int amount = 1)

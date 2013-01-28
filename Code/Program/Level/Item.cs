@@ -23,33 +23,33 @@ namespace VOiD
         private int _ID;
         private int _amount;
 
-        public Item(int id)
+        public Item(int id, Microsoft.Xna.Framework.Content.ContentManager content)
         {
             _ID = id;
             if (_ID == (int)itemName.APPLE)
             {
                 _name = "Apple";
-                _texture = Game1.Instance.Content.Load<Texture2D>("Sprites\\Apple");
+                _texture = content.Load<Texture2D>("Sprites\\Apple");
             }
             if (_ID == (int)itemName.GOLDEN_APPLE)
             {
                 _name = "Golden Apple";
-                _texture = Game1.Instance.Content.Load<Texture2D>("Sprites\\GoldenApple");
+                _texture = content.Load<Texture2D>("Sprites\\GoldenApple");
             }
             if (_ID == (int)itemName.SPRING_WATER)
             {
                 _name = "Spring Water";
-                _texture = Game1.Instance.Content.Load<Texture2D>("Sprites\\SpringWater");
+                _texture = content.Load<Texture2D>("Sprites\\SpringWater");
             }
             if (_ID == (int)itemName.HONEY)
             {
                 _name = "Honey";
-                _texture = Game1.Instance.Content.Load<Texture2D>("Sprites\\Honey");
+                _texture = content.Load<Texture2D>("Sprites\\Honey");
             }
             if (_ID == (int)itemName.CHILLI)
             {
                 _name = "Chilli";
-                _texture = Game1.Instance.Content.Load<Texture2D>("Sprites\\Chilli");
+                _texture = content.Load<Texture2D>("Sprites\\Chilli");
             }
         }
 

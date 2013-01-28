@@ -4507,3 +4507,40 @@ Error loading "CreatureGeneric". File not found.
 	5:Button Clicked Action =  Quit 
 
 ----- Program execution finished on 28/01/2013 00:00:00 at 12:56:58.6857342 -----
+----- Program executed on 28/01/2013 00:00:00 at 15:04:49.2179693 -----
+	1:Error reading tile data from level TestMap.txt error message: 
+Object reference not set to an instance of an object.
+
+	2:Error loading level named TestMap.txt error message: 
+Input string was not in a correct format.
+
+	3:Button Clicked Action =  continue 
+
+----- Program execution finished on 28/01/2013 00:00:00 at 15:04:57.8864651 -----
+----- Program executed on 28/01/2013 00:00:00 at 15:10:58.7001025 -----
+	1:Error reading tile data from level TestMap.txt error message: 
+Object reference not set to an instance of an object.
+
+	2:Error loading level named TestMap.txt error message: 
+Input string was not in a correct format.
+
+	3:Button Clicked Action =  continue 
+
+----- Program execution finished on 28/01/2013 00:00:00 at 15:11:01.5652664 -----
+----- Program executed on 28/01/2013 00:00:00 at 15:12:04.1958486 -----
+	1:Button Clicked Action =  continue 
+
+----- Program execution finished on 28/01/2013 00:00:00 at 15:12:07.8870597 -----
+----- Program executed on 28/01/2013 00:00:00 at 15:12:25.4440639 -----
+	1:Button Clicked Action =  continue 
+
+	2:Player collected item ID 3
+
+	3:Player collected item ID 2
+
+	4:Player collected item ID 1
+
+	5:Player collected item ID 4
+
+	6:Player collected item ID 5
+

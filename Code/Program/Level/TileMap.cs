@@ -37,7 +37,7 @@ namespace VOiD
         /// </summary>
         /// <param name="filePath">The name of the level file to be loaded. (File must be in the directory of the executable in a directory named "Levels".)</param>
         /// <param name="graphicsDevice">Constructor requires graphics device to load tilset texture from stream.</param>
-        public TileMap(string fileName, GraphicsDevice graphicsDevice)
+        public TileMap(string fileName, GraphicsDevice graphicsDevice, Microsoft.Xna.Framework.Content.ContentManager content)
         {
             try
             {
@@ -80,7 +80,7 @@ namespace VOiD
                             int itemID = UnicodeValueToInt(tr.Read());
                             if (itemID != 0)
                             {
-                                ItemEntity temp = new ItemEntity(new Vector2(y * _tileWidth, x * _tileWidth), itemID);
+                                ItemEntity temp = new ItemEntity(new Vector2(y * _tileWidth, x * _tileWidth), itemID, content);
                                 GameHandler.AddItem(temp);
                             }
                             tr.Read();
@@ -108,7 +108,7 @@ namespace VOiD
                 _labPos.X = Convert.ToInt32(split[0]) * _tileWidth;
                 _labPos.Y = Convert.ToInt32(split[1]) * _tileHeight;
 
-                GameHandler.AddEntity(new Creature(Convert.ToInt16(tr.ReadLine()), Game1.Instance.Content.Load<Texture2D>("Sprites\\CreatureGeneric"),_bossSpawn, 1f));
+                GameHandler.AddEntity(new Creature(Convert.ToInt16(tr.ReadLine()), content.Load<Texture2D>("Sprites\\CreatureGeneric"),_bossSpawn, 1f));
 
                 //_numberOfNests = Convert.ToInt32(tr.ReadLine());
                 //_nestPositions = new Point[_numberOfNests];

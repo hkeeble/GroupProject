@@ -1,3 +1,4 @@
+Content\Sprites\handler.xnb
 Content\DNA.xnb
 Content\Vignette.xnb
 Content\Level.xnb
@@ -5,17 +6,16 @@ Content\btrans.xnb
 Content\trans.xnb
 Content\arrow-left.xnb
 Content\arrow-right.xnb
-Content\Configuration.xnb
-Content\MainMenu.xnb
-Content\LevelMenu.xnb
-Content\SubMenuOptions.xnb
-Content\SegoeUI.xnb
-Content\Sprites\handler.xnb
 Content\Sprites\Apple.xnb
 Content\Sprites\Chilli.xnb
 Content\Sprites\GoldenApple.xnb
 Content\Sprites\Honey.xnb
 Content\Sprites\SpringWater.xnb
 Content\Sprites\CreatureGeneric.xnb
+Content\Configuration.xnb
+Content\MainMenu.xnb
+Content\LevelMenu.xnb
+Content\SubMenuOptions.xnb
+Content\SegoeUI.xnb
 Level\Maps\TestMap.txt
 Level\Tilesets\Tileset.png

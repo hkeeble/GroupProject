@@ -13,8 +13,8 @@ namespace VOiD
         private Vector2 _mapPosition;
         private Rectangle _collisionRect;
 
-        public ItemEntity(Vector2 position, int id)
-            : base(id)
+        public ItemEntity(Vector2 position, int id, Microsoft.Xna.Framework.Content.ContentManager content)
+            : base(id, content)
         {
             _mapPosition = position;
             _collisionRect = new Rectangle((int)_mapPosition.X, (int)_mapPosition.Y, Texture.Width, Texture.Height);

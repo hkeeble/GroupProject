@@ -22,9 +22,9 @@ namespace VOiD.Components
         public GameHandler(Game game)
             : base(game)
         {
-            TileMap = new TileMap("TestMap.txt", game.GraphicsDevice);
+            TileMap = new TileMap("TestMap.txt", game.GraphicsDevice, game.Content);
             player = new Creature(2345, game.Content.Load<Texture2D>("Sprites\\handler"), GameHandler.TileMap.PlayerSpawn, 1f);
-            inventory = new Inventory(NUMBER_OF_ITEM_TYPES);
+            inventory = new Inventory(NUMBER_OF_ITEM_TYPES, game.Content);
         }
 
         public static void AddEntity(Entity entity)
@@ -39,7 +39,7 @@ namespace VOiD.Components
 
         public void LoadSave(Game game, string filePath)
         {
-            TileMap = new TileMap(filePath, game.GraphicsDevice);
+            TileMap = new TileMap(filePath, game.GraphicsDevice, game.Content);
             Camera.MapRectangle = new Rectangle(0, 0, TileMap.Width * TileMap.TileWidth, TileMap.Height * TileMap.TileHeight);
 
             GameHandler.player.Position = new Vector2(TileMap.PlayerSpawn.X, TileMap.PlayerSpawn.Y);
