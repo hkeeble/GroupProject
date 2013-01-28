@@ -61,7 +61,7 @@ namespace VOiD.Components
 
             HandlePlayerMovement();
 
-            for(int i = 0; i < items.Count; i++)
+            for(int i = 0; i < items.Count; i++) // NOT VERY EFFICIENT - MAY NEED REPLACING
             {
                 if (player.CollisionRect.Intersects(items[i].CollisionRect))
                 {

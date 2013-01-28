@@ -92,25 +92,23 @@ namespace VOiD
                 {
                     DebugLog.WriteLine("Error reading tile data from level " + fileName + " error message: \n" + e.Message);
                 }
-                //tr.ReadLine();
-                //// READ BOSS CODE HERE
 
                 string pSpawn = tr.ReadLine();
                 string[] split = pSpawn.Split('-');
-                _playerSpawn.X = Convert.ToInt32(split[0]);
-                _playerSpawn.Y = Convert.ToInt32(split[1]);
+                _playerSpawn.X = Convert.ToInt32(split[0]) * _tileWidth;
+                _playerSpawn.Y = Convert.ToInt32(split[1]) * _tileHeight;
 
                 string bSpawn = tr.ReadLine();
                 split = bSpawn.Split('-');
-                _bossSpawn.X = Convert.ToInt32(split[0]);
-                _bossSpawn.Y = Convert.ToInt32(split[1]);
+                _bossSpawn.X = Convert.ToInt32(split[0]) * _tileWidth;
+                _bossSpawn.Y = Convert.ToInt32(split[1]) * _tileHeight;
 
                 string lPos = tr.ReadLine();
                 split = lPos.Split('-');
-                _labPos.X = Convert.ToInt32(split[0]);
-                _labPos.Y = Convert.ToInt32(split[1]);
+                _labPos.X = Convert.ToInt32(split[0]) * _tileWidth;
+                _labPos.Y = Convert.ToInt32(split[1]) * _tileHeight;
 
-                tr.ReadLine();
+                GameHandler.AddEntity(new Creature(Convert.ToInt16(tr.ReadLine()), Game1.Instance.Content.Load<Texture2D>("Sprites\\CreatureGeneric"),_bossSpawn, 1f));
 
                 //_numberOfNests = Convert.ToInt32(tr.ReadLine());
                 //_nestPositions = new Point[_numberOfNests];

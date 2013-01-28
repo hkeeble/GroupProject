@@ -4368,3 +4368,60 @@ FalseFalseFalseFalseFalseFalseFalseFalseFalseFalseFalseFalseFalseFalseFalseFalse
 	6:Player collected item ID 2
 
 ----- Program execution finished on 28/01/2013 00:00:00 at 11:35:37.0646028 -----
+----- Program executed on 28/01/2013 00:00:00 at 11:37:17.0883238 -----
+	1:Button Clicked Action =  continue 
+
+	2:Player collected item ID 1
+
+	3:Player collected item ID 4
+
+	4:Player collected item ID 3
+
+	5:Player collected item ID 2
+
+	6:Player collected item ID 5
+
+----- Program execution finished on 28/01/2013 00:00:00 at 11:37:57.3246252 -----
+----- Program executed on 28/01/2013 00:00:00 at 11:49:04.8688066 -----
+	1:Error loading level named TestMap.txt error message: 
+Error loading "CreatureGeneric". File not found.
+
+	2:Button Clicked Action =  continue 
+
+----- Program execution finished on 28/01/2013 00:00:00 at 11:49:09.5840763 -----
+----- Program executed on 28/01/2013 00:00:00 at 11:49:51.4294697 -----
+	1:Error loading level named TestMap.txt error message: 
+Error loading "CreatureGeneric". File not found.
+
+	2:Button Clicked Action =  continue 
+
+----- Program execution finished on 28/01/2013 00:00:00 at 11:49:57.7228296 -----
+----- Program executed on 28/01/2013 00:00:00 at 11:50:26.8224940 -----
+	1:Error loading level named TestMap.txt error message: 
+Error loading "CreatureGeneric". File not found.
+
+	2:Button Clicked Action =  continue 
+
+----- Program execution finished on 28/01/2013 00:00:00 at 11:50:32.6478272 -----
+----- Program executed on 28/01/2013 00:00:00 at 11:50:39.4682173 -----
+	1:Error loading level named TestMap.txt error message: 
+Error loading "CreatureGeneric". File not found.
+
+----- Program executed on 28/01/2013 00:00:00 at 11:51:07.8908430 -----
+	1:Button Clicked Action =  continue 
+
+----- Program execution finished on 28/01/2013 00:00:00 at 11:51:23.9807633 -----
+----- Program executed on 28/01/2013 00:00:00 at 11:51:33.9553338 -----
+	1:Button Clicked Action =  continue 
+
+----- Program execution finished on 28/01/2013 00:00:00 at 11:51:38.3115830 -----
+----- Program executed on 28/01/2013 00:00:00 at 11:52:18.8749031 -----
+----- Program executed on 28/01/2013 00:00:00 at 11:53:14.2950729 -----
+----- Program executed on 28/01/2013 00:00:00 at 11:53:57.0435180 -----
+	1:Button Clicked Action =  continue 
+
+----- Program execution finished on 28/01/2013 00:00:00 at 11:54:05.2799891 -----
+----- Program executed on 28/01/2013 00:00:00 at 11:55:00.5251489 -----
+	1:Button Clicked Action =  continue 
+
+----- Program execution finished on 28/01/2013 00:00:00 at 11:55:15.1909878 -----
