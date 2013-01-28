@@ -108,7 +108,7 @@ namespace VOiD
                 _labPos.X = Convert.ToInt32(split[0]) * _tileWidth;
                 _labPos.Y = Convert.ToInt32(split[1]) * _tileHeight;
 
-                GameHandler.AddEntity(new Creature(Convert.ToInt16(tr.ReadLine()), content.Load<Texture2D>("Sprites\\CreatureGeneric"),_bossSpawn, 1f));
+                GameHandler.Boss = new Creature(Convert.ToInt16(tr.ReadLine()), content.Load<Texture2D>("Sprites\\CreatureGeneric"),_bossSpawn, 1f);
 
                 //_numberOfNests = Convert.ToInt32(tr.ReadLine());
                 //_nestPositions = new Point[_numberOfNests];

@@ -11,7 +11,8 @@ namespace VOiD.Components
     class GameHandler : DrawableGameComponent
     {
         public static TileMap TileMap;
-        private static List<Entity> entities = new List<Entity>();
+        private static Creature boss;
+        private static List<Nest> nests = new List<Nest>();
         private static List<ItemEntity> items = new List<ItemEntity>();
         //private Minimap _miniMap;
         public static Creature player;
@@ -27,10 +28,7 @@ namespace VOiD.Components
             inventory = new Inventory(NUMBER_OF_ITEM_TYPES, game.Content);
         }
 
-        public static void AddEntity(Entity entity)
-        {
-            entities.Add(entity);
-        }
+        public static Creature Boss { get { return boss; } set { boss = value; } }
 
         public static void AddItem(ItemEntity item)
         {
@@ -53,9 +51,9 @@ namespace VOiD.Components
 
         public override void Update(GameTime gameTime)
         {
-            if (entities.Count > 0)
-                foreach (Entity e in entities)
-                    e.Update();
+            if (nests.Count > 0)
+                foreach (Nest n in nests)
+                    n.Update();
 
             Camera.Position = new Vector2((GameHandler.player.Position.X + (GameHandler.player.Texture.Width / 2)) - (Configuration.Width / 2),
                                  (GameHandler.player.Position.Y + (GameHandler.player.Texture.Height / 2)) - (Configuration.Height / 2));
@@ -117,9 +115,9 @@ namespace VOiD.Components
             player.Draw();
             TileMap.Draw();
 
-            if (entities.Count > 0)
-                foreach (Entity e in entities)
-                    e.Draw();
+            if (nests.Count > 0)
+                foreach (Nest n in nests)
+                    n.Draw();
 
             if (items.Count > 0)
                 foreach (ItemEntity i in items)

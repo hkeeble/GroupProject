@@ -26,3 +26,11 @@
 	1:Button Clicked Action =  Quit 
 
 ----- Program execution finished on 28/01/2013 00:00:00 at 15:24:43.4146277 -----
+----- Program executed on 28/01/2013 00:00:00 at 15:58:59.0928515 -----
+	1:Button Clicked Action =  continue 
+
+	2:Player collected item ID 2
+
+	3:Player collected item ID 3
+
+----- Program execution finished on 28/01/2013 00:00:00 at 15:59:06.9603015 -----
