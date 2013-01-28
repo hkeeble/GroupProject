@@ -1,4 +1,3 @@
-Content\handler.xnb
 Content\DNA.xnb
 Content\Vignette.xnb
 Content\Level.xnb
@@ -11,6 +10,11 @@ Content\MainMenu.xnb
 Content\LevelMenu.xnb
 Content\SubMenuOptions.xnb
 Content\SegoeUI.xnb
+Content\Sprites\handler.xnb
+Content\Sprites\Apple.xnb
+Content\Sprites\Chilli.xnb
+Content\Sprites\GoldenApple.xnb
+Content\Sprites\Honey.xnb
+Content\Sprites\SpringWater.xnb
 Level\Maps\TestMap.txt
-Level\Tilesets\handler.png
 Level\Tilesets\Tileset.png

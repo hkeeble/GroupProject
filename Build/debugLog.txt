@@ -3843,3 +3843,528 @@ Could not find file 'C:\Users\Administrator\Documents\GitHub\GroupProject\Build\
 	2:Button Clicked Action =  continue 
 
 ----- Program execution finished on 27/01/2013 00:00:00 at 22:18:37.7502163 -----
+----- Program executed on 28/01/2013 00:00:00 at 09:25:42.3229276 -----
+	1:Button Clicked Action =  continue 
+
+----- Program execution finished on 28/01/2013 00:00:00 at 09:26:05.1382326 -----
+----- Program executed on 28/01/2013 00:00:00 at 09:27:04.0502562 -----
+	1:Button Clicked Action =  Options 
+
+	2:Button Clicked Action =  PlusRes 
+
+	3:Button Clicked Action =  PlusRes 
+
+	4:Button Clicked Action =  PlusRes 
+
+	5:Button Clicked Action =  PlusRes 
+
+	6:Button Clicked Action =  PlusRes 
+
+	7:Button Clicked Action =  PlusRes 
+
+	8:Button Clicked Action =  PlusRes 
+
+	9:Button Clicked Action =  PlusRes 
+
+	10:Button Clicked Action =  PlusRes 
+
+----- Program execution finished on 28/01/2013 00:00:00 at 09:27:21.2662236 -----
+----- Program executed on 28/01/2013 00:00:00 at 09:43:15.1749888 -----
+	1:Button Clicked Action =  Options 
+
+	2:Button Clicked Action =  MinusRes 
+
+	3:Button Clicked Action =  PlusRes 
+
+----- Program execution finished on 28/01/2013 00:00:00 at 09:43:31.5379247 -----
+----- Program executed on 28/01/2013 00:00:00 at 09:47:06.8542401 -----
+	1:Error reading tile data from level TestMap.txt error message: 
+Error loading "Apple". File not found.
+
+	2:Error loading level named TestMap.txt error message: 
+Input string was not in a correct format.
+
+----- Program executed on 28/01/2013 00:00:00 at 09:48:03.4364764 -----
+	1:Button Clicked Action =  continue 
+
+----- Program execution finished on 28/01/2013 00:00:00 at 09:48:18.3093271 -----
+----- Program executed on 28/01/2013 00:00:00 at 09:53:08.7509394 -----
+	1:Button Clicked Action =  continue 
+
+----- Program execution finished on 28/01/2013 00:00:00 at 09:53:17.8054573 -----
+----- Program executed on 28/01/2013 00:00:00 at 09:53:25.0478715 -----
+	1:Button Clicked Action =  continue 
+
+----- Program execution finished on 28/01/2013 00:00:00 at 09:53:30.1641641 -----
+----- Program executed on 28/01/2013 00:00:00 at 09:55:11.0999373 -----
+	1:Button Clicked Action =  continue 
+
+----- Program execution finished on 28/01/2013 00:00:00 at 09:55:20.7094870 -----
+----- Program executed on 28/01/2013 00:00:00 at 09:56:11.1063695 -----
+	1:Button Clicked Action =  continue 
+
+----- Program execution finished on 28/01/2013 00:00:00 at 09:56:17.8477551 -----
+----- Program executed on 28/01/2013 00:00:00 at 09:59:14.9798865 -----
+	1:Button Clicked Action =  continue 
+
+----- Program execution finished on 28/01/2013 00:00:00 at 09:59:32.1918709 -----
+----- Program executed on 28/01/2013 00:00:00 at 10:01:56.6261321 -----
+	1:Button Clicked Action =  continue 
+
+----- Program executed on 28/01/2013 00:00:00 at 10:02:50.3932074 -----
+	1:Button Clicked Action =  continue 
+
+----- Program executed on 28/01/2013 00:00:00 at 10:03:35.8918098 -----
+	1:Button Clicked Action =  continue 
+
+----- Program executed on 28/01/2013 00:00:00 at 10:04:21.0003898 -----
+	1:Button Clicked Action =  continue 
+
+----- Program executed on 28/01/2013 00:00:00 at 10:04:54.8153239 -----
+	1:Button Clicked Action =  continue 
+
+----- Program execution finished on 28/01/2013 00:00:00 at 10:05:28.2702375 -----
+----- Program executed on 28/01/2013 00:00:00 at 10:06:17.9140769 -----
+	1:Button Clicked Action =  continue 
+
+----- Program execution finished on 28/01/2013 00:00:00 at 10:06:40.3913625 -----
+----- Program executed on 28/01/2013 00:00:00 at 10:06:53.1610929 -----
+	1:Button Clicked Action =  continue 
+
+----- Program executed on 28/01/2013 00:00:00 at 10:07:27.1300358 -----
+	1:Button Clicked Action =  continue 
+
+----- Program executed on 28/01/2013 00:00:00 at 10:09:01.1764150 -----
+	1:Button Clicked Action =  continue 
+
+----- Program executed on 28/01/2013 00:00:00 at 10:09:44.3658853 -----
+	1:Button Clicked Action =  continue 
+
+----- Program executed on 28/01/2013 00:00:00 at 10:10:18.5838424 -----
+	1:Button Clicked Action =  continue 
+
+----- Program executed on 28/01/2013 00:00:00 at 10:12:03.1658242 -----
+	1:Button Clicked Action =  continue 
+
+----- Program executed on 28/01/2013 00:00:00 at 10:13:49.4319023 -----
+	1:400
+
+	2:Button Clicked Action =  continue 
+
+----- Program execution finished on 28/01/2013 00:00:00 at 10:14:04.7627791 -----
+----- Program executed on 28/01/2013 00:00:00 at 10:15:16.7668975 -----
+	1:Button Clicked Action =  continue 
+
+----- Program executed on 28/01/2013 00:00:00 at 10:15:43.0804026 -----
+	1:Button Clicked Action =  continue 
+
+----- Program execution finished on 28/01/2013 00:00:00 at 10:16:03.3505620 -----
+----- Program executed on 28/01/2013 00:00:00 at 10:16:55.6355525 -----
+	1:Button Clicked Action =  continue 
+
+----- Program executed on 28/01/2013 00:00:00 at 10:19:03.0638410 -----
+	1:Button Clicked Action =  continue 
+
+----- Program execution finished on 28/01/2013 00:00:00 at 10:19:35.1636770 -----
+----- Program executed on 28/01/2013 00:00:00 at 10:20:03.0962746 -----
+	1:Button Clicked Action =  continue 
+
+----- Program execution finished on 28/01/2013 00:00:00 at 10:20:09.1836228 -----
+----- Program executed on 28/01/2013 00:00:00 at 10:20:15.4849832 -----
+	1:Button Clicked Action =  continue 
+
+----- Program execution finished on 28/01/2013 00:00:00 at 10:20:22.3133738 -----
+----- Program executed on 28/01/2013 00:00:00 at 10:20:43.4585832 -----
+	1:Button Clicked Action =  continue 
+
+----- Program execution finished on 28/01/2013 00:00:00 at 10:21:05.5598474 -----
+----- Program executed on 28/01/2013 00:00:00 at 10:23:13.1121429 -----
+	1:Button Clicked Action =  continue 
+
+----- Program executed on 28/01/2013 00:00:00 at 10:24:54.0839182 -----
+	1:Button Clicked Action =  continue 
+
+----- Program execution finished on 28/01/2013 00:00:00 at 10:25:11.5309161 -----
+----- Program executed on 28/01/2013 00:00:00 at 10:25:24.7076698 -----
+----- Program execution finished on 28/01/2013 00:00:00 at 10:25:26.6957835 -----
+----- Program executed on 28/01/2013 00:00:00 at 10:25:36.1343233 -----
+	1:Button Clicked Action =  continue 
+
+----- Program execution finished on 28/01/2013 00:00:00 at 10:25:46.7939330 -----
+----- Program executed on 28/01/2013 00:00:00 at 10:26:56.0268929 -----
+TrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrue	21:
+
+
+TrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrue	42:
+
+
+TrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrue	63:
+
+
+TrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrue	84:
+
+
+TrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrue	105:
+
+
+TrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrue	126:
+
+
+TrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrue	147:
+
+
+TrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrue	168:
+
+
+TrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrue	189:
+
+
+TrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrue	210:
+
+
+TrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrue	231:
+
+
+TrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrue	252:
+
+
+TrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrue	273:
+
+
+TrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrue	294:
+
+
+TrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrue	315:
+
+
+TrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrue	336:
+
+
+TrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrue	357:
+
+
+TrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrue	378:
+
+
+TrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrue	399:
+
+
+TrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrue	420:
+
+
+----- Program executed on 28/01/2013 00:00:00 at 10:27:14.0769253 -----
+TrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrueTrue----- Program executed on 28/01/2013 00:00:00 at 10:27:46.0417536 -----
+----- Program executed on 28/01/2013 00:00:00 at 10:27:57.4964088 -----
+	1:Button Clicked Action =  continue 
+
+----- Program execution finished on 28/01/2013 00:00:00 at 10:28:06.3889174 -----
+----- Program executed on 28/01/2013 00:00:00 at 10:29:53.7950607 -----
+False	2:Button Clicked Action =  continue 
+
+----- Program execution finished on 28/01/2013 00:00:00 at 10:30:03.7516302 -----
+----- Program executed on 28/01/2013 00:00:00 at 10:31:00.3038648 -----
+FalseFalseFalseFalseFalseFalseFalseFalseFalseFalseFalseFalseFalseFalseFalseFalseFalseFalseFalseFalseFalseFalseFalseFalseFalseFalseFalseFalseFalseFalseFalseFalseFalseFalseFalseFalseFalseFalseFalseFalseFalseFalseFalseFalse	45:Button Clicked Action =  continue 
+
+----- Program executed on 28/01/2013 00:00:00 at 10:31:34.1388000 -----
+	1:Button Clicked Action =  continue 
+
+----- Program execution finished on 28/01/2013 00:00:00 at 10:31:44.1253712 -----
+----- Program executed on 28/01/2013 00:00:00 at 10:33:33.9526530 -----
+	1:Button Clicked Action =  continue 
+
+----- Program executed on 28/01/2013 00:00:00 at 10:36:12.1156994 -----
+	1:Button Clicked Action =  continue 
+
+----- Program execution finished on 28/01/2013 00:00:00 at 10:36:49.5408400 -----
+----- Program executed on 28/01/2013 00:00:00 at 10:49:29.7273202 -----
+----- Program executed on 28/01/2013 00:00:00 at 10:52:16.1558393 -----
+	1:Button Clicked Action =  continue 
+
+----- Program execution finished on 28/01/2013 00:00:00 at 10:52:30.9896878 -----
+----- Program executed on 28/01/2013 00:00:00 at 10:53:01.7754486 -----
+	1:Button Clicked Action =  continue 
+
+----- Program execution finished on 28/01/2013 00:00:00 at 10:53:11.6080110 -----
+----- Program executed on 28/01/2013 00:00:00 at 11:32:10.0667632 -----
+	1:Button Clicked Action =  continue 
+
+	2:Player collected item ID 1
+
+	3:Player collected item ID 1
+
+	4:Player collected item ID 1
+
+	5:Player collected item ID 1
+
+	6:Player collected item ID 1
+
+	7:Player collected item ID 1
+
+	8:Player collected item ID 1
+
+	9:Player collected item ID 1
+
+	10:Player collected item ID 1
+
+	11:Player collected item ID 1
+
+	12:Player collected item ID 1
+
+	13:Player collected item ID 1
+
+	14:Player collected item ID 1
+
+	15:Player collected item ID 1
+
+	16:Player collected item ID 1
+
+	17:Player collected item ID 1
+
+	18:Player collected item ID 1
+
+	19:Player collected item ID 1
+
+	20:Player collected item ID 1
+
+	21:Player collected item ID 1
+
+	22:Player collected item ID 1
+
+	23:Player collected item ID 1
+
+	24:Player collected item ID 1
+
+	25:Player collected item ID 1
+
+	26:Player collected item ID 1
+
+	27:Player collected item ID 1
+
+	28:Player collected item ID 1
+
+	29:Player collected item ID 1
+
+	30:Player collected item ID 1
+
+	31:Player collected item ID 1
+
+	32:Player collected item ID 1
+
+	33:Player collected item ID 1
+
+	34:Player collected item ID 1
+
+	35:Player collected item ID 1
+
+	36:Player collected item ID 1
+
+	37:Player collected item ID 1
+
+	38:Player collected item ID 1
+
+	39:Player collected item ID 1
+
+	40:Player collected item ID 1
+
+	41:Player collected item ID 1
+
+	42:Player collected item ID 1
+
+	43:Player collected item ID 1
+
+	44:Player collected item ID 1
+
+	45:Player collected item ID 1
+
+	46:Player collected item ID 1
+
+	47:Player collected item ID 1
+
+	48:Player collected item ID 1
+
+	49:Player collected item ID 1
+
+	50:Player collected item ID 1
+
+	51:Player collected item ID 1
+
+	52:Player collected item ID 1
+
+	53:Player collected item ID 1
+
+	54:Player collected item ID 1
+
+	55:Player collected item ID 1
+
+	56:Player collected item ID 1
+
+	57:Player collected item ID 1
+
+	58:Player collected item ID 1
+
+	59:Player collected item ID 1
+
+	60:Player collected item ID 1
+
+	61:Player collected item ID 1
+
+	62:Player collected item ID 1
+
+	63:Player collected item ID 1
+
+	64:Player collected item ID 1
+
+	65:Player collected item ID 1
+
+	66:Player collected item ID 1
+
+	67:Player collected item ID 1
+
+	68:Player collected item ID 1
+
+	69:Player collected item ID 1
+
+	70:Player collected item ID 1
+
+	71:Player collected item ID 1
+
+	72:Player collected item ID 1
+
+	73:Player collected item ID 1
+
+	74:Player collected item ID 1
+
+	75:Player collected item ID 1
+
+	76:Player collected item ID 1
+
+	77:Player collected item ID 1
+
+	78:Player collected item ID 1
+
+	79:Player collected item ID 1
+
+	80:Player collected item ID 1
+
+	81:Player collected item ID 1
+
+	82:Player collected item ID 1
+
+	83:Player collected item ID 1
+
+	84:Player collected item ID 1
+
+	85:Player collected item ID 1
+
+	86:Player collected item ID 1
+
+	87:Player collected item ID 1
+
+	88:Player collected item ID 1
+
+	89:Player collected item ID 1
+
+	90:Player collected item ID 1
+
+	91:Player collected item ID 1
+
+	92:Player collected item ID 1
+
+	93:Player collected item ID 1
+
+	94:Player collected item ID 1
+
+	95:Player collected item ID 1
+
+	96:Player collected item ID 1
+
+	97:Player collected item ID 1
+
+	98:Player collected item ID 1
+
+	99:Player collected item ID 1
+
+	100:Player collected item ID 1
+
+	101:Player collected item ID 1
+
+	102:Player collected item ID 1
+
+	103:Player collected item ID 1
+
+	104:Player collected item ID 1
+
+	105:Player collected item ID 1
+
+	106:Player collected item ID 1
+
+	107:Player collected item ID 1
+
+	108:Player collected item ID 1
+
+	109:Player collected item ID 1
+
+	110:Player collected item ID 1
+
+	111:Player collected item ID 1
+
+	112:Player collected item ID 1
+
+	113:Player collected item ID 1
+
+	114:Player collected item ID 1
+
+	115:Player collected item ID 1
+
+	116:Player collected item ID 1
+
+----- Program execution finished on 28/01/2013 00:00:00 at 11:32:22.4194697 -----
+----- Program executed on 28/01/2013 00:00:00 at 11:33:03.0237922 -----
+	1:Button Clicked Action =  continue 
+
+	2:Player collected item ID 1
+
+	3:Player collected item ID 2
+
+	4:Player collected item ID 3
+
+----- Program executed on 28/01/2013 00:00:00 at 11:34:09.9396195 -----
+----- Program executed on 28/01/2013 00:00:00 at 11:34:23.2583813 -----
+	1:Button Clicked Action =  continue 
+
+	2:Player collected item ID 1
+
+	3:Player collected item ID 2
+
+	4:Player collected item ID 3
+
+	5:Player collected item ID 4
+
+----- Program executed on 28/01/2013 00:00:00 at 11:34:54.4991682 -----
+	1:Button Clicked Action =  continue 
+
+	2:Player collected item ID 1
+
+	3:Player collected item ID 2
+
+	4:Player collected item ID 3
+
+	5:Player collected item ID 4
+
+	6:Player collected item ID 5
+
+----- Program execution finished on 28/01/2013 00:00:00 at 11:35:17.2784711 -----
+----- Program executed on 28/01/2013 00:00:00 at 11:35:20.2146390 -----
+	1:Button Clicked Action =  continue 
+
+	2:Player collected item ID 3
+
+	3:Player collected item ID 5
+
+	4:Player collected item ID 4
+
+	5:Player collected item ID 1
+
+	6:Player collected item ID 2
+
+----- Program execution finished on 28/01/2013 00:00:00 at 11:35:37.0646028 -----

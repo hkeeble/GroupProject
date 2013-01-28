@@ -15,8 +15,12 @@ namespace VOiD
 {
     public class Game1 : Microsoft.Xna.Framework.Game
     {
+        static Game instance; // Enables access to ContentManager anywhere
+        public static Game Instance { get { return instance; } }
+
         public Game1()
         {
+            instance = this;
             this.IsMouseVisible = true;
             Content.RootDirectory = "Content";
             Components.Add(new Configuration(this));//Very Important DO NOT MOVE

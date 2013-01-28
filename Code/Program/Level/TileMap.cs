@@ -11,7 +11,7 @@ namespace VOiD
 {
     class TileMap
     {
-        private int _width, _height, _tileWidth, _tileHeight, _numberOfNests, _numberOfApples;
+        private int _width, _height, _tileWidth, _tileHeight, _numberOfNests;
         Texture2D _tileSet;
         private string _tileSetPath;
         private Point[,] _tiles;
@@ -76,6 +76,13 @@ namespace VOiD
                             _tiles[x, y].Y = UnicodeValueToInt(tr.Read());
                             _passable[x, y] = Convert.ToBoolean(UnicodeValueToInt(tr.Read()));
                             _attribute[x, y] = UnicodeValueToInt(tr.Read());
+
+                            int itemID = UnicodeValueToInt(tr.Read());
+                            if (itemID != 0)
+                            {
+                                ItemEntity temp = new ItemEntity(new Vector2(y * _tileWidth, x * _tileWidth), itemID);
+                                GameHandler.AddItem(temp);
+                            }
                             tr.Read();
                         }
                         tr.ReadLine();
@@ -87,7 +94,6 @@ namespace VOiD
                 }
                 //tr.ReadLine();
                 //// READ BOSS CODE HERE
-                tr.ReadLine();
 
                 string pSpawn = tr.ReadLine();
                 string[] split = pSpawn.Split('-');
@@ -117,16 +123,6 @@ namespace VOiD
                 //}
 
                 //tr.ReadLine();
-
-                //_numberOfApples = Convert.ToInt32(tr.ReadLine());
-                //_applePositions = new Point[_numberOfApples];
-                //for (int i = 0; i < _numberOfApples; i++)
-                //{
-                //    _applePositions[i].X = Convert.ToInt32(tr.Read());
-                //    _applePositions[i].Y = Convert.ToInt32(tr.Read());
-                //    tr.ReadLine();
-                //}
-
                 tr.Close();
             }
             catch (FileNotFoundException e)
@@ -151,7 +147,8 @@ namespace VOiD
             if (isLoaded)
                 for (int x = 0; x < _width; x++)
                     for (int y = 0; y < _height; y++)
-                        SpriteManager.Draw(_tileSet, Camera.Transform(new Vector2(x * _tileWidth, y * _tileHeight)), new Rectangle(_tiles[y, x].X * _tileWidth, _tiles[y, x].Y * _tileHeight, _tileWidth, _tileHeight), Color.White);
+                        SpriteManager.Draw(_tileSet, Camera.Transform(new Vector2(x * _tileWidth, y * _tileHeight)), new Rectangle(_tiles[y, x].X * _tileWidth, _tiles[y, x].Y * _tileHeight, _tileWidth, _tileHeight), Color.White,
+                            0f, Vector2.Zero, new Vector2(1, 1), SpriteEffects.None, 0f);
 
 
                 //for (int i = 0; i < _numberOfApples; i++)

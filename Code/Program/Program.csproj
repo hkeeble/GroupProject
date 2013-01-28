@@ -80,6 +80,7 @@
     <Compile Include="Creature\AttackTypes.cs" />
     <Compile Include="Creature\Creature.cs" />
     <Compile Include="Creature\Traits.cs" />
+    <Compile Include="Inventory.cs" />
     <Compile Include="Level\Camera.cs" />
     <Compile Include="Components\DebugLog.cs" />
     <Compile Include="Level\Entity.cs" />
@@ -101,9 +102,6 @@
     <Content Include="Properties\Game.ico" />
     <Content Include="Properties\GameThumbnail.png">
       <XnaPlatformSpecific>true</XnaPlatformSpecific>
-    </Content>
-    <Content Include="Level\Tilesets\handler.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Level\Tilesets\Tileset.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

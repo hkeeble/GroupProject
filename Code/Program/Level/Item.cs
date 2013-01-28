@@ -21,25 +21,41 @@ namespace VOiD
         private Texture2D _texture;
         private string _name;
         private int _ID;
-        public int Amount;
+        private int _amount;
 
         public Item(int id)
         {
             _ID = id;
             if (_ID == (int)itemName.APPLE)
+            {
                 _name = "Apple";
+                _texture = Game1.Instance.Content.Load<Texture2D>("Sprites\\Apple");
+            }
             if (_ID == (int)itemName.GOLDEN_APPLE)
+            {
                 _name = "Golden Apple";
+                _texture = Game1.Instance.Content.Load<Texture2D>("Sprites\\GoldenApple");
+            }
             if (_ID == (int)itemName.SPRING_WATER)
+            {
                 _name = "Spring Water";
+                _texture = Game1.Instance.Content.Load<Texture2D>("Sprites\\SpringWater");
+            }
             if (_ID == (int)itemName.HONEY)
+            {
                 _name = "Honey";
+                _texture = Game1.Instance.Content.Load<Texture2D>("Sprites\\Honey");
+            }
             if (_ID == (int)itemName.CHILLI)
+            {
                 _name = "Chilli";
+                _texture = Game1.Instance.Content.Load<Texture2D>("Sprites\\Chilli");
+            }
         }
 
         public string Name { get { return _name; } }
         public int ID { get { return _ID; } }
         public Texture2D Texture { get { return _texture; } }
+        public int Amount { get { return _amount; } set { if (_amount + value < 99) _amount += value; } }
     }
 }

@@ -16,6 +16,7 @@ namespace VOiD
         private Point _newLoc;
         private float _moveSpeed = 0.0f;
         public Vector2 Direction = Vector2.Zero;
+        private Rectangle _collisionRect;
 
         public Entity()
         {
@@ -31,6 +32,7 @@ namespace VOiD
             _position = position;
             _moveSpeed = moveSpeed;
             _currentTile = Point.Zero;
+            _collisionRect = new Rectangle((int)_position.X, (int)_position.Y, _texture.Width, _texture.Height);
         }
 
         public void Draw()
@@ -44,13 +46,23 @@ namespace VOiD
         public virtual void Update()
         {
             if (_position.X % GameHandler.TileMap.TileWidth == 0 && _position.Y % GameHandler.TileMap.TileHeight == 0)
+            {
                 _newLoc = NewLocation;
-            
+                _currentTile = CurrentTile;
+            }
+
             if(GameHandler.TileMap.Passable[_newLoc.Y, _newLoc.X] == false)
             {
                 if(Direction.X != 0)
                     Direction.X = 0;
                 if(Direction.Y != 0)
+                    Direction.Y = 0;
+            }
+            else if (Direction.X != 0 && Direction.Y != 0)
+            {
+                if(GameHandler.TileMap.Passable[_currentTile.Y, _newLoc.X] == false)
+                    Direction.X = 0;
+                if(GameHandler.TileMap.Passable[_newLoc.Y, _currentTile.X] == false)
                     Direction.Y = 0;
             }
 
@@ -61,14 +73,17 @@ namespace VOiD
                 _position.X = 0;
             if (_position.Y < 0)
                 _position.Y = 0;
-            if (_position.X > GameHandler.TileMap.PixelSize.Width)
-                _position.X = GameHandler.TileMap.PixelSize.Width;
-            if (_position.X > GameHandler.TileMap.PixelSize.Height)
-                _position.X = GameHandler.TileMap.PixelSize.Height;
+            if (_position.X > GameHandler.TileMap.PixelSize.Width-GameHandler.TileMap.TileWidth)
+                _position.X = GameHandler.TileMap.PixelSize.Width - GameHandler.TileMap.TileWidth;
+            if (_position.Y > GameHandler.TileMap.PixelSize.Height-GameHandler.TileMap.TileHeight)
+                _position.Y = GameHandler.TileMap.PixelSize.Width - GameHandler.TileMap.TileWidth;
+
+            _collisionRect = new Rectangle((int)_position.X, (int)_position.Y, _texture.Width, _texture.Height);
         }
 
         public Texture2D Texture { get { return _texture; } }
         public Vector2 Position { get { return _position; } set { _position = value; } }
+        public Rectangle CollisionRect { get { return _collisionRect; } }
 
         private Point NewLocation
         {
@@ -79,11 +94,19 @@ namespace VOiD
                     location.X = 0;
                 if (location.Y < 0)
                     location.Y = 0;
-                if (location.X > GameHandler.TileMap.Width)
-                    location.X = GameHandler.TileMap.Width;
-                if (location.Y > GameHandler.TileMap.Height)
-                    location.Y = GameHandler.TileMap.Height;
+                if (location.X > GameHandler.TileMap.Width-1)
+                    location.X = GameHandler.TileMap.Width-1;
+                if (location.Y > GameHandler.TileMap.Height-1)
+                    location.Y = GameHandler.TileMap.Height-1;
                 return location;
+            }
+        }
+
+        public Point CurrentTile
+        {
+            get
+            {
+                 return new Point((int)(_position.X / GameHandler.TileMap.TileWidth), (int)(_position.Y / GameHandler.TileMap.TileHeight));
             }
         }
     }
