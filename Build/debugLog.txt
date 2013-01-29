@@ -406,3 +406,66 @@ Parameter name: minValue
 	1:Button Clicked Action =  continue 
 
 ----- Program execution finished on 28/01/2013 00:00:00 at 19:56:04.8858455 -----
+----- Program executed on 29/01/2013 00:00:00 at 09:00:22.9099048 -----
+	1:Button Clicked Action =  continue 
+
+----- Program execution finished on 29/01/2013 00:00:00 at 09:00:31.6954073 -----
+----- Program executed on 29/01/2013 00:00:00 at 09:00:56.0758018 -----
+	1:Button Clicked Action =  Options 
+
+	2:Button Clicked Action =  PlusRes 
+
+	3:Button Clicked Action =  PlusRes 
+
+	4:Button Clicked Action =  PlusRes 
+
+	5:Button Clicked Action =  PlusRes 
+
+	6:Button Clicked Action =  PlusRes 
+
+	7:Button Clicked Action =  PlusRes 
+
+	8:Button Clicked Action =  PlusRes 
+
+	9:Button Clicked Action =  PlusRes 
+
+	10:Button Clicked Action =  PlusRes 
+
+	11:Button Clicked Action =  PlusRes 
+
+	12:Button Clicked Action =  PlusRes 
+
+	13:Button Clicked Action =  PlusRes 
+
+	14:Button Clicked Action =  PlusRes 
+
+	15:Button Clicked Action =  PlusRes 
+
+	16:Button Clicked Action =  PlusRes 
+
+	17:Button Clicked Action =  PlusRes 
+
+	18:Button Clicked Action =  PlusRes 
+
+	19:Button Clicked Action =  PlusRes 
+
+	20:Button Clicked Action =  PlusRes 
+
+	21:Button Clicked Action =  PlusRes 
+
+	22:Button Clicked Action =  DeleteSubMenu 
+
+	23:Button Clicked Action =  continue 
+
+	24:Player collected item ID 3
+
+	25:Player collected item ID 4
+
+	26:Player collected item ID 5
+
+----- Program execution finished on 29/01/2013 00:00:00 at 09:01:42.1634378 -----
+----- Program executed on 29/01/2013 00:00:00 at 09:10:10.2294975 -----
+----- Program executed on 29/01/2013 00:00:00 at 09:10:48.1456662 -----
+----- Program executed on 29/01/2013 00:00:00 at 09:12:22.2270474 -----
+----- Program executed on 29/01/2013 00:00:00 at 09:12:35.3157960 -----
+----- Program execution finished on 29/01/2013 00:00:00 at 09:12:43.3542558 -----
