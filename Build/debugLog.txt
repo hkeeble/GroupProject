@@ -469,3 +469,74 @@ Parameter name: minValue
 ----- Program executed on 29/01/2013 00:00:00 at 09:12:22.2270474 -----
 ----- Program executed on 29/01/2013 00:00:00 at 09:12:35.3157960 -----
 ----- Program execution finished on 29/01/2013 00:00:00 at 09:12:43.3542558 -----
+----- Program executed on 30/01/2013 00:00:00 at 15:50:23.3209943 -----
+	1:Button Clicked Action =  continue 
+
+----- Program execution finished on 30/01/2013 00:00:00 at 15:50:34.1636145 -----
+----- Program executed on 30/01/2013 00:00:00 at 15:51:38.0782702 -----
+----- Program executed on 30/01/2013 00:00:00 at 15:51:59.1844774 -----
+	1:Button Clicked Action =  continue 
+
+----- Program execution finished on 30/01/2013 00:00:00 at 15:52:09.7750832 -----
+----- Program executed on 30/01/2013 00:00:00 at 15:52:13.4432930 -----
+----- Program executed on 30/01/2013 00:00:00 at 15:52:50.1273912 -----
+	1:Button Clicked Action =  continue 
+
+	2:Player collected item ID 5
+
+----- Program execution finished on 30/01/2013 00:00:00 at 15:53:50.4408409 -----
+----- Program executed on 30/01/2013 00:00:00 at 15:53:53.4950156 -----
+	1:Button Clicked Action =  continue 
+
+----- Program execution finished on 30/01/2013 00:00:00 at 15:53:59.4203545 -----
+----- Program executed on 30/01/2013 00:00:00 at 15:55:11.4774760 -----
+	1:Button Clicked Action =  continue 
+
+	2:Player collected item ID 3
+
+----- Program execution finished on 30/01/2013 00:00:00 at 15:55:54.3189263 -----
+----- Program executed on 30/01/2013 00:00:00 at 15:56:07.8527004 -----
+	1:Button Clicked Action =  continue 
+
+	2:Player collected item ID 3
+
+----- Program execution finished on 30/01/2013 00:00:00 at 15:56:26.5137678 -----
+----- Program executed on 30/01/2013 00:00:00 at 15:56:38.9574795 -----
+	1:Button Clicked Action =  continue 
+
+----- Program execution finished on 30/01/2013 00:00:00 at 15:56:48.3020140 -----
+----- Program executed on 30/01/2013 00:00:00 at 15:57:27.3262461 -----
+	1:Button Clicked Action =  continue 
+
+	2:Player collected item ID 4
+
+----- Program execution finished on 30/01/2013 00:00:00 at 15:57:49.7055261 -----
+----- Program executed on 30/01/2013 00:00:00 at 15:57:59.0510606 -----
+	1:Button Clicked Action =  continue 
+
+----- Program execution finished on 30/01/2013 00:00:00 at 15:58:02.8842799 -----
+----- Program executed on 30/01/2013 00:00:00 at 15:58:05.5214307 -----
+----- Program execution finished on 30/01/2013 00:00:00 at 15:58:08.3915949 -----
+----- Program executed on 30/01/2013 00:00:00 at 15:58:22.8374211 -----
+----- Program execution finished on 30/01/2013 00:00:00 at 15:58:24.9235404 -----
+----- Program executed on 30/01/2013 00:00:00 at 15:58:27.7437017 -----
+	1:Button Clicked Action =  continue 
+
+----- Program execution finished on 30/01/2013 00:00:00 at 15:59:00.2595615 -----
+----- Program executed on 30/01/2013 00:00:00 at 15:59:13.5033190 -----
+----- Program executed on 30/01/2013 00:00:00 at 16:00:02.8371408 -----
+	1:Button Clicked Action =  continue 
+
+	2:Player collected item ID 1
+
+----- Program execution finished on 30/01/2013 00:00:00 at 16:01:35.5854457 -----
+----- Program executed on 30/01/2013 00:00:00 at 16:02:08.4523255 -----
+	1:Button Clicked Action =  continue 
+
+----- Program execution finished on 30/01/2013 00:00:00 at 16:02:24.4792422 -----
+----- Program executed on 30/01/2013 00:00:00 at 16:02:53.0998792 -----
+	1:Button Clicked Action =  continue 
+
+	2:Player collected item ID 5
+
+----- Program execution finished on 30/01/2013 00:00:00 at 16:03:17.2382599 -----

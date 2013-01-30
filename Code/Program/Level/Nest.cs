@@ -18,7 +18,7 @@ namespace VOiD
         private Random rand;
 
         const int MAX_CREATURES = 4;
-        const int MOVE_AREA_SIZE = 5;
+        const int MOVE_AREA_SIZE = 10;
 
         public Nest(Texture2D texture, Texture2D creatureTexture, Point position, short ID, Point mapDimensions, Point tileDimensions)
         {
@@ -26,7 +26,7 @@ namespace VOiD
             _texture = texture;
             _position = new Vector2(position.X, position.Y);
 
-            _moveArea = new Rectangle((int)(_position.X / tileDimensions.X) - MOVE_AREA_SIZE, (int)(_position.Y / tileDimensions.Y) - MOVE_AREA_SIZE, MOVE_AREA_SIZE, MOVE_AREA_SIZE);
+            _moveArea = new Rectangle((int)(_position.X / tileDimensions.X) - (MOVE_AREA_SIZE / 2), (int)(_position.Y / tileDimensions.Y) - (MOVE_AREA_SIZE / 2), MOVE_AREA_SIZE, MOVE_AREA_SIZE);
             if(_moveArea.X < 0)
                 _moveArea.X = 0;
             if(_moveArea.Y < 0)
@@ -41,13 +41,34 @@ namespace VOiD
                 Point Position = new Point(rand.Next(_moveArea.X, _moveArea.X + _moveArea.Width),
                     rand.Next(_moveArea.Y, _moveArea.Y + _moveArea.Height));
 
-                creatures.Add(new Creature(ID, creatureTexture, new Vector2(Position.X * tileDimensions.X, Position.Y * tileDimensions.Y), 1f));
+                creatures.Add(new Creature(ID, creatureTexture, new Vector2(Position.X * tileDimensions.X, Position.Y * tileDimensions.Y), 0.5f));
             }
         }
 
         public void Update()
         {
+            Console.Out.WriteLine(GameHandler.player.CurrentTile.X + " " + GameHandler.player.CurrentTile.Y);
+            Vector2 direction;
             rand = new Random(DateTime.Now.Millisecond);
+
+            if(creatures.Count > 0)
+                foreach (Creature c in creatures)
+                {
+                    if (c.Position.X % GameHandler.TileMap.TileWidth == 0 && c.Position.Y % GameHandler.TileMap.TileHeight == 0)
+                    {
+                        direction = new Vector2(rand.Next(0, 2), rand.Next(0, 2));
+                        direction.X = (direction.X == 0 ? -1 : direction.X);
+                        direction.Y = (direction.Y == 0 ? -1 : direction.Y);
+
+                        if (c.CurrentTile.X + direction.X < _moveArea.X || c.CurrentTile.X + direction.X > (_moveArea.X + _moveArea.Width))
+                            direction.X = 0;
+                        if (c.CurrentTile.Y + direction.Y < _moveArea.Y || c.CurrentTile.Y + direction.Y > (_moveArea.Y + _moveArea.Height))
+                            direction.Y = 0;
+
+                        c.Direction = direction;
+                    }
+                    c.Update();
+                }
         }
 
         public void Draw()
