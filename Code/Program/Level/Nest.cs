@@ -47,7 +47,6 @@ namespace VOiD
 
         public void Update()
         {
-            Console.Out.WriteLine(GameHandler.player.CurrentTile.X + " " + GameHandler.player.CurrentTile.Y);
             Vector2 direction;
             rand = new Random(DateTime.Now.Millisecond);
 

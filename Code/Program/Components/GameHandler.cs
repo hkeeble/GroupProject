@@ -65,7 +65,11 @@ namespace VOiD.Components
                 Camera.Position = new Vector2((GameHandler.player.Position.X + (GameHandler.player.Texture.Width / 2)) - (Configuration.Width / 2),
                                      (GameHandler.player.Position.Y + (GameHandler.player.Texture.Height / 2)) - (Configuration.Height / 2));
 
-                HandlePlayerMovement();
+                if (Interface.currentScreen == Screens.LevelMenu)
+                {
+                    HandlePlayerMovement();
+                    HandleMouse();
+                }
 
                 for (int i = 0; i < items.Count; i++) // NOT VERY EFFICIENT - MAY NEED REPLACING
                 {
@@ -91,6 +95,19 @@ namespace VOiD.Components
                 player.Update();
                 base.Update(gameTime);
             }
+        }
+
+        private void HandleMouse()
+        {
+            Vector2 mousePos = Camera.Transform(new Vector2(InputHandler.MouseX, InputHandler.MouseY));
+            Rectangle mouseRect = new Rectangle((int)mousePos.X, (int)mousePos.Y, 10, 10);
+
+            foreach(Nest n in nests)
+                foreach (Creature c in n.Creatures)
+                {
+                    if (c.CollisionRect.Intersects(mouseRect))
+                        Console.Out.WriteLine("Collision");
+                }
         }
 
         private void HandlePlayerMovement()

@@ -19,7 +19,6 @@ namespace VOiD
         private int[,] _attribute;
         Vector2 _playerSpawn, _bossSpawn, _labPos;
         // Creature Code Array?
-        Point[] _applePositions, _nestPositions;
         string _fileName;
         bool isLoaded = false;
         // Apple Array?
@@ -182,8 +181,6 @@ namespace VOiD
         }
 
         // Public Accessors
-        public Point[] ApplePositions { get { return _applePositions; } set { _applePositions = value; } }
-        public Point[] NestPositions { get { return _nestPositions; } }
         public Vector2 PlayerSpawn { get { return _playerSpawn; } }
         public Vector2 BossSpawn { get { return _bossSpawn; } }
         public int Width { get { return _width; } }
