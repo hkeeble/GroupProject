@@ -40,7 +40,7 @@ namespace VOiD
         {
             try
             {
-                _fileName = Directory.GetCurrentDirectory() + "\\Level\\Maps\\" + fileName;
+                _fileName = Directory.GetCurrentDirectory() + "\\Content\\Maps\\" + fileName;
                 TextReader tr = new StreamReader(_fileName);
 
                 _width = Convert.ToInt32(tr.ReadLine());
@@ -51,9 +51,7 @@ namespace VOiD
 
                 try
                 {
-                    FileStream tileSetStream = File.OpenRead(Directory.GetCurrentDirectory() + "\\Level\\Tilesets\\" + _tileSetPath);
-                    _tileSet = Texture2D.FromStream(graphicsDevice, tileSetStream);
-                    tileSetStream.Close();
+                    _tileSet = content.Load<Texture2D>("Tilesets/Tileset");
                     isLoaded = true;//CHECK THIS PLEASE
                 }
                 catch(FileNotFoundException e)

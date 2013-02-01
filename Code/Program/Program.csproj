@@ -98,15 +98,9 @@
     <Compile Include="Components\SpriteManager.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Level\Maps\TestMap.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Properties\Game.ico" />
     <Content Include="Properties\GameThumbnail.png">
       <XnaPlatformSpecific>true</XnaPlatformSpecific>
-    </Content>
-    <Content Include="Level\Tilesets\Tileset.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>

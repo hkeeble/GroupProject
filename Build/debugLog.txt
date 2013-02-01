@@ -578,3 +578,89 @@ Parameter name: minValue
 ----- Program executed on 30/01/2013 00:00:00 at 16:24:31.5951489 -----
 	1:Button Clicked Action =  continue 
 
+----- Program executed on 01/02/2013 00:00:00 at 14:38:18.3918116 -----
+	1:Button Clicked Action =  Options 
+
+	2:Button Clicked Action =  PlusRes 
+
+	3:Button Clicked Action =  PlusRes 
+
+	4:Button Clicked Action =  PlusRes 
+
+	5:Button Clicked Action =  PlusRes 
+
+	6:Button Clicked Action =  PlusRes 
+
+	7:Button Clicked Action =  PlusRes 
+
+	8:Button Clicked Action =  PlusRes 
+
+	9:Button Clicked Action =  PlusRes 
+
+	10:Button Clicked Action =  DeleteSubMenu 
+
+	11:Button Clicked Action =  continue 
+
+	12:Button Clicked Action =  continue 
+
+----- Program execution finished on 01/02/2013 00:00:00 at 14:39:27.8913128 -----
+----- Program executed on 01/02/2013 00:00:00 at 16:58:27.6027648 -----
+	1:Button Clicked Action =  continue 
+
+----- Program execution finished on 01/02/2013 00:00:00 at 16:58:30.6282321 -----
+----- Program executed on 01/02/2013 00:00:00 at 16:59:41.7675572 -----
+	1:Button Clicked Action =  continue 
+
+	2:Player collected item ID 5
+
+	3:Player collected item ID 4
+
+	4:Player collected item ID 2
+
+	5:Player collected item ID 3
+
+	6:Player collected item ID 1
+
+----- Program execution finished on 01/02/2013 00:00:00 at 17:00:36.6717746 -----
+----- Program executed on 01/02/2013 00:00:00 at 17:01:56.8225398 -----
+	1:Error loading level named TestMap.txt error message: 
+Error loading "\Content\Tilesets\Tileset.png". Cannot open file.
+
+----- Program executed on 01/02/2013 00:00:00 at 17:03:03.7105852 -----
+	1:Error loading level named TestMap.txt error message: 
+Error loading "Tilesets\Tileset.png". File not found.
+
+----- Program executed on 01/02/2013 00:00:00 at 17:03:40.5111822 -----
+	1:Error loading level named TestMap.txt error message: 
+Error loading "Tilesets\Tileset". File not found.
+
+----- Program executed on 01/02/2013 00:00:00 at 17:05:48.3103161 -----
+	1:Error loading level named TestMap.txt error message: 
+Error loading "Tilesets\Tileset". File not found.
+
+----- Program executed on 01/02/2013 00:00:00 at 17:06:18.3360619 -----
+	1:Error loading level named TestMap.txt error message: 
+Error loading "Tilesets\Tileset". File not found.
+
+----- Program executed on 01/02/2013 00:00:00 at 17:06:41.1254344 -----
+	1:Error loading level named TestMap.txt error message: 
+Error loading "\Content\Tilesets\Tileset". Cannot open file.
+
+----- Program executed on 01/02/2013 00:00:00 at 17:08:05.8201713 -----
+	1:Button Clicked Action =  continue 
+
+	2:Player collected item ID 5
+
+	3:Player collected item ID 4
+
+	4:Player collected item ID 3
+
+	5:Player collected item ID 2
+
+	6:Player collected item ID 1
+
+----- Program execution finished on 01/02/2013 00:00:00 at 17:08:25.3818196 -----
+----- Program executed on 01/02/2013 00:00:00 at 17:09:04.9929945 -----
+	1:Button Clicked Action =  continue 
+
+----- Program execution finished on 01/02/2013 00:00:00 at 17:09:10.0955197 -----
