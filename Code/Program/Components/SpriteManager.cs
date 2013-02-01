@@ -22,31 +22,29 @@ namespace VOiD.Components
             spriteBatch = new SpriteBatch(game.GraphicsDevice);
         }
 
-        // Summary:
-        //     Begins a sprite batch operation using deferred sort and default state objects
-        //     (BlendState.AlphaBlend, SamplerState.LinearClamp, DepthStencilState.None,
-        //     RasterizerState.CullCounterClockwise).
+        /// <summary>
+        /// Begins a sprite batch operation using deferred sort and default state objects
+        /// (BlendState.AlphaBlend, SamplerState.LinearClamp, DepthStencilState.None,
+        /// RasterizerState.CullCounterClockwise).
+        /// </summary>
         public static void Begin()
         {
             spriteBatch.Begin();
         }
-        //
-        // Summary:
-        //     Begins a sprite batch operation using the specified sort and blend state
-        //     object and default state objects (DepthStencilState.None, SamplerState.LinearClamp,
-        //     RasterizerState.CullCounterClockwise). If you pass a null blend state, the
-        //     default is BlendState.AlphaBlend.
-        //
-        // Parameters:
-        //   sortMode:
-        //     Sprite drawing order.
-        //
-        //   blendState:
-        //     Blending options.
+
+        /// <summary>
+        /// Begins a sprite batch operation using the specified sort and blend state
+        /// object and default state objects (DepthStencilState.None, SamplerState.LinearClamp,
+        /// RasterizerState.CullCounterClockwise). If you pass a null blend state, the
+        /// default is BlendState.AlphaBlend.
+        /// </summary>
+        /// <param name="sortMode">Sprite drawing order.</param>
+        /// <param name="blendState">Blending options.</param>
         public static void Begin(SpriteSortMode sortMode, BlendState blendState)
         {
             spriteBatch.Begin(sortMode, blendState);
         }
+
         //
         // Summary:
         //     Begins a sprite batch operation using the specified sort, blend, sampler,
