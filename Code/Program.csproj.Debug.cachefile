@@ -13,13 +13,11 @@ Content\Sprites\Honey.xnb
 Content\Sprites\SpringWater.xnb
 Content\Sprites\CreatureGeneric.xnb
 Content\Sprites\Nest.xnb
+Content\Tilesets\Tileset.xnb
 Content\Configuration.xnb
 Content\MainMenu.xnb
 Content\LevelMenu.xnb
 Content\SubMenuOptions.xnb
 Content\SegoeUI.xnb
-Content\Tilesets\Tileset.xnb
 Content\Tilesets\Tileset.png
 Content\Maps\TestMap.txt
-Level\Maps\TestMap.txt
-Level\Tilesets\Tileset.png

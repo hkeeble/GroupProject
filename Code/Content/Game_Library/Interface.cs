@@ -21,7 +21,6 @@ namespace GameLibrary
     {
         [ContentSerializerIgnore]
         public bool Init=false;
-        
     }
 
     public class GraphicObject : Object2D

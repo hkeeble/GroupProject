@@ -104,11 +104,11 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Game_Library\Game_Library.csproj">
+    <ProjectReference Include="Content\Game_Library\Content_Library.csproj">
       <Project>{bb82b312-04be-4bc0-ab60-0295ae56365b}</Project>
-      <Name>Game_Library</Name>
+      <Name>Content_Library</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Content\Content.contentproj">
+    <ProjectReference Include="Content\Content.contentproj">
       <Name>Content</Name>
       <XnaReferenceType>Content</XnaReferenceType>
       <Project>{B5E43326-559C-43B5-B77E-42C566234D00}</Project>
