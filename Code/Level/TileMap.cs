@@ -11,7 +11,9 @@ namespace VOiD
 {
     class TileMap
     {
-        private int _width, _height, _tileWidth, _tileHeight, _numberOfNests;
+        public const int TileWidth = 32, TileHeight = 32;
+
+        private int _width, _height, _numberOfNests;
         Texture2D _tileSet;
         private string _tileSetPath;
         private Point[,] _tiles;
@@ -27,8 +29,6 @@ namespace VOiD
         {//NEEDS WORK BLANK MAP
             _width = 0;
             _height = 0;
-            _tileHeight = 0;
-            _tileWidth = 0;
         }
 
         /// <summary>
@@ -45,8 +45,6 @@ namespace VOiD
 
                 _width = Convert.ToInt32(tr.ReadLine());
                 _height = Convert.ToInt32(tr.ReadLine());
-                _tileWidth = Convert.ToInt32(tr.ReadLine());
-                _tileHeight = Convert.ToInt32(tr.ReadLine());
                 _tileSetPath = tr.ReadLine();
 
                 try
@@ -77,7 +75,7 @@ namespace VOiD
                             int itemID = UnicodeValueToInt(tr.Read());
                             if (itemID != 0)
                             {
-                                ItemEntity temp = new ItemEntity(new Vector2(y * _tileWidth, x * _tileWidth), itemID, content);
+                                ItemEntity temp = new ItemEntity(new Vector2(y * TileHeight, x * TileWidth), itemID, content);
                                 GameHandler.AddItem(temp);
                             }
                             tr.Read();
@@ -92,18 +90,18 @@ namespace VOiD
 
                 string pSpawn = tr.ReadLine();
                 string[] split = pSpawn.Split('-');
-                _playerSpawn.X = Convert.ToInt32(split[0]) * _tileWidth;
-                _playerSpawn.Y = Convert.ToInt32(split[1]) * _tileHeight;
+                _playerSpawn.X = Convert.ToInt32(split[0]) * TileWidth;
+                _playerSpawn.Y = Convert.ToInt32(split[1]) * TileHeight;
 
                 string bSpawn = tr.ReadLine();
                 split = bSpawn.Split('-');
-                _bossSpawn.X = Convert.ToInt32(split[0]) * _tileWidth;
-                _bossSpawn.Y = Convert.ToInt32(split[1]) * _tileHeight;
+                _bossSpawn.X = Convert.ToInt32(split[0]) * TileWidth;
+                _bossSpawn.Y = Convert.ToInt32(split[1]) * TileHeight;
 
                 string lPos = tr.ReadLine();
                 split = lPos.Split('-');
-                _labPos.X = Convert.ToInt32(split[0]) * _tileWidth;
-                _labPos.Y = Convert.ToInt32(split[1]) * _tileHeight;
+                _labPos.X = Convert.ToInt32(split[0]) * TileWidth;
+                _labPos.Y = Convert.ToInt32(split[1]) * TileHeight;
 
                 GameHandler.Boss = new Creature(Convert.ToInt16(tr.ReadLine()), content.Load<Texture2D>("Sprites\\CreatureGeneric"),_bossSpawn, 1f);
 
@@ -114,8 +112,8 @@ namespace VOiD
                     string cPos = tr.ReadLine();
                     split = cPos.Split('-');
                     GameHandler.AddNest(new Nest(content.Load<Texture2D>("Sprites\\Nest"), content.Load<Texture2D>("Sprites\\CreatureGeneric"),
-                        new Point(Convert.ToInt32(split[0])*_tileWidth,Convert.ToInt32(split[1])*_tileHeight), Convert.ToInt16(tr.ReadLine()), new Point(_width, _height),
-                        new Point(_tileWidth, _tileHeight)));
+                        new Point(Convert.ToInt32(split[0])*TileWidth,Convert.ToInt32(split[1])*TileHeight), Convert.ToInt16(tr.ReadLine()), new Point(_width, _height),
+                        new Point(TileWidth, TileHeight)));
                 }
 
                 tr.Close();
@@ -142,7 +140,7 @@ namespace VOiD
             if (isLoaded)
                 for (int x = 0; x < _width; x++)
                     for (int y = 0; y < _height; y++)
-                        SpriteManager.Draw(_tileSet, Camera.Transform(new Vector2(x * _tileWidth, y * _tileHeight)), new Rectangle(_tiles[y, x].X * _tileWidth, _tiles[y, x].Y * _tileHeight, _tileWidth, _tileHeight), Color.White,
+                        SpriteManager.Draw(_tileSet, Camera.Transform(new Vector2(x * TileWidth, y * TileHeight)), new Rectangle(_tiles[y, x].X * TileWidth, _tiles[y, x].Y * TileHeight, TileWidth, TileHeight), Color.White,
                             0f, Vector2.Zero, new Vector2(1, 1), SpriteEffects.None, 0f);
         }
 
@@ -183,8 +181,6 @@ namespace VOiD
         public Vector2 BossSpawn { get { return _bossSpawn; } }
         public int Width { get { return _width; } }
         public int Height { get { return _height; } }
-        public int TileWidth { get { return _tileWidth; } }
-        public int TileHeight { get { return _tileHeight; } }
         public Texture2D TileSet { get { return _tileSet; } }
         public bool[,] Passable { get { return _passable; } }
         public int[,] Attribute { get { return _attribute; } }
@@ -192,6 +188,6 @@ namespace VOiD
         /// <summary>
         /// Returns the size of the map in pixels (mapSize*tileSize)
         /// </summary>
-        public Rectangle PixelSize { get { return new Rectangle(0, 0, _width * _tileWidth, _height * _tileHeight); } }
+        public Rectangle PixelSize { get { return new Rectangle(0, 0, _width * TileWidth, _height * TileHeight); } }
     }
 }
