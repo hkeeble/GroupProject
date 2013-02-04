@@ -121,7 +121,7 @@ namespace VOiD
                 CreateModel(graphicsDevice);
             }
             else
-                creatureModel.Draw(Matrix.Identity);
+                creatureModel.Draw(Matrix.CreateTranslation(Vector3.Forward*6));
 	    }
     }
 }
