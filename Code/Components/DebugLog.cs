@@ -12,7 +12,7 @@ namespace VOiD.Components
             : base(game)
         {
             StreamWriter tw = File.AppendText("debugLog.txt");
-            string temp = ("----- Program executed on " + Convert.ToString(DateTime.Now.Date) + " at " + Convert.ToString(DateTime.Now.TimeOfDay) + " -----");
+            string temp = ("----- Program executed on " + DateTime.Now.ToShortDateString() + " at " + DateTime.Now.ToShortTimeString() + " -----");
             Console.WriteLine(temp);
             tw.WriteLine(temp);
             tw.Close();
@@ -21,7 +21,7 @@ namespace VOiD.Components
         public static void Close()
         {
             StreamWriter tw = File.AppendText("debugLog.txt");
-            string temp = ("----- Program execution finished on " + Convert.ToString(DateTime.Now.Date) + " at " + Convert.ToString(DateTime.Now.TimeOfDay) + " -----");
+            string temp = ("----- Program execution finished on " + DateTime.Now.ToShortDateString() + " at " + DateTime.Now.ToShortTimeString() + " -----");
             Console.WriteLine(temp);
             tw.WriteLine(temp);
             tw.Close();
