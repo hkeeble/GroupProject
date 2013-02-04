@@ -114,7 +114,7 @@ namespace VOiD
                     split = cPos.Split('-');
                     GameHandler.AddNest(new Nest(content.Load<Texture2D>("Sprites\\Nest"), content.Load<Texture2D>("Sprites\\CreatureGeneric"),
                         new Point(Convert.ToInt32(split[0])*TileWidth,Convert.ToInt32(split[1])*TileHeight), Convert.ToInt16(tr.ReadLine()), new Point(_width, _height),
-                        new Point(TileWidth, TileHeight)));
+                        new Point(TileWidth, TileHeight), new Point((int)_playerSpawn.X, (int)_playerSpawn.Y)));
                 }
 
                 tr.Close();

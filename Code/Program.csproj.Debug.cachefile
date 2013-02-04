@@ -14,12 +14,12 @@ Content\Sprites\SpringWater.xnb
 Content\Sprites\CreatureGeneric.xnb
 Content\Sprites\Nest.xnb
 Content\Tilesets\Tileset.xnb
+Content\Interface\Battle.xnb
 Content\Configuration.xnb
 Content\MainMenu.xnb
 Content\LevelMenu.xnb
 Content\SubMenuOptions.xnb
-Content\SegoeUI.xnb
 Content\BattleScreen.xnb
-Content\Interface\Battle.xnb
+Content\SegoeUI.xnb
 Content\Tilesets\Tileset.png
 Content\Maps\TestMap.txt
