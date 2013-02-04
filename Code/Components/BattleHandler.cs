@@ -58,7 +58,7 @@ namespace VOiD.Components
         public override void Draw(GameTime gameTime)
         {
             if (InSession)
-                A.Draw();
+                A.Draw(Game.GraphicsDevice);
             base.Draw(gameTime);
         }
     }
