@@ -80,6 +80,8 @@
     <Compile Include="Components\Interface.cs" />
     <Compile Include="Creature\AttackTypes.cs" />
     <Compile Include="Creature\Creature.cs" />
+    <Compile Include="Creature\CreatureModel.cs" />
+    <Compile Include="Creature\Primitives3D.cs" />
     <Compile Include="Creature\Traits.cs" />
     <Compile Include="Inventory.cs" />
     <Compile Include="Level\Camera.cs" />

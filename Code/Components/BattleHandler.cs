@@ -12,9 +12,11 @@ using Microsoft.Xna.Framework.Media;
 
 namespace VOiD.Components
 {
-    public class BattleHandler : Microsoft.Xna.Framework.GameComponent
+    public class BattleHandler : DrawableGameComponent
     {
         private static bool InSession;
+        private static Creature A;
+        private static Creature B;
 
         public BattleHandler(Game game)
             : base(game)
@@ -26,9 +28,11 @@ namespace VOiD.Components
             base.Initialize();
         }
 
-        public static void InitiateBattle(Creature A,Creature B)
+        public static void InitiateBattle(Creature a,Creature b)
         {
             Interface.currentScreen=Screens.Battle;
+            A = a;
+            B = b;
             InSession = true;
         }
 
@@ -49,6 +53,13 @@ namespace VOiD.Components
 
 
             base.Update(gameTime);
+        }
+
+        public override void Draw(GameTime gameTime)
+        {
+            if (InSession)
+                A.Draw();
+            base.Draw(gameTime);
         }
     }
 }

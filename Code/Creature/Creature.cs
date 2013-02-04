@@ -7,7 +7,7 @@ namespace VOiD
 {
     public class Creature : Entity
     {
-        //private CreatureModel creatureModel;
+        private CreatureModel creatureModel;
 
 	    // Variables
 	    protected Traits Dominant;//A dominant allele always shows, even if the individual only has one copy of the allele.
@@ -78,6 +78,32 @@ namespace VOiD
 	    }
         
 	    // Methods
+        void CreateModel(GraphicsDevice graphicsDevice)
+        {
+            // Make the model from the set up Dominant traits
+            creatureModel = new CreatureModel(new CubePrimitive(graphicsDevice), Vector3.Zero, Vector3.Zero);
+            CreatureModel tmp = new CreatureModel(graphicsDevice);
+            if (Dominant.Spine)
+            {
+                tmp = creatureModel;
+                for (int i = 0; i < Dominant.SpinalColumns; i++)
+                {
+                    tmp.children.Add(new CreatureModel(new SpherePrimitive(graphicsDevice, 1.0f, 8), Vector3.Up, Vector3.Zero));
+                    tmp = tmp.children[0];
+                }
+            }
+
+            if (Dominant.Tail)
+            {
+                tmp = creatureModel;
+                for (int i = 0; i < Dominant.TailColumns; i++)
+                {
+                    tmp.children.Add(new CreatureModel(new SpherePrimitive(graphicsDevice, 1.0f, 8), Vector3.Backward, new Vector3(0, 0, MathHelper.ToRadians(8.0f) * i)));
+                    tmp = tmp.children[0];
+                }
+            }
+        }
+
         void CreateAttacks()
         {
             avTacks = new AttackTypes(this.Dominant);
@@ -90,7 +116,12 @@ namespace VOiD
 
         public void Draw(GraphicsDevice graphicsDevice)
 	    {
-            //creatureModel.Draw(Matrix.Identity);
+            if (creatureModel == null)
+            {
+                CreateModel(graphicsDevice);
+            }
+            else
+                creatureModel.Draw(Matrix.Identity);
 	    }
     }
 }
