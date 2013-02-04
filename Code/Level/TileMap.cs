@@ -75,7 +75,7 @@ namespace VOiD
                 sr.Close();
                 sr = new StreamReader(_fileName);
 
-                map = new Texture2D(graphicsDevice, _width, _height);
+                map = new Texture2D(graphicsDevice, _width*TileWidth, _height*TileHeight);
                 
                 _tileSetPath = sr.ReadLine();
 
@@ -91,11 +91,9 @@ namespace VOiD
                     {
                         for (int x = 0; x < _width; x++)
                         {
-                            //_tileSet.GetData<Color>(0, new Rectangle(UnicodeValueToInt(sr.Read())*TileWidth,UnicodeValueToInt(sr.Read())*TileHeight,TileWidth,TileHeight), currentTile, 0, TileWidth*TileHeight);
-                            //map.SetData<Color>(0, new Rectangle(x * TileWidth, y * TileHeight, TileWidth, TileHeight), currentTile, 0, TileWidth * TileHeight); 
+                            _tileSet.GetData<Color>(0, new Rectangle(UnicodeValueToInt(sr.Read())*TileWidth,UnicodeValueToInt(sr.Read())*TileHeight,TileWidth,TileHeight), currentTile, 0, TileWidth*TileHeight);
+                            map.SetData<Color>(0, new Rectangle(x * TileWidth, y * TileHeight, TileWidth, TileHeight), currentTile, 0, TileWidth * TileHeight); 
 
-                            _tiles[x, y].X = UnicodeValueToInt(sr.Read());
-                            _tiles[x, y].Y = UnicodeValueToInt(sr.Read());
                             _passable[x, y] = Convert.ToBoolean(UnicodeValueToInt(sr.Read()));
                             _attribute[x, y] = UnicodeValueToInt(sr.Read());
 
@@ -165,11 +163,7 @@ namespace VOiD
         public void Draw()
         {
             if (isLoaded)
-                //SpriteManager.Draw(map, Camera.Transform(Vector2.Zero), Color.White);
-                for (int x = 0; x < _width; x++)
-                    for (int y = 0; y < _height; y++)
-                        SpriteManager.Draw(_tileSet, Camera.Transform(new Vector2(x * TileWidth, y * TileHeight)), new Rectangle(_tiles[x, y].X * TileWidth, _tiles[x, y].Y * TileHeight, TileWidth, TileHeight), Color.White,
-                            0f, Vector2.Zero, new Vector2(1, 1), SpriteEffects.None, 0f);
+                SpriteManager.Draw(map, Camera.Transform(Vector2.Zero), Color.White);
         }
 
         /// <summary>
