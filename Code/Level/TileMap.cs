@@ -11,7 +11,8 @@ namespace VOiD
 {
     class TileMap
     {
-        public const int TileWidth = 32, TileHeight = 32;
+        public int TileWidth = 32;
+        public int TileHeight = 32;
 
         private int _width, _height, _numberOfNests;
         Texture2D _tileSet;

@@ -14,7 +14,26 @@ namespace VOiD
         int _tileWidth, _tileHeight;
         Point[,] _regionTiles;
         Texture2D _tileSet;
+        /*
+        Texture2D minimap;
 
+        public void stuff()
+        {
+            minimap = new Texture2D(GraphicsDevice, WIDTH, HEIGHT,false,SurfaceFormat.Color);
+
+
+
+            for (int x = 0; x < WIDTH; x++)
+            {
+                for (int y = 0; y < HEIGHT; y++)
+                {
+                    minimap.SetData<Color>(0,_tileSet, new Vector2(x * REGION_WIDTH, y * REGION_HEIGHT), new Rectangle(_regionTiles[x, y].X * _tileWidth, _regionTiles[x, y].Y * _tileWidth,
+                        REGION_WIDTH, REGION_HEIGHT), Color.White);
+                }
+                spriteBatch.End();
+            }
+        }
+        */
         public Minimap(TileMap map)
         {
             _tileWidth = map.TileWidth;
