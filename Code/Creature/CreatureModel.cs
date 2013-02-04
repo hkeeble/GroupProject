@@ -34,7 +34,7 @@ namespace VOiD
         public void Draw(Matrix Parent)
         {
             wtf = Parent * Matrix.CreateTranslation(Position) * Matrix.CreateFromYawPitchRoll(Rotation.X, Rotation.Y, Rotation.Z);
-            model.Draw(wtf, Matrix.CreateTranslation(Vector3.Up*3), Matrix.CreatePerspectiveFieldOfView(MathHelper.ToRadians(45.0f),VOiD.Components.Configuration.AspectRatio,0.1f,100f), Color.White);
+            model.Draw(wtf, Matrix.CreateTranslation(Vector3.Down*1.5f), Matrix.CreatePerspectiveFieldOfView(MathHelper.ToRadians(45.0f),VOiD.Components.Configuration.AspectRatio,0.1f,100f), Color.White);
 
             foreach (CreatureModel child in children)
             {
