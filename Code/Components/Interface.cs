@@ -130,6 +130,7 @@ namespace VOiD.Components
         public Interface(Game game)
             : base(game)
         {
+            this.DrawOrder=0;
             currentScreen = Screens.MainMenu;
             lastScreen = Screens.BLANK;
             dm = Game.GraphicsDevice.Adapter.SupportedDisplayModes.ToArray<DisplayMode>();

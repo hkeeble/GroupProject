@@ -114,14 +114,14 @@ namespace VOiD
             get { return avTacks.AvalibleAttacks; }
         }
 
-        public void Draw(GraphicsDevice graphicsDevice)
+        public void Draw(GraphicsDevice graphicsDevice, Matrix world)
 	    {
             if (creatureModel == null)
             {
                 CreateModel(graphicsDevice);
             }
             else
-                creatureModel.Draw(Matrix.CreateTranslation(Vector3.Forward*6));
+                creatureModel.Draw(world);
 	    }
     }
 }

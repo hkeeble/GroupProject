@@ -58,7 +58,10 @@ namespace VOiD.Components
         public override void Draw(GameTime gameTime)
         {
             if (InSession)
-                A.Draw(Game.GraphicsDevice);
+            {
+                A.Draw(Game.GraphicsDevice, Matrix.CreateRotationY(MathHelper.ToRadians(45.0f)) * Matrix.CreateTranslation(new Vector3(2, 0, -6)));
+                B.Draw(Game.GraphicsDevice, Matrix.CreateRotationY(MathHelper.ToRadians(-45.0f)) * Matrix.CreateTranslation(new Vector3(-2, 0, -6)));
+            }
             base.Draw(gameTime);
         }
     }
