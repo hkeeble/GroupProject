@@ -215,6 +215,10 @@ namespace VOiD.Components
                 {
                     temp = (Game.Content.Load<GameLibrary.Interface>("LevelMenu"));
                 }
+                else if (currentScreen == Screens.Battle)
+                {
+                    temp = (Game.Content.Load<GameLibrary.Interface>("BattleScreen"));
+                }
                 else
                 {
                     temp = new GameLibrary.Interface();

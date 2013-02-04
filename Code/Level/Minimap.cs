@@ -27,8 +27,8 @@ namespace VOiD
             {
                 for (int y = 0; y < HEIGHT; y++)
                 {
-                    minimap.SetData<Color>(0,_tileSet, new Vector2(x * REGION_WIDTH, y * REGION_HEIGHT), new Rectangle(_regionTiles[x, y].X * _tileWidth, _regionTiles[x, y].Y * _tileWidth,
-                        REGION_WIDTH, REGION_HEIGHT), Color.White);
+                    Rectangle tileblock = new Rectangle(_regionTiles[x, y].X * _tileWidth, _regionTiles[x, y].Y * _tileWidth, REGION_WIDTH, REGION_HEIGHT);
+                    minimap.SetData<Color>(0,_tileSet.GetData<Color>(0,,TileMap,0,, new Vector2(x * REGION_WIDTH, y * REGION_HEIGHT), Color.White);
                 }
                 spriteBatch.End();
             }
