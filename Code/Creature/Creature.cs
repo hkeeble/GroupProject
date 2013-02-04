@@ -82,13 +82,12 @@ namespace VOiD
         {
             // Make the model from the set up Dominant traits
             creatureModel = new CreatureModel(new CubePrimitive(graphicsDevice), Vector3.Zero, Vector3.Zero);
-            CreatureModel tmp = new CreatureModel(graphicsDevice);
+            CreatureModel tmp = creatureModel;
             if (Dominant.Spine)
             {
-                tmp = creatureModel;
                 for (int i = 0; i < Dominant.SpinalColumns; i++)
                 {
-                    tmp.children.Add(new CreatureModel(new SpherePrimitive(graphicsDevice, 1.0f, 8), Vector3.Up, Vector3.Zero));
+                    tmp.children.Add(new CreatureModel(new SpherePrimitive(graphicsDevice, 1f, 8), Vector3.Up/16, Vector3.Zero));
                     tmp = tmp.children[0];
                 }
             }
@@ -98,7 +97,7 @@ namespace VOiD
                 tmp = creatureModel;
                 for (int i = 0; i < Dominant.TailColumns; i++)
                 {
-                    tmp.children.Add(new CreatureModel(new SpherePrimitive(graphicsDevice, 1.0f, 8), Vector3.Backward, new Vector3(0, 0, MathHelper.ToRadians(8.0f) * i)));
+                    tmp.children.Add(new CreatureModel(new SpherePrimitive(graphicsDevice, 1f, 8), Vector3.Backward/16, new Vector3(0, 0, MathHelper.ToRadians(8.0f) * i)));
                     tmp = tmp.children[0];
                 }
             }
