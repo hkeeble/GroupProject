@@ -51,7 +51,7 @@ namespace VOiD
                 _currentTile = CurrentTile;
             }
 
-            if(GameHandler.TileMap.Passable[_newLoc.Y, _newLoc.X] == false)
+            if(GameHandler.TileMap.Passable[_newLoc.X, _newLoc.Y] == false)
             {
                 if(Direction.X != 0)
                     Direction.X = 0;
@@ -60,10 +60,10 @@ namespace VOiD
             }
             else if (Direction.X != 0 && Direction.Y != 0)
             {
-                if(GameHandler.TileMap.Passable[_currentTile.Y, _newLoc.X] == false)
-                    Direction.X = 0;
-                if(GameHandler.TileMap.Passable[_newLoc.Y, _currentTile.X] == false)
+                if(GameHandler.TileMap.Passable[_currentTile.X, _newLoc.Y] == false)
                     Direction.Y = 0;
+                if(GameHandler.TileMap.Passable[_newLoc.X, _currentTile.Y] == false)
+                    Direction.X = 0;
             }
 
             _position += (Direction * _moveSpeed);

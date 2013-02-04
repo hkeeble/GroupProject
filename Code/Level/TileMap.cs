@@ -26,6 +26,8 @@ namespace VOiD
         bool isLoaded = false;
         // Apple Array?
 
+        Texture2D map;
+
         public TileMap()
         {//NEEDS WORK BLANK MAP
             _width = 0;
@@ -42,21 +44,40 @@ namespace VOiD
             try
             {
                 _fileName = Directory.GetCurrentDirectory() + "\\Content\\Maps\\" + fileName;
-                TextReader tr = new StreamReader(_fileName);
-
-                _width = Convert.ToInt32(tr.ReadLine());
-                _height = Convert.ToInt32(tr.ReadLine());
-                _tileSetPath = tr.ReadLine();
+                StreamReader sr = new StreamReader(_fileName);
 
                 try
                 {
-                    _tileSet = content.Load<Texture2D>("Tilesets/Tileset");
+                    _tileSet = content.Load<Texture2D>("Tilesets/"+sr.ReadLine());
                     isLoaded = true;//CHECK THIS PLEASE
                 }
-                catch(FileNotFoundException e)
+                catch (FileNotFoundException e)
                 {
                     DebugLog.WriteLine("Error loading tileset for level " + fileName + " error message: \n" + e.Message);
                 }
+
+                // Get Map Width
+                sr.Close();
+                sr = new StreamReader(_fileName);
+                sr.ReadLine();
+                string[] widthString = sr.ReadLine().Split(' ');
+                _width = widthString.Length;
+                
+                // Get Map Height
+                sr.Close();
+                sr = new StreamReader(_fileName);
+                sr.ReadLine();
+                int counter = 0;
+                while (!sr.ReadLine().Contains('-'))
+                    counter++;
+                _height = counter;
+
+                sr.Close();
+                sr = new StreamReader(_fileName);
+
+                map = new Texture2D(graphicsDevice, _width, _height);
+                
+                _tileSetPath = sr.ReadLine();
 
                 _tiles = new Point[_width, _height];
                 _passable = new bool[_width, _height];
@@ -64,24 +85,29 @@ namespace VOiD
 
                 try
                 {
-                    for (int x = 0; x < _width; x++)
-                    {
-                        for (int y = 0; y < _height; y++)
-                        {
-                            _tiles[x, y].X = UnicodeValueToInt(tr.Read());
-                            _tiles[x, y].Y = UnicodeValueToInt(tr.Read());
-                            _passable[x, y] = Convert.ToBoolean(UnicodeValueToInt(tr.Read()));
-                            _attribute[x, y] = UnicodeValueToInt(tr.Read());
+                    Color[] currentTile = new Color[TileWidth*TileHeight];
 
-                            int itemID = UnicodeValueToInt(tr.Read());
+                    for (int y = 0; y < _height; y++)
+                    {
+                        for (int x = 0; x < _width; x++)
+                        {
+                            //_tileSet.GetData<Color>(0, new Rectangle(UnicodeValueToInt(sr.Read())*TileWidth,UnicodeValueToInt(sr.Read())*TileHeight,TileWidth,TileHeight), currentTile, 0, TileWidth*TileHeight);
+                            //map.SetData<Color>(0, new Rectangle(x * TileWidth, y * TileHeight, TileWidth, TileHeight), currentTile, 0, TileWidth * TileHeight); 
+
+                            _tiles[x, y].X = UnicodeValueToInt(sr.Read());
+                            _tiles[x, y].Y = UnicodeValueToInt(sr.Read());
+                            _passable[x, y] = Convert.ToBoolean(UnicodeValueToInt(sr.Read()));
+                            _attribute[x, y] = UnicodeValueToInt(sr.Read());
+
+                            int itemID = UnicodeValueToInt(sr.Read());
                             if (itemID != 0)
                             {
-                                ItemEntity temp = new ItemEntity(new Vector2(y * TileHeight, x * TileWidth), itemID, content);
+                                ItemEntity temp = new ItemEntity(new Vector2(x * TileHeight, y * TileWidth), itemID, content);
                                 GameHandler.AddItem(temp);
                             }
-                            tr.Read();
+                            sr.Read();
                         }
-                        tr.ReadLine();
+                        sr.ReadLine();
                     }
                 }
                 catch (Exception e)
@@ -89,35 +115,35 @@ namespace VOiD
                     DebugLog.WriteLine("Error reading tile data from level " + fileName + " error message: \n" + e.Message);
                 }
 
-                string pSpawn = tr.ReadLine();
+                string pSpawn = sr.ReadLine();
                 string[] split = pSpawn.Split('-');
                 _playerSpawn.X = Convert.ToInt32(split[0]) * TileWidth;
                 _playerSpawn.Y = Convert.ToInt32(split[1]) * TileHeight;
 
-                string bSpawn = tr.ReadLine();
+                string bSpawn = sr.ReadLine();
                 split = bSpawn.Split('-');
                 _bossSpawn.X = Convert.ToInt32(split[0]) * TileWidth;
                 _bossSpawn.Y = Convert.ToInt32(split[1]) * TileHeight;
 
-                string lPos = tr.ReadLine();
+                string lPos = sr.ReadLine();
                 split = lPos.Split('-');
                 _labPos.X = Convert.ToInt32(split[0]) * TileWidth;
                 _labPos.Y = Convert.ToInt32(split[1]) * TileHeight;
 
-                GameHandler.Boss = new Creature(Convert.ToInt16(tr.ReadLine()), content.Load<Texture2D>("Sprites\\CreatureGeneric"),_bossSpawn, 1f);
+                GameHandler.Boss = new Creature(Convert.ToInt16(sr.ReadLine()), content.Load<Texture2D>("Sprites\\CreatureGeneric"),_bossSpawn, 1f);
 
-                _numberOfNests = Convert.ToInt32(tr.ReadLine());
+                _numberOfNests = Convert.ToInt32(sr.ReadLine());
 
                 for (int i = 0; i < _numberOfNests; i++)
                 {
-                    string cPos = tr.ReadLine();
+                    string cPos = sr.ReadLine();
                     split = cPos.Split('-');
                     GameHandler.AddNest(new Nest(content.Load<Texture2D>("Sprites\\Nest"), content.Load<Texture2D>("Sprites\\CreatureGeneric"),
-                        new Point(Convert.ToInt32(split[0])*TileWidth,Convert.ToInt32(split[1])*TileHeight), Convert.ToInt16(tr.ReadLine()), new Point(_width, _height),
+                        new Point(Convert.ToInt32(split[0])*TileWidth,Convert.ToInt32(split[1])*TileHeight), Convert.ToInt16(sr.ReadLine()), new Point(_width, _height),
                         new Point(TileWidth, TileHeight), new Point((int)_playerSpawn.X, (int)_playerSpawn.Y)));
                 }
 
-                tr.Close();
+                sr.Close();
             }
             catch (FileNotFoundException e)
             {
@@ -139,9 +165,10 @@ namespace VOiD
         public void Draw()
         {
             if (isLoaded)
+                //SpriteManager.Draw(map, Camera.Transform(Vector2.Zero), Color.White);
                 for (int x = 0; x < _width; x++)
                     for (int y = 0; y < _height; y++)
-                        SpriteManager.Draw(_tileSet, Camera.Transform(new Vector2(x * TileWidth, y * TileHeight)), new Rectangle(_tiles[y, x].X * TileWidth, _tiles[y, x].Y * TileHeight, TileWidth, TileHeight), Color.White,
+                        SpriteManager.Draw(_tileSet, Camera.Transform(new Vector2(x * TileWidth, y * TileHeight)), new Rectangle(_tiles[x, y].X * TileWidth, _tiles[x, y].Y * TileHeight, TileWidth, TileHeight), Color.White,
                             0f, Vector2.Zero, new Vector2(1, 1), SpriteEffects.None, 0f);
         }
 
