@@ -14,6 +14,7 @@ namespace VOiD.Components
         private static Creature boss;
         private static List<Nest> nests = new List<Nest>();
         private static List<ItemEntity> items = new List<ItemEntity>();
+        private Entity Lab;
         private Minimap _miniMap;
         public static Creature player;
         public static Inventory inventory;
@@ -27,6 +28,7 @@ namespace VOiD.Components
             _miniMap = new Minimap(TileMap.Map, game.GraphicsDevice);
             player = new Creature(2345, game.Content.Load<Texture2D>("Sprites\\handler"), GameHandler.TileMap.PlayerSpawn, 1f);
             inventory = new Inventory(NUMBER_OF_ITEM_TYPES, game.Content);
+            Lab = new Entity(game.Content.Load<Texture2D>("Sprites\\Lab"), TileMap.LabPosition, 0f);
         }
 
         public static Creature Boss { get { return boss; } set { boss = value; } }
@@ -44,8 +46,7 @@ namespace VOiD.Components
         public void LoadSave(Game game, string filePath)
         {
             TileMap = new TileMap(filePath, game.GraphicsDevice, game.Content);
-            Camera.MapRectangle = new Rectangle(0, 0, TileMap.Width * TileMap.TileWidth, TileMap.Height * TileMap.TileHeight);
-
+ 
             GameHandler.player.Position = new Vector2(TileMap.PlayerSpawn.X, TileMap.PlayerSpawn.Y);
 
             Camera.Position = new Vector2((TileMap.PlayerSpawn.X + (GameHandler.player.Texture.Width / 2)) - (Configuration.Width / 2),
@@ -92,6 +93,9 @@ namespace VOiD.Components
                         }
                     }
                 }
+
+                if(player.CollisionRect.Intersects(Lab.CollisionRect))
+                    Interface.currentScreen = Screens.Lab;
 
                 player.Update();
                 base.Update(gameTime);
@@ -152,8 +156,9 @@ namespace VOiD.Components
                 // DRAW PLAYER
                 // DRAW CREATURES
 
-                //player.Draw();
-                //TileMap.Draw();
+                player.Draw();
+                TileMap.Draw();
+                Lab.Draw();
                 _miniMap.Draw();
 
                 if (nests.Count > 0)

@@ -11,7 +11,6 @@ namespace VOiD
     static class Camera
     {
         private static Vector2 _position = Vector2.Zero;
-        private static Rectangle _mapRect = new Rectangle(0, 0, 0, 0);
 
         /// <summary>
         /// Returns the position of the camera, the top left pixel being displayed. Can also be used to set camera position.
@@ -28,8 +27,7 @@ namespace VOiD
         /// </summary>
         public static Rectangle MapRectangle
         {
-            get { return _mapRect; }
-            set { _mapRect = value; }
+            get { return new Rectangle((int)_position.X, (int)_position.Y, Configuration.Bounds.Width, Configuration.Bounds.Height); }
         }
 
         /// <summary>
@@ -38,7 +36,7 @@ namespace VOiD
         /// <param name="bounds">The object's bounding rectangle.</param>
         public static bool ObjectVisible(Rectangle bounds)
         {
-            return _mapRect.Intersects(bounds);
+            return MapRectangle.Intersects(bounds);
         }
 
         /// <summary>

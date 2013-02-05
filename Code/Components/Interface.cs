@@ -14,6 +14,7 @@ namespace VOiD.Components
         MainMenu,
         LevelMenu,
         Battle,
+        Lab,
         BLANK
     }
 
@@ -219,6 +220,10 @@ namespace VOiD.Components
                 else if (currentScreen == Screens.Battle)
                 {
                     temp = (Game.Content.Load<GameLibrary.Interface>("BattleScreen"));
+                }
+                else if (currentScreen == Screens.Lab)
+                {
+                    temp = (Game.Content.Load<GameLibrary.Interface>("LabScreen"));
                 }
                 else
                 {

@@ -56,7 +56,7 @@ namespace VOiD
                 {
                     int offset1 = y * 2 * prevSize + x * 2;
                     int offset2 = (y * 2 + 1) * prevSize + x * 2;
-
+                    //Console.WriteLine(x + " " + y + "\n");
                     // For each channel get the average of 4 pixels from the original pixel array
                     byte red = (byte)((pixels[offset1].R + pixels[offset1 + 1].R + pixels[offset2].R + pixels[offset2 + 1].R) / 4);
                     byte green = (byte)((pixels[offset1].G + pixels[offset1 + 1].G + pixels[offset2].G + pixels[offset2 + 1].G) / 4);
@@ -71,7 +71,6 @@ namespace VOiD
             texture.SetData<Color>(nextLevel, new Rectangle(0, 0, size, size), newPixels, 0, size * size);
 
             AddMipMapLevels(texture, newPixels, size / 2, nextLevel++, minSize);
-
         }
 
 
@@ -159,9 +158,9 @@ namespace VOiD
                 {
                     DebugLog.WriteLine("Error reading tile data from level " + fileName + " error message: \n" + e.Message);
                 }
-                Color[] data = new Color[_map.Width*_map.Height];
-                _map.GetData<Color>(data);
-                AddMipMapLevels(_map, data, _map.Width / 2, 1, 1);
+                //Color[] data = new Color[_map.Width*_map.Height];
+                //_map.GetData<Color>(data);
+                //AddMipMapLevels(_map, data, _map.Width / 2, 1, 1);
 
 
                 string pSpawn = sr.ReadLine();
@@ -252,6 +251,7 @@ namespace VOiD
         // Public Accessors
         public Vector2 PlayerSpawn { get { return _playerSpawn; } }
         public Vector2 BossSpawn { get { return _bossSpawn; } }
+        public Vector2 LabPosition { get { return _labPos; } }
         public int Width { get { return _width; } }
         public int Height { get { return _height; } }
         public Texture2D TileSet { get { return _tileSet; } }

@@ -37,10 +37,9 @@ namespace VOiD
 
         public void Draw()
         {
-            if (_texture != null)
-            {
-                SpriteManager.Draw(_texture, Camera.Transform(_position), null, Color.White, 0f, Vector2.Zero, new Vector2(1, 1), SpriteEffects.None, 1f);
-            }
+            if(Camera.ObjectVisible(_collisionRect))
+                if (_texture != null)
+                    SpriteManager.Draw(_texture, Camera.Transform(_position), null, Color.White, 0f, Vector2.Zero, new Vector2(1, 1), SpriteEffects.None, 1f);
         }
 
         public virtual void Update()

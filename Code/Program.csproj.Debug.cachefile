@@ -21,5 +21,8 @@ Content\LevelMenu.xnb
 Content\SubMenuOptions.xnb
 Content\BattleScreen.xnb
 Content\SegoeUI.xnb
+Content\Sprites\Lab.xnb
+Content\Interface\Lab.xnb
+Content\LabScreen.xnb
 Content\Tilesets\Tileset.png
 Content\Maps\TestMap.txt
