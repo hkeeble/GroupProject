@@ -14,9 +14,9 @@ namespace VOiD
         int _tileWidth, _tileHeight;
         Point[,] _regionTiles;
         Texture2D _tileSet;
-        /*
         Texture2D minimap;
 
+        /*
         public void stuff()
         {
             minimap = new Texture2D(GraphicsDevice, WIDTH, HEIGHT,false,SurfaceFormat.Color);

@@ -21,12 +21,10 @@ namespace VOiD
         private bool[,] _passable;
         private int[,] _attribute;
         Vector2 _playerSpawn, _bossSpawn, _labPos;
-        // Creature Code Array?
         string _fileName;
         bool isLoaded = false;
-        // Apple Array?
 
-        Texture2D map;
+        Texture2D _map;
 
         public TileMap()
         {//NEEDS WORK BLANK MAP
@@ -75,7 +73,7 @@ namespace VOiD
                 sr.Close();
                 sr = new StreamReader(_fileName);
 
-                map = new Texture2D(graphicsDevice, _width*TileWidth, _height*TileHeight);
+                _map = new Texture2D(graphicsDevice, _width*TileWidth, _height*TileHeight);
                 
                 _tileSetPath = sr.ReadLine();
 
@@ -92,7 +90,7 @@ namespace VOiD
                         for (int x = 0; x < _width; x++)
                         {
                             _tileSet.GetData<Color>(0, new Rectangle(UnicodeValueToInt(sr.Read())*TileWidth,UnicodeValueToInt(sr.Read())*TileHeight,TileWidth,TileHeight), currentTile, 0, TileWidth*TileHeight);
-                            map.SetData<Color>(0, new Rectangle(x * TileWidth, y * TileHeight, TileWidth, TileHeight), currentTile, 0, TileWidth * TileHeight); 
+                            _map.SetData<Color>(0, new Rectangle(x * TileWidth, y * TileHeight, TileWidth, TileHeight), currentTile, 0, TileWidth * TileHeight); 
 
                             _passable[x, y] = Convert.ToBoolean(UnicodeValueToInt(sr.Read()));
                             _attribute[x, y] = UnicodeValueToInt(sr.Read());
@@ -158,12 +156,12 @@ namespace VOiD
         }
 
         /// <summary>
-        /// Draws the level's tiles.
+        /// Draws the map.
         /// </summary>
         public void Draw()
         {
             if (isLoaded)
-                SpriteManager.Draw(map, Camera.Transform(Vector2.Zero), Color.White);
+                SpriteManager.Draw(_map, Camera.Transform(Vector2.Zero), Color.White);
         }
 
         /// <summary>
@@ -206,10 +204,6 @@ namespace VOiD
         public Texture2D TileSet { get { return _tileSet; } }
         public bool[,] Passable { get { return _passable; } }
         public int[,] Attribute { get { return _attribute; } }
-
-        /// <summary>
-        /// Returns the size of the map in pixels (mapSize*tileSize)
-        /// </summary>
-        public Rectangle PixelSize { get { return new Rectangle(0, 0, _width * TileWidth, _height * TileHeight); } }
+        public Texture2D Map { get { return _map; } }
     }
 }

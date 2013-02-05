@@ -73,10 +73,10 @@ namespace VOiD
                 _position.X = 0;
             if (_position.Y < 0)
                 _position.Y = 0;
-            if (_position.X > GameHandler.TileMap.PixelSize.Width-GameHandler.TileMap.TileWidth)
-                _position.X = GameHandler.TileMap.PixelSize.Width - GameHandler.TileMap.TileWidth;
-            if (_position.Y > GameHandler.TileMap.PixelSize.Height-GameHandler.TileMap.TileHeight)
-                _position.Y = GameHandler.TileMap.PixelSize.Width - GameHandler.TileMap.TileWidth;
+            if (_position.X > GameHandler.TileMap.Map.Width-GameHandler.TileMap.TileWidth)
+                _position.X = GameHandler.TileMap.Map.Width - GameHandler.TileMap.TileWidth;
+            if (_position.Y > GameHandler.TileMap.Map.Height - GameHandler.TileMap.TileHeight)
+                _position.Y = GameHandler.TileMap.Map.Width - GameHandler.TileMap.TileWidth;
 
             _collisionRect = new Rectangle((int)_position.X, (int)_position.Y, _texture.Width, _texture.Height);
         }
