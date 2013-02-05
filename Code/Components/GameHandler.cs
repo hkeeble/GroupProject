@@ -154,6 +154,7 @@ namespace VOiD.Components
 
                 player.Draw();
                 TileMap.Draw();
+                _miniMap.Draw();
 
                 if (nests.Count > 0)
                     foreach (Nest n in nests)

@@ -20,7 +20,7 @@ namespace VOiD
         {
             get { return _position; }
             set { _position = new Vector2(MathHelper.Clamp(value.X, 0, GameHandler.TileMap.Map.Width-Configuration.Bounds.Width),
-                    MathHelper.Clamp(value.Y, -GameHandler.TileMap.TileHeight, GameHandler.TileMap.Map.Height-Configuration.Bounds.Height)); }
+                    MathHelper.Clamp(value.Y, -GameHandler.TileMap.TileHeight, GameHandler.TileMap.Map.Height-Configuration.Bounds.Height+GameHandler.TileMap.TileHeight*4)); }
         }
 
         /// <summary>

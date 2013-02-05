@@ -43,6 +43,14 @@ namespace VOiD
             Color[] mapData = new Color[width * height];
 
             map.GetData<Color>(2, new Rectangle(0,0,width,height), mapData, 0, mapData.Length);
+
+            minimap = new Texture2D(graphics, width, height);
+            minimap.SetData<Color>(mapData);
+        }
+
+        public void Draw()
+        {
+            SpriteManager.Draw(minimap, Vector2.Zero, Color.White);
         }
     }
 }
