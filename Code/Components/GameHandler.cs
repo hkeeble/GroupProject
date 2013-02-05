@@ -14,7 +14,7 @@ namespace VOiD.Components
         private static Creature boss;
         private static List<Nest> nests = new List<Nest>();
         private static List<ItemEntity> items = new List<ItemEntity>();
-        //private Minimap _miniMap;
+        private Minimap _miniMap;
         public static Creature player;
         public static Inventory inventory;
         public static bool Enabled = true;
@@ -24,6 +24,7 @@ namespace VOiD.Components
             : base(game)
         {
             TileMap = new TileMap("TestMap.txt", game.GraphicsDevice, game.Content);
+            _miniMap = new Minimap(TileMap.Map, game.GraphicsDevice);
             player = new Creature(2345, game.Content.Load<Texture2D>("Sprites\\handler"), GameHandler.TileMap.PlayerSpawn, 1f);
             inventory = new Inventory(NUMBER_OF_ITEM_TYPES, game.Content);
         }

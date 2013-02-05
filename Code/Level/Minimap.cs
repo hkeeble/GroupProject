@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using VOiD.Components;
 
 namespace VOiD
 {
@@ -34,70 +35,14 @@ namespace VOiD
             }
         }
         */
-        public Minimap(TileMap map)
+        public Minimap(Texture2D map, GraphicsDevice graphics)
         {
-            _tileWidth = map.TileWidth;
-            _tileHeight = map.TileHeight;
-            _tileSet = map.TileSet;
+            int width = map.Width / (GameHandler.TileMap.TileWidth/2);
+            int height = map.Height / (GameHandler.TileMap.TileHeight/2);
 
-            int mapHeight = map.Height;
-            int mapWidth = map.Width;
+            Color[] mapData = new Color[width * height];
 
-            if (mapHeight % 2 > 1)
-                mapHeight--;
-            if (mapWidth % 2 > 1)
-                mapWidth--;
-
-            int blockWidth = mapWidth / WIDTH;
-            int blockHeight = mapHeight / HEIGHT;
-
-            for (int x = 0; x < WIDTH; x++)
-            {
-                for (int y = 0; y < HEIGHT; y++)
-                {
-                    Point[,] currentBlock = map.GetTileBlock(x, y, blockWidth, blockHeight);
-
-                    SortedList<string, int> occurringTiles = new SortedList<string, int>();
-
-                    // Find all types of tile
-                    for (int i = 0; i < blockWidth; i++)
-                        for (int j = 0; j < blockWidth; j++)
-                        {
-                            string currentTile = Convert.ToString(currentBlock[i, j].X) + Convert.ToString(currentBlock[i, j].Y);
-                            if (!(occurringTiles.Keys.Contains(currentTile)))
-                                occurringTiles.Add(currentTile, 1);
-                            else
-                                occurringTiles.Values[occurringTiles.IndexOfKey(currentTile)] += 1;
-                        }
-
-                    string currentMeanTile = occurringTiles.Keys[0];
-                    int occurences = occurringTiles.Values[0];
-
-                    for (int i = 0; i < occurringTiles.Count; i++)
-                        if (occurringTiles.Values[i] > occurences)
-                        {
-                            currentMeanTile = occurringTiles.Keys[i];
-                            occurences = occurringTiles.Values[i];
-                        }
-
-                    _regionTiles[x, y].X = Convert.ToInt32(currentMeanTile[0]);
-                    _regionTiles[x, y].Y = Convert.ToInt32(currentMeanTile[1]);
-                }
-            }
-        }
-
-        public void draw(SpriteBatch spriteBatch)
-        {
-            spriteBatch.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend);
-            for (int x = 0; x < WIDTH; x++)
-            {
-                for (int y = 0; y < HEIGHT; y++)
-                {
-                    spriteBatch.Draw(_tileSet, new Vector2(x * REGION_WIDTH, y * REGION_HEIGHT), new Rectangle(_regionTiles[x, y].X * _tileWidth, _regionTiles[x, y].Y * _tileWidth,
-                        REGION_WIDTH, REGION_HEIGHT), Color.White);
-                }
-                spriteBatch.End();
-            }
+            map.GetData<Color>(2, null, mapData, 0, width * height);
         }
     }
 }

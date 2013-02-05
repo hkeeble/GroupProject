@@ -73,7 +73,7 @@ namespace VOiD
                 sr.Close();
                 sr = new StreamReader(_fileName);
 
-                _map = new Texture2D(graphicsDevice, _width*TileWidth, _height*TileHeight);
+                _map = new Texture2D(graphicsDevice, _width*TileWidth, _height*TileHeight, true, SurfaceFormat.Color);
                 
                 _tileSetPath = sr.ReadLine();
 
