@@ -38,12 +38,12 @@ namespace VOiD
         public Minimap(Texture2D map, GraphicsDevice graphics)
         {
             
-            int width = map.Width/2;
-            int height = map.Height/2;
+            int width = map.Width/4;
+            int height = map.Height/4;
 
             Color[] mapData = new Color[width * height];
 
-            map.GetData<Color>(1,null, mapData, 0, mapData.Length);
+            map.GetData<Color>(2,null, mapData, 0, mapData.Length);
 
             minimap = new Texture2D(graphics, width, height);
             minimap.SetData<Color>(mapData);

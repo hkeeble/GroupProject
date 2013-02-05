@@ -156,10 +156,10 @@ namespace VOiD.Components
                 // DRAW PLAYER
                 // DRAW CREATURES
 
-                player.Draw();
-                TileMap.Draw();
-                Lab.Draw();
                 _miniMap.Draw();
+                //player.Draw();
+                //TileMap.Draw();
+                Lab.Draw();
 
                 if (nests.Count > 0)
                     foreach (Nest n in nests)

@@ -158,6 +158,7 @@ namespace VOiD
                 {
                     DebugLog.WriteLine("Error reading tile data from level " + fileName + " error message: \n" + e.Message);
                 }
+                GenerateMipMap(graphicsDevice, ref _map);
                 //Color[] data = new Color[_map.Width*_map.Height];
                 //_map.GetData<Color>(data);
                 //AddMipMapLevels(_map, data, _map.Width / 2, 1, 1);
@@ -246,6 +247,19 @@ namespace VOiD
         private int UnicodeValueToInt(int val)
         {
             return (char)val - '0';
+        }
+
+        private void GenerateMipMap(GraphicsDevice graphicsDevice, ref Texture2D image)
+        {
+            RenderTarget2D target = new RenderTarget2D(graphicsDevice, image.Width, image.Height, true, SurfaceFormat.Color, DepthFormat.None);
+            graphicsDevice.SetRenderTarget(target);
+            graphicsDevice.Clear(Color.Black);
+            SpriteManager.Begin();
+            SpriteManager.Draw(image, Vector2.Zero, Color.White);
+            SpriteManager.End();
+            graphicsDevice.SetRenderTarget(null);
+            image.Dispose();
+            image = (Texture2D)target;
         }
 
         // Public Accessors
