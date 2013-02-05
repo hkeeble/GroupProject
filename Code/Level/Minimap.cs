@@ -42,7 +42,7 @@ namespace VOiD
 
             Color[] mapData = new Color[width * height];
 
-            map.GetData<Color>(2, null, mapData, 0, width * height);
+            map.GetData<Color>(2, new Rectangle(0,0,width,height), mapData, 0, mapData.Length);
         }
     }
 }
