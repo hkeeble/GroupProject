@@ -38,12 +38,12 @@ namespace VOiD
         public Minimap(Texture2D map, GraphicsDevice graphics)
         {
             
-            int width = map.Width/4;
-            int height = map.Height/4;
+            int width = map.Width/8;
+            int height = map.Height/8;
 
             Color[] mapData = new Color[width * height];
 
-            map.GetData<Color>(2,null, mapData, 0, mapData.Length);
+            map.GetData<Color>(3,null, mapData, 0, mapData.Length);
 
             minimap = new Texture2D(graphics, width, height);
             minimap.SetData<Color>(mapData);
@@ -52,7 +52,7 @@ namespace VOiD
 
         public void Draw()
         {
-            SpriteManager.Draw(minimap, Vector2.Zero, Color.White);
+            SpriteManager.Draw(minimap, new Rectangle(50, Configuration.Height-128-10, 128+8, 128), new Rectangle(0, 0, 128, 128), Color.White);
         }
     }
 }
