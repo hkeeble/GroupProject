@@ -83,6 +83,7 @@ namespace VOiD
         public Texture2D Texture { get { return _texture; } }
         public Vector2 Position { get { return _position; } set { _position = value; } }
         public Rectangle CollisionRect { get { return _collisionRect; } }
+        public float MoveSpeed { get { return _moveSpeed; } set { _moveSpeed = value; } }
 
         private Point NewLocation
         {

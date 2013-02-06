@@ -10,49 +10,45 @@ namespace VOiD
 {
     class Minimap
     {
-        const int WIDTH = 20; const int HEIGHT = 20; // Width and Height of MiniMap in number of regions
-        const int REGION_WIDTH = 8; const int REGION_HEIGHT = 8; // Width and Height of region tiles in pixels
-        int _tileWidth, _tileHeight;
-        Point[,] _regionTiles;
-        Texture2D _tileSet;
+        const int MIPMAP_LEVEL = 3;
         Texture2D minimap;
 
-        /*
-        public void stuff()
+        public Minimap(Texture2D map, Texture2D nestTex, Texture2D labTex, GraphicsDevice graphics)
         {
-            minimap = new Texture2D(GraphicsDevice, WIDTH, HEIGHT,false,SurfaceFormat.Color);
+            int divisor = (int)Math.Pow(2.0, (double)MIPMAP_LEVEL);
 
+            int width = map.Width/divisor;
+            int height = map.Height/divisor;
 
-
-            for (int x = 0; x < WIDTH; x++)
-            {
-                for (int y = 0; y < HEIGHT; y++)
-                {
-                    Rectangle tileblock = new Rectangle(_regionTiles[x, y].X * _tileWidth, _regionTiles[x, y].Y * _tileWidth, REGION_WIDTH, REGION_HEIGHT);
-                    minimap.SetData<Color>(0,_tileSet.GetData<Color>(0,,TileMap,0,, new Vector2(x * REGION_WIDTH, y * REGION_HEIGHT), Color.White);
-                }
-                spriteBatch.End();
-            }
-        }
-        */
-        public Minimap(Texture2D map, GraphicsDevice graphics)
-        {
-            
-            int width = map.Width/8;
-            int height = map.Height/8;
-
+            // Data for MipMaps
             Color[] mapData = new Color[width * height];
+            Color[] nestData = new Color[(nestTex.Width / divisor) * (nestTex.Height / divisor)];
+            Color[] labData = new Color[(labTex.Width / divisor) * (labTex.Height / divisor)];
 
-            map.GetData<Color>(3,null, mapData, 0, mapData.Length);
+            // Get MipMap Data
+            map.GetData<Color>(MIPMAP_LEVEL,null, mapData, 0, mapData.Length);
+            nestTex.GetData<Color>(MIPMAP_LEVEL, null, nestData, 0, nestData.Length);
+            labTex.GetData<Color>(MIPMAP_LEVEL, null, labData, 0, labData.Length);
 
+            // Create Minimap
             minimap = new Texture2D(graphics, width, height);
             minimap.SetData<Color>(mapData);
+            
+            // Impose Nest Textures
+            for (int x = 0; x < map.Width; x+=GameHandler.TileMap.TileWidth)
+                for (int y = 0; y < map.Height; y+=GameHandler.TileMap.TileHeight)
+                    if (GameHandler.CheckNests(new Rectangle(x, y, GameHandler.TileMap.TileWidth, GameHandler.TileMap.TileHeight)))
+                        minimap.SetData<Color>(0, new Rectangle(x/divisor, y/divisor, nestTex.Width / divisor, nestTex.Height / divisor), nestData, 0, nestData.Length);
 
+            // Impose Lab Texture
+            minimap.SetData<Color>(0, new Rectangle((int)GameHandler.TileMap.LabPosition.X / divisor, (int)GameHandler.TileMap.LabPosition.Y/ divisor, labTex.Width / divisor, labTex.Height / divisor),
+                labData, 0, labData.Length);
         }
 
         public void Draw()
         {
-            SpriteManager.Draw(minimap, new Rectangle(50, Configuration.Height-128-10, 128+8, 128), new Rectangle(0, 0, 128, 128), Color.White);
+            SpriteManager.Draw(minimap, new Rectangle(50, Configuration.Height - 128 - 10, 128 + 8, 128), new Rectangle((int)GameHandler.player.Position.X / 8,
+                (int)GameHandler.player.Position.Y / 8, 128, 128), Color.White, 0f, Vector2.Zero, SpriteEffects.None, 1f);
         }
     }
 }

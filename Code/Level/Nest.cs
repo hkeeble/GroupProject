@@ -40,11 +40,11 @@ namespace VOiD
             {
                 Point Position = Point.Zero;
 
-                while(Position == playerSpawn)
+                while(Position == playerSpawn || Position.X < 0 || Position.X > mapDimensions.X || Position.Y < 0 || Position.Y > mapDimensions.Y)
                     Position = new Point(rand.Next(_moveArea.X, _moveArea.X + _moveArea.Width),
                         rand.Next(_moveArea.Y, _moveArea.Y + _moveArea.Height));
 
-                creatures.Add(new Creature(ID, creatureTexture, new Vector2(Position.X * tileDimensions.X, Position.Y * tileDimensions.Y), 0.5f));
+                creatures.Add(new Creature(ID, creatureTexture, new Vector2(Position.X * tileDimensions.X, Position.Y * tileDimensions.Y), 1f));
             }
         }
 
@@ -82,5 +82,6 @@ namespace VOiD
         }
 
         public List<Creature> Creatures { get { return creatures; } }
+        public Rectangle CollisionRect { get { return new Rectangle((int)_position.X, (int)_position.Y, _texture.Width, _texture.Height); } }
     }
 }

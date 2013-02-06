@@ -32,54 +32,6 @@ namespace VOiD
             _height = 0;
         }
 
-
-
-
-
-
-
-
-
-        public static void AddMipMapLevels(Texture2D texture, Color[] pixels, int size, int minSize, int nextLevel)
-        {
-            if (size < minSize)
-            {
-                return;
-            }
-
-            Color[] newPixels = new Color[size * size];
-            int prevSize = size * 2;
-
-            for (int y = 0; y < size; y++)
-            {
-                for (int x = 0; x < size; x++)
-                {
-                    int offset1 = y * 2 * prevSize + x * 2;
-                    int offset2 = (y * 2 + 1) * prevSize + x * 2;
-                    //Console.WriteLine(x + " " + y + "\n");
-                    // For each channel get the average of 4 pixels from the original pixel array
-                    byte red = (byte)((pixels[offset1].R + pixels[offset1 + 1].R + pixels[offset2].R + pixels[offset2 + 1].R) / 4);
-                    byte green = (byte)((pixels[offset1].G + pixels[offset1 + 1].G + pixels[offset2].G + pixels[offset2 + 1].G) / 4);
-                    byte blue = (byte)((pixels[offset1].B + pixels[offset1 + 1].B + pixels[offset2].B + pixels[offset2 + 1].B) / 4);
-                    byte alpha = (byte)((pixels[offset1].A + pixels[offset1 + 1].A + pixels[offset2].A + pixels[offset2 + 1].A) / 4);
-
-                    newPixels[y * size + x] = new Color(red, green, blue, alpha);
-                }
-            }
-
-
-            texture.SetData<Color>(nextLevel, new Rectangle(0, 0, size, size), newPixels, 0, size * size);
-
-            AddMipMapLevels(texture, newPixels, size / 2, nextLevel++, minSize);
-        }
-
-
-
-
-
-
-
-
         /// <summary>
         /// Creates a new map from a file.
         /// </summary>
@@ -159,10 +111,6 @@ namespace VOiD
                     DebugLog.WriteLine("Error reading tile data from level " + fileName + " error message: \n" + e.Message);
                 }
                 GenerateMipMap(graphicsDevice, ref _map);
-                //Color[] data = new Color[_map.Width*_map.Height];
-                //_map.GetData<Color>(data);
-                //AddMipMapLevels(_map, data, _map.Width / 2, 1, 1);
-
 
                 string pSpawn = sr.ReadLine();
                 string[] split = pSpawn.Split('-');
@@ -215,33 +163,6 @@ namespace VOiD
         {
             if (isLoaded)
                 SpriteManager.Draw(_map, Camera.Transform(Vector2.Zero), Color.White);
-        }
-
-        /// <summary>
-        /// Returns a block of tiles from the map. Only returns XY data.
-        /// </summary>
-        /// <param name="x">The X coordinate of the top left corner of the desired block.</param>
-        /// <param name="y">The Y coordinate of the top left corner of the desired block.</param>
-        /// <param name="width">The width of the block to return.</param>
-        /// <param name="height">The height of the block to return</param>
-        /// <returns></returns>
-        public Point[,] GetTileBlock(int x, int y, int width, int height)
-        {
-            Point[,] block = new Point[width, height];
-
-            try
-            {
-                for (int i = 0; i < width; i++)
-                    for (int j = 0; j < height; y++)
-                        block[i, j] = _tiles[i + x, j + y];
-            }
-            catch (Exception e)
-            {
-                DebugLog.WriteLine("Error retrieving tile block of size at XY "  + x + "," + y + " of width and height " + width + "," + height + " from level located at " + _fileName +
-                    "\nError Message: " +  e.Message + "\n");
-            }
-
-            return block;
         }
 
         private int UnicodeValueToInt(int val)

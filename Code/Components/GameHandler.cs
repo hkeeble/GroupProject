@@ -25,8 +25,8 @@ namespace VOiD.Components
             : base(game)
         {
             TileMap = new TileMap("TestMap.txt", game.GraphicsDevice, game.Content);
-            _miniMap = new Minimap(TileMap.Map, game.GraphicsDevice);
-            player = new Creature(2345, game.Content.Load<Texture2D>("Sprites\\handler"), GameHandler.TileMap.PlayerSpawn, 1f);
+            _miniMap = new Minimap(TileMap.Map, game.Content.Load<Texture2D>("Sprites\\Nest"), game.Content.Load<Texture2D>("Sprites\\Lab"), game.GraphicsDevice);
+            player = new Creature(2345, game.Content.Load<Texture2D>("Sprites\\handler"), GameHandler.TileMap.PlayerSpawn, 2f);
             inventory = new Inventory(NUMBER_OF_ITEM_TYPES, game.Content);
             Lab = new Entity(game.Content.Load<Texture2D>("Sprites\\Lab"), TileMap.LabPosition, 0f);
         }
@@ -172,6 +172,14 @@ namespace VOiD.Components
                 //_miniMap.draw(spriteBatch);
                 SpriteManager.End();
             }
+        }
+
+        public static bool CheckNests(Rectangle area)
+        {
+            foreach(Nest n in nests)
+                if(n.CollisionRect.Intersects(area))
+                    return true;
+            return false;
         }
     }
 }
