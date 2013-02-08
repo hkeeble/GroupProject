@@ -26,4 +26,5 @@ Content\BattleScreen.xnb
 Content\LabScreen.xnb
 Content\SegoeUI.xnb
 Content\Tilesets\Tileset.png
-Content\Maps\TestMap.txt
+Content\Maps\Level2.map
+Content\Maps\Level1.map

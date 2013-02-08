@@ -170,9 +170,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Maps\TestMap.txt">
+    <None Include="Maps\Level2.map">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <Name>TestMap</Name>
+      <Name>Level2</Name>
+    </None>
+    <None Include="Maps\Level1.map">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Name>Level1</Name>
     </None>
     <Compile Include="Tilesets\Tileset.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

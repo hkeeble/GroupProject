@@ -41,7 +41,7 @@ namespace VOiD
         {
             try
             {
-                _fileName = Directory.GetCurrentDirectory() + "\\Content\\Maps\\" + fileName;
+                _fileName = Directory.GetCurrentDirectory() + "\\Content\\Maps\\" + fileName + ".map";
                 StreamReader sr = new StreamReader(_fileName);
 
                 try

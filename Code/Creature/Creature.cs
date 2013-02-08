@@ -9,6 +9,10 @@ namespace VOiD
     {
         private CreatureModel creatureModel;
 
+        // TEMP
+        private short _ID;
+        public short ID { get { return _ID; } }
+
 	    // Variables
 	    protected Traits Dominant;//A dominant allele always shows, even if the individual only has one copy of the allele.
 	    protected Traits Recessive;//A recessive allele only shows if the individual has two copies of the recessive allele.
@@ -19,6 +23,7 @@ namespace VOiD
         public Creature(short ID, Texture2D texture, Vector2 position2D, float moveSpeed)
             : base(texture, position2D, moveSpeed)
         {
+            _ID = ID;
             Traits temp = new Traits();
             temp.Pelvis = true;
             temp.Spine = true;

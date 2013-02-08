@@ -10,6 +10,8 @@ namespace VOiD
     {
         private List<Item> items;
 
+        public List<Item> Items { get { return items; } }
+
         public Inventory(int numberOfItemTypes, Microsoft.Xna.Framework.Content.ContentManager content)
         {
             items = new List<Item>(numberOfItemTypes);
