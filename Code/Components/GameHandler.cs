@@ -37,6 +37,11 @@ namespace VOiD.Components
             Items.Add(item);
         }
 
+        public static void RemoveItem(ItemEntity item)
+        {
+            Items.Remove(item);
+        }
+
         public static void AddNest(Nest nest)
         {
             Nests.Add(nest);
@@ -215,6 +220,14 @@ namespace VOiD.Components
             foreach (Nest n in Nests)
                 if (new Point(n.CollisionRect.X, n.CollisionRect.Y) == position)
                     return n;
+            return null;
+        }
+
+        public static ItemEntity CheckItem(Point position)
+        {
+            foreach (ItemEntity i in Items)
+                if (new Point(i.CollisionRect.X, i.CollisionRect.Y) == position)
+                    return i;
             return null;
         }
 

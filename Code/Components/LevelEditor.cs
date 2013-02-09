@@ -217,6 +217,13 @@ namespace VOiD.Components
                         case Mode.Item:
                             if(InputHandler.LeftClickPressed)
                                 GameHandler.AddItem(new ItemEntity(new Vector2((int)MousePos.X * GameHandler.TileMap.TileWidth, (int)MousePos.Y * GameHandler.TileMap.TileHeight), (int)CurrentItem, Game.Content));
+                            if (InputHandler.RightClickPressed)
+                            {
+                                ItemEntity i = GameHandler.CheckItem(new Point((int)MousePos.X * GameHandler.TileMap.TileWidth, (int)MousePos.Y * GameHandler.TileMap.TileHeight));
+                                if (i != null)
+                                    GameHandler.RemoveItem(i);
+                            }
+
                             break;
                         case Mode.Nest:
                             if (InputHandler.LeftClickPressed)
