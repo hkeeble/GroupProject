@@ -17,6 +17,7 @@ namespace VOiD.Components
         Texture2D[,] tiles;
         Point currentTile;
         Color[] selectedTileData;
+        List<Point> modifiedTiles;
 
         public LevelEditor(Game game)
             : base(game)
@@ -60,12 +61,31 @@ namespace VOiD.Components
                 currentTile = Point.Zero;
                 selectedTileData = new Color[GameHandler.TileMap.TileWidth * GameHandler.TileMap.TileHeight];
                 Camera.Move(Vector2.Zero);
+                modifiedTiles = new List<Point>();
             }
             else
             {
                 Console.WriteLine("----- Exiting Level Editor. -----\n");
-                if(!(Interface.currentScreen == Screens.MainMenu))
+                if (!(Interface.currentScreen == Screens.MainMenu))
+                {
+                    ConsoleKeyInfo choice = new ConsoleKeyInfo();
+
+                    while (choice.Key != ConsoleKey.N && choice.Key != ConsoleKey.Y)
+                    {
+                        Console.WriteLine("Save Changes to Current Level? (Y/N)");
+                        choice = Console.ReadKey();
+                    }
+
+                    switch (choice.Key)
+                    {
+                        case ConsoleKey.Y:
+                            break;
+                        case ConsoleKey.N:
+                            break;
+                    }
+
                     Interface.currentScreen = Screens.LevelMenu;
+                }
                 GameHandler.EditMode = false;
             }
             base.OnEnabledChanged(sender, args);
@@ -99,7 +119,7 @@ namespace VOiD.Components
                 tiles[currentTile.X, currentTile.Y].GetData<Color>(selectedTileData);
             }
 
-            if (InputHandler.LeftClickDown)
+            if (InputHandler.LeftClickDown || InputHandler.RightClickPressed)
             {
                 if (InputHandler.MouseX > 0 && InputHandler.MouseX < Configuration.Width && InputHandler.MouseY > 0 && InputHandler.MouseY < Configuration.Height)
                 {
@@ -108,8 +128,13 @@ namespace VOiD.Components
                     MousePos.X /= GameHandler.TileMap.TileWidth;
                     MousePos.Y /= GameHandler.TileMap.TileHeight;
 
-                    GameHandler.TileMap.Map.SetData<Color>(0, new Rectangle((int)MousePos.X * GameHandler.TileMap.TileWidth, (int)MousePos.Y * GameHandler.TileMap.TileHeight,
-                        tiles[currentTile.X, currentTile.Y].Width, tiles[currentTile.X, currentTile.Y].Height), selectedTileData, 0, selectedTileData.Length);
+                    modifiedTiles.Add(new Point((int)MousePos.X, (int)MousePos.Y));
+
+                    if(InputHandler.LeftClickDown)
+                        GameHandler.TileMap.Map.SetData<Color>(0, new Rectangle((int)MousePos.X * GameHandler.TileMap.TileWidth, (int)MousePos.Y * GameHandler.TileMap.TileHeight,
+                            tiles[currentTile.X, currentTile.Y].Width, tiles[currentTile.X, currentTile.Y].Height), selectedTileData, 0, selectedTileData.Length);
+                    else if(InputHandler.RightClickPressed)
+                        GameHandler.TileMap.TogglePassable(new Point((int)MousePos.X, (int)MousePos.Y));
                 }
             }
 
@@ -120,6 +145,7 @@ namespace VOiD.Components
         {
             SpriteManager.Begin();
             SpriteManager.Draw(tiles[currentTile.X, currentTile.Y], new Vector2(InputHandler.MouseX, InputHandler.MouseY), null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
+            GameHandler.TileMap.DrawCollisionLayer();
             SpriteManager.End();
 
             base.Draw(gameTime);

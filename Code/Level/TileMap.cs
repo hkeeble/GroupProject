@@ -26,6 +26,8 @@ namespace VOiD
 
         Texture2D _map;
 
+        Texture2D _colTex; // Collision Texture
+
         public TileMap()
         {//NEEDS WORK BLANK MAP
             _width = 0;
@@ -39,6 +41,8 @@ namespace VOiD
         /// <param name="graphicsDevice">Constructor requires graphics device to load tilset texture from stream.</param>
         public TileMap(string fileName, GraphicsDevice graphicsDevice, Microsoft.Xna.Framework.Content.ContentManager content)
         {
+            _colTex = content.Load<Texture2D>("Sprites\\CollisionTexture");
+
             try
             {
                 _fileName = Directory.GetCurrentDirectory() + "\\Content\\Maps\\" + fileName + ".map";
@@ -165,6 +169,14 @@ namespace VOiD
                 SpriteManager.Draw(_map, Camera.Transform(Vector2.Zero), Color.White);
         }
 
+        public void DrawCollisionLayer()
+        {
+            for (int x = 0; x < TileWidth; x++)
+                for (int y = 0; y < TileHeight; y++)
+                    if(_passable[x, y] == false)
+                        SpriteManager.Draw(_colTex, Camera.Transform(new Vector2(x * TileWidth, y * TileHeight)), null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
+        }
+
         private int UnicodeValueToInt(int val)
         {
             return (char)val - '0';
@@ -181,6 +193,11 @@ namespace VOiD
             graphicsDevice.SetRenderTarget(null);
             image.Dispose();
             image = (Texture2D)target;
+        }
+
+        public void TogglePassable(Point tile)
+        {
+            _passable[tile.X, tile.Y] = !_passable[tile.X, tile.Y];
         }
 
         // Public Accessors
