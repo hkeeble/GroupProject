@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -14,10 +15,23 @@ namespace VOiD.Components
 {
     public class LevelEditor : Microsoft.Xna.Framework.DrawableGameComponent
     {
+        private enum Mode
+        {
+            Tile,
+            Item,
+            Nest
+        }
+
         Texture2D[,] tiles;
         Point currentTile;
         Color[] selectedTileData;
         List<Point> modifiedTiles;
+
+        Mode currentMode;
+        Item.ItemName CurrentItem;
+        short currentCreatureID;
+
+        string workingDirectory;
 
         public LevelEditor(Game game)
             : base(game)
@@ -27,6 +41,10 @@ namespace VOiD.Components
 
         public override void Initialize()
         {
+            workingDirectory = Directory.GetCurrentDirectory() + "\\Content\\Maps\\";
+            currentMode = Mode.Tile;
+            CurrentItem = Item.ItemName.Apple;
+
             base.Initialize();
         }
 
@@ -79,6 +97,13 @@ namespace VOiD.Components
                     switch (choice.Key)
                     {
                         case ConsoleKey.Y:
+                            StreamWriter sw = new StreamWriter(workingDirectory + "Level" + GameHandler.CurrentLevel + ".map");
+
+                            foreach (Point tile in modifiedTiles)
+                            {
+                                
+                            }
+
                             break;
                         case ConsoleKey.N:
                             break;
@@ -99,24 +124,73 @@ namespace VOiD.Components
                 this.Enabled = false;
             }
 
+            if (InputHandler.KeyPressed(Keys.D1))
+            {
+                currentMode = Mode.Tile;
+                Console.WriteLine("Tile Mode.\n");
+            }
+
+            if (InputHandler.KeyPressed(Keys.D2))
+            {
+                currentMode = Mode.Item;
+                Console.WriteLine("Item Mode.\n");
+                Console.WriteLine("Current Item: " + CurrentItem.ToString() + "\n");
+            }
+
+            if (InputHandler.KeyPressed(Keys.D3))
+            {
+                currentMode = Mode.Nest;
+                Console.WriteLine("Nest Mode.\n");
+
+                Console.WriteLine("Creature ID for this nest: ");
+                currentCreatureID = Convert.ToInt16(Console.ReadLine());
+            }
+
             if(InputHandler.KeyPressed(Keys.Z) || InputHandler.KeyPressed(Keys.X))
             {
-                if (InputHandler.KeyPressed(Keys.Z))
-                    if(currentTile.X != 0)
-                        currentTile.X--;
-                if (InputHandler.KeyPressed(Keys.X))
-                    currentTile.X++;
-
-                if (currentTile.X > (GameHandler.TileMap.TileSet.Width / GameHandler.TileMap.TileWidth)-1)
+                switch(currentMode)
                 {
-                    currentTile.X = 0;
-                    currentTile.Y++;
+                    case Mode.Tile:
+                        if (InputHandler.KeyPressed(Keys.Z))
+                            if(currentTile.X != 0)
+                                currentTile.X--;
+                        if (InputHandler.KeyPressed(Keys.X))
+                            currentTile.X++;
+
+                        if (currentTile.X > (GameHandler.TileMap.TileSet.Width / GameHandler.TileMap.TileWidth)-1)
+                        {
+                            currentTile.X = 0;
+                            currentTile.Y++;
+                        }
+
+                        if (currentTile.Y > (GameHandler.TileMap.TileSet.Height / GameHandler.TileMap.TileHeight)-1)
+                            currentTile.Y = 0;
+
+                        tiles[currentTile.X, currentTile.Y].GetData<Color>(selectedTileData);
+                        break;
+                    case Mode.Item:
+                        if (InputHandler.KeyPressed(Keys.X) || InputHandler.KeyPressed(Keys.Z))
+                        {
+                            if (InputHandler.KeyPressed(Keys.X))
+                            {
+                                if ((int)CurrentItem != Enum.GetValues(typeof(Item.ItemName)).Length)
+                                    CurrentItem++;
+                                else
+                                    CurrentItem = (Item.ItemName)1;
+                            }
+                            if (InputHandler.KeyPressed(Keys.Z))
+                            {
+                                if ((int)CurrentItem != 1)
+                                    CurrentItem--;
+                                else
+                                    CurrentItem = (Item.ItemName)Enum.GetValues(typeof(Item.ItemName)).Length;
+                            }
+                            Console.WriteLine("Current Item: " + CurrentItem.ToString() + "\n");
+                        }
+                        break;
+                    case Mode.Nest:
+                        break;
                 }
-
-                if (currentTile.Y > (GameHandler.TileMap.TileSet.Height / GameHandler.TileMap.TileHeight)-1)
-                    currentTile.Y = 0;
-
-                tiles[currentTile.X, currentTile.Y].GetData<Color>(selectedTileData);
             }
 
             if (InputHandler.LeftClickDown || InputHandler.RightClickPressed)
@@ -128,13 +202,30 @@ namespace VOiD.Components
                     MousePos.X /= GameHandler.TileMap.TileWidth;
                     MousePos.Y /= GameHandler.TileMap.TileHeight;
 
-                    modifiedTiles.Add(new Point((int)MousePos.X, (int)MousePos.Y));
+                    if (!modifiedTiles.Contains(new Point((int)MousePos.X, (int)MousePos.Y)))
+                        modifiedTiles.Add(new Point((int)MousePos.X, (int)MousePos.Y));
 
-                    if(InputHandler.LeftClickDown)
-                        GameHandler.TileMap.Map.SetData<Color>(0, new Rectangle((int)MousePos.X * GameHandler.TileMap.TileWidth, (int)MousePos.Y * GameHandler.TileMap.TileHeight,
-                            tiles[currentTile.X, currentTile.Y].Width, tiles[currentTile.X, currentTile.Y].Height), selectedTileData, 0, selectedTileData.Length);
-                    else if(InputHandler.RightClickPressed)
-                        GameHandler.TileMap.TogglePassable(new Point((int)MousePos.X, (int)MousePos.Y));
+                    switch(currentMode)
+                    {
+                        case Mode.Tile:
+                            if(InputHandler.LeftClickDown)
+                                GameHandler.TileMap.Map.SetData<Color>(0, new Rectangle((int)MousePos.X * GameHandler.TileMap.TileWidth, (int)MousePos.Y * GameHandler.TileMap.TileHeight,
+                                    tiles[currentTile.X, currentTile.Y].Width, tiles[currentTile.X, currentTile.Y].Height), selectedTileData, 0, selectedTileData.Length);
+                            else if(InputHandler.RightClickPressed)
+                                GameHandler.TileMap.TogglePassable(new Point((int)MousePos.X, (int)MousePos.Y));
+                            break;
+                        case Mode.Item:
+                            if(InputHandler.LeftClickPressed)
+                                GameHandler.AddItem(new ItemEntity(new Vector2((int)MousePos.X * GameHandler.TileMap.TileWidth, (int)MousePos.Y * GameHandler.TileMap.TileHeight), (int)CurrentItem, Game.Content));
+                            break;
+                        case Mode.Nest:
+                            if (InputHandler.LeftClickPressed)
+                                GameHandler.AddNest(new Nest(Game.Content.Load<Texture2D>("Sprites\\Nest"), Game.Content.Load<Texture2D>("Sprites\\CreatureGeneric"),
+                                    new Point((int)MousePos.X * GameHandler.TileMap.TileWidth, (int)MousePos.Y * GameHandler.TileMap.TileHeight), currentCreatureID,
+                                    new Point(GameHandler.TileMap.TileWidth, GameHandler.TileMap.TileHeight), new Point(GameHandler.TileMap.TileWidth, GameHandler.TileMap.TileHeight),
+                                    new Point((int)GameHandler.TileMap.PlayerSpawn.X, (int)GameHandler.TileMap.PlayerSpawn.Y)));
+                            break;
+                    }
                 }
             }
 
@@ -144,7 +235,8 @@ namespace VOiD.Components
         public override void Draw(GameTime gameTime)
         {
             SpriteManager.Begin();
-            SpriteManager.Draw(tiles[currentTile.X, currentTile.Y], new Vector2(InputHandler.MouseX, InputHandler.MouseY), null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
+            if(currentMode == Mode.Tile)
+                SpriteManager.Draw(tiles[currentTile.X, currentTile.Y], new Vector2(InputHandler.MouseX, InputHandler.MouseY), null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
             GameHandler.TileMap.DrawCollisionLayer();
             SpriteManager.End();
 

@@ -58,9 +58,12 @@ namespace VOiD
                 {
                     if (c.Position.X % GameHandler.TileMap.TileWidth == 0 && c.Position.Y % GameHandler.TileMap.TileHeight == 0)
                     {
-                        direction = new Vector2(rand.Next(0, 2), rand.Next(0, 2));
+                        direction = new Vector2(rand.Next(0, 2), rand.Next(0, 3));
                         direction.X = (direction.X == 0 ? -1 : direction.X);
                         direction.Y = (direction.Y == 0 ? -1 : direction.Y);
+
+                        direction.X = (direction.X == 2 ? 0 : direction.X);
+                        direction.Y = (direction.Y == 2 ? 0 : direction.Y);
 
                         if (c.CurrentTile.X + direction.X < _moveArea.X || c.CurrentTile.X + direction.X > (_moveArea.X + _moveArea.Width))
                             direction.X = 0;
