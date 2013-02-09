@@ -42,6 +42,11 @@ namespace VOiD.Components
             Nests.Add(nest);
         }
 
+        public static void RemoveNest(Nest nest)
+        {
+            Nests.Remove(nest);
+        }
+
         public override void Update(GameTime gameTime)
         {
             if (Enabled && !EditMode)
@@ -203,6 +208,14 @@ namespace VOiD.Components
                 if(n.CollisionRect.Intersects(area))
                     return true;
             return false;
+        }
+
+        public static Nest CheckNests(Point position)
+        {
+            foreach (Nest n in Nests)
+                if (new Point(n.CollisionRect.X, n.CollisionRect.Y) == position)
+                    return n;
+            return null;
         }
 
         private void LoadLevel(int levelNumber)
