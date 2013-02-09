@@ -4,31 +4,28 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using VOiD.Components;
 
-namespace VOiD
+namespace LevelEditor
 {
     static class Camera
     {
         private static Vector2 _position = Vector2.Zero;
 
-        /// <summary>
-        /// Returns the position of the camera, the top left pixel being displayed. Can also be used to set camera position.
-        /// </summary>
-        public static Vector2 Position
-        {
-            get { return _position; }
-            set { _position = new Vector2(MathHelper.Clamp(value.X, 0, GameHandler.TileMap.Map.Width-Configuration.Bounds.Width),
-                    MathHelper.Clamp(value.Y, -GameHandler.TileMap.TileHeight, GameHandler.TileMap.Map.Height-Configuration.Bounds.Height+GameHandler.TileMap.TileHeight*4)); }
-        }
+        ///// <summary>
+        ///// Returns the position of the camera, the top left pixel being displayed. Can also be used to set camera position.
+        ///// </summary>
+        //public static Vector2 Position
+        //{
+        //    get;
+        //}
 
-        /// <summary>
-        /// Rectangle representing entire map space.
-        /// </summary>
-        public static Rectangle MapRectangle
-        {
-            get { return new Rectangle((int)_position.X, (int)_position.Y, Configuration.Bounds.Width, Configuration.Bounds.Height); }
-        }
+        ///// <summary>
+        ///// Rectangle representing entire map space.
+        ///// </summary>
+        //public static Rectangle MapRectangle
+        //{
+        //    get;
+        //}
 
         /// <summary>
         /// Determines if an object is visible on-screen by using it's bounding rectangle.
@@ -46,8 +43,6 @@ namespace VOiD
         public static void Move(Vector2 offset)
         {
             _position += offset;
-            _position = new Vector2(MathHelper.Clamp(_position.X, 0, GameHandler.TileMap.Map.Width - Configuration.Bounds.Width),
-                    MathHelper.Clamp(_position.Y, 0, GameHandler.TileMap.Map.Height - Configuration.Bounds.Height + GameHandler.TileMap.TileHeight));
         }
 
         /// <summary>

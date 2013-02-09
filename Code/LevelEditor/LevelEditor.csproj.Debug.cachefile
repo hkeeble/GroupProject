@@ -13,6 +13,7 @@ Content\Sprites\Honey.xnb
 Content\Sprites\SpringWater.xnb
 Content\Sprites\CreatureGeneric.xnb
 Content\Sprites\Nest.xnb
+Content\Tilesets\Tileset.xnb
 Content\Interface\Battle.xnb
 Content\Sprites\Lab.xnb
 Content\Interface\Lab.xnb
@@ -24,7 +25,6 @@ Content\SubMenuOptions.xnb
 Content\BattleScreen.xnb
 Content\LabScreen.xnb
 Content\SegoeUI.xnb
-Content\Tilesets\Tileset.xnb
 Content\Tilesets\Tileset.png
 Content\Maps\Level2.map
 Content\Maps\Level1.map

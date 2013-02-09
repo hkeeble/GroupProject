@@ -5,11 +5,10 @@ using System.Text;
 using System.IO;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using VOiD.Components;
 
-namespace VOiD
+namespace LevelEditor
 {
-    public class TileMap
+    class TileMap
     {
         public int TileWidth = 32;
         public int TileHeight = 32;

@@ -18,7 +18,8 @@ namespace VOiD.Components
         public static Creature Player;
         public static Inventory Inventory;
         public static bool Enabled = true;
-
+        public static bool EditMode = false;
+        
         private static List<Nest> Nests = new List<Nest>();
         private static List<ItemEntity> Items = new List<ItemEntity>();
 
@@ -43,7 +44,7 @@ namespace VOiD.Components
 
         public override void Update(GameTime gameTime)
         {
-            if (Enabled)
+            if (Enabled && !EditMode)
             {
                 if (Nests.Count > 0)
                     foreach (Nest n in Nests)
@@ -94,9 +95,22 @@ namespace VOiD.Components
                         if(Player.CollisionRect.Intersects(Lab.CollisionRect))
                             Interface.currentScreen = Screens.Lab;
 
+                #region Level Edit
+                if (InputHandler.KeyPressed(Keys.F1))
+                {
+                    Game1.LevelEditor.Enabled = true;
+                    Game1.LevelEditor.Visible = true;
+                    EditMode = true;
+                }
+                #endregion
+
                 Player.Update();
                 Boss.Update();
                 base.Update(gameTime);
+            }
+            else if (EditMode)
+            {
+                HandleCameraMovement();
             }
         }
 
@@ -146,13 +160,26 @@ namespace VOiD.Components
             }
         }
 
+         private void HandleCameraMovement()
+         {
+             if(InputHandler.KeyDown(Keys.Down))
+                 Camera.Move(new Vector2(0, 3));
+             if (InputHandler.KeyDown(Keys.Up))
+                 Camera.Move(new Vector2(0, -3));
+             if (InputHandler.KeyDown(Keys.Left))
+                 Camera.Move(new Vector2(-3, 0));
+             if (InputHandler.KeyDown(Keys.Right))
+                 Camera.Move(new Vector2(3, 0));
+         }
+
         public override void Draw(GameTime gameTime)
         {
-            if (Enabled)
+            if (Enabled || EditMode)
             {
                 SpriteManager.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend);
 
-                Minimap.Draw();
+                if(!EditMode)
+                    Minimap.Draw();
                 Player.Draw();
                 TileMap.Draw();
                 Lab.Draw();

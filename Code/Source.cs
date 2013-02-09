@@ -15,6 +15,8 @@ namespace VOiD
 {
     public class Game1 : Microsoft.Xna.Framework.Game
     {
+        public static LevelEditor LevelEditor;
+
         public Game1()
         {
             this.IsMouseVisible = true;
@@ -30,6 +32,12 @@ namespace VOiD
             Components.Add(new GameHandler(this));
             Components.Add(new Interface(this));
             Components.Add(new BattleHandler(this));
+
+            LevelEditor = new LevelEditor(this); 
+            Components.Add(LevelEditor);
+            LevelEditor.Enabled = false;
+            LevelEditor.Visible = false;
+
             base.Initialize();
         }
 
