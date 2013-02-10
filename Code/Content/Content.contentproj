@@ -170,14 +170,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Maps\Level2.map">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <Name>Level2</Name>
-    </None>
-    <None Include="Maps\Level1.map">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <Name>Level1</Name>
-    </None>
     <Compile Include="Tilesets\Tileset.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Tileset</Name>
@@ -237,6 +229,17 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Maps\Level1.map">
+      <Name>Level1</Name>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Maps\Level2.map">
+      <Name>Level2</Name>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!--  To modify your build process, add your task inside one of the targets below and uncomment it. 

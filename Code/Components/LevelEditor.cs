@@ -15,6 +15,31 @@ namespace VOiD.Components
 {
     public class LevelEditor : Microsoft.Xna.Framework.DrawableGameComponent
     {
+        #region Struct Definitions
+        private struct NewItem
+        {
+            public Point Position;
+            public int ItemID;
+            public NewItem(Point position, int itemid)
+            {
+                Position = position;
+                ItemID = itemid;
+            }
+        }
+        public struct ModifiedTile
+        {
+            public Point Position;
+            public Point TileXY;
+            public bool Passable;
+            public ModifiedTile(Point position, Point tileXY, bool passable)
+            {
+                Position = position;
+                TileXY = tileXY;
+                Passable = passable;
+            }
+        }
+        #endregion
+
         private enum Mode
         {
             Tile,
@@ -25,7 +50,9 @@ namespace VOiD.Components
         Texture2D[,] tiles;
         Point currentTile;
         Color[] selectedTileData;
-        List<Point> modifiedTiles;
+
+        List<ModifiedTile> modifiedTiles;
+        List<NewItem> newItems;
 
         Mode currentMode;
         Item.ItemName CurrentItem;
@@ -41,7 +68,7 @@ namespace VOiD.Components
 
         public override void Initialize()
         {
-            workingDirectory = Directory.GetCurrentDirectory() + "\\Content\\Maps\\";
+            workingDirectory = Directory.GetCurrentDirectory().Replace("Build", "Code\\Content\\Maps\\");
             currentMode = Mode.Tile;
             CurrentItem = Item.ItemName.Apple;
 
@@ -79,7 +106,8 @@ namespace VOiD.Components
                 currentTile = Point.Zero;
                 selectedTileData = new Color[GameHandler.TileMap.TileWidth * GameHandler.TileMap.TileHeight];
                 Camera.Move(Vector2.Zero);
-                modifiedTiles = new List<Point>();
+                modifiedTiles = new List<ModifiedTile>();
+                newItems = new List<NewItem>();
             }
             else
             {
@@ -97,13 +125,36 @@ namespace VOiD.Components
                     switch (choice.Key)
                     {
                         case ConsoleKey.Y:
-                            StreamWriter sw = new StreamWriter(workingDirectory + "Level" + GameHandler.CurrentLevel + ".map");
+                            string filePath = workingDirectory + "Level" + GameHandler.CurrentLevel + ".map";
+                            StreamReader sr = new StreamReader(filePath);
+                            string tilesetName = sr.ReadLine();
+                            char[] levelData = sr.ReadToEnd().ToCharArray();
 
-                            foreach (Point tile in modifiedTiles)
+                            sr.Close();
+
+                            foreach (ModifiedTile tile in modifiedTiles)
                             {
-                                
+                                int[] currentTile = new int[5];
+
+                                for(int i = 0; i < 5; i++)
+                                    currentTile[i] = UnicodeValueToInt(levelData[(tile.Position.X * 6 + tile.Position.Y * ((GameHandler.TileMap.Width*6)+1)) + i]);
+
+                                currentTile[0] = tile.TileXY.X;
+                                currentTile[1] = tile.TileXY.Y;
+                                currentTile[2] = Convert.ToInt32(tile.Passable);
+
+                                for (int i = 0; i < 5; i++)
+                                {
+                                    char c = Convert.ToChar(currentTile[i] + (int)'0');
+                                    levelData[(tile.Position.X * 6 + tile.Position.Y * ((GameHandler.TileMap.Width * 6) + 1)) + i] = c;
+                                }
                             }
 
+                            File.Delete(filePath);
+                            StreamWriter sw = new StreamWriter(filePath, false);
+                            sw.WriteLine(tilesetName);
+                            sw.WriteLine(levelData);
+                            sw.Close();
                             break;
                         case ConsoleKey.N:
                             break;
@@ -197,13 +248,10 @@ namespace VOiD.Components
             {
                 if (InputHandler.MouseX > 0 && InputHandler.MouseX < Configuration.Width && InputHandler.MouseY > 0 && InputHandler.MouseY < Configuration.Height)
                 {
-                    Vector2 MousePos = new Vector2(InputHandler.MouseX, InputHandler.MouseY) + Camera.Position;
+                    Vector2 MousePos = InputHandler.MouseWorldCoords;
 
                     MousePos.X /= GameHandler.TileMap.TileWidth;
                     MousePos.Y /= GameHandler.TileMap.TileHeight;
-
-                    if (!modifiedTiles.Contains(new Point((int)MousePos.X, (int)MousePos.Y)))
-                        modifiedTiles.Add(new Point((int)MousePos.X, (int)MousePos.Y));
 
                     switch(currentMode)
                     {
@@ -213,10 +261,26 @@ namespace VOiD.Components
                                     tiles[currentTile.X, currentTile.Y].Width, tiles[currentTile.X, currentTile.Y].Height), selectedTileData, 0, selectedTileData.Length);
                             else if(InputHandler.RightClickPressed)
                                 GameHandler.TileMap.TogglePassable(new Point((int)MousePos.X, (int)MousePos.Y));
+
+                            ModifiedTile mTile = new ModifiedTile(new Point((int)MousePos.X, (int)MousePos.Y), new Point(currentTile.X, currentTile.Y), GameHandler.TileMap.Passable[(int)MousePos.X, (int)MousePos.Y]);
+                            int tileLocation = TileModified(new Point((int)MousePos.X, (int)MousePos.Y));
+
+                            if (tileLocation == -1)
+                                modifiedTiles.Add(mTile);
+                            else
+                                modifiedTiles[tileLocation] = mTile;
                             break;
                         case Mode.Item:
-                            if(InputHandler.LeftClickPressed)
-                                GameHandler.AddItem(new ItemEntity(new Vector2((int)MousePos.X * GameHandler.TileMap.TileWidth, (int)MousePos.Y * GameHandler.TileMap.TileHeight), (int)CurrentItem, Game.Content));
+                            if (InputHandler.LeftClickPressed)
+                            {
+                                if(GameHandler.CheckItem(new Point((int)MousePos.X, (int)MousePos.Y)) != null)
+                                {
+                                    ItemEntity i = GameHandler.CheckItem(new Point((int)MousePos.X * GameHandler.TileMap.TileWidth, (int)MousePos.Y * GameHandler.TileMap.TileHeight));
+                                     GameHandler.RemoveItem(i);
+                                }
+                                if(GameHandler.CheckItem(new Point((int)MousePos.X, (int)MousePos.Y)) == null)
+                                    GameHandler.AddItem(new ItemEntity(new Vector2((int)MousePos.X * GameHandler.TileMap.TileWidth, (int)MousePos.Y * GameHandler.TileMap.TileHeight), (int)CurrentItem, Game.Content));
+                            }
                             if (InputHandler.RightClickPressed)
                             {
                                 ItemEntity i = GameHandler.CheckItem(new Point((int)MousePos.X * GameHandler.TileMap.TileWidth, (int)MousePos.Y * GameHandler.TileMap.TileHeight));
@@ -254,6 +318,19 @@ namespace VOiD.Components
             SpriteManager.End();
 
             base.Draw(gameTime);
+        }
+
+        private int TileModified(Point position)
+        {
+            for (int i = 0; i < modifiedTiles.Count; i++)
+                if (modifiedTiles[i].Position == position)
+                    return i;
+            return -1;
+        }
+
+        private int UnicodeValueToInt(int val)
+        {
+            return (char)val - '0';
         }
     }
 }

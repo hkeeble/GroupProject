@@ -44,6 +44,14 @@ namespace VOiD.Components
         }
 
         /// <summary>
+        /// Gets mouse position relative to camera.
+        /// </summary>
+        public static Vector2 MouseWorldCoords
+        {
+            get { return new Vector2(MouseX, MouseY) + Camera.Position; }
+        }
+
+        /// <summary>
         /// Returns if the middle mouse button has been released.
         /// </summary>
         public static bool MiddleClickReleased
