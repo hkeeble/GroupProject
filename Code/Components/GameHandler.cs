@@ -20,7 +20,7 @@ namespace VOiD.Components
         public static bool Enabled = true;
         public static bool EditMode = false;
         
-        private static List<Nest> Nests = new List<Nest>();
+        private static List<Nest> nests = new List<Nest>();
         private static List<ItemEntity> Items = new List<ItemEntity>();
 
         const int NUMBER_OF_ITEM_TYPES = 5;
@@ -44,20 +44,20 @@ namespace VOiD.Components
 
         public static void AddNest(Nest nest)
         {
-            Nests.Add(nest);
+            nests.Add(nest);
         }
 
         public static void RemoveNest(Nest nest)
         {
-            Nests.Remove(nest);
+            nests.Remove(nest);
         }
 
         public override void Update(GameTime gameTime)
         {
             if (Enabled && !EditMode)
             {
-                if (Nests.Count > 0)
-                    foreach (Nest n in Nests)
+                if (nests.Count > 0)
+                    foreach (Nest n in nests)
                         n.Update();
                 
                 Camera.Position = new Vector2((GameHandler.Player.Position.X + (GameHandler.Player.Texture.Width / 2)) - (Configuration.Width / 2),
@@ -78,14 +78,14 @@ namespace VOiD.Components
                     }
                 }
 
-                for (int i = 0; i < Nests.Count; i++)
+                for (int i = 0; i < nests.Count; i++)
                 {
-                    for (int j = 0; j < Nests[i].Creatures.Count; j++)
+                    for (int j = 0; j < nests[i].Creatures.Count; j++)
                     {
-                        if (Nests[i].Creatures[j].CollisionRect.Intersects(Player.CollisionRect))
+                        if (nests[i].Creatures[j].CollisionRect.Intersects(Player.CollisionRect))
                         {
                             // INVOKE BATTLE HERE
-                            BattleHandler.InitiateBattle(Nests[i].Creatures[j], Player);
+                            BattleHandler.InitiateBattle(nests[i].Creatures[j], Player);
                         }
                     }
                 }
@@ -129,11 +129,10 @@ namespace VOiD.Components
             Vector2 mousePos = Camera.Transform(new Vector2(InputHandler.MouseX, InputHandler.MouseY));
             Rectangle mouseRect = new Rectangle((int)mousePos.X, (int)mousePos.Y, 10, 10);
 
-            foreach(Nest n in Nests)
+            foreach(Nest n in nests)
                 foreach (Creature c in n.Creatures)
                 {
-                    if (c.CollisionRect.Intersects(mouseRect))
-                        Console.Out.WriteLine("Collision");
+
                 }
         }
 
@@ -195,8 +194,8 @@ namespace VOiD.Components
                 Lab.Draw();
                 Boss.Draw();
 
-                if (Nests.Count > 0)
-                    foreach (Nest n in Nests)
+                if (nests.Count > 0)
+                    foreach (Nest n in nests)
                         n.Draw();
 
                 if (Items.Count > 0)
@@ -209,7 +208,7 @@ namespace VOiD.Components
 
         public static bool CheckNests(Rectangle area)
         {
-            foreach(Nest n in Nests)
+            foreach(Nest n in nests)
                 if(n.CollisionRect.Intersects(area))
                     return true;
             return false;
@@ -217,7 +216,7 @@ namespace VOiD.Components
 
         public static Nest CheckNests(Point position)
         {
-            foreach (Nest n in Nests)
+            foreach (Nest n in nests)
                 if (new Point(n.CollisionRect.X, n.CollisionRect.Y) == position)
                     return n;
             return null;
@@ -234,12 +233,12 @@ namespace VOiD.Components
         private void LoadLevel(int levelNumber)
         {
             // Clear Current Data
-            if (Nests.Count > 0)
+            if (nests.Count > 0)
             {
-                foreach (Nest n in Nests)
+                foreach (Nest n in nests)
                     if(n.Creatures.Count > 0)
                         n.Creatures.Clear();
-                Nests.Clear();
+                nests.Clear();
             }
             if(Items.Count > 0)
                 Items.Clear();
@@ -253,5 +252,7 @@ namespace VOiD.Components
             CurrentLevel = levelNumber;
             SaveHandler.SaveGame();
         }
+
+        public static List<Nest> Nests { get { return nests; } }
     }
 }

@@ -88,13 +88,18 @@ namespace VOiD
                 try
                 {
                     Color[] currentTile = new Color[TileWidth*TileHeight];
+                    int xPos;
+                    int yPos;
 
                     for (int y = 0; y < _height; y++)
                     {
                         for (int x = 0; x < _width; x++)
                         {
-                            _tileSet.GetData<Color>(0, new Rectangle(UnicodeValueToInt(sr.Read())*TileWidth,UnicodeValueToInt(sr.Read())*TileHeight,TileWidth,TileHeight), currentTile, 0, TileWidth*TileHeight);
-                            _map.SetData<Color>(0, new Rectangle(x * TileWidth, y * TileHeight, TileWidth, TileHeight), currentTile, 0, TileWidth * TileHeight); 
+                            xPos = UnicodeValueToInt(sr.Read());
+                            yPos = UnicodeValueToInt(sr.Read());
+                            _tileSet.GetData<Color>(0, new Rectangle(xPos*TileWidth,yPos*TileHeight,TileWidth,TileHeight), currentTile, 0, TileWidth*TileHeight);
+                            _map.SetData<Color>(0, new Rectangle(x * TileWidth, y * TileHeight, TileWidth, TileHeight), currentTile, 0, TileWidth * TileHeight);
+                            _tiles[x, y] = new Point(xPos, yPos);
 
                             _passable[x, y] = Convert.ToBoolean(UnicodeValueToInt(sr.Read()));
                             _attribute[x, y] = UnicodeValueToInt(sr.Read());
@@ -173,7 +178,7 @@ namespace VOiD
         {
             for (int x = 0; x < TileWidth; x++)
                 for (int y = 0; y < TileHeight; y++)
-                    if(_passable[x, y] == false)
+                    if (_passable[x, y] == false)
                         SpriteManager.Draw(_colTex, Camera.Transform(new Vector2(x * TileWidth, y * TileHeight)), null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
         }
 
@@ -200,6 +205,16 @@ namespace VOiD
             _passable[tile.X, tile.Y] = !_passable[tile.X, tile.Y];
         }
 
+        /// <summary>
+        /// Sets an individual tile.
+        /// </summary>
+        /// <param name="Position">Position (in tile coordinates) of the tile to set.</param>
+        /// <param name="TileXY">Position (in tile coordinates) of the tile in the tileset to use.</param>
+        public void SetTile(Point Position, Point TileXY)
+        {
+            _tiles[Position.X, Position.Y] = TileXY;
+        }
+
         // Public Accessors
         public Vector2 PlayerSpawn { get { return _playerSpawn; } }
         public Vector2 BossSpawn { get { return _bossSpawn; } }
@@ -210,5 +225,6 @@ namespace VOiD
         public bool[,] Passable { get { return _passable; } }
         public int[,] Attribute { get { return _attribute; } }
         public Texture2D Map { get { return _map; } }
+        public Point[,] Tiles { get { return _tiles; } }
     }
 }

@@ -15,31 +15,6 @@ namespace VOiD.Components
 {
     public class LevelEditor : Microsoft.Xna.Framework.DrawableGameComponent
     {
-        #region Struct Definitions
-        private struct NewItem
-        {
-            public Point Position;
-            public int ItemID;
-            public NewItem(Point position, int itemid)
-            {
-                Position = position;
-                ItemID = itemid;
-            }
-        }
-        public struct ModifiedTile
-        {
-            public Point Position;
-            public Point TileXY;
-            public bool Passable;
-            public ModifiedTile(Point position, Point tileXY, bool passable)
-            {
-                Position = position;
-                TileXY = tileXY;
-                Passable = passable;
-            }
-        }
-        #endregion
-
         private enum Mode
         {
             Tile,
@@ -47,12 +22,13 @@ namespace VOiD.Components
             Nest
         }
 
+        TimeSpan timeSinceLastSave = TimeSpan.Zero;
+
         Texture2D[,] tiles;
         Point currentTile;
         Color[] selectedTileData;
 
-        List<ModifiedTile> modifiedTiles;
-        List<NewItem> newItems;
+        List<Point> modifiedTiles;
 
         Mode currentMode;
         Item.ItemName CurrentItem;
@@ -96,8 +72,8 @@ namespace VOiD.Components
                     {
                         tiles[x, y] = new Texture2D(GraphicsDevice, GameHandler.TileMap.TileWidth, GameHandler.TileMap.TileHeight);
                         
-                        GameHandler.TileMap.TileSet.GetData<Color>(0, new Rectangle(x * GameHandler.TileMap.TileWidth, y * GameHandler.TileMap.TileHeight, GameHandler.TileMap.TileWidth, GameHandler.TileMap.TileHeight),
-                            currentTileData, 0, currentTileData.Length);
+                        GameHandler.TileMap.TileSet.GetData<Color>(0, new Rectangle(x * GameHandler.TileMap.TileWidth, y * GameHandler.TileMap.TileHeight, GameHandler.TileMap.TileWidth,
+                            GameHandler.TileMap.TileHeight), currentTileData, 0, currentTileData.Length);
 
                         tiles[x, y].SetData<Color>(currentTileData);
                     }
@@ -106,60 +82,14 @@ namespace VOiD.Components
                 currentTile = Point.Zero;
                 selectedTileData = new Color[GameHandler.TileMap.TileWidth * GameHandler.TileMap.TileHeight];
                 Camera.Move(Vector2.Zero);
-                modifiedTiles = new List<ModifiedTile>();
-                newItems = new List<NewItem>();
+                modifiedTiles = new List<Point>();
             }
-            else
+            else if(Interface.currentScreen == Screens.BLANK)
             {
                 Console.WriteLine("----- Exiting Level Editor. -----\n");
                 if (!(Interface.currentScreen == Screens.MainMenu))
                 {
-                    ConsoleKeyInfo choice = new ConsoleKeyInfo();
-
-                    while (choice.Key != ConsoleKey.N && choice.Key != ConsoleKey.Y)
-                    {
-                        Console.WriteLine("Save Changes to Current Level? (Y/N)");
-                        choice = Console.ReadKey();
-                    }
-
-                    switch (choice.Key)
-                    {
-                        case ConsoleKey.Y:
-                            string filePath = workingDirectory + "Level" + GameHandler.CurrentLevel + ".map";
-                            StreamReader sr = new StreamReader(filePath);
-                            string tilesetName = sr.ReadLine();
-                            char[] levelData = sr.ReadToEnd().ToCharArray();
-
-                            sr.Close();
-
-                            foreach (ModifiedTile tile in modifiedTiles)
-                            {
-                                int[] currentTile = new int[5];
-
-                                for(int i = 0; i < 5; i++)
-                                    currentTile[i] = UnicodeValueToInt(levelData[(tile.Position.X * 6 + tile.Position.Y * ((GameHandler.TileMap.Width*6)+1)) + i]);
-
-                                currentTile[0] = tile.TileXY.X;
-                                currentTile[1] = tile.TileXY.Y;
-                                currentTile[2] = Convert.ToInt32(tile.Passable);
-
-                                for (int i = 0; i < 5; i++)
-                                {
-                                    char c = Convert.ToChar(currentTile[i] + (int)'0');
-                                    levelData[(tile.Position.X * 6 + tile.Position.Y * ((GameHandler.TileMap.Width * 6) + 1)) + i] = c;
-                                }
-                            }
-
-                            File.Delete(filePath);
-                            StreamWriter sw = new StreamWriter(filePath, false);
-                            sw.WriteLine(tilesetName);
-                            sw.WriteLine(levelData);
-                            sw.Close();
-                            break;
-                        case ConsoleKey.N:
-                            break;
-                    }
-
+                    SaveMap();
                     Interface.currentScreen = Screens.LevelMenu;
                 }
                 GameHandler.EditMode = false;
@@ -169,6 +99,15 @@ namespace VOiD.Components
 
         public override void Update(GameTime gameTime)
         {
+            // Check Autosave
+            timeSinceLastSave += gameTime.ElapsedGameTime;
+            if (timeSinceLastSave >= TimeSpan.FromMinutes(5.0))
+            {
+                SaveMap();
+                timeSinceLastSave = TimeSpan.Zero;
+                modifiedTiles.Clear();
+            }
+
             if (InputHandler.KeyDown(Keys.F2))
             {
                 this.Visible = false;
@@ -253,37 +192,34 @@ namespace VOiD.Components
                     MousePos.X /= GameHandler.TileMap.TileWidth;
                     MousePos.Y /= GameHandler.TileMap.TileHeight;
 
+                    Vector2 MousePosPixels = new Vector2((int)MousePos.X * GameHandler.TileMap.TileWidth, ((int)MousePos.Y * GameHandler.TileMap.TileHeight));
+
                     switch(currentMode)
                     {
                         case Mode.Tile:
-                            if(InputHandler.LeftClickDown)
-                                GameHandler.TileMap.Map.SetData<Color>(0, new Rectangle((int)MousePos.X * GameHandler.TileMap.TileWidth, (int)MousePos.Y * GameHandler.TileMap.TileHeight,
-                                    tiles[currentTile.X, currentTile.Y].Width, tiles[currentTile.X, currentTile.Y].Height), selectedTileData, 0, selectedTileData.Length);
-                            else if(InputHandler.RightClickPressed)
+                            if (InputHandler.LeftClickDown)
+                            {
+                                GameHandler.TileMap.Map.SetData<Color>(0, new Rectangle((int)MousePosPixels.X, (int)MousePosPixels.Y, tiles[currentTile.X, currentTile.Y].Width,
+                                    tiles[currentTile.X, currentTile.Y].Height), selectedTileData, 0, selectedTileData.Length);
+                                GameHandler.TileMap.SetTile(new Point((int)MousePos.X, (int)MousePos.Y), currentTile);
+                            }
+                            else if (InputHandler.RightClickPressed)
                                 GameHandler.TileMap.TogglePassable(new Point((int)MousePos.X, (int)MousePos.Y));
-
-                            ModifiedTile mTile = new ModifiedTile(new Point((int)MousePos.X, (int)MousePos.Y), new Point(currentTile.X, currentTile.Y), GameHandler.TileMap.Passable[(int)MousePos.X, (int)MousePos.Y]);
-                            int tileLocation = TileModified(new Point((int)MousePos.X, (int)MousePos.Y));
-
-                            if (tileLocation == -1)
-                                modifiedTiles.Add(mTile);
-                            else
-                                modifiedTiles[tileLocation] = mTile;
                             break;
                         case Mode.Item:
                             if (InputHandler.LeftClickPressed)
                             {
                                 if(GameHandler.CheckItem(new Point((int)MousePos.X, (int)MousePos.Y)) != null)
                                 {
-                                    ItemEntity i = GameHandler.CheckItem(new Point((int)MousePos.X * GameHandler.TileMap.TileWidth, (int)MousePos.Y * GameHandler.TileMap.TileHeight));
+                                    ItemEntity i = GameHandler.CheckItem(new Point((int)MousePosPixels.X, (int)MousePosPixels.Y));
                                      GameHandler.RemoveItem(i);
                                 }
                                 if(GameHandler.CheckItem(new Point((int)MousePos.X, (int)MousePos.Y)) == null)
-                                    GameHandler.AddItem(new ItemEntity(new Vector2((int)MousePos.X * GameHandler.TileMap.TileWidth, (int)MousePos.Y * GameHandler.TileMap.TileHeight), (int)CurrentItem, Game.Content));
+                                    GameHandler.AddItem(new ItemEntity(new Vector2(MousePosPixels.X, MousePosPixels.Y), (int)CurrentItem, Game.Content));
                             }
                             if (InputHandler.RightClickPressed)
                             {
-                                ItemEntity i = GameHandler.CheckItem(new Point((int)MousePos.X * GameHandler.TileMap.TileWidth, (int)MousePos.Y * GameHandler.TileMap.TileHeight));
+                                ItemEntity i = GameHandler.CheckItem(new Point((int)MousePosPixels.X, (int)MousePosPixels.Y));
                                 if (i != null)
                                     GameHandler.RemoveItem(i);
                             }
@@ -303,6 +239,7 @@ namespace VOiD.Components
                             }
                             break;
                     }
+                    AddModifiedTile(new Point((int)MousePos.X, (int)MousePos.Y)); // Add the tile to the modified list
                 }
             }
 
@@ -323,9 +260,80 @@ namespace VOiD.Components
         private int TileModified(Point position)
         {
             for (int i = 0; i < modifiedTiles.Count; i++)
-                if (modifiedTiles[i].Position == position)
+                if (modifiedTiles[i] == position)
                     return i;
             return -1;
+        }
+
+        private void AddModifiedTile(Point tile)
+        {
+            int tileLocation = TileModified(tile);
+
+            if (tileLocation == -1)
+                modifiedTiles.Add(tile);
+            else
+                modifiedTiles[tileLocation] = tile;
+        }
+
+        private void SaveMap()
+        {
+            Console.WriteLine("Saving Map...");
+            string filePath = workingDirectory + "Level" + GameHandler.CurrentLevel + ".map";
+            StreamReader sr = new StreamReader(filePath);
+            string tilesetName = sr.ReadLine();
+            int arraySize = ((GameHandler.TileMap.Width * 6) * GameHandler.TileMap.Height) + (GameHandler.TileMap.Height - 1);
+            char[] tileData = new char[arraySize];
+            sr.ReadBlock(tileData, 0, arraySize);
+
+            foreach (Point tile in modifiedTiles)
+            {
+                int[] currentTile = new int[5];
+
+                for (int i = 0; i < 5; i++)
+                    currentTile[i] = UnicodeValueToInt(tileData[(tile.X * 6 + tile.Y * ((GameHandler.TileMap.Width * 6) + 1)) + i]);
+
+                currentTile[0] = GameHandler.TileMap.Tiles[tile.X, tile.Y].X;
+                currentTile[1] = GameHandler.TileMap.Tiles[tile.X, tile.Y].Y;
+                currentTile[2] = Convert.ToInt32(GameHandler.TileMap.Passable[tile.X, tile.Y]);
+
+                Item item = GameHandler.CheckItem(new Point(tile.X * GameHandler.TileMap.TileWidth, tile.Y * GameHandler.TileMap.TileHeight));
+                if (item != null)
+                    currentTile[4] = item.ID;
+                else
+                    currentTile[4] = 0;
+
+                for (int i = 0; i < 5; i++)
+                {
+                    char c = Convert.ToChar(currentTile[i] + (int)'0');
+                    tileData[(tile.X * 6 + tile.Y * ((GameHandler.TileMap.Width * 6) + 1)) + i] = c;
+                }
+            }
+
+            string spawnData = ""; // Read spawn data and boss code
+            for (int i = 0; i < 5; i++)
+                spawnData += sr.ReadLine() + "\n";
+
+            sr.ReadLine();
+            string NestData = Convert.ToString(GameHandler.Nests.Count) + "\n";
+            for (int i = 0; i < GameHandler.Nests.Count; i++) // Create new nest data
+            {
+                foreach (Point tile in modifiedTiles)
+                {
+                    Nest nest = GameHandler.CheckNests(new Point(tile.X * GameHandler.TileMap.TileWidth, tile.Y * GameHandler.TileMap.TileHeight));
+                    if (nest != null)
+                        NestData += (nest.CollisionRect.X / GameHandler.TileMap.TileWidth) + "-" + (nest.CollisionRect.Y / GameHandler.TileMap.TileHeight) + "\n" + nest.ID + "\n";
+                }
+            }
+
+            sr.Close();
+
+            File.Delete(filePath);
+            StreamWriter sw = new StreamWriter(filePath, false);
+            sw.WriteLine(tilesetName);
+            sw.Write(tileData);
+            sw.Write(spawnData);
+            sw.Write(NestData);
+            sw.Close();
         }
 
         private int UnicodeValueToInt(int val)

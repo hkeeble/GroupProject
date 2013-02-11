@@ -14,14 +14,16 @@ namespace VOiD
         private Texture2D _texture;
         private List<Creature> creatures = new List<Creature>();
         private Rectangle _moveArea;
+        private short _id;
 
         private Random rand;
 
         const int MAX_CREATURES = 4;
         const int MOVE_AREA_SIZE = 10;
 
-        public Nest(Texture2D texture, Texture2D creatureTexture, Point position, short ID, Point mapDimensions, Point tileDimensions, Point playerSpawn)
+        public Nest(Texture2D texture, Texture2D creatureTexture, Point position, short id, Point mapDimensions, Point tileDimensions, Point playerSpawn)
         {
+            _id = id;
             rand = new Random(DateTime.Now.Millisecond);
             _texture = texture;
             _position = new Vector2(position.X, position.Y);
@@ -44,7 +46,7 @@ namespace VOiD
                     Position = new Point(rand.Next(_moveArea.X, _moveArea.X + _moveArea.Width),
                         rand.Next(_moveArea.Y, _moveArea.Y + _moveArea.Height));
 
-                creatures.Add(new Creature(ID, creatureTexture, new Vector2(Position.X * tileDimensions.X, Position.Y * tileDimensions.Y), 1f));
+                creatures.Add(new Creature(id, creatureTexture, new Vector2(Position.X * tileDimensions.X, Position.Y * tileDimensions.Y), 1f));
             }
         }
 
@@ -86,5 +88,6 @@ namespace VOiD
 
         public List<Creature> Creatures { get { return creatures; } }
         public Rectangle CollisionRect { get { return new Rectangle((int)_position.X, (int)_position.Y, _texture.Width, _texture.Height); } }
+        public short ID { get { return _id; } }
     }
 }
