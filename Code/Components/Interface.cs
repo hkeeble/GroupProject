@@ -172,6 +172,10 @@ namespace VOiD.Components
                         ResID = (short)(Game.GraphicsDevice.Adapter.SupportedDisplayModes.Count<DisplayMode>());
                     ResID--;
                 }
+                if (component.Action.Equals("Fullscreen"))
+                {
+                    Configuration.Toggle();
+                }
                 DebugLog.WriteLine(string.Format("Button Clicked Action =  {0} ", component.Action));
             }
         }

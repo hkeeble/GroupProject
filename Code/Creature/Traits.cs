@@ -8,17 +8,9 @@ namespace VOiD
     public struct Traits
     {
 	    // Visual
-	    public bool Pelvis, Spine, Neck, Calfs, Feet, Thighs, Tail, Arms, Ears, Eyes, Nose;
+	    public bool Spine, Head, Legs, Arms, Tail, Wings;
         public ushort SpinalColumns;
         public ushort TailColumns;
-        public ushort AmountofLegs;
-        public ushort AmountofArms;
-        //public unsafe fixed float BaseColor[3];
-        //public unsafe fixed float LegColor[3];
-        //public unsafe fixed float ArmColor[3];
-        public ushort EyeType;
-        public ushort EarType;
-        public ushort NoseType;
 
 	    // Surival
         public float Weight;

@@ -30,10 +30,27 @@ namespace VOiD.Components
             }
         }
 
-        public static bool Fullscreen;
+        
         private static GraphicsDeviceManager graphics;
-        public static float AspectRatio { get { return (float)Width / Height; } }
-        public static Rectangle Bounds { get { return new Rectangle(0, 0, Width, Height); } }
+        public static float AspectRatio { get { return graphics.GraphicsDevice.Viewport.AspectRatio; } }
+        public static Rectangle Bounds { get { return graphics.GraphicsDevice.Viewport.Bounds; } }
+
+        public static bool Fullscreen
+        {
+            get { return graphics.IsFullScreen; }
+            set
+            {
+                if (graphics.IsFullScreen == true && value == false)
+                    graphics.ToggleFullScreen();
+                if (graphics.IsFullScreen == false && value == true)
+                    graphics.ToggleFullScreen();
+            }
+        }
+
+        public static void Toggle()
+        {
+            graphics.ToggleFullScreen();
+        }
 
         public Configuration(Game game)
             : base(game)

@@ -4,6 +4,23 @@ using Microsoft.Xna.Framework;
 
 namespace VOiD.Components
 {
+    /*
+    public class testing
+    {
+        internal static int[] thing(ulong ID)
+        {
+            string temp = ID.ToString();
+            int[] rtn = new int[temp.Length];
+            for(int i = 0; i < rtn.Length; i++) {
+                rtn[i] = int.Parse(temp[i].ToString());
+            }
+
+            foreach (int value in rtn)
+                Console.WriteLine("the digit is {0}\n", value);
+            return rtn;
+        }
+    }*/
+
     public class DebugLog : GameComponent
     {
         private static int errorCount = 0;
@@ -16,6 +33,7 @@ namespace VOiD.Components
             Console.WriteLine(temp);
             tw.WriteLine(temp);
             tw.Close();
+            //testing.thing(3456898254673474675);
         }
 
         public static void Close()

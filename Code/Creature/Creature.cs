@@ -25,9 +25,10 @@ namespace VOiD
         {
             _ID = ID;
             Traits temp = new Traits();
-            temp.Pelvis = true;
             temp.Spine = true;
             temp.SpinalColumns = 4;
+            temp.Head = true;
+            temp.Arms = true;
             temp.Tail = true;
             temp.TailColumns = 6;
             Dominant = temp;
@@ -86,26 +87,40 @@ namespace VOiD
         void CreateModel(GraphicsDevice graphicsDevice)
         {
             // Make the model from the set up Dominant traits
-            creatureModel = new CreatureModel(new CubePrimitive(graphicsDevice), Vector3.Zero, Vector3.Zero);
-            CreatureModel tmp = creatureModel;
+            creatureModel = new CreatureModel(new CubePrimitive(graphicsDevice,0.2f), Vector3.Zero, Vector3.Zero);
+            CreatureModel tmp =  creatureModel;
             if (Dominant.Spine)
             {
-                for (int i = 0; i < Dominant.SpinalColumns; i++)
+                for (int i = 0; i <= Dominant.SpinalColumns; i++)
                 {
-                    tmp.children.Add(new CreatureModel(new SpherePrimitive(graphicsDevice, 1f, 8), Vector3.Up/16, Vector3.Zero));
-                    tmp = tmp.children[0];
+                    if ((i != Dominant.SpinalColumns))
+                    {
+                        tmp.children.Add(new CreatureModel(new SpherePrimitive(graphicsDevice, 0.6f, 8), Vector3.Up/Dominant.SpinalColumns, Vector3.Zero));
+                        tmp = tmp.children[0];
+                    }
+                    else
+                    {
+                        if (Dominant.Arms)
+                        {
+                            tmp.children.Add(new CreatureModel(new CubePrimitive(graphicsDevice, .4f), Vector3.Left*0.6f, Vector3.Zero));
+                            tmp.children.Add(new CreatureModel(new CubePrimitive(graphicsDevice, .4f), Vector3.Right*0.6f, Vector3.Zero));
+                        }
+                        if (Dominant.Head)
+                            tmp.children.Add(new CreatureModel(new CubePrimitive(graphicsDevice, .3f), Vector3.Up / Dominant.SpinalColumns, Vector3.Zero));
+                    }
+
                 }
             }
-
+            /*
             if (Dominant.Tail)
             {
                 tmp = creatureModel;
                 for (int i = 0; i < Dominant.TailColumns; i++)
                 {
-                    tmp.children.Add(new CreatureModel(new SpherePrimitive(graphicsDevice, 1f, 8), Vector3.Backward/16, new Vector3(0, 0, MathHelper.ToRadians(8.0f) * i)));
+                    tmp.children.Add(new CreatureModel(new SpherePrimitive(graphicsDevice, .4f, 8), Vector3.Forward / Dominant.TailColumns, Vector3.Zero));
                     tmp = tmp.children[0];
                 }
-            }
+            }*/
         }
 
         void CreateAttacks()

@@ -7,6 +7,7 @@ namespace VOiD
 {
     class CreatureModel
     {
+        private static Matrix Proj = Matrix.CreatePerspectiveFieldOfView(MathHelper.ToRadians(45.0f), VOiD.Components.Configuration.AspectRatio, 0.1f, 100f);
         public GeometricPrimitive model;
         public Vector3 Position;
         public Vector3 Rotation;
@@ -18,7 +19,7 @@ namespace VOiD
             model = new CubePrimitive(graphicsDevice);
             Position = Vector3.Zero;
             Rotation = Vector3.Zero;
-            wtf = new Matrix();
+            wtf = Matrix.Identity;
             children = new List<CreatureModel>();
         }
 
@@ -27,14 +28,14 @@ namespace VOiD
             model = inPrim;
             Position = Pos;
             Rotation = Rot;
-            wtf = new Matrix();
+            wtf = Matrix.Identity;
             children = new List<CreatureModel>();
         }
 
         public void Draw(Matrix Parent)
         {
             wtf = Parent * Matrix.CreateTranslation(Position) * Matrix.CreateFromYawPitchRoll(Rotation.X, Rotation.Y, Rotation.Z);
-            model.Draw(wtf, Matrix.CreateTranslation(Vector3.Down*1.5f), Matrix.CreatePerspectiveFieldOfView(MathHelper.ToRadians(45.0f),VOiD.Components.Configuration.AspectRatio,0.1f,100f), Color.White);
+            model.Draw(wtf, Matrix.CreateTranslation(0,-0.75f,0), Proj, Color.White);
 
             foreach (CreatureModel child in children)
             {

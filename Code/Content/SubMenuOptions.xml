@@ -56,10 +56,10 @@
               <Item Type="GameLibrary.GraphicObject">
                 <iSize>80 10</iSize>
                 <iPosition>50 25</iPosition>
-                <isClickable>false</isClickable>
+                <isClickable>true</isClickable>
                 <TextureLocation>trans</TextureLocation>
                 <fullscreen>false</fullscreen>
-                <Action></Action>
+                <Action>Fullscreen</Action>
                 <Children>
                   <Item Type="GameLibrary.TextObject">
                     <Text>Fullscreen</Text>
