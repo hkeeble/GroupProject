@@ -21,7 +21,7 @@ namespace VOiD
         const int MAX_CREATURES = 4;
         const int MOVE_AREA_SIZE = 10;
 
-        public Nest(Texture2D texture, Texture2D creatureTexture, Point position, short id, Point mapDimensions, Point tileDimensions, Point playerSpawn)
+        public Nest(Texture2D texture, Texture2D creatureTexture, Point position, short id, Point mapDimensions, Point tileDimensions, Point playerSpawn, bool[,] passable)
         {
             _id = id;
             rand = new Random(DateTime.Now.Millisecond);
@@ -42,7 +42,7 @@ namespace VOiD
             {
                 Point Position = Point.Zero;
 
-                while(Position == playerSpawn || Position.X < 0 || Position.X > mapDimensions.X || Position.Y < 0 || Position.Y > mapDimensions.Y)
+                while(Position == playerSpawn || Position.X < 0 || Position.X > mapDimensions.X || Position.Y < 0 || Position.Y > mapDimensions.Y || passable[Position.X, Position.Y] == false)
                     Position = new Point(rand.Next(_moveArea.X, _moveArea.X + _moveArea.Width),
                         rand.Next(_moveArea.Y, _moveArea.Y + _moveArea.Height));
 

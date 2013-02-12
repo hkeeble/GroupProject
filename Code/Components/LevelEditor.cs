@@ -230,7 +230,7 @@ namespace VOiD.Components
                                 GameHandler.AddNest(new Nest(Game.Content.Load<Texture2D>("Sprites\\Nest"), Game.Content.Load<Texture2D>("Sprites\\CreatureGeneric"),
                                     new Point((int)MousePos.X * GameHandler.TileMap.TileWidth, (int)MousePos.Y * GameHandler.TileMap.TileHeight), currentCreatureID,
                                     new Point(GameHandler.TileMap.TileWidth, GameHandler.TileMap.TileHeight), new Point(GameHandler.TileMap.TileWidth, GameHandler.TileMap.TileHeight),
-                                    new Point((int)GameHandler.TileMap.PlayerSpawn.X, (int)GameHandler.TileMap.PlayerSpawn.Y)));
+                                    new Point((int)GameHandler.TileMap.PlayerSpawn.X, (int)GameHandler.TileMap.PlayerSpawn.Y), GameHandler.TileMap.Passable));
                             if (InputHandler.RightClickPressed)
                             {
                                 Nest n = GameHandler.CheckNests(new Point((int)MousePos.X * GameHandler.TileMap.TileWidth, (int)MousePos.Y * GameHandler.TileMap.TileHeight));
