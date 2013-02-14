@@ -47,8 +47,12 @@ namespace VOiD
 
         public void Draw()
         {
-            SpriteManager.Draw(minimap, new Rectangle(50, Configuration.Height - 128 - 10, 128 + 8, 128), new Rectangle((int)Camera.Transform(GameHandler.Player.Position).X / 8,
-                (int)Camera.Transform(GameHandler.Player.Position).Y / 8, (int)MathHelper.Clamp(128, 0, minimap.Width), (int)MathHelper.Clamp(128, 0, minimap.Height)), Color.White, 0f, Vector2.Zero, SpriteEffects.None, 1f);
+            SpriteManager.Draw(minimap, new Rectangle(50, Configuration.Height - 128 - 10, (int)DrawDimensions.X + 8, (int)DrawDimensions.Y),
+                                new Rectangle(GameHandler.Player.CurrentTile.X * 8,
+                                GameHandler.Player.CurrentTile.Y * 8, (int)MathHelper.Clamp(128, 0, minimap.Width),
+                                (int)MathHelper.Clamp(128, 0, minimap.Height)), Color.White, 0f, Vector2.Zero, SpriteEffects.None, 1f);
         }
+
+        private Vector2 DrawDimensions { get { return new Vector2(128, 128); } } // Needs to change depending on viewport size
     }
 }
