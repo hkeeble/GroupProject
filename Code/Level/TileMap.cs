@@ -176,8 +176,8 @@ namespace VOiD
 
         public void DrawCollisionLayer()
         {
-            for (int x = 0; x < TileWidth; x++)
-                for (int y = 0; y < TileHeight; y++)
+            for (int x = 0; x < Width; x++)
+                for (int y = 0; y < Height; y++)
                     if (_passable[x, y] == false)
                         SpriteManager.Draw(_colTex, Camera.Transform(new Vector2(x * TileWidth, y * TileHeight)), null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
         }

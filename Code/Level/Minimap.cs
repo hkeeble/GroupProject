@@ -47,8 +47,8 @@ namespace VOiD
 
         public void Draw()
         {
-            SpriteManager.Draw(minimap, new Rectangle(50, Configuration.Height - 128 - 10, 128 + 8, 128), new Rectangle((int)GameHandler.Player.Position.X / 8,
-                (int)GameHandler.Player.Position.Y / 8, (int)MathHelper.Clamp(128, 0, minimap.Width), (int)MathHelper.Clamp(128, 0, minimap.Height)), Color.White, 0f, Vector2.Zero, SpriteEffects.None, 1f);
+            SpriteManager.Draw(minimap, new Rectangle(50, Configuration.Height - 128 - 10, 128 + 8, 128), new Rectangle((int)Camera.Transform(GameHandler.Player.Position).X / 8,
+                (int)Camera.Transform(GameHandler.Player.Position).Y / 8, (int)MathHelper.Clamp(128, 0, minimap.Width), (int)MathHelper.Clamp(128, 0, minimap.Height)), Color.White, 0f, Vector2.Zero, SpriteEffects.None, 1f);
         }
     }
 }
