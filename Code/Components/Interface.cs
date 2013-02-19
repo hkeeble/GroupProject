@@ -251,6 +251,8 @@ namespace VOiD.Components
                  component.Scroll(component.UpScroller.scrollDirection);
              else if (DownRect.Contains(InputHandler.MouseX, InputHandler.MouseY) &&  InputHandler.LeftClickDown)
                  component.Scroll(component.DownScroller.scrollDirection);
+
+             component.currentOffset.Y = MathHelper.Clamp(component.currentOffset.Y, -(int)(Game.Content.Load<SpriteFont>("SegoeUI").MeasureString(component.Text).Y), 300);
         }
 
         public override void Update(GameTime gameTime)
