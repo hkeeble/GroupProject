@@ -10,6 +10,7 @@ namespace VOiD.Components
 {
     class GameHandler : DrawableGameComponent
     {
+        #region Declarations
         public static int CurrentLevel;
         public static TileMap TileMap;
         public static Creature Boss;
@@ -24,6 +25,7 @@ namespace VOiD.Components
         private static List<ItemEntity> Items = new List<ItemEntity>();
 
         const int NUMBER_OF_ITEM_TYPES = 5;
+        #endregion
 
         public GameHandler(Game game)
             : base(game)
@@ -32,6 +34,7 @@ namespace VOiD.Components
             SaveHandler.LoadSave(game.GraphicsDevice, Game.Content);
         }
 
+        #region Add/Remove Entities
         public static void AddItem(ItemEntity item)
         {
             Items.Add(item);
@@ -51,6 +54,7 @@ namespace VOiD.Components
         {
             nests.Remove(nest);
         }
+        #endregion
 
         public override void Update(GameTime gameTime)
         {
@@ -62,7 +66,7 @@ namespace VOiD.Components
                 
                 Camera.Position = new Vector2((GameHandler.Player.Position.X + (GameHandler.Player.Texture.Width / 2)) - (Configuration.Width / 2),
                                      (GameHandler.Player.Position.Y + (GameHandler.Player.Texture.Height / 2)) - (Configuration.Height / 2));
-
+                
                 if (Interface.currentScreen == Screens.LevelMenu)
                 {
                     HandlePlayerMovement();
@@ -124,64 +128,7 @@ namespace VOiD.Components
             }
         }
 
-        private void HandleMouse()
-        {
-            Vector2 mousePos = Camera.Transform(new Vector2(InputHandler.MouseX, InputHandler.MouseY));
-            Rectangle mouseRect = new Rectangle((int)mousePos.X, (int)mousePos.Y, 10, 10);
-
-            foreach(Nest n in nests)
-                foreach (Creature c in n.Creatures)
-                {
-
-                }
-        }
-
-        private void HandlePlayerMovement()
-        {
-            if (Player.Direction.Y == 0 && Player.Position.X % TileMap.TileWidth == 0)
-            {
-                if (InputHandler.KeyDown(Keys.Down))
-                    Player.Direction.Y = 1;
-                else if (InputHandler.KeyDown(Keys.Up))
-                    Player.Direction.Y = -1;
-            }
-            else if (Player.Position.Y % TileMap.TileHeight == 0)
-            {
-                if (Player.Direction.Y == 1 && !InputHandler.KeyDown(Keys.Down))
-                    Player.Direction.Y = 0;
-                if (Player.Direction.Y == -1 && !InputHandler.KeyDown(Keys.Up))
-                    Player.Direction.Y = 0;
-            }
-
-            if (Player.Direction.X == 0 && Player.Position.Y % TileMap.TileHeight == 0)
-            {
-                if (InputHandler.KeyDown(Keys.Left))
-                    Player.Direction.X = -1;
-                else if (InputHandler.KeyDown(Keys.Right))
-                    Player.Direction.X = 1;
-            }
-            else if (Player.Position.X % TileMap.TileWidth == 0)
-            {
-                if (Player.Direction.X == 1 && !InputHandler.KeyDown(Keys.Right))
-                    Player.Direction.X = 0;
-                if (Player.Direction.X == -1 && !InputHandler.KeyDown(Keys.Left))
-                    Player.Direction.X = 0;
-            }
-        }
-
-         private void HandleCameraMovement()
-         {
-             if(InputHandler.KeyDown(Keys.Down))
-                 Camera.Move(new Vector2(0, 3));
-             if (InputHandler.KeyDown(Keys.Up))
-                 Camera.Move(new Vector2(0, -3));
-             if (InputHandler.KeyDown(Keys.Left))
-                 Camera.Move(new Vector2(-3, 0));
-             if (InputHandler.KeyDown(Keys.Right))
-                 Camera.Move(new Vector2(3, 0));
-         }
-
-        public override void Draw(GameTime gameTime)
+         public override void Draw(GameTime gameTime)
         {
             if (Enabled || EditMode)
             {
@@ -206,7 +153,67 @@ namespace VOiD.Components
             }
         }
 
-        public static bool CheckNests(Rectangle area)
+        #region Handle Input
+         private void HandleMouse()
+         {
+             Vector2 mousePos = Camera.Transform(new Vector2(InputHandler.MouseX, InputHandler.MouseY));
+             Rectangle mouseRect = new Rectangle((int)mousePos.X, (int)mousePos.Y, 10, 10);
+
+             foreach (Nest n in nests)
+                 foreach (Creature c in n.Creatures)
+                 {
+
+                 }
+         }
+
+         private void HandlePlayerMovement()
+         {
+             if (Player.Direction.Y == 0 && Player.Position.X % TileMap.TileWidth == 0)
+             {
+                 if (InputHandler.KeyDown(Keys.Down))
+                     Player.Direction.Y = 1;
+                 else if (InputHandler.KeyDown(Keys.Up))
+                     Player.Direction.Y = -1;
+             }
+             else if (Player.Position.Y % TileMap.TileHeight == 0)
+             {
+                 if (Player.Direction.Y == 1 && !InputHandler.KeyDown(Keys.Down))
+                     Player.Direction.Y = 0;
+                 if (Player.Direction.Y == -1 && !InputHandler.KeyDown(Keys.Up))
+                     Player.Direction.Y = 0;
+             }
+
+             if (Player.Direction.X == 0 && Player.Position.Y % TileMap.TileHeight == 0)
+             {
+                 if (InputHandler.KeyDown(Keys.Left))
+                     Player.Direction.X = -1;
+                 else if (InputHandler.KeyDown(Keys.Right))
+                     Player.Direction.X = 1;
+             }
+             else if (Player.Position.X % TileMap.TileWidth == 0)
+             {
+                 if (Player.Direction.X == 1 && !InputHandler.KeyDown(Keys.Right))
+                     Player.Direction.X = 0;
+                 if (Player.Direction.X == -1 && !InputHandler.KeyDown(Keys.Left))
+                     Player.Direction.X = 0;
+             }
+         }
+
+         private void HandleCameraMovement()
+         {
+             if (InputHandler.KeyDown(Keys.Down))
+                 Camera.Move(new Vector2(0, 3));
+             if (InputHandler.KeyDown(Keys.Up))
+                 Camera.Move(new Vector2(0, -3));
+             if (InputHandler.KeyDown(Keys.Left))
+                 Camera.Move(new Vector2(-3, 0));
+             if (InputHandler.KeyDown(Keys.Right))
+                 Camera.Move(new Vector2(3, 0));
+         }
+         #endregion
+
+        #region Check Entity Locations
+         public static bool CheckNests(Rectangle area)
         {
             foreach(Nest n in nests)
                 if(n.CollisionRect.Intersects(area))
@@ -229,7 +236,9 @@ namespace VOiD.Components
                     return i;
             return null;
         }
+        #endregion
 
+        #region Load Level
         private void LoadLevel(int levelNumber)
         {
             // Clear Current Data
@@ -252,6 +261,7 @@ namespace VOiD.Components
             CurrentLevel = levelNumber;
             SaveHandler.SaveGame();
         }
+        #endregion
 
         public static List<Nest> Nests { get { return nests; } }
     }

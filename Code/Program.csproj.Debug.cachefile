@@ -19,7 +19,6 @@ Content\Interface\Assets\trans.xnb
 Content\Interface\Assets\arrow-left.xnb
 Content\Interface\Assets\arrow-right.xnb
 Content\Interface\Assets\Battle\Attack.xnb
-Content\Interface\Assets\Battle\BattleScreen.xnb
 Content\Interface\Assets\Battle\Defend.xnb
 Content\Interface\Assets\Battle\Hourglass.xnb
 Content\Interface\Assets\Lab\Creature.xnb
@@ -35,6 +34,9 @@ Content\Interface\LevelMenu.xnb
 Content\Interface\SubMenuOptions.xnb
 Content\Interface\BattleScreen.xnb
 Content\Interface\LabScreen.xnb
+Content\Interface\Assets\Battle\BattleScreen.xnb
+Content\Interface\Assets\Window.xnb
+Content\Interface\SubMenuCreatureInfo.xnb
 Content\Tilesets\Tileset.png
 Content\Maps\Level1.map
 Content\Maps\Level2.map

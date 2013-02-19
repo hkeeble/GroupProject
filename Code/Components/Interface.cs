@@ -143,12 +143,13 @@ namespace VOiD.Components
 
             if (TextureRectangle.Contains(InputHandler.MouseX, InputHandler.MouseY)&&InputHandler.LeftClickPressed)
             {
+                #region Main Menu Actions
                 if (component.Action.Equals("continue"))
                     currentScreen = Screens.LevelMenu;
                 if (component.Action.Equals("Quit"))
                     Game.Exit();
                 if (component.Action.Equals("Options"))
-                    subMenu = Game.Content.Load<GameLibrary.Interface>("SubMenuOptions");
+                    subMenu = Game.Content.Load<GameLibrary.Interface>("Interface/SubMenuOptions");
                 if (component.Action.Equals("DeleteSubMenu"))
                     subMenu = new GameLibrary.Interface();
                 if (component.Action.Equals("PlusRes"))
@@ -176,6 +177,15 @@ namespace VOiD.Components
                 {
                     Configuration.Toggle();
                 }
+                #endregion
+
+                #region Lab Menu Actions
+                if (component.Action.Equals("Creature"))
+                {
+                    subMenu = Game.Content.Load<GameLibrary.Interface>("Interface/SubMenuCreatureInfo");
+                }
+                #endregion
+
                 DebugLog.WriteLine(string.Format("Button Clicked Action =  {0} ", component.Action));
             }
         }
