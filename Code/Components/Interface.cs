@@ -27,10 +27,10 @@ namespace VOiD.Components
         public static Screens currentScreen;
         private static short ResID = 0;
         private DisplayMode[] dm;
+        RasterizerState _scissorState = new RasterizerState() { ScissorTestEnable = true };
 
         private void DrawComponent(List<Object2D> Interface)
         {
-            
             Object2D sam = new Object2D();
             foreach (Object2D thing in Interface)
             {
@@ -49,6 +49,12 @@ namespace VOiD.Components
                 if (parent.GetType() == typeof(GraphicObject))
                     DrawTextComponent((component as TextObject), (parent as GraphicObject));
             }
+            else if (component.GetType() == typeof(TextBoxObject))
+            {
+                if(parent.GetType() == typeof(GraphicObject))
+                    DrawTextBoxComponent((component as TextBoxObject), (parent as GraphicObject));
+            }
+
 
             if(component.GetType() == typeof(GraphicObject))
                 DrawComponent((component as GraphicObject).Children, ref component);
@@ -65,15 +71,14 @@ namespace VOiD.Components
         private void DrawTextComponent(TextObject component, GraphicObject parent)
         {
 
-                component.offset.X = parent.Size.X / 100 * component.ioffset.X;
-                component.offset.Y = parent.Size.Y / 100 * component.ioffset.Y;
+            component.offset.X = parent.Size.X / 100 * component.ioffset.X;
+            component.offset.Y = parent.Size.Y / 100 * component.ioffset.Y;
 
-                component.Init = true;
+            component.Init = true;
                 
-                //if (component.isCentered)
+            //if (component.isCentered)
 
-
-            string Text = component.Text;
+            string Text = component.Text.Replace('|', '\n'); // Replace | with newline escape sequence
             Vector2 off = component.offset;
 
             if (component.Text.StartsWith("@currentRes"))
@@ -85,6 +90,27 @@ namespace VOiD.Components
             SpriteManager.DrawString(Game.Content.Load<SpriteFont>("SegoeUI"), Text, parent.Position + off, Color.White);
         }
 
+        private void DrawTextBoxComponent(TextBoxObject component, Object2D parent)
+        {
+            GraphicObject Parent = (GraphicObject)parent;
+
+            component.offset.X = Parent.Size.X / 100 * component.ioffset.X;
+            component.offset.Y = Parent.Size.Y / 100 * component.ioffset.Y;
+
+            component.Init = true;
+
+            string Text = component.Text.Replace('|', '\n'); // Replace | with newline escape sequence
+            Vector2 off = component.offset;
+            component.BoundingRect = new Rectangle((int)Parent.Position.X + (int)off.X, (int)Parent.Position.Y + (int)off.Y, (int)component.Bounds.X, (int)component.Bounds.Y);
+
+            Rectangle currentRect = SpriteManager.ScissorRectangle;
+            SpriteManager.ScissorRectangle = component.BoundingRect;
+            SpriteManager.DrawString(Game.Content.Load<SpriteFont>("SegoeUI"), Text, Parent.Position + off + component.currentOffset, Color.White);
+            SpriteManager.ScissorRectangle = currentRect;
+
+            DrawGraphicComponent(component.UpScroller, ref parent);
+            DrawGraphicComponent(component.DownScroller, ref parent);
+        }
 
         private void DrawGraphicComponent(GraphicObject component, ref Object2D parent)
         {
@@ -97,7 +123,7 @@ namespace VOiD.Components
 
             
 
-                if ((component.GetType() == typeof(GraphicObject)) && (parent.GetType() == typeof(GraphicObject)))
+                if (((component.GetType() == typeof(GraphicObject)) || component.GetType() == typeof(TextBoxObject.Scroller)) && (parent.GetType() == typeof(GraphicObject)))
                 {
                     
                     component.Size.X = ((parent as GraphicObject).Size.X / 100 * component.iSize.X);
@@ -181,9 +207,9 @@ namespace VOiD.Components
 
                 #region Lab Menu Actions
                 if (component.Action.Equals("Creature"))
-                {
                     subMenu = Game.Content.Load<GameLibrary.Interface>("Interface/SubMenuCreatureInfo");
-                }
+                if (component.Action.Equals("exit"))
+                    Interface.currentScreen = Screens.LevelMenu;
                 #endregion
 
                 DebugLog.WriteLine(string.Format("Button Clicked Action =  {0} ", component.Action));
@@ -196,12 +222,17 @@ namespace VOiD.Components
             foreach (Object2D thing in components)
             {
                 UpdateComponent(thing);
+                if(thing.GetType() == typeof(TextBoxObject))
+                {
+                    TextBoxObject temp = (TextBoxObject)thing;
+                    UpdateTextBoxObject(temp);
+                }
             }
         }
 
         private void UpdateComponent(Object2D component)
         {
-            if (component.GetType() == typeof(GraphicObject))
+            if (component.GetType() == typeof(GraphicObject) || component.GetType() == typeof(TextBoxObject.Scroller))
             {
                 UpdateComponent((component as GraphicObject).Children);
                 if ((component as GraphicObject).isClickable)
@@ -209,12 +240,18 @@ namespace VOiD.Components
             }
         }
 
+        private void UpdateTextBoxObject(TextBoxObject component)
+        {
+             Rectangle UpRect = new Rectangle((int)component.UpScroller.Position.X, (int)component.UpScroller.Position.Y,
+                 (int)component.UpScroller.Size.X, (int)component.UpScroller.Size.Y);
+             Rectangle DownRect = new Rectangle((int)component.DownScroller.Position.X, (int)component.DownScroller.Position.Y,
+                 (int)component.DownScroller.Size.X, (int)component.DownScroller.Size.Y);
 
-
-
-
-
-
+             if (UpRect.Contains(InputHandler.MouseX, InputHandler.MouseY) && InputHandler.LeftClickDown)
+                 component.Scroll(component.UpScroller.scrollDirection);
+             else if (DownRect.Contains(InputHandler.MouseX, InputHandler.MouseY) &&  InputHandler.LeftClickDown)
+                 component.Scroll(component.DownScroller.scrollDirection);
+        }
 
         public override void Update(GameTime gameTime)
         {
@@ -260,7 +297,7 @@ namespace VOiD.Components
         {
             if (temp.Overlay)
                 GraphicsDevice.Clear(BackgroundColor);
-            SpriteManager.Begin();
+            SpriteManager.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.LinearClamp, DepthStencilState.Default, _scissorState);
             DrawComponent(temp.content);
             DrawComponent(subMenu.content);
             SpriteManager.End();

@@ -54,5 +54,23 @@ namespace GameLibrary
         public Vector2 offset=Vector2.Zero;
     }
 
+    public class TextBoxObject : TextObject
+    {
+        public class Scroller : GraphicObject
+        {
+            public Vector2 scrollDirection;
+        }
 
+        public Vector2 Bounds;
+        public Scroller UpScroller, DownScroller;
+        [ContentSerializerIgnore]
+        public Rectangle BoundingRect;
+        [ContentSerializerIgnore]
+        public Vector2 currentOffset;
+
+        public void Scroll(Vector2 offset)
+        {
+            currentOffset += offset;
+        }
+    }
 }

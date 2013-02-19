@@ -130,26 +130,31 @@ namespace VOiD.Components
 
          public override void Draw(GameTime gameTime)
         {
-            if (Enabled || EditMode)
+            if (Interface.currentScreen == Screens.LevelMenu)
             {
-                SpriteManager.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend);
+                #region Draw Map and Entities
+                if (Enabled || EditMode)
+                {
+                    SpriteManager.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend);
 
-                if(!EditMode)
-                    Minimap.Draw();
-                Player.Draw();
-                TileMap.Draw();
-                Lab.Draw();
-                Boss.Draw();
+                    if (!EditMode)
+                        Minimap.Draw();
+                    Player.Draw();
+                    TileMap.Draw();
+                    Lab.Draw();
+                    Boss.Draw();
 
-                if (nests.Count > 0)
-                    foreach (Nest n in nests)
-                        n.Draw();
+                    if (nests.Count > 0)
+                        foreach (Nest n in nests)
+                            n.Draw();
 
-                if (Items.Count > 0)
-                    foreach (ItemEntity i in Items)
-                        i.Draw();
+                    if (Items.Count > 0)
+                        foreach (ItemEntity i in Items)
+                            i.Draw();
 
-                SpriteManager.End();
+                    SpriteManager.End();
+                }
+                #endregion
             }
         }
 

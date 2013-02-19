@@ -306,6 +306,12 @@ namespace VOiD.Components
             spriteBatch.DrawString(spriteFont, text, position, color, rotation, origin, scale, effects, layerDepth);
         }
 
+        public static void ToggleScissor()
+        {
+            spriteBatch.GraphicsDevice.RasterizerState =
+                new RasterizerState() { ScissorTestEnable = !spriteBatch.GraphicsDevice.RasterizerState.ScissorTestEnable };
+        }
+
         /// <summary>
         /// Flushes the sprite batch and restores the device state to how it was before
         /// Begin was called.
@@ -314,6 +320,8 @@ namespace VOiD.Components
         {
             spriteBatch.End();
         }
+
+        public static Rectangle ScissorRectangle { get { return spriteBatch.GraphicsDevice.ScissorRectangle; } set { spriteBatch.GraphicsDevice.ScissorRectangle = value; } }
     }
 }
 
