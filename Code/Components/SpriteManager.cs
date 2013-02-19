@@ -321,7 +321,16 @@ namespace VOiD.Components
             spriteBatch.End();
         }
 
-        public static Rectangle ScissorRectangle { get { return spriteBatch.GraphicsDevice.ScissorRectangle; } set { spriteBatch.GraphicsDevice.ScissorRectangle = value; } }
+        public static Rectangle ScissorRectangle
+        {
+            get { return spriteBatch.GraphicsDevice.ScissorRectangle; }
+            set
+            {
+                spriteBatch.GraphicsDevice.ScissorRectangle =
+                    new Rectangle((int)MathHelper.Clamp(value.X, 0, Configuration.Width), (int)MathHelper.Clamp(value.Y, 0, Configuration.Height),
+                        value.Width, value.Height) ;
+            }
+        }
     }
 }
 

@@ -11,7 +11,7 @@
         <Action></Action>
         <Children>
           <Item Type="GameLibrary.GraphicObject">
-            <iSize>65 65</iSize>
+            <iSize>85 65</iSize>
             <iPosition>50 50</iPosition>
             <isClickable>false</isClickable>
             <TextureLocation>Window</TextureLocation>
@@ -100,33 +100,58 @@
                 <isCentered>false</isCentered>
                 <ioffset>75 50</ioffset>
               </Item>
-              <!-- Traits TextBox -->
-              <Item Type="GameLibrary.TextBoxObject">
-                <Text>ATTACKS AND STUFF GO HERE YEAH LIKE TOTALLY</Text>
+              <!-- Traits Title -->
+              <Item Type="GameLibrary.TextObject">
+                <Text>TRAITS</Text>
                 <fontColor>ffffffff</fontColor>
                 <isCentered>false</isCentered>
-                <ioffset>0 0</ioffset>
-                <Bounds>200 350</Bounds>
-                <UpScroller>
-                    <iSize>5 5</iSize>
-                    <iPosition>30 5</iPosition>
-                    <isClickable>true</isClickable>
-                    <TextureLocation>upArrow</TextureLocation>
-                    <fullscreen>false</fullscreen>
-                    <Action>ScrollUp</Action>
-                    <Children></Children>
-                    <scrollDirection>0 5</scrollDirection>
-                </UpScroller>
-                <DownScroller>
-                    <iSize>5 5</iSize>
-                    <iPosition>30 95</iPosition>
-                    <isClickable>true</isClickable>
-                    <TextureLocation>downArrow</TextureLocation>
-                    <fullscreen>false</fullscreen>
-                    <Action>ScrollDown</Action>
-                    <Children></Children>
-                    <scrollDirection>0 -5</scrollDirection>
-                </DownScroller>
+                <ioffset>7 0</ioffset>
+              </Item>
+              <!-- Traits TextBox -->
+              <Item Type="GameLibrary.GraphicObject">
+                <iSize>25 85</iSize>
+                <iPosition>14 50</iPosition>
+                <isClickable>false</isClickable>
+                <TextureLocation>TextBoxBackground</TextureLocation>
+                <fullscreen>false</fullscreen>
+                <Action></Action>
+                <Children>
+                  <Item Type="GameLibrary.TextBoxObject">
+                    <Text>
+                      Arms|
+                      Legs|
+                      Wings|
+                      Tail|
+                      Claws|
+                      Horns|
+                      Shell|
+                    </Text>
+                    <fontColor>ffffffff</fontColor>
+                    <isCentered>false</isCentered>
+                    <ioffset>-40 0</ioffset>
+                    <Bounds>200 325</Bounds>
+                    <UpScroller>
+                      <iSize>15 10</iSize>
+                      <iPosition>85 10</iPosition>
+                      <isClickable>true</isClickable>
+                      <TextureLocation>upArrow</TextureLocation>
+                      <fullscreen>false</fullscreen>
+                      <Action>ScrollUp</Action>
+                      <Children></Children>
+                      <scrollDirection>0 5</scrollDirection>
+                    </UpScroller>
+                    <DownScroller>
+                      <iSize>15 10</iSize>
+                      <iPosition>85 90</iPosition>
+                      <isClickable>true</isClickable>
+                      <TextureLocation>downArrow</TextureLocation>
+                      <fullscreen>false</fullscreen>
+                      <Action>ScrollDown</Action>
+                      <Children></Children>
+                      <scrollDirection>0 -5</scrollDirection>
+                    </DownScroller>
+                  </Item>
+                </Children>
               </Item>
             </Children>
           </Item>
