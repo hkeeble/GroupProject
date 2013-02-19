@@ -24,6 +24,7 @@ namespace VOiD
             : base(texture, position2D, moveSpeed)
         {
             _ID = ID;
+            Position = position2D;
             Traits temp = new Traits();
             temp.Spine = true;
             temp.SpinalColumns = 4;

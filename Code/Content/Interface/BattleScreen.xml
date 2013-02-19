@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<XnaContent>
+  <Asset Type="GameLibrary.Interface">
+    <content>
+      <Item Type="GameLibrary.GraphicObject">
+        <iSize>0 0</iSize>
+        <iPosition>0 0</iPosition>
+        <isClickable>false</isClickable>
+        <TextureLocation>Vignette</TextureLocation>
+        <fullscreen>true</fullscreen>
+        <Action></Action>
+        <Children></Children>
+      </Item>
+      <Item Type="GameLibrary.GraphicObject">
+        <iSize>0 0</iSize>
+        <iPosition>0 0</iPosition>
+        <isClickable>false</isClickable>
+        <TextureLocation>Battle/BattleScreen</TextureLocation>
+        <fullscreen>true</fullscreen>
+        <Action></Action>
+        <Children>
+          <Item Type="GameLibrary.GraphicObject">
+            <iSize>23 23</iSize>
+            <iPosition>12 88</iPosition>
+            <isClickable>false</isClickable>
+            <TextureLocation>Dial</TextureLocation>
+            <fullscreen>false</fullscreen>
+            <Action></Action>
+            <Children>
+              <Item Type="GameLibrary.GraphicObject">
+                <iSize>35 35</iSize>
+                <iPosition>32 27</iPosition>
+                <isClickable>true</isClickable>
+                <TextureLocation>Backpack</TextureLocation>
+                <fullscreen>false</fullscreen>
+                <Action>Inventory</Action>
+                <Children></Children>
+              </Item>
+              <!--<Item Type="GameLibrary.GraphicObject">
+                <iSize>35 35</iSize>
+                <iPosition>32 73</iPosition>
+                <isClickable>true</isClickable>
+                <TextureLocation></TextureLocation>
+                <fullscreen>false</fullscreen>
+                <Action>Inventory</Action>
+                <Children></Children>
+              </Item>-->
+              <Item Type="GameLibrary.GraphicObject">
+                <iSize>35 35</iSize>
+                <iPosition>69 27</iPosition>
+                <isClickable>true</isClickable>
+                <TextureLocation>Battle/Attack</TextureLocation>
+                <fullscreen>false</fullscreen>
+                <Action>Attack</Action>
+                <Children></Children>
+              </Item>
+              <Item Type="GameLibrary.GraphicObject">
+                <iSize>35 35</iSize>
+                <iPosition>69 73</iPosition>
+                <isClickable>true</isClickable>
+                <TextureLocation>Battle/Defend</TextureLocation>
+                <fullscreen>false</fullscreen>
+                <Action>Defend</Action>
+                <Children></Children>
+              </Item>
+            </Children>
+          </Item>
+        </Children>
+      </Item>
+    </content>
+    <backgroundColor>00000000</backgroundColor>
+    <Overlay>false</Overlay>
+  </Asset>
+</XnaContent>

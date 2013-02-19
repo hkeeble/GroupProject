@@ -37,7 +37,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configuration.xml">
+    <Compile Include="Interface\Configuration.xml">
       <Name>Configuration</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
@@ -50,7 +50,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MainMenu.xml">
+    <Compile Include="Interface\MainMenu.xml">
       <Name>MainMenu</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
@@ -58,14 +58,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interface\DNA.png">
+    <Compile Include="Interface\Assets\DNA.png">
       <Name>DNA</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interface\Vignette.png">
+    <Compile Include="Interface\Assets\Vignette.png">
       <Name>Vignette</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
@@ -79,21 +79,21 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interface\Level.png">
+    <Compile Include="Interface\Assets\Level.png">
       <Name>Level</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LevelMenu.xml">
+    <Compile Include="Interface\LevelMenu.xml">
       <Name>LevelMenu</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SubMenuOptions.xml">
+    <Compile Include="Interface\SubMenuOptions.xml">
       <Name>SubMenuOptions</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
@@ -101,24 +101,24 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interface\btrans.png">
+    <Compile Include="Interface\Assets\btrans.png">
       <Name>btrans</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Interface\trans.png">
+    <Compile Include="Interface\Assets\trans.png">
       <Name>trans</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interface\arrow-left.jpg">
+    <Compile Include="Interface\Assets\arrow-left.jpg">
       <Name>arrow-left</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Interface\arrow-right.jpg">
+    <Compile Include="Interface\Assets\arrow-right.jpg">
       <Name>arrow-right</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
@@ -179,41 +179,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BattleScreen.xml">
-      <SubType>Designer</SubType>
-      <Name>BattleScreen</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Interface\Battle.png">
-      <Name>Battle</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Sprites\Lab.png">
       <Name>Lab</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <ProcessorParameters_GenerateMipmaps>True</ProcessorParameters_GenerateMipmaps>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Interface\Lab.png">
-      <Name>Lab</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="LabScreen.xml">
-      <SubType>Designer</SubType>
-      <Name>LabScreen</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -232,6 +202,71 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Compile Include="Interface\BattleScreen.xml">
+      <Name>BattleScreen</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+    <Compile Include="Interface\LabScreen.xml">
+      <Name>LabScreen</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+    <Compile Include="Interface\Assets\Battle\Attack.png">
+      <Name>Attack</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Interface\Assets\Battle\BattleScreen.png">
+      <Name>BattleScreen</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Interface\Assets\Battle\Defend.png">
+      <Name>Defend</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Interface\Assets\Battle\Hourglass.png">
+      <Name>Hourglass</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Interface\Assets\Lab\Creature.png">
+      <Name>Creature</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Interface\Assets\Lab\DNA.png">
+      <Name>DNA</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Interface\Assets\Lab\Exit.png">
+      <Name>Exit</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Interface\Assets\Lab\LabBackground.png">
+      <Name>LabBackground</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Interface\Assets\Lab\Microscope.png">
+      <Name>Microscope</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Interface\Assets\Backpack.png">
+      <Name>Backpack</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Interface\Assets\Dial.png">
+      <Name>Dial</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
     <Content Include="Maps\Level1.map">
       <Name>Level1</Name>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

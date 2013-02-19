@@ -91,7 +91,7 @@ namespace VOiD.Components
             // if texture is not yet loaded load it
             if (component.Texture == null)
                 if (component.TextureLocation != "")
-                    component.Texture = Game.Content.Load<Texture2D>("Interface/"+(component as GraphicObject).TextureLocation);
+                    component.Texture = Game.Content.Load<Texture2D>("Interface/Assets/"+(component as GraphicObject).TextureLocation);
                 else
                     component.Texture = new Texture2D(Game.GraphicsDevice, 1, 1);
 
@@ -215,19 +215,19 @@ namespace VOiD.Components
 
                 if (currentScreen == Screens.MainMenu)
                 {
-                    temp = (Game.Content.Load<GameLibrary.Interface>("MainMenu"));
+                    temp = (Game.Content.Load<GameLibrary.Interface>("Interface/MainMenu"));
                 }
                 else if (currentScreen == Screens.LevelMenu)
                 {
-                    temp = (Game.Content.Load<GameLibrary.Interface>("LevelMenu"));
+                    temp = (Game.Content.Load<GameLibrary.Interface>("Interface/LevelMenu"));
                 }
                 else if (currentScreen == Screens.Battle)
                 {
-                    temp = (Game.Content.Load<GameLibrary.Interface>("BattleScreen"));
+                    temp = (Game.Content.Load<GameLibrary.Interface>("Interface/BattleScreen"));
                 }
                 else if (currentScreen == Screens.Lab)
                 {
-                    temp = (Game.Content.Load<GameLibrary.Interface>("LabScreen"));
+                    temp = (Game.Content.Load<GameLibrary.Interface>("Interface/LabScreen"));
                 }
                 else
                 {

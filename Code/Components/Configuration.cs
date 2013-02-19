@@ -56,7 +56,7 @@ namespace VOiD.Components
             : base(game)
         {
             graphics = new GraphicsDeviceManager(game);
-            Game_Library.Configuration config = game.Content.Load<Game_Library.Configuration>("Configuration");
+            Game_Library.Configuration config = game.Content.Load<Game_Library.Configuration>("Interface/Configuration");
             Width = config.Width;
             Height = config.Height;
             Fullscreen = config.Fullscreen;

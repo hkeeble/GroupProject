@@ -42,9 +42,11 @@ namespace VOiD
             {
                 Point Position = Point.Zero;
 
-                while(Position == playerSpawn || Position.X < 0 || Position.X > mapDimensions.X || Position.Y < 0 || Position.Y > mapDimensions.Y || passable[Position.X, Position.Y] == false)
+                do
+                {
                     Position = new Point(rand.Next(_moveArea.X, _moveArea.X + _moveArea.Width),
                         rand.Next(_moveArea.Y, _moveArea.Y + _moveArea.Height));
+                } while ((Position == playerSpawn || Position.X < 0 || Position.X > mapDimensions.X || Position.Y < 0 || Position.Y > mapDimensions.Y) && passable[Position.X, Position.Y] == false && Position == Point.Zero);
 
                 creatures.Add(new Creature(id, creatureTexture, new Vector2(Position.X * tileDimensions.X, Position.Y * tileDimensions.Y), 1f));
             }
