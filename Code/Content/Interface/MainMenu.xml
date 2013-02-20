@@ -21,9 +21,11 @@
         <Children>
           <Item Type="GameLibrary.TextObject">
             <Text>Adventures of Dr.Lazarus</Text>
-            <fontColor>ffffffff</fontColor>
+            <Font>SegoeUI</Font>
+            <fontColor>255 255 0</fontColor>
+            <Scale>3</Scale>
             <isCentered>false</isCentered>
-            <ioffset>14 10</ioffset>
+            <ioffset>5 10</ioffset>
           </Item>
           <Item Type="GameLibrary.GraphicObject">
             <iSize>10 5</iSize>
@@ -35,7 +37,9 @@
             <Children>
               <Item Type="GameLibrary.TextObject">
                 <Text>Continue</Text>
-                <fontColor>ffffffff</fontColor>
+                <Font>SegoeUI</Font>
+                <fontColor>255 255 0</fontColor>
+                <Scale>1</Scale>
                 <isCentered>true</isCentered>
                 <ioffset>50 50</ioffset>
               </Item>
@@ -51,7 +55,9 @@
             <Children>
               <Item Type="GameLibrary.TextObject">
                 <Text>Quit</Text>
-                <fontColor>ffffffff</fontColor>
+                <Font>SegoeUI</Font>
+                <fontColor>255 255 0</fontColor>
+                <Scale>1</Scale>
                 <isCentered>true</isCentered>
                 <ioffset>50 50</ioffset>
               </Item>
@@ -67,7 +73,9 @@
             <Children>
               <Item Type="GameLibrary.TextObject">
                 <Text>Options</Text>
-                <fontColor>ffffffff</fontColor>
+                <Font>SegoeUI</Font>
+                <fontColor>255 255 0</fontColor>
+                <Scale>1</Scale>
                 <isCentered>true</isCentered>
                 <ioffset>50 50</ioffset>
               </Item>

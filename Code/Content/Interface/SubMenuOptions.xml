@@ -37,7 +37,9 @@
                   </Item>
                   <Item Type="GameLibrary.TextObject">
                     <Text>@currentRes 0x0</Text>
-                    <fontColor>ffffffff</fontColor>
+                    <Font>SegoeUI</Font>
+                    <fontColor>0 0 0</fontColor>
+                    <Scale>1</Scale>
                     <isCentered>true</isCentered>
                     <ioffset>50 50</ioffset>
                   </Item>
@@ -63,7 +65,9 @@
                 <Children>
                   <Item Type="GameLibrary.TextObject">
                     <Text>Fullscreen</Text>
-                    <fontColor>ffffffff</fontColor>
+                    <Font>SegoeUI</Font>
+                    <fontColor>0 0 0</fontColor>
+                    <Scale>1</Scale>
                     <isCentered>true</isCentered>
                     <ioffset>50 50</ioffset>
                   </Item>
@@ -80,7 +84,9 @@
                 <Children>
                   <Item Type="GameLibrary.TextObject">
                     <Text>Close</Text>
-                    <fontColor>ffffffff</fontColor>
+                    <Font>SegoeUI</Font>
+                    <fontColor>0 0 0</fontColor>
+                    <Scale>1</Scale>
                     <isCentered>true</isCentered>
                     <ioffset>50 50</ioffset>
                   </Item>

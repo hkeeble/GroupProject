@@ -47,7 +47,9 @@ namespace GameLibrary
     public class TextObject : Object2D
     {
         public string Text;
-        public Color fontColor;
+        public string Font;
+        public Vector3 fontColor;
+        public float Scale;
         public bool isCentered = false;
         public Vector2 ioffset;
         [ContentSerializerIgnore]

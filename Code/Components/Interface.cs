@@ -87,7 +87,7 @@ namespace VOiD.Components
             if (component.isCentered)
                 off-=Game.Content.Load<SpriteFont>("SegoeUI").MeasureString(Text) / 2;
 
-            SpriteManager.DrawString(Game.Content.Load<SpriteFont>("SegoeUI"), Text, parent.Position + off, Color.White);
+            SpriteManager.DrawString(Game.Content.Load<SpriteFont>(component.Font), Text, parent.Position + off, new Color(component.fontColor), 0f, Vector2.Zero, component.Scale, SpriteEffects.None, 0f);
         }
 
         private void DrawTextBoxComponent(TextBoxObject component, Object2D parent)
@@ -105,7 +105,7 @@ namespace VOiD.Components
 
             Rectangle currentRect = SpriteManager.ScissorRectangle;
             SpriteManager.ScissorRectangle = component.BoundingRect;
-            SpriteManager.DrawString(Game.Content.Load<SpriteFont>("SegoeUI"), Text, Parent.Position + off + component.currentOffset, Color.White);
+            SpriteManager.DrawString(Game.Content.Load<SpriteFont>(component.Font), Text, Parent.Position + off + component.currentOffset, new Color(component.fontColor));
             SpriteManager.ScissorRectangle = currentRect;
 
             DrawGraphicComponent(component.UpScroller, ref parent);
@@ -248,11 +248,10 @@ namespace VOiD.Components
                  (int)component.DownScroller.Size.X, (int)component.DownScroller.Size.Y);
 
              if (UpRect.Contains(InputHandler.MouseX, InputHandler.MouseY) && InputHandler.LeftClickDown)
-                 component.Scroll(component.UpScroller.scrollDirection);
-             else if (DownRect.Contains(InputHandler.MouseX, InputHandler.MouseY) &&  InputHandler.LeftClickDown)
-                 component.Scroll(component.DownScroller.scrollDirection);
-
-             component.currentOffset.Y = MathHelper.Clamp(component.currentOffset.Y, -(int)(Game.Content.Load<SpriteFont>("SegoeUI").MeasureString(component.Text).Y), 300);
+                 if (!(component.currentOffset.Y >= component.Bounds.Y))
+                    component.Scroll(component.UpScroller.scrollDirection);
+             if (DownRect.Contains(InputHandler.MouseX, InputHandler.MouseY) &&  InputHandler.LeftClickDown)
+                    component.Scroll(component.DownScroller.scrollDirection);
         }
 
         public override void Update(GameTime gameTime)

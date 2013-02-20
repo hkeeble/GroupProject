@@ -276,6 +276,7 @@
       <Name>SubMenuCreatureInfo</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
+      <SubType>Designer</SubType>
     </Compile>
     <Compile Include="Interface\Assets\downArrow.png">
       <Name>downArrow</Name>

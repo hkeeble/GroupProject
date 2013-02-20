@@ -21,89 +21,117 @@
               <!--Statistics-->
               <Item Type="GameLibrary.TextObject">
                 <Text>STATISTICS</Text>
-                <fontColor>ffffffff</fontColor>
+                <Font>SegoeUI</Font>
+                <fontColor>0 0 0</fontColor>
+                <Scale>1</Scale>
                 <isCentered>false</isCentered>
                 <ioffset>50 0</ioffset>
               </Item>
               <Item Type="GameLibrary.TextObject">
                 <Text>Weight:</Text>
-                <fontColor>ffffffff</fontColor>
+                <Font>SegoeUI</Font>
+                <fontColor>0 0 0</fontColor>
+                <Scale>1</Scale>
                 <isCentered>false</isCentered>
                 <ioffset>50 5</ioffset>
               </Item>
               <Item Type="GameLibrary.TextObject">
                 <Text>Strength:</Text>
-                <fontColor>ffffffff</fontColor>
+                <Font>SegoeUI</Font>
+                <fontColor>0 0 0</fontColor>
+                <Scale>1</Scale>
                 <isCentered>false</isCentered>
                 <ioffset>50 15</ioffset>
               </Item>
               <Item Type="GameLibrary.TextObject">
                 <Text>Dexterity:</Text>
-                <fontColor>ffffffff</fontColor>
+                <Font>SegoeUI</Font>
+                <fontColor>0 0 0</fontColor>
+                <Scale>1</Scale>
                 <isCentered>false</isCentered>
                 <ioffset>50 25</ioffset>
               </Item>
               <Item Type="GameLibrary.TextObject">
                 <Text>Health:</Text>
-                <fontColor>ffffffff</fontColor>
+                <Font>SegoeUI</Font>
+                <fontColor>0 0 0</fontColor>
+                <Scale>1</Scale>
                 <isCentered>false</isCentered>
                 <ioffset>75 5</ioffset>
               </Item>
               <Item Type="GameLibrary.TextObject">
                 <Text>Endurance:</Text>
-                <fontColor>ffffffff</fontColor>
+                <Font>SegoeUI</Font>
+                <fontColor>0 0 0</fontColor>
+                <Scale>1</Scale>
                 <isCentered>false</isCentered>
                 <ioffset>75 15</ioffset>
               </Item>
               <Item Type="GameLibrary.TextObject">
                 <Text>Speed:</Text>
-                <fontColor>ffffffff</fontColor>
+                <Font>SegoeUI</Font>
+                <fontColor>0 0 0</fontColor>
+                <Scale>1</Scale>
                 <isCentered>false</isCentered>
                 <ioffset>75 25</ioffset>
               </Item>
               <!--Behaviour-->
               <Item Type="GameLibrary.TextObject">
                 <Text>BEHAVIOUR</Text>
-                <fontColor>ffffffff</fontColor>
+                <Font>SegoeUI</Font>
+                <fontColor>0 0 0</fontColor>
+                <Scale>1</Scale>
                 <isCentered>false</isCentered>
                 <ioffset>50 35</ioffset>
               </Item>
               <Item Type="GameLibrary.TextObject">
                 <Text>Agressiveness:</Text>
-                <fontColor>ffffffff</fontColor>
+                <Font>SegoeUI</Font>
+                <fontColor>0 0 0</fontColor>
+                <Scale>1</Scale>
                 <isCentered>false</isCentered>
                 <ioffset>50 40</ioffset>
               </Item>
               <Item Type="GameLibrary.TextObject">
                 <Text>Focus:</Text>
-                <fontColor>ffffffff</fontColor>
+                <Font>SegoeUI</Font>
+                <fontColor>0 0 0</fontColor>
+                <Scale>1</Scale>
                 <isCentered>false</isCentered>
                 <ioffset>50 50</ioffset>
               </Item>
               <Item Type="GameLibrary.TextObject">
                 <Text>Obidience:</Text>
-                <fontColor>ffffffff</fontColor>
+                <Font>SegoeUI</Font>
+                <fontColor>0 0 0</fontColor>
+                <Scale>1</Scale>
                 <isCentered>false</isCentered>
                 <ioffset>50 60</ioffset>
               </Item>
               <!-- Abilities -->
               <Item Type="GameLibrary.TextObject">
                 <Text>ABILITIES</Text>
-                <fontColor>ffffffff</fontColor>
+                <Font>SegoeUI</Font>
+                <fontColor>0 0 0</fontColor>
+                <Scale>1</Scale>
                 <isCentered>false</isCentered>
                 <ioffset>75 35</ioffset>
               </Item>
               <!-- Attacks -->
               <Item Type="GameLibrary.TextObject">
                 <Text>ATTACKS</Text>
-                <fontColor>ffffffff</fontColor>
+                <Font>SegoeUI</Font>
+                <fontColor>0 0 0</fontColor>
+                <Scale>1</Scale>
                 <isCentered>false</isCentered>
                 <ioffset>75 50</ioffset>
               </Item>
               <!-- Traits Title -->
               <Item Type="GameLibrary.TextObject">
                 <Text>TRAITS</Text>
-                <fontColor>ffffffff</fontColor>
+                <Font>SegoeUI</Font>
+                <fontColor>0 0 0</fontColor>
+                <Scale>1</Scale>
                 <isCentered>false</isCentered>
                 <ioffset>7 0</ioffset>
               </Item>
@@ -126,7 +154,9 @@
                       Horns|
                       Shell|
                     </Text>
-                    <fontColor>ffffffff</fontColor>
+                    <Font>SegoeUI</Font>
+                    <fontColor>0 0 0</fontColor>
+                    <Scale>1</Scale>
                     <isCentered>false</isCentered>
                     <ioffset>-40 0</ioffset>
                     <Bounds>200 325</Bounds>
