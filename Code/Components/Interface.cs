@@ -85,9 +85,10 @@ namespace VOiD.Components
                 Text = Configuration.Width.ToString() + "x" + Configuration.Height.ToString();
 
             if (component.isCentered)
-                off-=Game.Content.Load<SpriteFont>("SegoeUI").MeasureString(Text) / 2;
+                off-=Game.Content.Load<SpriteFont>(component.Font).MeasureString(Text) / 2;
 
-            SpriteManager.DrawString(Game.Content.Load<SpriteFont>(component.Font), Text, parent.Position + off, new Color(component.fontColor), 0f, Vector2.Zero, component.Scale, SpriteEffects.None, 0f);
+            SpriteManager.DrawString(Game.Content.Load<SpriteFont>(component.Font), Text, parent.Position + off, new Color(component.fontColor), 0f, Vector2.Zero,
+                component.Scale/ScreenScalingFactor.X, SpriteEffects.None, 0f);
         }
 
         private void DrawTextBoxComponent(TextBoxObject component, Object2D parent)
@@ -99,13 +100,22 @@ namespace VOiD.Components
 
             component.Init = true;
 
-            string Text = component.Text.Replace('|', '\n'); // Replace | with newline escape sequence
             Vector2 off = component.offset;
             component.BoundingRect = new Rectangle((int)Parent.Position.X + (int)off.X, (int)Parent.Position.Y + (int)off.Y, (int)component.Bounds.X, (int)component.Bounds.Y);
 
+            if (Game.Content.Load<SpriteFont>(component.Font).MeasureString(component.Text).Y > component.Bounds.Y)
+            {
+                float maxY = (Parent.Position.Y - (Parent.Size.Y / 2)+5);
+                float minY = (Parent.Position.Y + component.Bounds.Y - (Parent.Size.Y / 2)) - (Game.Content.Load<SpriteFont>(component.Font).MeasureString(component.Text).Y);
+                if (component.currentOffset.Y > maxY)
+                    component.currentOffset.Y = maxY;
+                else if (component.currentOffset.Y < minY)
+                    component.currentOffset.Y = minY;
+            }
+
             Rectangle currentRect = SpriteManager.ScissorRectangle;
             SpriteManager.ScissorRectangle = component.BoundingRect;
-            SpriteManager.DrawString(Game.Content.Load<SpriteFont>(component.Font), Text, Parent.Position + off + component.currentOffset, new Color(component.fontColor));
+            SpriteManager.DrawString(Game.Content.Load<SpriteFont>(component.Font), component.Text, Parent.Position + off + component.currentOffset, new Color(component.fontColor));
             SpriteManager.ScissorRectangle = currentRect;
 
             DrawGraphicComponent(component.UpScroller, ref parent);
@@ -242,16 +252,18 @@ namespace VOiD.Components
 
         private void UpdateTextBoxObject(TextBoxObject component)
         {
-             Rectangle UpRect = new Rectangle((int)component.UpScroller.Position.X, (int)component.UpScroller.Position.Y,
-                 (int)component.UpScroller.Size.X, (int)component.UpScroller.Size.Y);
-             Rectangle DownRect = new Rectangle((int)component.DownScroller.Position.X, (int)component.DownScroller.Position.Y,
-                 (int)component.DownScroller.Size.X, (int)component.DownScroller.Size.Y);
+            if (Game.Content.Load<SpriteFont>(component.Font).MeasureString(component.Text).Y > component.Bounds.Y)
+            {
+                Rectangle UpRect = new Rectangle((int)component.UpScroller.Position.X, (int)component.UpScroller.Position.Y,
+                    (int)component.UpScroller.Size.X, (int)component.UpScroller.Size.Y);
+                Rectangle DownRect = new Rectangle((int)component.DownScroller.Position.X, (int)component.DownScroller.Position.Y,
+                    (int)component.DownScroller.Size.X, (int)component.DownScroller.Size.Y);
 
-             if (UpRect.Contains(InputHandler.MouseX, InputHandler.MouseY) && InputHandler.LeftClickDown)
-                 if (!(component.currentOffset.Y >= component.Bounds.Y))
+                if (UpRect.Contains(InputHandler.MouseX, InputHandler.MouseY) && InputHandler.LeftClickDown)
                     component.Scroll(component.UpScroller.scrollDirection);
-             if (DownRect.Contains(InputHandler.MouseX, InputHandler.MouseY) &&  InputHandler.LeftClickDown)
+                if (DownRect.Contains(InputHandler.MouseX, InputHandler.MouseY) && InputHandler.LeftClickDown)
                     component.Scroll(component.DownScroller.scrollDirection);
+            }
         }
 
         public override void Update(GameTime gameTime)
@@ -303,6 +315,14 @@ namespace VOiD.Components
             DrawComponent(subMenu.content);
             SpriteManager.End();
             base.Draw(gameTime);
+        }
+
+        public Vector2 ScreenScalingFactor
+        {
+            get
+            {
+                return new Vector2(1024 / Game.Window.ClientBounds.Width, 600 / Game.Window.ClientBounds.Height);
+            }
         }
     }
 }

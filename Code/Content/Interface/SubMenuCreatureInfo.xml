@@ -145,15 +145,14 @@
                 <Action></Action>
                 <Children>
                   <Item Type="GameLibrary.TextBoxObject">
-                    <Text>
-                      Arms|
-                      Legs|
-                      Wings|
-                      Tail|
-                      Claws|
-                      Horns|
-                      Shell|
-                    </Text>
+                    <Text> 
+                    Arms
+                    Legs
+                    Wings
+                    Tail
+                    Claws
+                    Horns
+                    Shell</Text>
                     <Font>SegoeUI</Font>
                     <fontColor>0 0 0</fontColor>
                     <Scale>1</Scale>

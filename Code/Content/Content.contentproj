@@ -41,6 +41,7 @@
       <Name>Configuration</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
+      <SubType>Designer</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -206,11 +207,13 @@
       <Name>BattleScreen</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
+      <SubType>Designer</SubType>
     </Compile>
     <Compile Include="Interface\LabScreen.xml">
       <Name>LabScreen</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
+      <SubType>Designer</SubType>
     </Compile>
     <Compile Include="Interface\Assets\Battle\Attack.png">
       <Name>Attack</Name>

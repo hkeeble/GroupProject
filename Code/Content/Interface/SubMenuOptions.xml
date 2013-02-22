@@ -73,7 +73,6 @@
                   </Item>
                 </Children>
               </Item>
-
               <Item Type="GameLibrary.GraphicObject">
                 <iSize>80 10</iSize>
                 <iPosition>50 40</iPosition>
@@ -91,8 +90,7 @@
                     <ioffset>50 50</ioffset>
                   </Item>
                 </Children>
-              </Item>
-              
+              </Item> 
             </Children>
           </Item>
         </Children>
