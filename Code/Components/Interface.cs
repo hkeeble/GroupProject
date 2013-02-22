@@ -78,17 +78,15 @@ namespace VOiD.Components
                 
             //if (component.isCentered)
 
-            string Text = component.Text.Replace('|', '\n'); // Replace | with newline escape sequence
             Vector2 off = component.offset;
 
             if (component.Text.StartsWith("@currentRes"))
-                Text = Configuration.Width.ToString() + "x" + Configuration.Height.ToString();
+                component.Text = Configuration.Width.ToString() + "x" + Configuration.Height.ToString();
 
             if (component.isCentered)
-                off-=Game.Content.Load<SpriteFont>(component.Font).MeasureString(Text) / 2;
+                off -= Game.Content.Load<SpriteFont>(component.Font).MeasureString(component.Text) / 2;
 
-            SpriteManager.DrawString(Game.Content.Load<SpriteFont>(component.Font), Text, parent.Position + off, new Color(component.fontColor), 0f, Vector2.Zero,
-                component.Scale/ScreenScalingFactor.X, SpriteEffects.None, 0f);
+            SpriteManager.DrawString(Game.Content.Load<SpriteFont>(component.Font), component.Text, parent.Position + off, new Color(component.fontColor));
         }
 
         private void DrawTextBoxComponent(TextBoxObject component, Object2D parent)
@@ -315,14 +313,6 @@ namespace VOiD.Components
             DrawComponent(subMenu.content);
             SpriteManager.End();
             base.Draw(gameTime);
-        }
-
-        public Vector2 ScreenScalingFactor
-        {
-            get
-            {
-                return new Vector2(1024 / Game.Window.ClientBounds.Width, 600 / Game.Window.ClientBounds.Height);
-            }
         }
     }
 }

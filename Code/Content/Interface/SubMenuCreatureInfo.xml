@@ -23,7 +23,6 @@
                 <Text>STATISTICS</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>0 0 0</fontColor>
-                <Scale>1</Scale>
                 <isCentered>false</isCentered>
                 <ioffset>50 0</ioffset>
               </Item>
@@ -31,7 +30,6 @@
                 <Text>Weight:</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>0 0 0</fontColor>
-                <Scale>1</Scale>
                 <isCentered>false</isCentered>
                 <ioffset>50 5</ioffset>
               </Item>
@@ -39,7 +37,6 @@
                 <Text>Strength:</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>0 0 0</fontColor>
-                <Scale>1</Scale>
                 <isCentered>false</isCentered>
                 <ioffset>50 15</ioffset>
               </Item>
@@ -47,7 +44,6 @@
                 <Text>Dexterity:</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>0 0 0</fontColor>
-                <Scale>1</Scale>
                 <isCentered>false</isCentered>
                 <ioffset>50 25</ioffset>
               </Item>
@@ -55,7 +51,6 @@
                 <Text>Health:</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>0 0 0</fontColor>
-                <Scale>1</Scale>
                 <isCentered>false</isCentered>
                 <ioffset>75 5</ioffset>
               </Item>
@@ -63,7 +58,6 @@
                 <Text>Endurance:</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>0 0 0</fontColor>
-                <Scale>1</Scale>
                 <isCentered>false</isCentered>
                 <ioffset>75 15</ioffset>
               </Item>
@@ -71,7 +65,6 @@
                 <Text>Speed:</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>0 0 0</fontColor>
-                <Scale>1</Scale>
                 <isCentered>false</isCentered>
                 <ioffset>75 25</ioffset>
               </Item>
@@ -80,7 +73,6 @@
                 <Text>BEHAVIOUR</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>0 0 0</fontColor>
-                <Scale>1</Scale>
                 <isCentered>false</isCentered>
                 <ioffset>50 35</ioffset>
               </Item>
@@ -88,7 +80,6 @@
                 <Text>Agressiveness:</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>0 0 0</fontColor>
-                <Scale>1</Scale>
                 <isCentered>false</isCentered>
                 <ioffset>50 40</ioffset>
               </Item>
@@ -96,7 +87,6 @@
                 <Text>Focus:</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>0 0 0</fontColor>
-                <Scale>1</Scale>
                 <isCentered>false</isCentered>
                 <ioffset>50 50</ioffset>
               </Item>
@@ -104,7 +94,6 @@
                 <Text>Obidience:</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>0 0 0</fontColor>
-                <Scale>1</Scale>
                 <isCentered>false</isCentered>
                 <ioffset>50 60</ioffset>
               </Item>
@@ -113,7 +102,6 @@
                 <Text>ABILITIES</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>0 0 0</fontColor>
-                <Scale>1</Scale>
                 <isCentered>false</isCentered>
                 <ioffset>75 35</ioffset>
               </Item>
@@ -122,7 +110,6 @@
                 <Text>ATTACKS</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>0 0 0</fontColor>
-                <Scale>1</Scale>
                 <isCentered>false</isCentered>
                 <ioffset>75 50</ioffset>
               </Item>
@@ -131,7 +118,6 @@
                 <Text>TRAITS</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>0 0 0</fontColor>
-                <Scale>1</Scale>
                 <isCentered>false</isCentered>
                 <ioffset>7 0</ioffset>
               </Item>
@@ -155,7 +141,6 @@
                     Shell</Text>
                     <Font>SegoeUI</Font>
                     <fontColor>0 0 0</fontColor>
-                    <Scale>1</Scale>
                     <isCentered>false</isCentered>
                     <ioffset>-40 0</ioffset>
                     <Bounds>200 325</Bounds>

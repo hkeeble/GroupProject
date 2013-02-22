@@ -19,14 +19,6 @@
         <fullscreen>true</fullscreen>
         <Action></Action>
         <Children>
-          <Item Type="GameLibrary.TextObject">
-            <Text>Adventures of Dr.Lazarus</Text>
-            <Font>SegoeUI</Font>
-            <fontColor>255 255 0</fontColor>
-            <Scale>3</Scale>
-            <isCentered>false</isCentered>
-            <ioffset>5 10</ioffset>
-          </Item>
           <Item Type="GameLibrary.GraphicObject">
             <iSize>10 5</iSize>
             <iPosition>78.6 55.4</iPosition>
@@ -39,7 +31,6 @@
                 <Text>Continue</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>255 255 0</fontColor>
-                <Scale>1</Scale>
                 <isCentered>true</isCentered>
                 <ioffset>50 50</ioffset>
               </Item>
@@ -57,7 +48,6 @@
                 <Text>Quit</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>255 255 0</fontColor>
-                <Scale>1</Scale>
                 <isCentered>true</isCentered>
                 <ioffset>50 50</ioffset>
               </Item>
@@ -75,7 +65,6 @@
                 <Text>Options</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>255 255 0</fontColor>
-                <Scale>1</Scale>
                 <isCentered>true</isCentered>
                 <ioffset>50 50</ioffset>
               </Item>
