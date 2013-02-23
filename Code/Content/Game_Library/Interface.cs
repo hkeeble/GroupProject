@@ -74,4 +74,9 @@ namespace GameLibrary
             currentOffset += offset;
         }
     }
+
+    public class ListBox : TextBoxObject
+    {
+        public TextObject[] Items;
+    }
 }
