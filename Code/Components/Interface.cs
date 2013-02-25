@@ -82,15 +82,19 @@ namespace VOiD.Components
                 
             //if (component.isCentered)
 
+            string temp;
+
             Vector2 off = component.offset;
 
             if (component.Text.StartsWith("@currentRes"))
-                component.Text = Configuration.Width.ToString() + "x" + Configuration.Height.ToString();
+                temp = Configuration.Width.ToString() + "x" + Configuration.Height.ToString();
+            else
+                temp = component.Text;
 
             if (component.isCentered)
-                off -= Game.Content.Load<SpriteFont>(component.Font).MeasureString(component.Text) / 2;
+                off -= Game.Content.Load<SpriteFont>(component.Font).MeasureString(temp) / 2;
 
-            SpriteManager.DrawString(Game.Content.Load<SpriteFont>(component.Font), component.Text, parent.Position + off, new Color(component.fontColor));
+            SpriteManager.DrawString(Game.Content.Load<SpriteFont>(component.Font), temp, parent.Position + off, new Color(component.fontColor));
         }
 
         private void DrawTextBoxComponent(TextBoxObject component, Object2D parent)

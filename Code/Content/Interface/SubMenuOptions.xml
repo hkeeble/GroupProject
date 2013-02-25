@@ -36,7 +36,7 @@
                     <Children></Children>
                   </Item>
                   <Item Type="GameLibrary.TextObject">
-                    <Text>@currentRes 0x0</Text>
+                    <Text>@currentRes</Text>
                     <Font>SegoeUI</Font>
                     <fontColor>0 0 0</fontColor>
                     <isCentered>true</isCentered>
