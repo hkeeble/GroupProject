@@ -13,22 +13,22 @@ namespace VOiD
         /// <summary>
         /// Battle Data. how many times skill has been used or required.
         /// </summary>
-        int Used;
+        public int Used;
 
         /// <summary>
         /// Maximum value for this statistic.
         /// </summary>
-        int Maximum;
+        public int Maximum;
 
         /// <summary>
         /// Current level of skill. use items or level creature.
         /// </summary>
-        int Level;
+        public int Level;
 
         /// <summary>
         /// Current value.
         /// </summary>
-        int Current;
+        public int Current;
     }
 
     /// <summary>
@@ -96,6 +96,38 @@ namespace VOiD
             StatsInt[] output = new StatsInt[2];
 
             //float recadv = AR.
+            int traitD = (AR.Used + BR.Used) / 2;
+            int traitR = (AR.Used + BR.Used) / 2;
+
+            if ((traitD>0.2)&&(traitR>traitD))
+            {
+                output[0].Maximum = (AR.Maximum + BR.Maximum) / 2;
+                output[0].Used = 0;
+
+                output[1].Maximum = (AD.Maximum + BD.Maximum) / 2;
+                output[1].Used = (AD.Used + BD.Used) / 2;
+            }
+            else
+            {
+                output[0].Maximum = (AD.Maximum + BD.Maximum) / 2;
+                output[0].Used = 0;
+
+                output[1].Maximum = (AR.Maximum + BR.Maximum) / 2;
+                output[1].Used = (AR.Used + BR.Used) / 2;
+            }
+
+            //Set initial values/levels
+            int value = (800 / 5);
+
+            if (output[0].Maximum <= value)
+                output[0].Level = (int)(output[0].Maximum * 0.80);
+            else
+                output[0].Level = (int)(output[0].Maximum * 0.70);
+
+            if (output[1].Maximum <= value)
+                output[1].Level = (int)(output[1].Maximum * 0.80);
+            else
+                output[1].Level = (int)(output[1].Maximum * 0.70);
 
             return output;
         }
