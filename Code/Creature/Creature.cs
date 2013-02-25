@@ -5,6 +5,10 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace VOiD
 {
+
+
+
+
     public class Creature : Entity
     {
         private CreatureModel creatureModel;
@@ -36,6 +40,8 @@ namespace VOiD
             CreateAttacks();
             BattlesLost = 0;
         }
+
+
 
         public Creature(ref Creature a, ref Creature b, GraphicsDevice graphicsDevice)
             : base(null, Vector2.Zero, 1.0f)
