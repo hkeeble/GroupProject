@@ -87,10 +87,7 @@ namespace VOiD.Components
                     for (int j = 0; j < nests[i].Creatures.Count; j++)
                     {
                         if (nests[i].Creatures[j].CollisionRect.Intersects(Player.CollisionRect))
-                        {
-                            // INVOKE BATTLE HERE
                             BattleHandler.InitiateBattle(nests[i].Creatures[j], Player);
-                        }
                     }
                 }
 
@@ -120,6 +117,7 @@ namespace VOiD.Components
 
                 Player.Update();
                 Boss.Update();
+
                 base.Update(gameTime);
             }
             else if (EditMode)

@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<XnaContent>
+  <Asset Type="GameLibrary.Interface">
+    <content>
+      <Item Type="GameLibrary.GraphicObject">
+        <iSize>100 100</iSize>
+        <iPosition>0 0</iPosition>
+        <isClickable>true</isClickable>
+        <TextureLocation></TextureLocation>
+        <fullscreen>true</fullscreen>
+        <Action></Action>
+        <Children>
+          <Item Type="GameLibrary.GraphicObject">
+            <iSize>70 30</iSize>
+            <iPosition>50 50</iPosition>
+            <isClickable>true</isClickable>
+            <TextureLocation>InventoryScreen</TextureLocation>
+            <fullscreen>false</fullscreen>
+            <Action></Action>
+            <Children>
+
+            </Children>
+          </Item>
+        </Children>
+      </Item>
+    </content>
+    <backgroundColor>00000000</backgroundColor>
+    <Overlay>false</Overlay>
+  </Asset>
+</XnaContent>

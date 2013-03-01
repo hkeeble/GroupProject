@@ -18,8 +18,8 @@ namespace VOiD
         public static Vector2 Position
         {
             get { return _position; }
-            set { _position = new Vector2(MathHelper.Clamp(value.X, 0, GameHandler.TileMap.Map.Width-Configuration.Width),
-                    MathHelper.Clamp(value.Y, -GameHandler.TileMap.TileHeight, GameHandler.TileMap.Map.Height-Configuration.Height+GameHandler.TileMap.TileHeight*4)); }
+            set { _position = new Vector2(MathHelper.Clamp(value.X, 0, GameHandler.TileMap.Map.Width-Configuration.Bounds.Width),
+                    MathHelper.Clamp(value.Y, -GameHandler.TileMap.TileHeight, GameHandler.TileMap.Map.Height-Configuration.Bounds.Height+GameHandler.TileMap.TileHeight*4)); }
         }
 
         /// <summary>

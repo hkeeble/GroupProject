@@ -267,6 +267,11 @@ namespace VOiD.Components
                     Interface.currentScreen = Screens.LevelMenu;
                 #endregion
 
+                #region Global Dial Actions
+                if(component.Action.Equals("Inventory"))
+                    subMenu = Game.Content.Load<GameLibrary.Interface>("Interface/SubMenuInventory");
+                #endregion
+
                 DebugLog.WriteLine(string.Format("Button Clicked Action =  {0} ", component.Action));
             }
         }
