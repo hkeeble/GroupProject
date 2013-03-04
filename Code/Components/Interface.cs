@@ -82,12 +82,25 @@ namespace VOiD.Components
                 
             //if (component.isCentered)
 
-            string temp;
+            string temp = "";
 
             Vector2 off = component.offset;
 
-            if (component.Text.StartsWith("@currentRes"))
-                temp = Configuration.Width.ToString() + "x" + Configuration.Height.ToString();
+            if (component.Text.StartsWith("@"))
+            {
+                if (component.Text == "@currentRes")
+                    temp = Configuration.Width.ToString() + "x" + Configuration.Height.ToString();
+                if (component.Text == "@NumberOfApples")
+                    component.Text = "x" + Convert.ToString(GameHandler.Inventory.NumberOfApples);
+                if (component.Text == "@NumberOfChilli")
+                    component.Text = "x" + Convert.ToString(GameHandler.Inventory.NumberOfChilli);
+                if (component.Text == "@NumberOfGoldenApples")
+                    component.Text = "x" + Convert.ToString(GameHandler.Inventory.NumberOfGoldenApples);
+                if (component.Text == "@NumberOfHoney")
+                    component.Text = "x" + Convert.ToString(GameHandler.Inventory.NumberOfHoney);
+                if (component.Text == "@NumberOfSpringWater")
+                    component.Text = "x" + Convert.ToString(GameHandler.Inventory.NumberOfSpringWater);
+            }
             else
                 temp = component.Text;
 
@@ -146,21 +159,22 @@ namespace VOiD.Components
 
             if (textHeight > component.Bounds.Y)
             {
-                float maxY = (Parent.Position.Y - (Parent.Size.Y / 2) + 5);
-                float minY = (Parent.Position.Y + component.Bounds.Y - (Parent.Size.Y / 2));
-                for(int i = 0; i < component.Items.Length; i++)
-                    minY -= (Game.Content.Load<SpriteFont>(component.Font).MeasureString(component.Items[i].Text).Y);
+                float minY = (Parent.Position.Y - (Parent.Size.Y / 2)) - textHeight;
+                float maxY = Parent.Position.Y + (Parent.Size.Y / 2);
+
+                if (component.currentOffset.Y > minY)
+                    component.currentOffset.Y = minY;
                 if (component.currentOffset.Y > maxY)
                     component.currentOffset.Y = maxY;
-                else if (component.currentOffset.Y < minY)
-                    component.currentOffset.Y = minY;
             }
 
             Rectangle currentRect = SpriteManager.ScissorRectangle;
             SpriteManager.ScissorRectangle = component.BoundingRect;
-            for(int i = 0; i < component.Items.Length; i++)
+            for (int i = 0; i < component.Items.Length; i++)
+            {
                 SpriteManager.DrawString(Game.Content.Load<SpriteFont>(component.Font), component.Items[i].Text,
-                    (Parent.Position + off + component.currentOffset) + new Vector2(0, (i * Game.Content.Load<SpriteFont>(component.Font).MeasureString("A").Y)), new Color(component.fontColor));
+                    (Parent.Position + off + component.currentOffset) + new Vector2(0, (i * Game.Content.Load<SpriteFont>(component.Font).MeasureString(component.Items[i].Text).Y)), new Color(component.fontColor));
+            }
             SpriteManager.ScissorRectangle = currentRect;
 
             DrawGraphicComponent(component.UpScroller, ref parent);
@@ -172,11 +186,25 @@ namespace VOiD.Components
             // if texture is not yet loaded load it
             if (component.Texture == null)
                 if (component.TextureLocation != "")
-                    component.Texture = Game.Content.Load<Texture2D>("Interface/Assets/"+(component as GraphicObject).TextureLocation);
+                {
+                    if (component.TextureLocation.StartsWith("@"))
+                    {
+                        if(component.TextureLocation == "@AppleTexture")
+                            component.Texture = Game.Content.Load<Texture2D>("Sprites\\Apple");
+                        if(component.TextureLocation == "@GoldenAppleTexture")
+                            component.Texture = Game.Content.Load<Texture2D>("Sprites\\GoldenApple");
+                        if(component.TextureLocation == "@SpringWaterTexture")
+                            component.Texture = Game.Content.Load<Texture2D>("Sprites\\SpringWater");
+                        if(component.TextureLocation == "@HoneyTexture")
+                            component.Texture = Game.Content.Load<Texture2D>("Sprites\\Honey");
+                        if (component.TextureLocation == "@ChilliTexture")
+                            component.Texture = Game.Content.Load<Texture2D>("Sprites\\Chilli");
+                    }
+                    else
+                        component.Texture = Game.Content.Load<Texture2D>("Interface/Assets/" + (component as GraphicObject).TextureLocation);
+                }
                 else
                     component.Texture = new Texture2D(Game.GraphicsDevice, 1, 1);
-
-            
 
                 if (((component.GetType() == typeof(GraphicObject)) || component.GetType() == typeof(TextBoxObject.Scroller)) && (parent.GetType() == typeof(GraphicObject)))
                 {

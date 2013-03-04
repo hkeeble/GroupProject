@@ -5,7 +5,7 @@
       <Item Type="GameLibrary.GraphicObject">
         <iSize>100 100</iSize>
         <iPosition>0 0</iPosition>
-        <isClickable>true</isClickable>
+        <isClickable>false</isClickable>
         <TextureLocation></TextureLocation>
         <fullscreen>true</fullscreen>
         <Action></Action>
@@ -13,12 +13,96 @@
           <Item Type="GameLibrary.GraphicObject">
             <iSize>70 30</iSize>
             <iPosition>50 50</iPosition>
-            <isClickable>true</isClickable>
+            <isClickable>false</isClickable>
             <TextureLocation>InventoryScreen</TextureLocation>
             <fullscreen>false</fullscreen>
             <Action></Action>
             <Children>
-
+              <Item Type="GameLibrary.GraphicObject">
+                <iSize>10 25</iSize>
+                <iPosition>5 45</iPosition>
+                <isClickable>true</isClickable>
+                <TextureLocation>@AppleTexture</TextureLocation>
+                <fullscreen>false</fullscreen>
+                <Action></Action>
+                <Children>
+                  <Item Type="GameLibrary.TextObject">
+                    <Text>@NumberOfApples</Text>
+                    <Font>SegoeUI</Font>
+                    <fontColor>255 255 0</fontColor>
+                    <isCentered>false</isCentered>
+                    <ioffset>75 75</ioffset>
+                  </Item>
+                </Children>
+              </Item>
+              <Item Type="GameLibrary.GraphicObject">
+                <iSize>10 20</iSize>
+                <iPosition>20 50</iPosition>
+                <isClickable>true</isClickable>
+                <TextureLocation>@GoldenAppleTexture</TextureLocation>
+                <fullscreen>false</fullscreen>
+                <Action></Action>
+                <Children>
+                  <Item Type="GameLibrary.TextObject">
+                    <Text>@NumberOfGoldenApples</Text>
+                    <Font>SegoeUI</Font>
+                    <fontColor>255 255 0</fontColor>
+                    <isCentered>false</isCentered>
+                    <ioffset>90 90</ioffset>
+                  </Item>
+                </Children>
+              </Item>
+              <Item Type="GameLibrary.GraphicObject">
+                <iSize>10 20</iSize>
+                <iPosition>30 50</iPosition>
+                <isClickable>true</isClickable>
+                <TextureLocation>@SpringWaterTexture</TextureLocation>
+                <fullscreen>false</fullscreen>
+                <Action></Action>
+                <Children>
+                  <Item Type="GameLibrary.TextObject">
+                    <Text>@NumberOfSpringWater</Text>
+                    <Font>SegoeUI</Font>
+                    <fontColor>255 255 0</fontColor>
+                    <isCentered>false</isCentered>
+                    <ioffset>90 90</ioffset>
+                  </Item>
+                </Children>
+              </Item>
+              <Item Type="GameLibrary.GraphicObject">
+                <iSize>10 20</iSize>
+                <iPosition>40 50</iPosition>
+                <isClickable>true</isClickable>
+                <TextureLocation>@HoneyTexture</TextureLocation>
+                <fullscreen>false</fullscreen>
+                <Action></Action>
+                <Children>
+                  <Item Type="GameLibrary.TextObject">
+                    <Text>@NumberOfHoney</Text>
+                    <Font>SegoeUI</Font>
+                    <fontColor>255 255 0</fontColor>
+                    <isCentered>false</isCentered>
+                    <ioffset>90 90</ioffset>
+                  </Item>
+                </Children>
+              </Item>
+              <Item Type="GameLibrary.GraphicObject">
+                <iSize>10 20</iSize>
+                <iPosition>50 50</iPosition>
+                <isClickable>true</isClickable>
+                <TextureLocation>@ChilliTexture</TextureLocation>
+                <fullscreen>false</fullscreen>
+                <Action></Action>
+                <Children>
+                  <Item Type="GameLibrary.TextObject">
+                    <Text>@NumberOfChilli</Text>
+                    <Font>SegoeUI</Font>
+                    <fontColor>255 255 0</fontColor>
+                    <isCentered>false</isCentered>
+                    <ioffset>90 90</ioffset>
+                  </Item>
+                </Children>
+              </Item>
             </Children>
           </Item>
         </Children>

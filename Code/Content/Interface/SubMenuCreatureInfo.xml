@@ -127,7 +127,7 @@
                     <fontColor>255 255 0</fontColor>
                     <isCentered>false</isCentered>
                     <ioffset>5 0</ioffset>
-                    <Bounds>100 100</Bounds>
+                    <Bounds>100 130</Bounds>
                     <UpScroller>
                       <iSize>15 10</iSize>
                       <iPosition>90 10</iPosition>
@@ -234,7 +234,17 @@
                     Tail
                     Claws
                     Horns
-                    Shell</Text>
+                    Shell
+                    Shell
+                    Shell
+                    Shell
+                    Horns
+                    Claws
+                    Wings
+                    Tail
+                    Legs
+                    Arms
+                    Stuff</Text>
                     <Font>SegoeUI</Font>
                     <fontColor>0 0 0</fontColor>
                     <isCentered>false</isCentered>
