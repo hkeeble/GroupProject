@@ -22,7 +22,6 @@
                 <ListContentType>@ListOfStuff</ListContentType>
                 <Font>SegoeUI</Font>
                 <fontColor>255 255 255</fontColor>
-                <Bounds>100 100</Bounds>
                 <UpScroller>
                   <iSize>15 10</iSize>
                   <iPosition>90 10</iPosition>
@@ -43,7 +42,7 @@
                   <Children></Children>
                   <scrollDirection>0 -5</scrollDirection>
                 </DownScroller>
-                <ioffset>50 50</ioffset>
+                <ioffset>5 5</ioffset>
               </Item>
             </Children>
           </Item>

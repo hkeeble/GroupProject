@@ -80,7 +80,6 @@ namespace GameLibrary
         public string ListContentType;
         public string Font;
         public Vector3 fontColor;
-        public Vector2 Bounds;
         public Scroller UpScroller, DownScroller;
         public Vector2 ioffset;
 
@@ -90,16 +89,16 @@ namespace GameLibrary
             public Vector2 offset;
             public Rectangle BoundingRect;
             public string Action;
-            public void Update()
+            public void Update(Vector2 screenPos)
             {
-                BoundingRect = new Rectangle((int)offset.X, (int)offset.Y, Texture.Width, Texture.Height);
+                BoundingRect = new Rectangle((int)screenPos.X, (int)screenPos.Y, Texture.Width, Texture.Height);
             }
         }
 
         [ContentSerializerIgnore] public Item[] Items;
         [ContentSerializerIgnore] public Rectangle BoundingRect;
         [ContentSerializerIgnore] public Vector2 currentOffset;
-        [ContentSerializerIgnore] public Vector2 offset = Vector2.Zero;
+        [ContentSerializerIgnore] public Vector2 offset;
 
         public void Scroll(Vector2 offset)
         {

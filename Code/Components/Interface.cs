@@ -155,7 +155,7 @@ namespace VOiD.Components
                 {
                     SpriteFont font = Game.Content.Load<SpriteFont>(component.Font);
 
-                    component.Items = new ListBox.Item[10];
+                    component.Items = new ListBox.Item[30];
 
                     // Get background color
                     Color[] backColor = new Color[Parent.Texture.Width*Parent.Texture.Height];
@@ -165,8 +165,8 @@ namespace VOiD.Components
                     for (int i = 0; i < component.Items.Length; i++)
                     {
                         // Create RenderTarget of correct size
-                        RenderTarget2D target = new RenderTarget2D(Configuration.GraphicsDevice, (int)font.MeasureString("This is some text" + Convert.ToString(0)).X,
-                                                    (int)font.MeasureString("This is some text" + Convert.ToString(0)).Y, false, Configuration.GraphicsDevice.DisplayMode.Format, DepthFormat.Depth24);
+                        RenderTarget2D target = new RenderTarget2D(Configuration.GraphicsDevice, (int)font.MeasureString("This is some text" + Convert.ToString(i)).X,
+                                                    (int)font.MeasureString("This is some text" + Convert.ToString(i)).Y, false, Configuration.GraphicsDevice.DisplayMode.Format, DepthFormat.Depth24);
                         component.Items[i] = new ListBox.Item();
                         
                         // Render string to RenderTarget
@@ -194,18 +194,43 @@ namespace VOiD.Components
                         component.Items[i].Action = "This is some text" + Convert.ToString(i);
                     }
                 }
+                component.currentOffset = new Vector2(0, (Parent.Position.Y));
             }
 
             component.Init = true;
 
-            Vector2 off = component.offset;
-            component.BoundingRect = new Rectangle((int)Parent.Position.X + (int)off.X, (int)Parent.Position.Y + (int)off.Y, (int)component.Bounds.X, (int)component.Bounds.Y);
+            // Get Height of the text in the list
+            float textHeight = 0.0f;
+            for (int i = 0; i < component.Items.Length; i++)
+                textHeight += component.Items[i].Texture.Height;
 
+            // Modify Current Offset to ensure within the box
+            if (textHeight > component.BoundingRect.Height)
+            {
+                float maxY = (Parent.Position.Y - (Parent.Size.Y / 2) + 5);
+                float minY = (Parent.Position.Y + component.BoundingRect.Height - (Parent.Size.Y / 2)) - textHeight;
+                if (component.currentOffset.Y > maxY)
+                    component.currentOffset.Y = maxY;
+                else if (component.currentOffset.Y < minY)
+                    component.currentOffset.Y = minY;
+            }
+
+            Vector2 off = component.offset;
+            component.BoundingRect = new Rectangle((int)Parent.Position.X + (int)off.X, (int)Parent.Position.Y + (int)off.Y, (int)Parent.Texture.Width, (int)Parent.Texture.Height);
+
+            // Set Scissor rectangle
+            Rectangle currentRect = SpriteManager.ScissorRectangle;
+            SpriteManager.ScissorRectangle = component.BoundingRect;
+
+            // Draw List
             for (int i = 0; i < component.Items.Length; i++)
             {
-                component.Items[i].Update();
-                SpriteManager.Draw(component.Items[i].Texture, Parent.Position + off + component.Items[i].offset, new Color(component.fontColor));
+                SpriteManager.Draw(component.Items[i].Texture, Parent.Position + off + component.Items[i].offset + component.currentOffset, new Color(component.fontColor));
+                component.Items[i].Update(Parent.Position + off + component.Items[i].offset);
             }
+
+            // Revert Scissor Rectangle
+            SpriteManager.ScissorRectangle = currentRect;
 
             DrawGraphicComponent(component.UpScroller, ref parent);
             DrawGraphicComponent(component.DownScroller, ref parent);
@@ -356,16 +381,11 @@ namespace VOiD.Components
             foreach (Object2D thing in components)
             {
                 UpdateComponent(thing);
+                // Scrollable Objects
                 if (thing.GetType() == typeof(TextBoxObject))
-                {
-                    TextBoxObject temp = (TextBoxObject)thing;
-                    UpdateTextBoxObject(temp);
-                }
+                    UpdateTextBox(thing as TextBoxObject);
                 if (thing.GetType() == typeof(ListBox))
-                {
-                    ListBox temp = (ListBox)thing;
-                    UpdateListBox(temp);
-                }
+                    UpdateListBox(thing as ListBox);
             }
         }
 
@@ -379,11 +399,9 @@ namespace VOiD.Components
             }
         }
 
-        private void UpdateTextBoxObject(TextBoxObject component)
+        private void UpdateTextBox(TextBoxObject component)
         {
-            float textHeight = 0f;
-            if(component.GetType() == typeof(TextBoxObject))
-                textHeight = Game.Content.Load<SpriteFont>(component.Font).MeasureString(component.Text).Y;
+            float textHeight = textHeight = Game.Content.Load<SpriteFont>(component.Font).MeasureString(component.Text).Y;
 
             if (textHeight > component.Bounds.Y)
             {
@@ -401,7 +419,36 @@ namespace VOiD.Components
 
         private void UpdateListBox(ListBox component)
         {
+            float textHeight = 0f;
+            for (int i = 0; i < component.Items.Length; i++)
+                textHeight += component.Items[i].Texture.Height;
 
+            if (textHeight > component.BoundingRect.Height)
+            {
+                Rectangle UpRect = new Rectangle((int)component.UpScroller.Position.X, (int)component.UpScroller.Position.Y,
+                    (int)component.UpScroller.Size.X, (int)component.UpScroller.Size.Y);
+                Rectangle DownRect = new Rectangle((int)component.DownScroller.Position.X, (int)component.DownScroller.Position.Y,
+                    (int)component.DownScroller.Size.X, (int)component.DownScroller.Size.Y);
+
+                // Update Scrollers
+                if (InputHandler.LeftClickDown)
+                {
+                    if (UpRect.Contains(InputHandler.MouseX, InputHandler.MouseY))
+                        component.Scroll(component.UpScroller.scrollDirection);
+                    if (DownRect.Contains(InputHandler.MouseX, InputHandler.MouseY))
+                        component.Scroll(component.DownScroller.scrollDirection);
+                }
+
+                    // Update Items
+                if (InputHandler.LeftClickPressed)
+                {
+                    for (int i = 0; i < component.Items.Length; i++)
+                    {
+                        if(component.Items[i].BoundingRect.Contains(InputHandler.MouseX, InputHandler.MouseY))
+                            Console.WriteLine("Clicked ListBox item with action: " + component.Items[i].Action);
+                    }
+                }
+            }
         }
 
         public override void Update(GameTime gameTime)
