@@ -200,7 +200,6 @@
                     <fontColor>0 0 0</fontColor>
                     <isCentered>false</isCentered>
                     <ioffset>-40 0</ioffset>
-                    <Bounds>200 325</Bounds>
                     <UpScroller>
                       <iSize>15 10</iSize>
                       <iPosition>80 10</iPosition>

@@ -121,12 +121,12 @@ namespace VOiD.Components
             component.Init = true;
 
             Vector2 off = component.offset;
-            component.BoundingRect = new Rectangle((int)Parent.Position.X + (int)off.X, (int)Parent.Position.Y + (int)off.Y, (int)component.Bounds.X, (int)component.Bounds.Y);
+            component.BoundingRect = new Rectangle((int)Parent.Position.X + (int)off.X, (int)Parent.Position.Y + (int)off.Y, (int)Parent.Size.X, (int)Parent.Size.Y);
 
-            if (Game.Content.Load<SpriteFont>(component.Font).MeasureString(component.Text).Y > component.Bounds.Y)
+            if (Game.Content.Load<SpriteFont>(component.Font).MeasureString(component.Text).Y > component.BoundingRect.Height)
             {
                 float maxY = (Parent.Position.Y - (Parent.Size.Y / 2)+5);
-                float minY = (Parent.Position.Y + component.Bounds.Y - (Parent.Size.Y / 2)) - (Game.Content.Load<SpriteFont>(component.Font).MeasureString(component.Text).Y);
+                float minY = (Parent.Position.Y + component.BoundingRect.Height - (Parent.Size.Y / 2)) - (Game.Content.Load<SpriteFont>(component.Font).MeasureString(component.Text).Y);
                 if (component.currentOffset.Y > maxY)
                     component.currentOffset.Y = maxY;
                 else if (component.currentOffset.Y < minY)
@@ -240,7 +240,7 @@ namespace VOiD.Components
             for (int i = 0; i < component.Items.Length; i++)
             {
                 SpriteManager.Draw(component.Items[i].Texture, Parent.Position + off + component.Items[i].offset + component.currentOffset, new Color(component.fontColor));
-                component.Items[i].Update(Parent.Position + off + component.Items[i].offset);
+                component.Items[i].Update(Parent.Position + off + component.Items[i].offset + component.currentOffset);
             }
 
             // Revert Scissor Rectangle
@@ -415,7 +415,7 @@ namespace VOiD.Components
         {
             float textHeight = textHeight = Game.Content.Load<SpriteFont>(component.Font).MeasureString(component.Text).Y;
 
-            if (textHeight > component.Bounds.Y)
+            if (textHeight > component.BoundingRect.Height)
             {
                 Rectangle UpRect = new Rectangle((int)component.UpScroller.Position.X, (int)component.UpScroller.Position.Y,
                     (int)component.UpScroller.Size.X, (int)component.UpScroller.Size.Y);
@@ -450,15 +450,15 @@ namespace VOiD.Components
                     if (DownRect.Contains(InputHandler.MouseX, InputHandler.MouseY))
                         component.Scroll(component.DownScroller.scrollDirection);
                 }
+            }
 
-                    // Update Items
-                if (InputHandler.LeftClickPressed)
+            // Update Items
+            if (InputHandler.LeftClickPressed)
+            {
+                for (int i = 0; i < component.Items.Length; i++)
                 {
-                    for (int i = 0; i < component.Items.Length; i++)
-                    {
-                        if(component.Items[i].BoundingRect.Contains(InputHandler.MouseX, InputHandler.MouseY))
-                            Console.WriteLine("Clicked ListBox item with action: " + component.Items[i].Action);
-                    }
+                    if(component.Items[i].BoundingRect.Contains(InputHandler.MouseX, InputHandler.MouseY))
+                        Console.WriteLine("Clicked ListBox item with action: " + component.Items[i].Action);
                 }
             }
         }

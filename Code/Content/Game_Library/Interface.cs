@@ -62,7 +62,6 @@ namespace GameLibrary
 
     public class TextBoxObject : TextObject
     {
-        public Vector2 Bounds;
         public Scroller UpScroller, DownScroller;
         [ContentSerializerIgnore]
         public Rectangle BoundingRect;

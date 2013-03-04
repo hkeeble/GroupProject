@@ -42,7 +42,6 @@ Content\Interface\BattleScreen.xnb
 Content\Interface\LabScreen.xnb
 Content\Interface\SubMenuCreatureInfo.xnb
 Content\Interface\SubMenuInventory.xnb
-Content\Interface\ListBoxTest.xnb
 Content\SegoeUI.xnb
 Content\Tilesets\Tileset.png
 Content\Maps\Level1.map
