@@ -42,6 +42,7 @@ Content\Interface\LabScreen.xnb
 Content\Interface\SubMenuCreatureInfo.xnb
 Content\Interface\SubMenuInventory.xnb
 Content\SegoeUI.xnb
+Content\Interface\Assets\ExitButton.xnb
 Content\Tilesets\Tileset.png
 Content\Maps\Level1.map
 Content\Maps\Level2.map

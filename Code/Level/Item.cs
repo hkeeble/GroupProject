@@ -48,6 +48,11 @@ namespace VOiD
             }
         }
 
+        public void Use()
+        {
+            // PASS TO PLAYER HERE
+            _amount--;
+        }
 
         public int ID { get { return _ID; } }
         public Texture2D Texture { get { return _texture; } }

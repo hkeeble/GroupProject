@@ -24,84 +24,93 @@
                 <isClickable>true</isClickable>
                 <TextureLocation>@AppleTexture</TextureLocation>
                 <fullscreen>false</fullscreen>
-                <Action></Action>
+                <Action>UseApple</Action>
                 <Children>
                   <Item Type="GameLibrary.TextObject">
                     <Text>@NumberOfApples</Text>
                     <Font>SegoeUI</Font>
                     <fontColor>255 255 0</fontColor>
                     <isCentered>false</isCentered>
-                    <ioffset>75 75</ioffset>
+                    <ioffset>70 75</ioffset>
                   </Item>
                 </Children>
               </Item>
               <Item Type="GameLibrary.GraphicObject">
-                <iSize>10 20</iSize>
-                <iPosition>20 50</iPosition>
+                <iSize>10 25</iSize>
+                <iPosition>16 45</iPosition>
                 <isClickable>true</isClickable>
                 <TextureLocation>@GoldenAppleTexture</TextureLocation>
                 <fullscreen>false</fullscreen>
-                <Action></Action>
+                <Action>UseGoldenApple</Action>
                 <Children>
                   <Item Type="GameLibrary.TextObject">
                     <Text>@NumberOfGoldenApples</Text>
                     <Font>SegoeUI</Font>
                     <fontColor>255 255 0</fontColor>
                     <isCentered>false</isCentered>
-                    <ioffset>90 90</ioffset>
+                    <ioffset>70 75</ioffset>
                   </Item>
                 </Children>
               </Item>
               <Item Type="GameLibrary.GraphicObject">
-                <iSize>10 20</iSize>
-                <iPosition>30 50</iPosition>
+                <iSize>10 25</iSize>
+                <iPosition>27 45</iPosition>
                 <isClickable>true</isClickable>
                 <TextureLocation>@SpringWaterTexture</TextureLocation>
                 <fullscreen>false</fullscreen>
-                <Action></Action>
+                <Action>UseSpringWater</Action>
                 <Children>
                   <Item Type="GameLibrary.TextObject">
                     <Text>@NumberOfSpringWater</Text>
                     <Font>SegoeUI</Font>
                     <fontColor>255 255 0</fontColor>
                     <isCentered>false</isCentered>
-                    <ioffset>90 90</ioffset>
+                    <ioffset>70 75</ioffset>
                   </Item>
                 </Children>
               </Item>
               <Item Type="GameLibrary.GraphicObject">
-                <iSize>10 20</iSize>
-                <iPosition>40 50</iPosition>
+                <iSize>10 25</iSize>
+                <iPosition>38 45</iPosition>
                 <isClickable>true</isClickable>
                 <TextureLocation>@HoneyTexture</TextureLocation>
                 <fullscreen>false</fullscreen>
-                <Action></Action>
+                <Action>UseHoney</Action>
                 <Children>
                   <Item Type="GameLibrary.TextObject">
                     <Text>@NumberOfHoney</Text>
                     <Font>SegoeUI</Font>
                     <fontColor>255 255 0</fontColor>
                     <isCentered>false</isCentered>
-                    <ioffset>90 90</ioffset>
+                    <ioffset>70 75</ioffset>
                   </Item>
                 </Children>
               </Item>
               <Item Type="GameLibrary.GraphicObject">
                 <iSize>10 20</iSize>
-                <iPosition>50 50</iPosition>
+                <iPosition>49 45</iPosition>
                 <isClickable>true</isClickable>
                 <TextureLocation>@ChilliTexture</TextureLocation>
                 <fullscreen>false</fullscreen>
-                <Action></Action>
+                <Action>UseChilli</Action>
                 <Children>
                   <Item Type="GameLibrary.TextObject">
                     <Text>@NumberOfChilli</Text>
                     <Font>SegoeUI</Font>
                     <fontColor>255 255 0</fontColor>
                     <isCentered>false</isCentered>
-                    <ioffset>90 90</ioffset>
+                    <ioffset>70 75</ioffset>
                   </Item>
                 </Children>
+              </Item>
+              <Item Type="GameLibrary.GraphicObject">
+                <iSize>10 25</iSize>
+                <iPosition>95 15</iPosition>
+                <isClickable>true</isClickable>
+                <TextureLocation>ExitButton</TextureLocation>
+                <fullscreen>false</fullscreen>
+                <Action>DeleteSubMenu</Action>
+                <Children></Children>
               </Item>
             </Children>
           </Item>

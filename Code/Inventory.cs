@@ -28,8 +28,8 @@ namespace VOiD
 
         public void UseItem(int ID)
         {
-            // PASS TO PLAYER HERE
-            items[ID-1].Amount--;
+            if (items[ID - 1].Amount > 0)
+                items[ID - 1].Use();
         }
 
         public int NumberOfApples { get { return items[(int)Item.ItemName.Apple-1].Amount; } }

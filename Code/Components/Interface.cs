@@ -91,15 +91,15 @@ namespace VOiD.Components
                 if (component.Text == "@currentRes")
                     temp = Configuration.Width.ToString() + "x" + Configuration.Height.ToString();
                 if (component.Text == "@NumberOfApples")
-                    component.Text = "x" + Convert.ToString(GameHandler.Inventory.NumberOfApples);
+                    temp = "x" + Convert.ToString(GameHandler.Inventory.NumberOfApples);
                 if (component.Text == "@NumberOfChilli")
-                    component.Text = "x" + Convert.ToString(GameHandler.Inventory.NumberOfChilli);
+                    temp = "x" + Convert.ToString(GameHandler.Inventory.NumberOfChilli);
                 if (component.Text == "@NumberOfGoldenApples")
-                    component.Text = "x" + Convert.ToString(GameHandler.Inventory.NumberOfGoldenApples);
+                    temp = "x" + Convert.ToString(GameHandler.Inventory.NumberOfGoldenApples);
                 if (component.Text == "@NumberOfHoney")
-                    component.Text = "x" + Convert.ToString(GameHandler.Inventory.NumberOfHoney);
+                    temp = "x" + Convert.ToString(GameHandler.Inventory.NumberOfHoney);
                 if (component.Text == "@NumberOfSpringWater")
-                    component.Text = "x" + Convert.ToString(GameHandler.Inventory.NumberOfSpringWater);
+                    temp = "x" + Convert.ToString(GameHandler.Inventory.NumberOfSpringWater);
             }
             else
                 temp = component.Text;
@@ -298,6 +298,19 @@ namespace VOiD.Components
                 #region Global Dial Actions
                 if(component.Action.Equals("Inventory"))
                     subMenu = Game.Content.Load<GameLibrary.Interface>("Interface/SubMenuInventory");
+                #endregion
+
+                #region Item Use Actions
+                if (component.Action.Equals("UseApple"))
+                    GameHandler.Inventory.UseItem((int)Item.ItemName.Apple);
+                if (component.Action.Equals("UseGoldenApple"))
+                    GameHandler.Inventory.UseItem((int)Item.ItemName.Golden_Apple);
+                if (component.Action.Equals("UseChilli"))
+                    GameHandler.Inventory.UseItem((int)Item.ItemName.Chilli);
+                if (component.Action.Equals("UseHoney"))
+                    GameHandler.Inventory.UseItem((int)Item.ItemName.Honey);
+                if (component.Action.Equals("UseSpringWater"))
+                    GameHandler.Inventory.UseItem((int)Item.ItemName.Spring_Water);
                 #endregion
 
                 DebugLog.WriteLine(string.Format("Button Clicked Action =  {0} ", component.Action));

@@ -18,6 +18,16 @@
             <fullscreen>false</fullscreen>
             <Action></Action>
             <Children>
+              <!--Exit Button-->
+              <Item Type="GameLibrary.GraphicObject">
+                <iSize>10 15</iSize>
+                <iPosition>95 0</iPosition>
+                <isClickable>true</isClickable>
+                <TextureLocation>ExitButton</TextureLocation>
+                <fullscreen>false</fullscreen>
+                <Action>DeleteSubMenu</Action>
+                <Children></Children>
+              </Item>
               <!--Statistics-->
               <Item Type="GameLibrary.TextObject">
                 <Text>STATISTICS</Text>
