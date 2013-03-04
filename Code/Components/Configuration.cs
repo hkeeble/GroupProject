@@ -32,6 +32,13 @@ namespace VOiD.Components
 
         
         private static GraphicsDeviceManager graphics;
+        public static GraphicsDevice GraphicsDevice
+        {
+            get
+            {
+                return graphics.GraphicsDevice;
+            }
+        }
         public static float AspectRatio { get { return graphics.GraphicsDevice.Viewport.AspectRatio; } }
         public static Rectangle Bounds { get { return graphics.GraphicsDevice.Viewport.Bounds; } }
 

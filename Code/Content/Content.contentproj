@@ -201,7 +201,6 @@
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Compile Include="Interface\BattleScreen.xml">
       <Name>BattleScreen</Name>

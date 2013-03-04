@@ -25,7 +25,6 @@ namespace VOiD
         bool isLoaded = false;
 
         Texture2D _map;
-
         Texture2D _colTex; // Collision Texture
 
         public TileMap()
@@ -42,7 +41,6 @@ namespace VOiD
         public TileMap(string fileName, GraphicsDevice graphicsDevice, Microsoft.Xna.Framework.Content.ContentManager content)
         {
             _colTex = content.Load<Texture2D>("Sprites\\CollisionTexture");
-
             try
             {
                 _fileName = Directory.GetCurrentDirectory() + "\\Content\\Maps\\" + fileName + ".map";
@@ -77,7 +75,7 @@ namespace VOiD
                 sr.Close();
                 sr = new StreamReader(_fileName);
 
-                _map = new Texture2D(graphicsDevice, _width*TileWidth, _height*TileHeight, true, SurfaceFormat.Color);
+                _map = new Texture2D(graphicsDevice, _width*TileWidth, _height*TileHeight, false, SurfaceFormat.Color);
                 
                 _tileSetPath = sr.ReadLine();
 
@@ -119,7 +117,7 @@ namespace VOiD
                 {
                     DebugLog.WriteLine("Error reading tile data from level " + fileName + " error message: \n" + e.Message);
                 }
-                GenerateMipMap(graphicsDevice, ref _map);
+                _map = GenerateMipMap(graphicsDevice, _map);
 
                 string pSpawn = sr.ReadLine();
                 string[] split = pSpawn.Split('-');
@@ -165,13 +163,15 @@ namespace VOiD
           
         }
 
+        
         /// <summary>
         /// Draws the map.
         /// </summary>
         public void Draw()
         {
+            Vector2 pos = Camera.Transform(Vector2.Zero);
             if (isLoaded)
-                SpriteManager.Draw(_map, Camera.Transform(Vector2.Zero), Color.White);
+                SpriteManager.Draw(_map, Configuration.Bounds,new Rectangle(-(int)pos.X,-(int)pos.Y,Configuration.Width,Configuration.Height), Color.White);
         }
 
         public void DrawCollisionLayer()
@@ -186,18 +186,40 @@ namespace VOiD
         {
             return (char)val - '0';
         }
-
-        private void GenerateMipMap(GraphicsDevice graphicsDevice, ref Texture2D image)
+        
+        private Texture2D GenerateMipMap(GraphicsDevice graphicsDevice, Texture2D image)
         {
-            RenderTarget2D target = new RenderTarget2D(graphicsDevice, image.Width, image.Height, true, SurfaceFormat.Color, DepthFormat.None);
+            RenderTarget2D target = new RenderTarget2D(graphicsDevice, image.Width, image.Height, true, SurfaceFormat.Color, DepthFormat.None, 0, RenderTargetUsage.PreserveContents);
             graphicsDevice.SetRenderTarget(target);
-            graphicsDevice.Clear(Color.Black);
+            SpriteManager.Begin();
+            SpriteManager.Draw(image, target.Bounds, Color.White);
+            SpriteManager.End();
+            
+            graphicsDevice.SetRenderTarget(null);
+
+            Texture2D map = new Texture2D(graphicsDevice, target.Width, target.Height, true, SurfaceFormat.Color);
+            
+            for (int i = 0; i < map.LevelCount; i++)
+            {
+                Color[] data = new Color[(target.Width / (int)Math.Pow(2, i)) * (target.Height / (int)Math.Pow(2, i))];
+                target.GetData(i, null, data, 0, data.Length);
+                map.SetData(i, null, data, 0, data.Length);
+            }
+            
+            return map;
+            /*
             SpriteManager.Begin();
             SpriteManager.Draw(image, Vector2.Zero, Color.White);
             SpriteManager.End();
-            graphicsDevice.SetRenderTarget(null);
-            image.Dispose();
-            image = (Texture2D)target;
+            int store = 0;
+            for (int i = 0; i < target.MultiSampleCount; i++)
+                store += (target.Width * target.Height) / i;
+
+            image = new Texture2D(graphicsDevice, target.Width, target.Height, true, SurfaceFormat.Color);
+            Color[] data = new Color[store];
+            target.GetData(data);
+            image.SetData(data);
+            graphicsDevice.SetRenderTarget(null);*/
         }
 
         public void TogglePassable(Point tile)

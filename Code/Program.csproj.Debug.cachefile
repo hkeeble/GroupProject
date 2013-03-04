@@ -32,6 +32,7 @@ Content\Interface\Assets\Window.xnb
 Content\Interface\Assets\downArrow.xnb
 Content\Interface\Assets\upArrow.xnb
 Content\Interface\Assets\TextBoxBackground.xnb
+Content\Interface\Assets\InventoryScreen.xnb
 Content\Interface\Configuration.xnb
 Content\Interface\MainMenu.xnb
 Content\Interface\LevelMenu.xnb
@@ -39,9 +40,8 @@ Content\Interface\SubMenuOptions.xnb
 Content\Interface\BattleScreen.xnb
 Content\Interface\LabScreen.xnb
 Content\Interface\SubMenuCreatureInfo.xnb
-Content\SegoeUI.xnb
-Content\Interface\Assets\InventoryScreen.xnb
 Content\Interface\SubMenuInventory.xnb
+Content\SegoeUI.xnb
 Content\Tilesets\Tileset.png
 Content\Maps\Level1.map
 Content\Maps\Level2.map
