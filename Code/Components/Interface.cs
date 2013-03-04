@@ -151,53 +151,70 @@ namespace VOiD.Components
 
             if (component.Init == false)
             {
-                if (component.ListContentType == "@ListOfStuff")
+                string[] itemText = new string[0];
+                string[] actions = new string[0];
+
+                if (component.ListContentType == "PlayerAttacks")
                 {
-                    SpriteFont font = Game.Content.Load<SpriteFont>(component.Font);
+                    itemText = new string[GameHandler.Player.AvailableAttacks.Count];
+                    actions = new string[GameHandler.Player.AvailableAttacks.Count];
 
-                    component.Items = new ListBox.Item[30];
-
-                    // Get background color
-                    Color[] backColor = new Color[Parent.Texture.Width*Parent.Texture.Height];
-                    Parent.Texture.GetData<Color>(backColor);
-                    Color BackColor = backColor[0];
-
-                    for (int i = 0; i < component.Items.Length; i++)
+                    for (int i = 0; i < itemText.Length; i++)
                     {
-                        // Create RenderTarget of correct size
-                        RenderTarget2D target = new RenderTarget2D(Configuration.GraphicsDevice, (int)font.MeasureString("This is some text" + Convert.ToString(i)).X,
-                                                    (int)font.MeasureString("This is some text" + Convert.ToString(i)).Y, false, Configuration.GraphicsDevice.DisplayMode.Format, DepthFormat.Depth24);
-                        component.Items[i] = new ListBox.Item();
-                        
-                        // Render string to RenderTarget
-                        Configuration.GraphicsDevice.SetRenderTarget(target);
-                        Configuration.GraphicsDevice.Clear(BackColor);
-                        SpriteManager.End();
-                        SpriteManager.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend, SamplerState.PointClamp, null, null);
-                        SpriteManager.DrawString(font, "This is some text" + Convert.ToString(i), Vector2.Zero, new Color(component.fontColor));
-                        SpriteManager.End();
-                        SpriteManager.Begin();
-                        Configuration.GraphicsDevice.SetRenderTarget(null);
-
-                        // Move RenderTarget data to Texture2D
-                        Color[] data = new Color[target.Width * target.Height];
-                        Texture2D temp = new Texture2D(Configuration.GraphicsDevice, target.Width, target.Height);
-                        target.GetData<Color>(data);
-                        temp.SetData<Color>(data);
-                        component.Items[i].Texture = temp;
-                        target.Dispose();
-
-                        // Set Inividual element's offset
-                        component.Items[i].offset = new Vector2(0, i > 0 ? component.Items[i - 1].Texture.Height*i : 0);
-
-                        // Set component's Action
-                        component.Items[i].Action = "This is some text" + Convert.ToString(i);
+                        itemText[i] = GameHandler.Player.AvailableAttacks[i].Name;
+                        actions[i] = "PlayerUse" + GameHandler.Player.AvailableAttacks[i].Name;
                     }
                 }
-                component.currentOffset = new Vector2(0, (Parent.Position.Y));
-            }
+
+                // The following will render the text to their own individual textures with bounding rects
+                SpriteFont font = Game.Content.Load<SpriteFont>(component.Font);
+
+                component.Items = new ListBox.Item[itemText.Length];
+
+                // Get background color
+                Color[] backColor = new Color[Parent.Texture.Width*Parent.Texture.Height];
+                Parent.Texture.GetData<Color>(backColor);
+                Color BackColor = backColor[0];
+
+                for (int i = 0; i < component.Items.Length; i++)
+                {
+                    // Create RenderTarget of correct size
+                    RenderTarget2D target = new RenderTarget2D(Configuration.GraphicsDevice, (int)font.MeasureString(itemText[i]).X,
+                                                (int)font.MeasureString(itemText[i]).Y, false, Configuration.GraphicsDevice.DisplayMode.Format, DepthFormat.Depth24);
+                    component.Items[i] = new ListBox.Item();
+                        
+                    // Render string to RenderTarget
+                    Configuration.GraphicsDevice.SetRenderTarget(target);
+                    Configuration.GraphicsDevice.Clear(BackColor);
+                    SpriteManager.End();
+                    SpriteManager.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend, SamplerState.PointClamp, null, null);
+                    SpriteManager.DrawString(font, itemText[i], Vector2.Zero, new Color(component.fontColor));
+                    SpriteManager.End();
+                    SpriteManager.Begin();
+                    Configuration.GraphicsDevice.SetRenderTarget(null);
+
+                    // Move RenderTarget data to Texture2D
+                    Color[] data = new Color[target.Width * target.Height];
+                    Texture2D temp = new Texture2D(Configuration.GraphicsDevice, target.Width, target.Height);
+                    target.GetData<Color>(data);
+                    temp.SetData<Color>(data);
+                    component.Items[i].Texture = temp;
+                    target.Dispose();
+
+                    // Set Inividual element's offset
+                    component.Items[i].offset = new Vector2(0, i > 0 ? component.Items[i - 1].Texture.Height*i : 0);
+
+                    // Set component's Action
+                    component.Items[i].Action = actions[i];
+                    }
+
+                    component.currentOffset = Vector2.Zero;
+                }
 
             component.Init = true;
+
+            Vector2 off = component.offset;
+            component.BoundingRect = new Rectangle((int)Parent.Position.X + (int)off.X, (int)Parent.Position.Y + (int)off.Y, (int)Parent.Size.X, (int)Parent.Size.Y);
 
             // Get Height of the text in the list
             float textHeight = 0.0f;
@@ -207,16 +224,13 @@ namespace VOiD.Components
             // Modify Current Offset to ensure within the box
             if (textHeight > component.BoundingRect.Height)
             {
-                float maxY = (Parent.Position.Y - (Parent.Size.Y / 2) + 5);
+                float maxY = (Parent.Position.Y - (Parent.Size.Y / 2));
                 float minY = (Parent.Position.Y + component.BoundingRect.Height - (Parent.Size.Y / 2)) - textHeight;
                 if (component.currentOffset.Y > maxY)
                     component.currentOffset.Y = maxY;
                 else if (component.currentOffset.Y < minY)
                     component.currentOffset.Y = minY;
             }
-
-            Vector2 off = component.offset;
-            component.BoundingRect = new Rectangle((int)Parent.Position.X + (int)off.X, (int)Parent.Position.Y + (int)off.Y, (int)Parent.Texture.Width, (int)Parent.Texture.Height);
 
             // Set Scissor rectangle
             Rectangle currentRect = SpriteManager.ScissorRectangle;
@@ -349,8 +363,6 @@ namespace VOiD.Components
                     subMenu = Game.Content.Load<GameLibrary.Interface>("Interface/SubMenuCreatureInfo");
                 if (component.Action.Equals("exit"))
                     Interface.currentScreen = Screens.LevelMenu;
-                if (component.Action.Equals("OpenListTest"))
-                    subMenu = Game.Content.Load<GameLibrary.Interface>("Interface/ListBoxTest");
                 #endregion
 
                 #region Global Dial Actions

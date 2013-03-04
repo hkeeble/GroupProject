@@ -134,9 +134,9 @@ namespace VOiD
             avTacks = new AttackTypes(this.Dominant);
         }
 
-        public List<Attack> AvalibleAttacks
+        public List<Attack> AvailableAttacks
         {
-            get { return avTacks.AvalibleAttacks; }
+            get { return avTacks.AvailableAttacks; }
         }
 
         public void Draw(GraphicsDevice graphicsDevice, Matrix world)
