@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<XnaContent>
+  <Asset Type="GameLibrary.Interface">
+    <content>
+      <Item Type="GameLibrary.GraphicObject">
+        <iSize>100 100</iSize>
+        <iPosition>0 0</iPosition>
+        <isClickable>false</isClickable>
+        <TextureLocation></TextureLocation>
+        <fullscreen>true</fullscreen>
+        <Action></Action>
+        <Children>
+          <Item Type="GameLibrary.GraphicObject">
+            <iSize>50 50</iSize>
+            <iPosition>50 50</iPosition>
+            <isClickable>false</isClickable>
+            <TextureLocation>TextBoxBackground</TextureLocation>
+            <fullscreen>false</fullscreen>
+            <Action></Action>
+            <Children>
+              <Item Type="GameLibrary.ListBox">
+                <ListContentType>@ListOfStuff</ListContentType>
+                <Font>SegoeUI</Font>
+                <fontColor>255 255 255</fontColor>
+                <Bounds>100 100</Bounds>
+                <UpScroller>
+                  <iSize>15 10</iSize>
+                  <iPosition>90 10</iPosition>
+                  <isClickable>true</isClickable>
+                  <TextureLocation>upArrow</TextureLocation>
+                  <fullscreen>false</fullscreen>
+                  <Action>ScrollUp</Action>
+                  <Children></Children>
+                  <scrollDirection>0 5</scrollDirection>
+                </UpScroller>
+                <DownScroller>
+                  <iSize>15 10</iSize>
+                  <iPosition>90 90</iPosition>
+                  <isClickable>true</isClickable>
+                  <TextureLocation>downArrow</TextureLocation>
+                  <fullscreen>false</fullscreen>
+                  <Action>ScrollDown</Action>
+                  <Children></Children>
+                  <scrollDirection>0 -5</scrollDirection>
+                </DownScroller>
+                <ioffset>50 50</ioffset>
+              </Item>
+            </Children>
+          </Item>
+        </Children>
+      </Item>
+    </content>
+    <backgroundColor>00000000</backgroundColor>
+    <Overlay>false</Overlay>
+  </Asset>
+</XnaContent>

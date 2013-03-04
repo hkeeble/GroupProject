@@ -29,6 +29,7 @@ namespace VOiD.Components
         private DisplayMode[] dm;
         RasterizerState _scissorState = new RasterizerState() { ScissorTestEnable = true };
 
+        #region Draw Functions
         private void DrawComponent(List<Object2D> Interface)
         {
             Object2D sam = new Object2D();
@@ -148,34 +149,63 @@ namespace VOiD.Components
             component.offset.X = Parent.Size.X / 100 * component.ioffset.X;
             component.offset.Y = Parent.Size.Y / 100 * component.ioffset.Y;
 
+            if (component.Init == false)
+            {
+                if (component.ListContentType == "@ListOfStuff")
+                {
+                    SpriteFont font = Game.Content.Load<SpriteFont>(component.Font);
+
+                    component.Items = new ListBox.Item[10];
+
+                    // Get background color
+                    Color[] backColor = new Color[Parent.Texture.Width*Parent.Texture.Height];
+                    Parent.Texture.GetData<Color>(backColor);
+                    Color BackColor = backColor[0];
+
+                    for (int i = 0; i < component.Items.Length; i++)
+                    {
+                        // Create RenderTarget of correct size
+                        RenderTarget2D target = new RenderTarget2D(Configuration.GraphicsDevice, (int)font.MeasureString("This is some text" + Convert.ToString(0)).X,
+                                                    (int)font.MeasureString("This is some text" + Convert.ToString(0)).Y, false, Configuration.GraphicsDevice.DisplayMode.Format, DepthFormat.Depth24);
+                        component.Items[i] = new ListBox.Item();
+                        
+                        // Render string to RenderTarget
+                        Configuration.GraphicsDevice.SetRenderTarget(target);
+                        Configuration.GraphicsDevice.Clear(BackColor);
+                        SpriteManager.End();
+                        SpriteManager.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend, SamplerState.PointClamp, null, null);
+                        SpriteManager.DrawString(font, "This is some text" + Convert.ToString(i), Vector2.Zero, new Color(component.fontColor));
+                        SpriteManager.End();
+                        SpriteManager.Begin();
+                        Configuration.GraphicsDevice.SetRenderTarget(null);
+
+                        // Move RenderTarget data to Texture2D
+                        Color[] data = new Color[target.Width * target.Height];
+                        Texture2D temp = new Texture2D(Configuration.GraphicsDevice, target.Width, target.Height);
+                        target.GetData<Color>(data);
+                        temp.SetData<Color>(data);
+                        component.Items[i].Texture = temp;
+                        target.Dispose();
+
+                        // Set Inividual element's offset
+                        component.Items[i].offset = new Vector2(0, i > 0 ? component.Items[i - 1].Texture.Height*i : 0);
+
+                        // Set component's Action
+                        component.Items[i].Action = "This is some text" + Convert.ToString(i);
+                    }
+                }
+            }
+
             component.Init = true;
 
             Vector2 off = component.offset;
             component.BoundingRect = new Rectangle((int)Parent.Position.X + (int)off.X, (int)Parent.Position.Y + (int)off.Y, (int)component.Bounds.X, (int)component.Bounds.Y);
 
-            float textHeight = 0f;
-            for (int i = 0; i < (component as ListBox).Items.Length; i++)
-                textHeight += Game.Content.Load<SpriteFont>(component.Font).MeasureString((component as ListBox).Items[i].Text).Y;
-
-            if (textHeight > component.Bounds.Y)
-            {
-                float minY = (Parent.Position.Y - (Parent.Size.Y / 2)) - textHeight;
-                float maxY = Parent.Position.Y + (Parent.Size.Y / 2);
-
-                if (component.currentOffset.Y > minY)
-                    component.currentOffset.Y = minY;
-                if (component.currentOffset.Y > maxY)
-                    component.currentOffset.Y = maxY;
-            }
-
-            Rectangle currentRect = SpriteManager.ScissorRectangle;
-            SpriteManager.ScissorRectangle = component.BoundingRect;
             for (int i = 0; i < component.Items.Length; i++)
             {
-                SpriteManager.DrawString(Game.Content.Load<SpriteFont>(component.Font), component.Items[i].Text,
-                    (Parent.Position + off + component.currentOffset) + new Vector2(0, (i * Game.Content.Load<SpriteFont>(component.Font).MeasureString(component.Items[i].Text).Y)), new Color(component.fontColor));
+                component.Items[i].Update();
+                SpriteManager.Draw(component.Items[i].Texture, Parent.Position + off + component.Items[i].offset, new Color(component.fontColor));
             }
-            SpriteManager.ScissorRectangle = currentRect;
 
             DrawGraphicComponent(component.UpScroller, ref parent);
             DrawGraphicComponent(component.DownScroller, ref parent);
@@ -206,7 +236,7 @@ namespace VOiD.Components
                 else
                     component.Texture = new Texture2D(Game.GraphicsDevice, 1, 1);
 
-                if (((component.GetType() == typeof(GraphicObject)) || component.GetType() == typeof(TextBoxObject.Scroller)) && (parent.GetType() == typeof(GraphicObject)))
+                if (((component.GetType() == typeof(GraphicObject)) || component.GetType() == typeof(Scroller)) && (parent.GetType() == typeof(GraphicObject)))
                 {
                     
                     component.Size.X = ((parent as GraphicObject).Size.X / 100 * component.iSize.X);
@@ -236,6 +266,7 @@ namespace VOiD.Components
                 SpriteManager.Draw(component.Texture, new Rectangle((int)component.Position.X, (int)component.Position.Y, (int)component.Size.X, (int)component.Size.Y), null, Color.White);
             }
         }
+        #endregion
 
         public Interface(Game game)
             : base(game)
@@ -293,6 +324,8 @@ namespace VOiD.Components
                     subMenu = Game.Content.Load<GameLibrary.Interface>("Interface/SubMenuCreatureInfo");
                 if (component.Action.Equals("exit"))
                     Interface.currentScreen = Screens.LevelMenu;
+                if (component.Action.Equals("OpenListTest"))
+                    subMenu = Game.Content.Load<GameLibrary.Interface>("Interface/ListBoxTest");
                 #endregion
 
                 #region Global Dial Actions
@@ -317,23 +350,28 @@ namespace VOiD.Components
             }
         }
 
-
+        #region Update Functions
         private void UpdateComponent(List<Object2D> components)
         {
             foreach (Object2D thing in components)
             {
                 UpdateComponent(thing);
-                if (thing.GetType() == typeof(TextBoxObject) || thing.GetType() == typeof(ListBox))
+                if (thing.GetType() == typeof(TextBoxObject))
                 {
                     TextBoxObject temp = (TextBoxObject)thing;
                     UpdateTextBoxObject(temp);
+                }
+                if (thing.GetType() == typeof(ListBox))
+                {
+                    ListBox temp = (ListBox)thing;
+                    UpdateListBox(temp);
                 }
             }
         }
 
         private void UpdateComponent(Object2D component)
         {
-            if (component.GetType() == typeof(GraphicObject) || component.GetType() == typeof(TextBoxObject.Scroller))
+            if (component.GetType() == typeof(GraphicObject) || component.GetType() == typeof(Scroller))
             {
                 UpdateComponent((component as GraphicObject).Children);
                 if ((component as GraphicObject).isClickable)
@@ -346,9 +384,6 @@ namespace VOiD.Components
             float textHeight = 0f;
             if(component.GetType() == typeof(TextBoxObject))
                 textHeight = Game.Content.Load<SpriteFont>(component.Font).MeasureString(component.Text).Y;
-            if (component.GetType() == typeof(ListBox))
-                for (int i = 0; i < (component as ListBox).Items.Length; i++)
-                    textHeight += Game.Content.Load<SpriteFont>(component.Font).MeasureString((component as ListBox).Items[i].Text).Y;
 
             if (textHeight > component.Bounds.Y)
             {
@@ -362,6 +397,11 @@ namespace VOiD.Components
                 if (DownRect.Contains(InputHandler.MouseX, InputHandler.MouseY) && InputHandler.LeftClickDown)
                     component.Scroll(component.DownScroller.scrollDirection);
             }
+        }
+
+        private void UpdateListBox(ListBox component)
+        {
+
         }
 
         public override void Update(GameTime gameTime)
@@ -403,6 +443,7 @@ namespace VOiD.Components
 
             base.Update(gameTime);
         }
+        #endregion
 
         public override void Draw(GameTime gameTime)
         {

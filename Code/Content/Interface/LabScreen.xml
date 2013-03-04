@@ -51,7 +51,8 @@
                 <isClickable>true</isClickable>
                 <TextureLocation>Lab/DNA</TextureLocation>
                 <fullscreen>false</fullscreen>
-                <Action>DNA</Action>
+                <!--<Action>DNA</Action>-->
+                <Action>OpenListTest</Action>
                 <Children></Children>
               </Item>
             </Children>

@@ -55,13 +55,13 @@ namespace GameLibrary
         public Vector2 offset=Vector2.Zero;
     }
 
+    public class Scroller : GraphicObject
+    {
+        public Vector2 scrollDirection;
+    }
+
     public class TextBoxObject : TextObject
     {
-        public class Scroller : GraphicObject
-        {
-            public Vector2 scrollDirection;
-        }
-
         public Vector2 Bounds;
         public Scroller UpScroller, DownScroller;
         [ContentSerializerIgnore]
@@ -75,8 +75,35 @@ namespace GameLibrary
         }
     }
 
-    public class ListBox : TextBoxObject
+    public class ListBox : Object2D
     {
-        public TextObject[] Items;
+        public string ListContentType;
+        public string Font;
+        public Vector3 fontColor;
+        public Vector2 Bounds;
+        public Scroller UpScroller, DownScroller;
+        public Vector2 ioffset;
+
+        public class Item
+        {
+            public Texture2D Texture;
+            public Vector2 offset;
+            public Rectangle BoundingRect;
+            public string Action;
+            public void Update()
+            {
+                BoundingRect = new Rectangle((int)offset.X, (int)offset.Y, Texture.Width, Texture.Height);
+            }
+        }
+
+        [ContentSerializerIgnore] public Item[] Items;
+        [ContentSerializerIgnore] public Rectangle BoundingRect;
+        [ContentSerializerIgnore] public Vector2 currentOffset;
+        [ContentSerializerIgnore] public Vector2 offset = Vector2.Zero;
+
+        public void Scroll(Vector2 offset)
+        {
+            currentOffset += offset;
+        }
     }
 }
