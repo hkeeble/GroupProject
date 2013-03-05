@@ -315,6 +315,7 @@
       <Name>SubMenuDNAInventory</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
+      <SubType>Designer</SubType>
     </Compile>
     <Compile Include="Interface\Assets\Lab\BreedButton.png">
       <Name>BreedButton</Name>

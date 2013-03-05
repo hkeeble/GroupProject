@@ -250,11 +250,6 @@ namespace VOiD.Components
 
                 component.Items = new ListBox.Item[itemText.Length];
 
-                // Get background color
-                Color[] backColor = new Color[Parent.Texture.Width*Parent.Texture.Height];
-                Parent.Texture.GetData<Color>(backColor);
-                Color BackColor = backColor[0];
-
                 for (int i = 0; i < component.Items.Length; i++)
                 {
                     // Create RenderTarget of correct size
@@ -264,7 +259,7 @@ namespace VOiD.Components
                         
                     // Render string to RenderTarget
                     Configuration.GraphicsDevice.SetRenderTarget(target);
-                    Configuration.GraphicsDevice.Clear(BackColor);
+                    Configuration.GraphicsDevice.Clear(new Color(0, 0, 0, 0));
                     SpriteManager.End();
                     SpriteManager.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend, SamplerState.PointClamp, null, null);
                     SpriteManager.DrawString(font, itemText[i], Vector2.Zero, new Color(component.fontColor));
