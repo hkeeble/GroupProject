@@ -135,8 +135,8 @@ namespace VOiD.Components
                 {
                     SpriteManager.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend);
 
-                    if (!EditMode)
-                        Minimap.Draw();
+                    //if (!EditMode)
+                    //    Minimap.Draw();
                     Player.Draw();
                     TileMap.Draw();
                     Lab.Draw();

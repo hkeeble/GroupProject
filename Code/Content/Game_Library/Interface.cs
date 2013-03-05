@@ -27,17 +27,16 @@ namespace GameLibrary
     {
         public Vector2 iSize;
         public Vector2 iPosition;
-        [ContentSerializerIgnore]
-        public Vector2 Size=Vector2.Zero;
-        [ContentSerializerIgnore]
-        public Vector2 Position=Vector2.Zero;
         public bool isClickable;
         public string TextureLocation;
         public bool fullscreen;
         public string Action;
-        [ContentSerializerIgnore]
-        public Texture2D Texture = null;
         public List<Object2D> Children;
+
+        [ContentSerializerIgnore] public Vector2 Size = Vector2.Zero;
+        [ContentSerializerIgnore] public Vector2 Position = Vector2.Zero;
+        [ContentSerializerIgnore] public Texture2D Texture = null;
+
         public GraphicObject()
         {
             Children = new List<Object2D>();
@@ -103,5 +102,10 @@ namespace GameLibrary
         {
             currentOffset += offset;
         }
+    }
+
+    public class MinimapObject : GraphicObject
+    {
+        [ContentSerializerIgnore] public Rectangle DrawRect;
     }
 }

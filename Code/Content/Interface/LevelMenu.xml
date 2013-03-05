@@ -18,7 +18,17 @@
         <TextureLocation>Level</TextureLocation>
         <fullscreen>true</fullscreen>
         <Action></Action>
-        <Children></Children>
+        <Children>
+          <Item Type="GameLibrary.MinimapObject">
+            <iSize>13 18</iSize>
+            <iPosition>5 77</iPosition>
+            <isClickable>false</isClickable>
+            <TextureLocation>~minimap</TextureLocation>
+            <fullscreen>true</fullscreen>
+            <Action></Action>
+            <Children></Children>
+          </Item>
+        </Children>
       </Item>
     </content>
     <backgroundColor>ff000000</backgroundColor>

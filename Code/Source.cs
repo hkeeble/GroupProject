@@ -62,5 +62,12 @@ namespace VOiD
             GraphicsDevice.Clear(Interface.BackgroundColor);
             base.Draw(gameTime);
         }
+        
+        protected override void UnloadContent()
+        {
+            // Delete temporary minimap file from folder.
+            File.Delete("~minimap.png");
+            base.LoadContent();
+        }
     }
 }

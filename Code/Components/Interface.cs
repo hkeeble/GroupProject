@@ -45,6 +45,10 @@ namespace VOiD.Components
             {
                 DrawGraphicComponent((component as GraphicObject), ref parent);
             }
+            else if (component.GetType() == typeof(MinimapObject))
+            {
+                DrawMinimapObject((component as MinimapObject), ref parent);
+            }
             else if (component.GetType() == typeof(TextObject))
             {
                 if (parent.GetType() == typeof(GraphicObject))
@@ -304,6 +308,27 @@ namespace VOiD.Components
             {
                 SpriteManager.Draw(component.Texture, new Rectangle((int)component.Position.X, (int)component.Position.Y, (int)component.Size.X, (int)component.Size.Y), null, Color.White);
             }
+        }
+
+        // Draw Minimap
+        private void DrawMinimapObject(MinimapObject minimap, ref Object2D parent)
+        {
+            if (minimap.Init == false)
+            {
+                System.IO.Stream stream = System.IO.File.Open(minimap.TextureLocation + ".png", System.IO.FileMode.Open);
+                minimap.Texture = Texture2D.FromStream(Configuration.GraphicsDevice, stream);
+                stream.Close();
+                minimap.Init = true;
+            }
+
+            minimap.Size.X = ((parent as GraphicObject).Size.X / 100 * minimap.iSize.X);
+            minimap.Size.Y = ((parent as GraphicObject).Size.Y / 100 * minimap.iSize.Y);
+            minimap.DrawRect = new Rectangle(GameHandler.Player.CurrentTile.X*4, GameHandler.Player.CurrentTile.Y*4, (int)minimap.Size.X, (int)minimap.Size.Y);
+            minimap.Position.X = ((parent as GraphicObject).Size.X / 100 * minimap.iPosition.X);
+            minimap.Position.Y = ((parent as GraphicObject).Size.Y / 100 * minimap.iPosition.Y);
+            minimap.Position += (parent as GraphicObject).Position;
+
+            SpriteManager.Draw(minimap.Texture, new Vector2(minimap.Position.X, minimap.Position.Y), minimap.DrawRect, Color.White);
         }
         #endregion
 

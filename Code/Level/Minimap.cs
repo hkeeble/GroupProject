@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using VOiD.Components;
+using System.IO;
 
 namespace VOiD
 {
@@ -43,16 +44,10 @@ namespace VOiD
             // Impose Lab Texture
             minimap.SetData<Color>(0, new Rectangle((int)GameHandler.TileMap.LabPosition.X / divisor, (int)GameHandler.TileMap.LabPosition.Y/ divisor, labTex.Width / divisor, labTex.Height / divisor),
                 labData, 0, labData.Length);
-        }
 
-        public void Draw()
-        {
-            SpriteManager.Draw(minimap, new Rectangle(50, Configuration.Height - 128 - 10, (int)DrawDimensions.X + 8, (int)DrawDimensions.Y),
-                                new Rectangle(GameHandler.Player.CurrentTile.X * 8,
-                                GameHandler.Player.CurrentTile.Y * 8, (int)MathHelper.Clamp(128, 0, minimap.Width),
-                                (int)MathHelper.Clamp(128, 0, minimap.Height)), Color.White, 0f, Vector2.Zero, SpriteEffects.None, 1f);
+            Stream stream = File.Create("~minimap.png");
+            minimap.SaveAsPng(stream, minimap.Width, minimap.Height);
+            stream.Close();
         }
-
-        private Vector2 DrawDimensions { get { return new Vector2(128, 128); } } // Needs to change depending on viewport size
     }
 }
