@@ -259,7 +259,7 @@ namespace VOiD.Components
                         
                     // Render string to RenderTarget
                     Configuration.GraphicsDevice.SetRenderTarget(target);
-                    Configuration.GraphicsDevice.Clear(new Color(0, 0, 0, 0));
+                    Configuration.GraphicsDevice.Clear(Color.Transparent);
                     SpriteManager.End();
                     SpriteManager.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend, SamplerState.PointClamp, null, null);
                     SpriteManager.DrawString(font, itemText[i], Vector2.Zero, new Color(component.fontColor));
