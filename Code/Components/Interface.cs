@@ -95,6 +95,8 @@ namespace VOiD.Components
             {
                 if (component.Text == "@currentRes")
                     temp = Configuration.Width.ToString() + "x" + Configuration.Height.ToString();
+
+                // Number Of Items
                 if (component.Text == "@NumberOfApples")
                     temp = "x" + Convert.ToString(GameHandler.Inventory.NumberOfApples);
                 if (component.Text == "@NumberOfChilli")
@@ -105,6 +107,53 @@ namespace VOiD.Components
                     temp = "x" + Convert.ToString(GameHandler.Inventory.NumberOfHoney);
                 if (component.Text == "@NumberOfSpringWater")
                     temp = "x" + Convert.ToString(GameHandler.Inventory.NumberOfSpringWater);
+
+                // -- HOOK UP PLAYER STATISTICS HERE -- \\
+                // Player Statistics
+                if (component.Text == "@PlayerWeight")
+                    temp = "Weight: ";
+                if (component.Text == "@PlayerStrength")
+                    temp = "Strength: ";
+                if (component.Text == "@PlayerDexterity")
+                    temp = "Dexterity: ";
+                if (component.Text == "@PlayerEndurance")
+                    temp = "Endurance: ";
+                if (component.Text == "@PlayerHealth")
+                    temp = "Health: ";
+                if (component.Text == "@PlayerSpeed")
+                    temp = "Speed: ";
+                
+                // Behavioural Traits
+                if (component.Text == "@PlayerObedience")
+                    temp = "Obedience: ";
+                if (component.Text == "@PlayerAggressiveness")
+                    temp = "Aggressiveness: ";
+                if (component.Text == "@PlayerFocus")
+                    temp = "Focus: ";
+
+                // -- HOOK UP SELECTED STATISTICS HERE (USING GAMEHANDLER.INVENTORY.SelectedDNA) -- \\
+                // Selected DNA Statistics
+                if (component.Text == "@SelectedWeight")
+                    temp = "Weight: ";
+                if (component.Text == "@SelectedStrength")
+                    temp = "Strength: ";
+                if (component.Text == "@SelectedDexterity")
+                    temp = "Dexterity: ";
+                if (component.Text == "@SelectedEndurance")
+                    temp = "Endurance: ";
+                if (component.Text == "@SelectedHealth")
+                    temp = "Health: ";
+                if (component.Text == "@SelectedSpeed")
+                    temp = "Speed: ";
+
+                // Selected DNA Behavioural Traits
+                if (component.Text == "@SelectedObedience")
+                    temp = "Obedience: ";
+                if (component.Text == "@SelectedAggressiveness")
+                    temp = "Aggressiveness: ";
+                if (component.Text == "@SelectedFocus")
+                    temp = "Focus: ";
+
             }
             else
                 temp = component.Text;
@@ -158,6 +207,7 @@ namespace VOiD.Components
                 string[] itemText = new string[0];
                 string[] actions = new string[0];
 
+                // Displays player's attacks
                 if (component.ListContentType == "PlayerAttacks")
                 {
                     itemText = new string[GameHandler.Player.AvailableAttacks.Count];
@@ -168,6 +218,31 @@ namespace VOiD.Components
                         itemText[i] = GameHandler.Player.AvailableAttacks[i].Name;
                         actions[i] = "PlayerUse" + GameHandler.Player.AvailableAttacks[i].Name;
                     }
+                }
+
+                // Displays player's traits
+                if (component.ListContentType == "PlayerTraits")
+                {
+                    // -- DISPLAY TRAITS HERE \\
+                }
+
+                // Displays player's owned DNA
+                if (component.ListContentType == "PlayerDNAInventory")
+                {
+                    itemText = new string[GameHandler.Inventory.DNA.Count];
+                    actions = new string[GameHandler.Inventory.DNA.Count];
+
+                    for (int i = 0; i < itemText.Length; i++)
+                    {
+                        itemText[i] = Convert.ToString(GameHandler.Inventory.DNA[i].ID);
+                        actions[i] = Convert.ToString(GameHandler.Inventory.DNA[i].ID);
+                    }
+                }
+
+                // Displays currently selected DNA's traits
+                if (component.ListContentType == "SelectedDNATraits")
+                {
+                    // -- DISPLAY SELECTED CREATURE'S TRAITS HERE -- \\
                 }
 
                 // The following will render the text to their own individual textures with bounding rects
@@ -210,10 +285,9 @@ namespace VOiD.Components
 
                     // Set component's Action
                     component.Items[i].Action = actions[i];
-                    }
-
-                    component.currentOffset = Vector2.Zero;
                 }
+                    component.currentOffset = Vector2.Zero;
+            }
 
             component.Init = true;
 
@@ -281,7 +355,6 @@ namespace VOiD.Components
 
                 if (((component.GetType() == typeof(GraphicObject)) || component.GetType() == typeof(Scroller)) && (parent.GetType() == typeof(GraphicObject)))
                 {
-                    
                     component.Size.X = ((parent as GraphicObject).Size.X / 100 * component.iSize.X);
                     component.Size.Y = ((parent as GraphicObject).Size.Y / 100 * component.iSize.Y);
                     component.Position.X = ((parent as GraphicObject).Size.X / 100 * component.iPosition.X) - (component.Size.X / 2);
@@ -390,6 +463,10 @@ namespace VOiD.Components
                 #region Lab Menu Actions
                 if (component.Action.Equals("Creature"))
                     subMenu = Game.Content.Load<GameLibrary.Interface>("Interface/SubMenuCreatureInfo");
+                if (component.Action.Equals("OpenDNAInventory"))
+                    subMenu = Game.Content.Load<GameLibrary.Interface>("Interface/SubMenuDNAInventory");
+                if (component.Action.Equals("BreedCurrentSelection"))
+                    GameHandler.Inventory.UseDNA();
                 if (component.Action.Equals("exit"))
                     Interface.currentScreen = Screens.LevelMenu;
                 #endregion
@@ -481,13 +558,24 @@ namespace VOiD.Components
                 }
             }
 
-            // Update Items
-            if (InputHandler.LeftClickPressed)
+
+            if (component.isClickable)
             {
-                for (int i = 0; i < component.Items.Length; i++)
+                // Update Items
+                if (InputHandler.LeftClickPressed)
                 {
-                    if(component.Items[i].BoundingRect.Contains(InputHandler.MouseX, InputHandler.MouseY))
-                        Console.WriteLine("Clicked ListBox item with action: " + component.Items[i].Action);
+                    for (int i = 0; i < component.Items.Length; i++)
+                    {
+                        if (component.Items[i].BoundingRect.Contains(InputHandler.MouseX, InputHandler.MouseY))
+                        {
+                            #region PlayerDNAInventory Actions
+                            if (component.ListContentType == "PlayerDNAInventory")
+                                GameHandler.Inventory.SetDNA(i);
+                            #endregion
+                            
+                            // Add if statements for other list actions here
+                        }
+                    }
                 }
             }
         }

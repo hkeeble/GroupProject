@@ -34,6 +34,7 @@ Content\Interface\Assets\upArrow.xnb
 Content\Interface\Assets\TextBoxBackground.xnb
 Content\Interface\Assets\InventoryScreen.xnb
 Content\Interface\Assets\ExitButton.xnb
+Content\Interface\Assets\Lab\BreedButton.xnb
 Content\Interface\Configuration.xnb
 Content\Interface\MainMenu.xnb
 Content\Interface\LevelMenu.xnb
@@ -42,6 +43,7 @@ Content\Interface\BattleScreen.xnb
 Content\Interface\LabScreen.xnb
 Content\Interface\SubMenuCreatureInfo.xnb
 Content\Interface\SubMenuInventory.xnb
+Content\Interface\SubMenuDNAInventory.xnb
 Content\SegoeUI.xnb
 Content\Tilesets\Tileset.png
 Content\Maps\Level1.map

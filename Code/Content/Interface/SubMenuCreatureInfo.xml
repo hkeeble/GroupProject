@@ -37,42 +37,42 @@
                 <ioffset>60 0</ioffset>
               </Item>
               <Item Type="GameLibrary.TextObject">
-                <Text>Weight:</Text>
+                <Text>@PlayerWeight</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>255 255 255</fontColor>
                 <isCentered>false</isCentered>
                 <ioffset>60 5</ioffset>
               </Item>
               <Item Type="GameLibrary.TextObject">
-                <Text>Strength:</Text>
+                <Text>@PlayerStrength</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>255 255 255</fontColor>
                 <isCentered>false</isCentered>
                 <ioffset>60 15</ioffset>
               </Item>
               <Item Type="GameLibrary.TextObject">
-                <Text>Dexterity:</Text>
+                <Text>@PlayerDexterity</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>255 255 255</fontColor>
                 <isCentered>false</isCentered>
                 <ioffset>60 25</ioffset>
               </Item>
               <Item Type="GameLibrary.TextObject">
-                <Text>Health:</Text>
+                <Text>@PlayerHealth</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>255 255 255</fontColor>
                 <isCentered>false</isCentered>
                 <ioffset>80 5</ioffset>
               </Item>
               <Item Type="GameLibrary.TextObject">
-                <Text>Endurance:</Text>
+                <Text>@PlayerEndurance</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>255 255 255</fontColor>
                 <isCentered>false</isCentered>
                 <ioffset>80 15</ioffset>
               </Item>
               <Item Type="GameLibrary.TextObject">
-                <Text>Speed:</Text>
+                <Text>@PlayerSpeed</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>255 255 255</fontColor>
                 <isCentered>false</isCentered>
@@ -87,21 +87,21 @@
                 <ioffset>60 35</ioffset>
               </Item>
               <Item Type="GameLibrary.TextObject">
-                <Text>Agressiveness:</Text>
+                <Text>@PlayerAggressiveness</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>255 255 255</fontColor>
                 <isCentered>false</isCentered>
                 <ioffset>60 40</ioffset>
               </Item>
               <Item Type="GameLibrary.TextObject">
-                <Text>Focus:</Text>
+                <Text>@PlayerFocus</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>255 255 255</fontColor>
                 <isCentered>false</isCentered>
                 <ioffset>60 50</ioffset>
               </Item>
               <Item Type="GameLibrary.TextObject">
-                <Text>Obedience:</Text>
+                <Text>@PlayerObedience</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>255 255 255</fontColor>
                 <isCentered>false</isCentered>
@@ -157,6 +157,7 @@
                       <scrollDirection>0 -5</scrollDirection>
                     </DownScroller>
                     <ioffset>5 2</ioffset>
+                    <isClickable>false</isClickable>
                   </Item>
                 </Children>
               </Item>
@@ -166,43 +167,24 @@
                 <Font>SegoeUI</Font>
                 <fontColor>255 255 0</fontColor>
                 <isCentered>false</isCentered>
-                <ioffset>7 0</ioffset>
+                <ioffset>12 0</ioffset>
               </Item>
-               <!--Traits TextBox--> 
+              <!--Traits ListBox-->
               <Item Type="GameLibrary.GraphicObject">
-                <iSize>25 80</iSize>
-                <iPosition>14 50</iPosition>
+                <iSize>35 90</iSize>
+                <iPosition>18 53</iPosition>
                 <isClickable>false</isClickable>
                 <TextureLocation>TextBoxBackground</TextureLocation>
                 <fullscreen>false</fullscreen>
                 <Action></Action>
                 <Children>
-                  <Item Type="GameLibrary.TextBoxObject">
-                    <Text> 
-                    Arms
-                    Legs
-                    Wings
-                    Tail
-                    Claws
-                    Horns
-                    Shell
-                    Shell
-                    Shell
-                    Shell
-                    Horns
-                    Claws
-                    Wings
-                    Tail
-                    Legs
-                    Arms
-                    Stuff</Text>
+                  <Item Type="GameLibrary.ListBox">
+                    <ListContentType>PlayerTraits</ListContentType>
                     <Font>SegoeUI</Font>
-                    <fontColor>0 0 0</fontColor>
-                    <isCentered>false</isCentered>
-                    <ioffset>-40 0</ioffset>
+                    <fontColor>255 255 255</fontColor>
                     <UpScroller>
                       <iSize>15 10</iSize>
-                      <iPosition>80 10</iPosition>
+                      <iPosition>90 10</iPosition>
                       <isClickable>true</isClickable>
                       <TextureLocation>upArrow</TextureLocation>
                       <fullscreen>false</fullscreen>
@@ -212,7 +194,7 @@
                     </UpScroller>
                     <DownScroller>
                       <iSize>15 10</iSize>
-                      <iPosition>80 90</iPosition>
+                      <iPosition>90 90</iPosition>
                       <isClickable>true</isClickable>
                       <TextureLocation>downArrow</TextureLocation>
                       <fullscreen>false</fullscreen>
@@ -220,6 +202,8 @@
                       <Children></Children>
                       <scrollDirection>0 -5</scrollDirection>
                     </DownScroller>
+                    <ioffset>5 2</ioffset>
+                    <isClickable>false</isClickable>
                   </Item>
                 </Children>
               </Item>

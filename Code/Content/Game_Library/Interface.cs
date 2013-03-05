@@ -80,6 +80,7 @@ namespace GameLibrary
         public Vector3 fontColor;
         public Scroller UpScroller, DownScroller;
         public Vector2 ioffset;
+        public bool isClickable;
 
         public class Item
         {

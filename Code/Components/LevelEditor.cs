@@ -323,16 +323,7 @@ namespace VOiD.Components
             sr.ReadLine();
             string NestData = Convert.ToString(GameHandler.Nests.Count) + "\n";
             for (int i = 0; i < GameHandler.Nests.Count; i++) // Create new nest data
-            {
                 NestData += (GameHandler.Nests[i].CollisionRect.X / GameHandler.TileMap.TileWidth) + "-" + (GameHandler.Nests[i].CollisionRect.Y / GameHandler.TileMap.TileHeight) + "\n" + GameHandler.Nests[i].ID + "\n";
-
-                //foreach (Point tile in modifiedTiles)
-                //{
-                //    Nest nest = GameHandler.CheckNests(new Point(tile.X * GameHandler.TileMap.TileWidth, tile.Y * GameHandler.TileMap.TileHeight));
-                //    if (nest != null)
-                //        NestData += (nest.CollisionRect.X / GameHandler.TileMap.TileWidth) + "-" + (nest.CollisionRect.Y / GameHandler.TileMap.TileHeight) + "\n" + nest.ID + "\n";
-                //}
-            }
 
             sr.Close();
 
