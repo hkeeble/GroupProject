@@ -323,7 +323,11 @@ namespace VOiD.Components
 
             minimap.Size.X = ((parent as GraphicObject).Size.X / 100 * minimap.iSize.X);
             minimap.Size.Y = ((parent as GraphicObject).Size.Y / 100 * minimap.iSize.Y);
-            minimap.DrawRect = new Rectangle(GameHandler.Player.CurrentTile.X*4, GameHandler.Player.CurrentTile.Y*4, (int)minimap.Size.X, (int)minimap.Size.Y);
+            minimap.DrawRect = new Rectangle(
+                              (int)(MathHelper.Clamp(((float)GameHandler.Player.CurrentTile.X * 4) - (minimap.Size.X / 2), 0.0f, minimap.Texture.Width)),
+                              (int)(MathHelper.Clamp((GameHandler.Player.CurrentTile.Y * 4) - ((int)minimap.Size.Y / 2), 0.0f, minimap.Texture.Height)),
+                              (int)minimap.Size.X,
+                              (int)minimap.Size.Y);
             minimap.Position.X = ((parent as GraphicObject).Size.X / 100 * minimap.iPosition.X);
             minimap.Position.Y = ((parent as GraphicObject).Size.Y / 100 * minimap.iPosition.Y);
             minimap.Position += (parent as GraphicObject).Position;
