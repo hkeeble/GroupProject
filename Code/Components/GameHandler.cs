@@ -109,6 +109,7 @@ namespace VOiD.Components
                 #region Level Edit
                 if (InputHandler.KeyPressed(Keys.F1))
                 {
+                   
                     Game1.LevelEditor.Enabled = true;
                     Game1.LevelEditor.Visible = true;
                     EditMode = true;
@@ -128,17 +129,17 @@ namespace VOiD.Components
 
          public override void Draw(GameTime gameTime)
         {
-            if (Interface.currentScreen == Screens.LevelMenu)
+            if (Interface.currentScreen == Screens.LevelMenu || Interface.currentScreen == Screens.BLANK)
             {
                 #region Draw Map and Entities
                 if (Enabled || EditMode)
                 {
                     SpriteManager.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend);
 
-                    //if (!EditMode)
-                    //    Minimap.Draw();
-                    Player.Draw();
+                    if(!EditMode)
+                        Player.Draw();
                     TileMap.Draw();
+
                     Lab.Draw();
                     Boss.Draw();
 
@@ -154,6 +155,7 @@ namespace VOiD.Components
                 }
                 #endregion
             }
+            base.Draw(gameTime);
         }
 
         #region Handle Input

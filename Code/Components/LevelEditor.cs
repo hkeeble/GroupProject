@@ -63,9 +63,11 @@ namespace VOiD.Components
 
                 Color[] currentTileData = new Color[GameHandler.TileMap.TileWidth * GameHandler.TileMap.TileHeight];
 
+                // Get TileSet dimensions
                 int xTiles = GameHandler.TileMap.TileSet.Width/GameHandler.TileMap.TileWidth;
                 int yTiles = GameHandler.TileMap.TileSet.Height/GameHandler.TileMap.TileHeight;
 
+                // Get Tileset Data
                 for (int x = 0; x < xTiles; x++)
                 {
                     for (int y = 0; y < yTiles; y++)
@@ -79,9 +81,15 @@ namespace VOiD.Components
                     }
                 }
 
-                currentTile = Point.Zero;
+                // Initialize Current Tile and selectedTileData
+                currentTile = new Point(1, 0);
                 selectedTileData = new Color[GameHandler.TileMap.TileWidth * GameHandler.TileMap.TileHeight];
+                tiles[currentTile.X, currentTile.Y].GetData<Color>(selectedTileData);
+
+                // Default Camera 
                 Camera.Move(Vector2.Zero);
+
+                // Initialize modified tiles
                 modifiedTiles = new List<Point>();
             }
             else if(Interface.currentScreen == Screens.BLANK)
@@ -223,7 +231,6 @@ namespace VOiD.Components
                                 if (i != null)
                                     GameHandler.RemoveItem(i);
                             }
-
                             break;
                         case Mode.Nest:
                             if (InputHandler.LeftClickPressed)
@@ -317,12 +324,14 @@ namespace VOiD.Components
             string NestData = Convert.ToString(GameHandler.Nests.Count) + "\n";
             for (int i = 0; i < GameHandler.Nests.Count; i++) // Create new nest data
             {
-                foreach (Point tile in modifiedTiles)
-                {
-                    Nest nest = GameHandler.CheckNests(new Point(tile.X * GameHandler.TileMap.TileWidth, tile.Y * GameHandler.TileMap.TileHeight));
-                    if (nest != null)
-                        NestData += (nest.CollisionRect.X / GameHandler.TileMap.TileWidth) + "-" + (nest.CollisionRect.Y / GameHandler.TileMap.TileHeight) + "\n" + nest.ID + "\n";
-                }
+                NestData += (GameHandler.Nests[i].CollisionRect.X / GameHandler.TileMap.TileWidth) + "-" + (GameHandler.Nests[i].CollisionRect.Y / GameHandler.TileMap.TileHeight) + "\n" + GameHandler.Nests[i].ID + "\n";
+
+                //foreach (Point tile in modifiedTiles)
+                //{
+                //    Nest nest = GameHandler.CheckNests(new Point(tile.X * GameHandler.TileMap.TileWidth, tile.Y * GameHandler.TileMap.TileHeight));
+                //    if (nest != null)
+                //        NestData += (nest.CollisionRect.X / GameHandler.TileMap.TileWidth) + "-" + (nest.CollisionRect.Y / GameHandler.TileMap.TileHeight) + "\n" + nest.ID + "\n";
+                //}
             }
 
             sr.Close();
