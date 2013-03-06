@@ -11,19 +11,28 @@
         <Action></Action>
         <Children>
           <Item Type="GameLibrary.GraphicObject">
-            <iSize>80 65</iSize>
+            <iSize>65 65</iSize>
             <iPosition>50 50</iPosition>
             <isClickable>false</isClickable>
-            <TextureLocation>Window</TextureLocation>
+            <TextureLocation>PopUp</TextureLocation>
             <fullscreen>false</fullscreen>
             <Action></Action>
             <Children>
+              <Item Type="GameLibrary.GraphicObject">
+                <iSize>45 15</iSize>
+                <iPosition>50 15</iPosition>
+                <isClickable>false</isClickable>
+                <TextureLocation>creatureInfoTitle</TextureLocation>
+                <fullscreen>false</fullscreen>
+                <Action></Action>
+                <Children></Children>
+              </Item>
               <!--Exit Button-->
               <Item Type="GameLibrary.GraphicObject">
                 <iSize>10 15</iSize>
-                <iPosition>95 0</iPosition>
+                <iPosition>95 10</iPosition>
                 <isClickable>true</isClickable>
-                <TextureLocation>ExitButton</TextureLocation>
+                <TextureLocation>Close</TextureLocation>
                 <fullscreen>false</fullscreen>
                 <Action>DeleteSubMenu</Action>
                 <Children></Children>
@@ -34,49 +43,49 @@
                 <Font>SegoeUI</Font>
                 <fontColor>255 255 0</fontColor>
                 <isCentered>false</isCentered>
-                <ioffset>60 0</ioffset>
+                <ioffset>43 25</ioffset>
               </Item>
               <Item Type="GameLibrary.TextObject">
                 <Text>@PlayerWeight</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>255 255 255</fontColor>
                 <isCentered>false</isCentered>
-                <ioffset>60 5</ioffset>
+                <ioffset>43 30</ioffset>
               </Item>
               <Item Type="GameLibrary.TextObject">
                 <Text>@PlayerStrength</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>255 255 255</fontColor>
                 <isCentered>false</isCentered>
-                <ioffset>60 15</ioffset>
+                <ioffset>43 35</ioffset>
               </Item>
               <Item Type="GameLibrary.TextObject">
                 <Text>@PlayerDexterity</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>255 255 255</fontColor>
                 <isCentered>false</isCentered>
-                <ioffset>60 25</ioffset>
+                <ioffset>43 40</ioffset>
               </Item>
               <Item Type="GameLibrary.TextObject">
                 <Text>@PlayerHealth</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>255 255 255</fontColor>
                 <isCentered>false</isCentered>
-                <ioffset>80 5</ioffset>
+                <ioffset>70 30</ioffset>
               </Item>
               <Item Type="GameLibrary.TextObject">
                 <Text>@PlayerEndurance</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>255 255 255</fontColor>
                 <isCentered>false</isCentered>
-                <ioffset>80 15</ioffset>
+                <ioffset>70 35</ioffset>
               </Item>
               <Item Type="GameLibrary.TextObject">
                 <Text>@PlayerSpeed</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>255 255 255</fontColor>
                 <isCentered>false</isCentered>
-                <ioffset>80 25</ioffset>
+                <ioffset>70 40</ioffset>
               </Item>
               <!--Behaviour-->
               <Item Type="GameLibrary.TextObject">
@@ -84,49 +93,49 @@
                 <Font>SegoeUI</Font>
                 <fontColor>255 255 0</fontColor>
                 <isCentered>false</isCentered>
-                <ioffset>60 35</ioffset>
+                <ioffset>43 45</ioffset>
               </Item>
               <Item Type="GameLibrary.TextObject">
                 <Text>@PlayerAggressiveness</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>255 255 255</fontColor>
                 <isCentered>false</isCentered>
-                <ioffset>60 40</ioffset>
+                <ioffset>43 50</ioffset>
               </Item>
               <Item Type="GameLibrary.TextObject">
                 <Text>@PlayerFocus</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>255 255 255</fontColor>
                 <isCentered>false</isCentered>
-                <ioffset>60 50</ioffset>
+                <ioffset>43 55</ioffset>
               </Item>
               <Item Type="GameLibrary.TextObject">
                 <Text>@PlayerObedience</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>255 255 255</fontColor>
                 <isCentered>false</isCentered>
-                <ioffset>60 60</ioffset>
+                <ioffset>43 60</ioffset>
               </Item>
-              <!-- Abilities -->
+              <!-- Abilities --><!--
               <Item Type="GameLibrary.TextObject">
                 <Text>ABILITIES</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>255 255 0</fontColor>
                 <isCentered>false</isCentered>
                 <ioffset>80 35</ioffset>
-              </Item>
+              </Item>-->
               <!-- Attacks -->
               <Item Type="GameLibrary.TextObject">
                 <Text>ATTACKS</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>255 255 0</fontColor>
                 <isCentered>false</isCentered>
-                <ioffset>80 50</ioffset>
+                <ioffset>70 45</ioffset>
               </Item>
               <!-- Attacks ListBox -->
               <Item Type="GameLibrary.GraphicObject">
                 <iSize>20 35</iSize>
-                <iPosition>90 75</iPosition>
+                <iPosition>80 70</iPosition>
                 <isClickable>false</isClickable>
                 <TextureLocation>TextBoxBackground</TextureLocation>
                 <fullscreen>false</fullscreen>
@@ -167,12 +176,12 @@
                 <Font>SegoeUI</Font>
                 <fontColor>255 255 0</fontColor>
                 <isCentered>false</isCentered>
-                <ioffset>12 0</ioffset>
+                <ioffset>8 25</ioffset>
               </Item>
               <!--Traits ListBox-->
               <Item Type="GameLibrary.GraphicObject">
-                <iSize>35 90</iSize>
-                <iPosition>18 53</iPosition>
+                <iSize>35 60</iSize>
+                <iPosition>25 60</iPosition>
                 <isClickable>false</isClickable>
                 <TextureLocation>TextBoxBackground</TextureLocation>
                 <fullscreen>false</fullscreen>

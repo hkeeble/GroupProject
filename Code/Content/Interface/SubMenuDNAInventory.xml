@@ -117,67 +117,67 @@
                 <Font>SegoeUI</Font>
                 <fontColor>0 0 0</fontColor>
                 <isCentered>false</isCentered>
-                <ioffset>75 5</ioffset>
+                <ioffset>65 10</ioffset>
               </Item>
               <Item Type="GameLibrary.TextObject">
                 <Text>@SelectedStrength</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>0 0 0</fontColor>
                 <isCentered>false</isCentered>
-                <ioffset>75 10</ioffset>
+                <ioffset>65 15</ioffset>
               </Item>
               <Item Type="GameLibrary.TextObject">
                 <Text>@SelectedDexterity</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>0 0 0</fontColor>
                 <isCentered>false</isCentered>
-                <ioffset>75 15</ioffset>
+                <ioffset>65 20</ioffset>
               </Item>
               <Item Type="GameLibrary.TextObject">
                 <Text>@SelectedEndurance</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>0 0 0</fontColor>
                 <isCentered>false</isCentered>
-                <ioffset>75 20</ioffset>
+                <ioffset>65 25</ioffset>
               </Item>
               <Item Type="GameLibrary.TextObject">
                 <Text>@SelectedHealth</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>0 0 0</fontColor>
                 <isCentered>false</isCentered>
-                <ioffset>75 25</ioffset>
+                <ioffset>65 30</ioffset>
               </Item>
               <Item Type="GameLibrary.TextObject">
                 <Text>@SelectedSpeed</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>0 0 0</fontColor>
                 <isCentered>false</isCentered>
-                <ioffset>75 30</ioffset>
+                <ioffset>65 35</ioffset>
               </Item>
               <Item Type="GameLibrary.TextObject">
                 <Text>@SelectedObedience</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>0 0 0</fontColor>
                 <isCentered>false</isCentered>
-                <ioffset>75 35</ioffset>
+                <ioffset>65 40</ioffset>
               </Item>
               <Item Type="GameLibrary.TextObject">
                 <Text>@SelectedAggressiveness</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>0 0 0</fontColor>
                 <isCentered>false</isCentered>
-                <ioffset>75 40</ioffset>
+                <ioffset>65 45</ioffset>
               </Item>
               <Item Type="GameLibrary.TextObject">
                 <Text>@SelectedFocust</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>0 0 0</fontColor>
                 <isCentered>false</isCentered>
-                <ioffset>75 45</ioffset>
+                <ioffset>65 50</ioffset>
               </Item>
               <Item Type="GameLibrary.GraphicObject">
-                <iSize>20 15</iSize>
-                <iPosition>90 90</iPosition>
+                <iSize>15 10</iSize>
+                <iPosition>85 85</iPosition>
                 <isClickable>true</isClickable>
                 <TextureLocation>Lab/BreedButton</TextureLocation>
                 <fullscreen>false</fullscreen>
