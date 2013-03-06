@@ -18,7 +18,8 @@ namespace VOiD.Components
         public static Minimap Minimap;
         public static Creature Player;
         public static Inventory Inventory;
-        public static bool Enabled = true;
+        public static new bool Enabled = true;
+        public static new bool Visible = true;
         public static bool EditMode = false;
         
         private static List<Nest> nests = new List<Nest>();
@@ -31,7 +32,8 @@ namespace VOiD.Components
             : base(game)
         {
             Inventory = new Inventory(NUMBER_OF_ITEM_TYPES, game.Content);
-            SaveHandler.LoadSave(game.GraphicsDevice, Game.Content);
+            Enabled = false;
+            Visible = false;
         }
 
         #region Add/Remove Entities
@@ -98,6 +100,7 @@ namespace VOiD.Components
                     {
                         // INVOKE BOSS BATTLE HERE
                         LoadLevel(CurrentLevel + 1); // Move to next level
+                        SaveHandler.SaveGame();
                     }
 
                 // Check lab collision
@@ -129,33 +132,36 @@ namespace VOiD.Components
 
          public override void Draw(GameTime gameTime)
         {
-            if (Interface.currentScreen == Screens.LevelMenu || Interface.currentScreen == Screens.BLANK)
+            if (Visible)
             {
-                #region Draw Map and Entities
-                if (Enabled || EditMode)
+                if (Interface.currentScreen == Screens.LevelMenu || Interface.currentScreen == Screens.BLANK)
                 {
-                    SpriteManager.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend);
+                    #region Draw Map and Entities
+                    if (Enabled || EditMode)
+                    {
+                        SpriteManager.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend);
 
-                    if(!EditMode)
-                        Player.Draw();
-                    TileMap.Draw();
+                        if (!EditMode)
+                            Player.Draw();
+                        TileMap.Draw();
 
-                    Lab.Draw();
-                    Boss.Draw();
+                        Lab.Draw();
+                        Boss.Draw();
 
-                    if (nests.Count > 0)
-                        foreach (Nest n in nests)
-                            n.Draw();
+                        if (nests.Count > 0)
+                            foreach (Nest n in nests)
+                                n.Draw();
 
-                    if (Items.Count > 0)
-                        foreach (ItemEntity i in Items)
-                            i.Draw();
+                        if (Items.Count > 0)
+                            foreach (ItemEntity i in Items)
+                                i.Draw();
 
-                    SpriteManager.End();
+                        SpriteManager.End();
+                    }
+                    #endregion
                 }
-                #endregion
+                base.Draw(gameTime);
             }
-            base.Draw(gameTime);
         }
 
         #region Handle Input

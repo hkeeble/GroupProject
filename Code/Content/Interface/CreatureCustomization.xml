@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<XnaContent>
+  <Asset Type="GameLibrary.Interface">
+    <content>
+      <Item Type="GameLibrary.GraphicObject">
+        <iSize>0 0</iSize>
+        <iPosition>0 0</iPosition>
+        <isClickable>false</isClickable>
+        <TextureLocation>Vignette</TextureLocation>
+        <fullscreen>true</fullscreen>
+        <Action></Action>
+        <Children></Children>
+      </Item>
+      <Item Type="GameLibrary.GraphicObject">
+        <iSize>100 100</iSize>
+        <iPosition>0 0</iPosition>
+        <isClickable>false</isClickable>
+        <TextureLocation>CreatureCustomizer/Background</TextureLocation>
+        <fullscreen>true</fullscreen>
+        <Action></Action>
+        <Children>
+          <Item Type="GameLibrary.GraphicObject">
+            <iSize>25 25</iSize>
+            <iPosition>15 50</iPosition>
+            <isClickable>true</isClickable>
+            <TextureLocation>CreatureCustomizer/strengthButton</TextureLocation>
+            <fullscreen>false</fullscreen>
+            <Action>SelectStrengthBuild</Action>
+            <Children></Children>
+          </Item>
+          <Item Type="GameLibrary.GraphicObject">
+            <iSize>25 25</iSize>
+            <iPosition>50 50</iPosition>
+            <isClickable>true</isClickable>
+            <TextureLocation>CreatureCustomizer/speedButton</TextureLocation>
+            <fullscreen>false</fullscreen>
+            <Action>SelectSpeedBuild</Action>
+            <Children></Children>
+          </Item>
+          <Item Type="GameLibrary.GraphicObject">
+            <iSize>25 25</iSize>
+            <iPosition>85 50</iPosition>
+            <isClickable>true</isClickable>
+            <TextureLocation>CreatureCustomizer/enduranceButton</TextureLocation>
+            <fullscreen>false</fullscreen>
+            <Action>SelectEnduranceBuild</Action>
+            <Children></Children>
+          </Item>
+        </Children>
+      </Item>
+    </content>
+    <backgroundColor>a1bd68ff</backgroundColor>
+    <Overlay>true</Overlay>
+  </Asset>
+</XnaContent>

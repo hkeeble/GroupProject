@@ -12,6 +12,8 @@ namespace VOiD.Components
     {
         Intro,
         MainMenu,
+        CreatureCustomizer,
+        Loading,
         LevelMenu,
         Battle,
         Lab,
@@ -98,15 +100,30 @@ namespace VOiD.Components
 
                 // Number Of Items
                 if (component.Text == "@NumberOfApples")
-                    temp = "x" + Convert.ToString(GameHandler.Inventory.NumberOfApples);
+                {
+                    if(GameHandler.Inventory.NumberOfApples > 0)
+                        temp = "x" + Convert.ToString(GameHandler.Inventory.NumberOfApples);
+                }
                 if (component.Text == "@NumberOfChilli")
-                    temp = "x" + Convert.ToString(GameHandler.Inventory.NumberOfChilli);
+                {
+                    if (GameHandler.Inventory.NumberOfChilli > 0)
+                        temp = "x" + Convert.ToString(GameHandler.Inventory.NumberOfChilli);
+                }
                 if (component.Text == "@NumberOfGoldenApples")
-                    temp = "x" + Convert.ToString(GameHandler.Inventory.NumberOfGoldenApples);
+                {
+                    if (GameHandler.Inventory.NumberOfGoldenApples > 0)
+                        temp = "x" + Convert.ToString(GameHandler.Inventory.NumberOfGoldenApples);
+                }
                 if (component.Text == "@NumberOfHoney")
-                    temp = "x" + Convert.ToString(GameHandler.Inventory.NumberOfHoney);
+                {
+                    if (GameHandler.Inventory.NumberOfHoney > 0)
+                        temp = "x" + Convert.ToString(GameHandler.Inventory.NumberOfHoney);
+                }
                 if (component.Text == "@NumberOfSpringWater")
-                    temp = "x" + Convert.ToString(GameHandler.Inventory.NumberOfSpringWater);
+                {
+                    if (GameHandler.Inventory.NumberOfSpringWater > 0)
+                        temp = "x" + Convert.ToString(GameHandler.Inventory.NumberOfSpringWater);
+                }
 
                 // -- HOOK UP PLAYER STATISTICS HERE -- \\
                 // Player Statistics
@@ -153,6 +170,15 @@ namespace VOiD.Components
                     temp = "Aggressiveness: ";
                 if (component.Text == "@SelectedFocus")
                     temp = "Focus: ";
+
+                // Selected Item
+                if (GameHandler.Inventory.SelectedItem != null)
+                {
+                    if (component.Text == "@SelectedItemName")
+                        temp = GameHandler.Inventory.SelectedItem.Name;
+                    if (component.Text == "@SelectedItemDescription")
+                        temp = GameHandler.Inventory.SelectedItem.Description;
+                }
 
             }
             else
@@ -325,25 +351,48 @@ namespace VOiD.Components
 
         private void DrawGraphicComponent(GraphicObject component, ref Object2D parent)
         {
-            // if texture is not yet loaded load it
-            if (component.Texture == null)
-                if (component.TextureLocation != "")
+            if (component.TextureLocation != "")
+            {
+                if (component.TextureLocation.StartsWith("@"))
                 {
-                    if (component.TextureLocation.StartsWith("@"))
+                    if (component.TextureLocation == "@AppleTexture")
                     {
-                        if(component.TextureLocation == "@AppleTexture")
+                        if (GameHandler.Inventory.NumberOfApples > 0)
                             component.Texture = Game.Content.Load<Texture2D>("Sprites\\Apple");
-                        if(component.TextureLocation == "@GoldenAppleTexture")
-                            component.Texture = Game.Content.Load<Texture2D>("Sprites\\GoldenApple");
-                        if(component.TextureLocation == "@SpringWaterTexture")
-                            component.Texture = Game.Content.Load<Texture2D>("Sprites\\SpringWater");
-                        if(component.TextureLocation == "@HoneyTexture")
-                            component.Texture = Game.Content.Load<Texture2D>("Sprites\\Honey");
-                        if (component.TextureLocation == "@ChilliTexture")
-                            component.Texture = Game.Content.Load<Texture2D>("Sprites\\Chilli");
+                        else
+                            component.Texture = Game.Content.Load<Texture2D>("Sprites\\NullItems\\NullApple");
                     }
-                    else
-                        component.Texture = Game.Content.Load<Texture2D>("Interface/Assets/" + (component as GraphicObject).TextureLocation);
+                    if(component.TextureLocation == "@GoldenAppleTexture")
+                    {
+                        if (GameHandler.Inventory.NumberOfGoldenApples > 0)
+                            component.Texture = Game.Content.Load<Texture2D>("Sprites\\GoldenApple");
+                        else
+                            component.Texture = Game.Content.Load<Texture2D>("Sprites\\NullItems\\NullGoldenApple");
+                    }
+                    if(component.TextureLocation == "@SpringWaterTexture")
+                    {
+                        if (GameHandler.Inventory.NumberOfSpringWater > 0)
+                            component.Texture = Game.Content.Load<Texture2D>("Sprites\\SpringWater");
+                        else
+                            component.Texture = Game.Content.Load<Texture2D>("Sprites\\NullItems\\NullSpringWater");
+                    }
+                    if(component.TextureLocation == "@HoneyTexture")
+                    {
+                        if (GameHandler.Inventory.NumberOfHoney > 0)
+                            component.Texture = Game.Content.Load<Texture2D>("Sprites\\Honey");
+                        else
+                            component.Texture = Game.Content.Load<Texture2D>("Sprites\\NullItems\\NullHoney");
+                    }
+                    if (component.TextureLocation == "@ChilliTexture")
+                    {
+                        if (GameHandler.Inventory.NumberOfChilli > 0)
+                            component.Texture = Game.Content.Load<Texture2D>("Sprites\\Chilli");
+                        else
+                            component.Texture = Game.Content.Load<Texture2D>("Sprites\\NullItems\\NullChilli");
+                    }
+                }
+                else if (component.Texture == null)
+                    component.Texture = Game.Content.Load<Texture2D>("Interface/Assets/" + (component as GraphicObject).TextureLocation);
                 }
                 else
                     component.Texture = new Texture2D(Game.GraphicsDevice, 1, 1);
@@ -421,13 +470,28 @@ namespace VOiD.Components
             {
                 #region Main Menu Actions
                 if (component.Action.Equals("continue"))
-                    currentScreen = Screens.LevelMenu;
+                {
+                    currentScreen = Screens.Loading;
+
+                    if (SaveHandler.LoadSave(GraphicsDevice, Game.Content) == false) // If no save exists, open the customizer
+                        currentScreen = Screens.CreatureCustomizer;
+                    else
+                    {
+                        currentScreen = Screens.LevelMenu;
+                        GameHandler.Enabled = true;
+                        GameHandler.Visible = true;
+                    }
+                }
                 if (component.Action.Equals("Quit"))
                     Game.Exit();
                 if (component.Action.Equals("Options"))
                     subMenu = Game.Content.Load<GameLibrary.Interface>("Interface/SubMenuOptions");
                 if (component.Action.Equals("DeleteSubMenu"))
+                {
                     subMenu = new GameLibrary.Interface();
+                    if (GameHandler.Inventory.SelectedItem != null) // Clear any selections made
+                        GameHandler.Inventory.ClearSelections();
+                }
                 if (component.Action.Equals("PlusRes"))
                 {
                     DisplayMode tmp = dm[ResID];
@@ -455,6 +519,16 @@ namespace VOiD.Components
                 }
                 #endregion
 
+                #region Customizer Actions
+                // ADD BUILD IDs HERE
+                if(component.Action.Equals("SelectStrengthBuild"))
+                    GameHandler.Player = new Creature(1234, Game.Content.Load<Texture2D>("Sprites/handler"), Vector2.Zero, 2f);
+                if (component.Action.Equals("SelectSpeedBuild"))
+                    GameHandler.Player = new Creature(1234, Game.Content.Load<Texture2D>("Sprites/handler"), Vector2.Zero, 2f);
+                if (component.Action.Equals("SelectEnduranceBuild"))
+                    GameHandler.Player = new Creature(1234, Game.Content.Load<Texture2D>("Sprites/handler"), Vector2.Zero, 2f);
+                #endregion
+
                 #region Lab Menu Actions
                 if (component.Action.Equals("Creature"))
                     subMenu = Game.Content.Load<GameLibrary.Interface>("Interface/SubMenuCreatureInfo");
@@ -471,17 +545,25 @@ namespace VOiD.Components
                     subMenu = Game.Content.Load<GameLibrary.Interface>("Interface/SubMenuInventory");
                 #endregion
 
-                #region Item Use Actions
-                if (component.Action.Equals("UseApple"))
-                    GameHandler.Inventory.UseItem((int)Item.ItemName.Apple);
-                if (component.Action.Equals("UseGoldenApple"))
-                    GameHandler.Inventory.UseItem((int)Item.ItemName.Golden_Apple);
-                if (component.Action.Equals("UseChilli"))
-                    GameHandler.Inventory.UseItem((int)Item.ItemName.Chilli);
-                if (component.Action.Equals("UseHoney"))
-                    GameHandler.Inventory.UseItem((int)Item.ItemName.Honey);
-                if (component.Action.Equals("UseSpringWater"))
-                    GameHandler.Inventory.UseItem((int)Item.ItemName.Spring_Water);
+                #region Inventory Actions
+                if (component.Action.Equals("UseSelectedItem"))
+                    if(GameHandler.Inventory.SelectedItem != null)
+                        GameHandler.Inventory.UseItem(GameHandler.Inventory.SelectedItem.ID);
+                if (component.Action.Equals("SelectApple"))
+                    if (GameHandler.Inventory.NumberOfApples > 0)
+                        GameHandler.Inventory.SetItem((int)Item.ItemName.Apple, Game.Content);
+                if (component.Action.Equals("SelectGoldenApple"))
+                    if (GameHandler.Inventory.NumberOfGoldenApples > 0)
+                        GameHandler.Inventory.SetItem((int)Item.ItemName.Golden_Apple, Game.Content);
+                if (component.Action.Equals("SelectChilli"))
+                    if (GameHandler.Inventory.NumberOfChilli > 0)
+                        GameHandler.Inventory.SetItem((int)Item.ItemName.Chilli, Game.Content);
+                if (component.Action.Equals("SelectSpringWater"))
+                    if (GameHandler.Inventory.NumberOfSpringWater > 0)
+                        GameHandler.Inventory.SetItem((int)Item.ItemName.Spring_Water, Game.Content);
+                if (component.Action.Equals("SelectHoney"))
+                    if (GameHandler.Inventory.NumberOfHoney > 0)
+                        GameHandler.Inventory.SetItem((int)Item.ItemName.Honey, Game.Content);
                 #endregion
 
                 DebugLog.WriteLine(string.Format("Button Clicked Action =  {0} ", component.Action));
@@ -586,9 +668,17 @@ namespace VOiD.Components
                 {
                     temp = (Game.Content.Load<GameLibrary.Interface>("Interface/MainMenu"));
                 }
+                else if (currentScreen == Screens.CreatureCustomizer)
+                {
+                    temp = (Game.Content.Load<GameLibrary.Interface>("Interface/CreatureCustomization"));
+                }
                 else if (currentScreen == Screens.LevelMenu)
                 {
                     temp = (Game.Content.Load<GameLibrary.Interface>("Interface/LevelMenu"));
+                }
+                else if (currentScreen == Screens.Loading)
+                {
+                    temp = (Game.Content.Load<GameLibrary.Interface>("Interface/LoadingScreen"));
                 }
                 else if (currentScreen == Screens.Battle)
                 {

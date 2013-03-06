@@ -9,12 +9,14 @@ namespace VOiD
     class Inventory
     {
         private Creature selectedDNA; // Currently selected DNA for use in Menus
+        private Item selectedItem; // Currently selected item for us in Menus
         private List<Item> items;
         private List<Creature> dna;
 
         public List<Item> Items { get { return items; } }
         public List<Creature> DNA { get { return dna; } }
         public Creature SelectedDNA { get { return selectedDNA; } }
+        public Item SelectedItem { get { return selectedItem; } }
 
         public Inventory(int numberOfItemTypes, Microsoft.Xna.Framework.Content.ContentManager content)
         {
@@ -42,8 +44,22 @@ namespace VOiD
         /// <param name="ID">The ID of the item to use (you can use the enum Item.itemName and cast to integer for clarity)</param>
         public void UseItem(int ID)
         {
-            if (items[ID - 1].Amount > 0)
-                items[ID - 1].Use();
+            if (items[ID-1].Amount > 0)
+                items[ID-1].Use();
+
+            // If none left and item is selected, clear selection
+            if (selectedItem.ID == items[ID - 1].ID)
+                if (items[ID - 1].Amount == 0)
+                    selectedItem = null;
+        }
+        
+        /// <summary>
+        /// Sets the currently selected item.
+        /// </summary>
+        /// <param name="ID">ID of the item selected.</param>
+        public void SetItem(int ID, Microsoft.Xna.Framework.Content.ContentManager content)
+        {
+            selectedItem = new Item(ID, content);
         }
 
         /// <summary>
@@ -74,6 +90,17 @@ namespace VOiD
                 dna.Remove(selectedDNA);
                 GameHandler.Player = new Creature(GameHandler.Player, selectedDNA);
             }
+        }
+
+        /// <summary>
+        /// Clears any selections made in a menu
+        /// </summary>
+        public void ClearSelections()
+        {
+            if (selectedDNA != null)
+                selectedDNA = null;
+            if (selectedItem != null)
+                selectedItem = null;
         }
 
         public int NumberOfApples { get { return items[(int)Item.ItemName.Apple-1].Amount; } }

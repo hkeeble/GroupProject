@@ -13,7 +13,10 @@ namespace VOiD
     {
         private static string SAVE_FILE = "data.sav";
        
-        public static void LoadSave(GraphicsDevice graphics, ContentManager content)
+        /// <summary>
+        /// Loads the current save game and returns true. If none exists, creates on and returns false.
+        /// </summary>
+        public static bool LoadSave(GraphicsDevice graphics, ContentManager content)
         {
             string cDir = Directory.GetCurrentDirectory();
             string[] files = Directory.GetFiles(cDir);
@@ -48,6 +51,8 @@ namespace VOiD
             }
 
             sr.Close();
+
+            return saveExists;
         }
 
         public static void SaveGame()

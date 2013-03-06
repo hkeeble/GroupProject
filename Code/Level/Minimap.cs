@@ -45,7 +45,7 @@ namespace VOiD
             minimap.SetData<Color>(0, new Rectangle((int)GameHandler.TileMap.LabPosition.X / divisor, (int)GameHandler.TileMap.LabPosition.Y/ divisor, labTex.Width / divisor, labTex.Height / divisor),
                 labData, 0, labData.Length);
 
-            Stream stream = File.Create("~minimap.png");
+            Stream stream = File.OpenWrite("~minimap.png");
             minimap.SaveAsPng(stream, minimap.Width, minimap.Height);
             stream.Close();
         }

@@ -21,20 +21,36 @@ namespace VOiD
         private Texture2D _texture;
         private int _ID;
         private int _amount;
+        private string _description;
 
         public Item(int id, Microsoft.Xna.Framework.Content.ContentManager content)
         {
             _ID = id;
             if (_ID == (int)ItemName.Apple)
+            {
                 _texture = content.Load<Texture2D>("Sprites\\Apple");
+                _description = "Restores a small amount of health when eaten.";
+            }
             if (_ID == (int)ItemName.Golden_Apple)
+            {
                 _texture = content.Load<Texture2D>("Sprites\\GoldenApple");
+                _description = "Fully restores a creature when eaten.";
+            }
             if (_ID == (int)ItemName.Spring_Water)
+            {
                 _texture = content.Load<Texture2D>("Sprites\\SpringWater");
+                _description = "Fresh from the springs. Fully restores stamina.";
+            }
             if (_ID == (int)ItemName.Honey)
+            {
                 _texture = content.Load<Texture2D>("Sprites\\Honey");
+                _description = "Sugary goodness. Increases a creature's obedience.";
+            }
             if (_ID == (int)ItemName.Chilli)
+            {
                 _texture = content.Load<Texture2D>("Sprites\\Chilli");
+                _description = "Makes a creature more aggressive when eaten.";
+            }
         }
 
         public string Name
@@ -47,6 +63,8 @@ namespace VOiD
                     return "BLANK";
             }
         }
+
+        public string Description { get { return _description; } }
 
         public void Use()
         {
