@@ -12,7 +12,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace VOiD.Components
 {
-    public class BattleHandler : DrawableGameComponent
+    class BattleHandler : DrawableGameComponent
     {
         private static bool InSession;
         private static Creature A;
@@ -59,8 +59,8 @@ namespace VOiD.Components
         {
             if (InSession)
             {
-                A.Draw(Game.GraphicsDevice, Matrix.CreateRotationY(MathHelper.ToRadians(45.0f)) * Matrix.CreateTranslation(new Vector3(2, 0, -4)));
-                B.Draw(Game.GraphicsDevice, Matrix.CreateRotationY(MathHelper.ToRadians(-45.0f)) * Matrix.CreateTranslation(new Vector3(-2, 0, -4)));
+                A.Draw(Game.GraphicsDevice, Matrix.CreateRotationY(MathHelper.ToRadians(45.0f)) * Matrix.CreateTranslation(new Vector3(1, 0, -4)));
+                B.Draw(Game.GraphicsDevice, Matrix.CreateRotationY(MathHelper.ToRadians(-45.0f)) * Matrix.CreateTranslation(new Vector3(-1, 0, -4)));
             }
             base.Draw(gameTime);
         }

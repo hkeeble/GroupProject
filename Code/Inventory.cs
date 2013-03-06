@@ -72,7 +72,7 @@ namespace VOiD
             if (selectedDNA != null)
             {
                 dna.Remove(selectedDNA);
-                GameHandler.Player = new Creature(ref GameHandler.Player, ref selectedDNA, Configuration.GraphicsDevice);
+                GameHandler.Player = new Creature(GameHandler.Player, selectedDNA);
             }
         }
 

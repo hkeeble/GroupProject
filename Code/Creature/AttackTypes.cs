@@ -5,7 +5,7 @@ using System.Text;
 
 namespace VOiD
 {
-    public struct Attack
+    struct Attack
     {
         public string Name;
         public float Damage;
@@ -17,7 +17,7 @@ namespace VOiD
         }
     }
 
-    public struct AttackTypes
+    struct AttackTypes
     {
         private List<Attack> Attacks;
 
@@ -25,9 +25,9 @@ namespace VOiD
         {
             Attacks = new List<Attack>();
 
-            if (traits.Tail)
+            if (traits.TailColumns.Level>=0)
             {
-                AvailableAttacks.Add(new Attack("Whip", ((traits.Dexterity*traits.Agressiveness*traits.Strength)/3)/6));
+                AvailableAttacks.Add(new Attack("Whip", ((traits.Dexterity.Level*traits.Agressiveness.Level*traits.Strength.Level)/3)/6));
             }
         }
 
