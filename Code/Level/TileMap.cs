@@ -9,6 +9,15 @@ using VOiD.Components;
 
 namespace VOiD
 {
+    public enum Attributes
+    {
+        Flying = 1,
+        Climbing = 2,
+        Swimming = 3,
+        FlyingAndSwimming = 4,
+        FlyingAndClimbing = 5
+    }
+
     public class TileMap
     {
         public int TileWidth = 32;
@@ -26,6 +35,7 @@ namespace VOiD
 
         Texture2D _map;
         Texture2D _colTex; // Collision Texture
+        Texture2D _flyTex, _climbTex, _swimTex, _flyClimbTex, _flySwimTex;
 
         public TileMap()
         {//NEEDS WORK BLANK MAP
@@ -41,6 +51,12 @@ namespace VOiD
         public TileMap(string fileName, GraphicsDevice graphicsDevice, Microsoft.Xna.Framework.Content.ContentManager content)
         {
             _colTex = content.Load<Texture2D>("Sprites\\CollisionTexture");
+            _flyTex = content.Load<Texture2D>("Sprites\\FlyingTexture");
+            _swimTex = content.Load<Texture2D>("Sprites\\SwimmingTexture");
+            _climbTex = content.Load<Texture2D>("Sprites\\ClimbingTexture");
+            _flyClimbTex = content.Load<Texture2D>("Sprites\\FlyingClimbingTexture");
+            _flySwimTex = content.Load<Texture2D>("Sprites\\FlyingSwimmingTexture");
+
             try
             {
                 _fileName = Directory.GetCurrentDirectory() + "\\Content\\Maps\\" + fileName + ".map";
@@ -182,6 +198,25 @@ namespace VOiD
                         SpriteManager.Draw(_colTex, Camera.Transform(new Vector2(x * TileWidth, y * TileHeight)), null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
         }
 
+        public void DrawAttributeLayer()
+        {
+            for (int x = 0; x < Width; x++)
+                for (int y = 0; y < Height; y++)
+                    if (_attribute[x, y] != 0)
+                    {
+                        if(_attribute[x, y] == (int)Attributes.Flying)
+                            SpriteManager.Draw(_flyTex, Camera.Transform(new Vector2(x * TileWidth, y * TileHeight)), null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
+                        if (_attribute[x, y] == (int)Attributes.Climbing)
+                            SpriteManager.Draw(_climbTex, Camera.Transform(new Vector2(x * TileWidth, y * TileHeight)), null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
+                        if (_attribute[x, y] == (int)Attributes.Swimming)
+                            SpriteManager.Draw(_swimTex, Camera.Transform(new Vector2(x * TileWidth, y * TileHeight)), null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
+                        if (_attribute[x, y] == (int)Attributes.FlyingAndClimbing)
+                            SpriteManager.Draw(_flyClimbTex, Camera.Transform(new Vector2(x * TileWidth, y * TileHeight)), null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
+                        if (_attribute[x, y] == (int)Attributes.FlyingAndSwimming)
+                            SpriteManager.Draw(_flySwimTex, Camera.Transform(new Vector2(x * TileWidth, y * TileHeight)), null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
+                    }
+        }
+
         private int UnicodeValueToInt(int val)
         {
             return (char)val - '0';
@@ -235,6 +270,16 @@ namespace VOiD
         public void SetTile(Point Position, Point TileXY)
         {
             _tiles[Position.X, Position.Y] = TileXY;
+        }
+
+        /// <summary>
+        /// Sets the tiles passable attribute.
+        /// </summary>
+        /// <param name="attribute">The new attribute.</param>
+        /// <param name="position">The position of the tile.</param>
+        public void SetAttribute(Point position, Attributes attribute)
+        {
+            _attribute[position.X, position.Y] = (int)attribute;
         }
 
         // Public Accessors

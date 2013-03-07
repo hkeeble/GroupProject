@@ -20,6 +20,7 @@ namespace VOiD.Components
             Tile,
             Item,
             Nest,
+            Attribute
         }
 
         TimeSpan timeSinceLastSave = TimeSpan.Zero;
@@ -27,6 +28,8 @@ namespace VOiD.Components
         Texture2D[,] tiles;
         Point currentTile;
         Color[] selectedTileData;
+
+        Attributes currentAttribute = Attributes.Climbing;
 
         List<Point> modifiedTiles;
 
@@ -144,6 +147,13 @@ namespace VOiD.Components
                 currentCreatureID = Convert.ToInt16(Console.ReadLine());
             }
 
+            if (InputHandler.KeyPressed(Keys.D4))
+            {
+                currentMode = Mode.Attribute;
+                Console.WriteLine("Atrribute Mode. \n");
+                Console.WriteLine("Current Attribute: " + currentAttribute.ToString());
+            }
+
             if(InputHandler.KeyPressed(Keys.Z) || InputHandler.KeyPressed(Keys.X))
             {
                 switch(currentMode)
@@ -187,6 +197,26 @@ namespace VOiD.Components
                         }
                         break;
                     case Mode.Nest:
+                        break;
+                    case Mode.Attribute:
+                        if (InputHandler.KeyPressed(Keys.X) || InputHandler.KeyPressed(Keys.Z))
+                        {
+                            if (InputHandler.KeyPressed(Keys.X))
+                            {
+                                if ((int)currentAttribute < 5)
+                                    currentAttribute++;
+                                else
+                                    currentAttribute = (Attributes)1;
+                            }
+                            if (InputHandler.KeyPressed(Keys.Z))
+                            {
+                                if ((int)currentAttribute > 1)
+                                    currentAttribute--;
+                                else
+                                    currentAttribute = (Attributes)5;
+                            }
+                            Console.WriteLine("Current Attribute: " + currentAttribute.ToString());
+                        }
                         break;
                 }
             }
@@ -245,6 +275,11 @@ namespace VOiD.Components
                                     GameHandler.RemoveNest(n);
                             }
                             break;
+                        case Mode.Attribute:
+                            if (InputHandler.LeftClickPressed)
+                                GameHandler.TileMap.SetAttribute(new Point((int)MousePos.X, (int)MousePos.Y), currentAttribute);
+
+                        break;
                     }
                     AddModifiedTile(new Point((int)MousePos.X, (int)MousePos.Y)); // Add the tile to the modified list
                 }
@@ -258,7 +293,10 @@ namespace VOiD.Components
             SpriteManager.Begin();
             if(currentMode == Mode.Tile)
                 SpriteManager.Draw(tiles[currentTile.X, currentTile.Y], new Vector2(InputHandler.MouseX, InputHandler.MouseY), null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
-            GameHandler.TileMap.DrawCollisionLayer();
+            if(currentMode != Mode.Attribute)
+                GameHandler.TileMap.DrawCollisionLayer();
+            if (currentMode == Mode.Attribute)
+                GameHandler.TileMap.DrawAttributeLayer();
             SpriteManager.End();
 
             base.Draw(gameTime);
@@ -302,6 +340,7 @@ namespace VOiD.Components
                 currentTile[0] = GameHandler.TileMap.Tiles[tile.X, tile.Y].X;
                 currentTile[1] = GameHandler.TileMap.Tiles[tile.X, tile.Y].Y;
                 currentTile[2] = Convert.ToInt32(GameHandler.TileMap.Passable[tile.X, tile.Y]);
+                currentTile[3] = GameHandler.TileMap.Attribute[tile.X, tile.Y];
 
                 Item item = GameHandler.CheckItem(new Point(tile.X * GameHandler.TileMap.TileWidth, tile.Y * GameHandler.TileMap.TileHeight));
                 if (item != null)

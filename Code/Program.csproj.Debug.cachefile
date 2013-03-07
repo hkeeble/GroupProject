@@ -71,6 +71,11 @@ Content\Interface\Assets\NoButton.xnb
 Content\Interface\Assets\YesButton.xnb
 Content\Interface\ExitBox.xnb
 Content\Interface\Assets\Level\OptionsButton.xnb
+Content\Sprites\FlyingTexture.xnb
+Content\Sprites\ClimbingTexture.xnb
+Content\Sprites\SwimmingTexture.xnb
+Content\Sprites\FlyingClimbingTexture.xnb
+Content\Sprites\FlyingSwimmingTexture.xnb
 Content\Tilesets\Tileset.png
 Content\Maps\Level1.map
 Content\Maps\Level2.map
