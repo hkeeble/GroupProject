@@ -72,7 +72,6 @@ namespace VOiD.Components
                 if (Interface.currentScreen == Screens.LevelMenu)
                 {
                     HandlePlayerMovement();
-                    HandleMouse();
                 }
 
                 for (int i = 0; i < Items.Count; i++) // NOT VERY EFFICIENT - MAY NEED REPLACING
@@ -165,18 +164,6 @@ namespace VOiD.Components
         }
 
         #region Handle Input
-         private void HandleMouse()
-         {
-             Vector2 mousePos = Camera.Transform(new Vector2(InputHandler.MouseX, InputHandler.MouseY));
-             Rectangle mouseRect = new Rectangle((int)mousePos.X, (int)mousePos.Y, 10, 10);
-
-             foreach (Nest n in nests)
-                 foreach (Creature c in n.Creatures)
-                 {
-
-                 }
-         }
-
          private void HandlePlayerMovement()
          {
              if (Player.Direction.Y == 0 && Player.Position.X % TileMap.TileWidth == 0)
@@ -265,10 +252,9 @@ namespace VOiD.Components
 
             TileMap = new TileMap("Level" + levelNumber, GraphicsDevice, Game.Content);
             Minimap = new Minimap(TileMap.Map, Game.Content.Load<Texture2D>("Sprites\\Nest"), Game.Content.Load<Texture2D>("Sprites\\Lab"), GraphicsDevice);
-            GameHandler.Player.Position = GameHandler.TileMap.PlayerSpawn;
-            GameHandler.Lab.Position = GameHandler.TileMap.LabPosition;
-            GameHandler.Minimap = new Minimap(GameHandler.TileMap.Map, Game.Content.Load<Texture2D>("Sprites\\Nest"), Game.Content.Load<Texture2D>("Sprites\\Lab"), Game.GraphicsDevice);
-
+            Player.Position = GameHandler.TileMap.PlayerSpawn;
+            Lab.Position = GameHandler.TileMap.LabPosition;
+            Interface.UpdateMiniMap();
             CurrentLevel = levelNumber;
             SaveHandler.SaveGame();
         }

@@ -72,7 +72,7 @@ namespace VOiD
                 _position.X = 0;
             if (_position.Y < 0)
                 _position.Y = 0;
-            if (_position.X > GameHandler.TileMap.Map.Width-GameHandler.TileMap.TileWidth)
+            if (_position.X > GameHandler.TileMap.Map.Width - GameHandler.TileMap.TileWidth)
                 _position.X = GameHandler.TileMap.Map.Width - GameHandler.TileMap.TileWidth;
             if (_position.Y > GameHandler.TileMap.Map.Height - GameHandler.TileMap.TileHeight)
                 _position.Y = GameHandler.TileMap.Map.Height - GameHandler.TileMap.TileHeight;

@@ -24,6 +24,7 @@ namespace VOiD.Components
     {
         private static GameLibrary.Interface temp;
         private static GameLibrary.Interface subMenu;
+        private static bool minimapUpdate = true;
         public static Color BackgroundColor { get { return temp.backgroundColor; } }
         private static Screens lastScreen;
         public static Screens currentScreen;
@@ -537,12 +538,12 @@ namespace VOiD.Components
         // Draw Minimap
         private void DrawMinimapObject(MinimapObject minimap, ref Object2D parent)
         {
-            if (minimap.Init == false)
+            if (minimapUpdate == true)
             {
                 System.IO.Stream stream = System.IO.File.Open(minimap.TextureLocation + ".png", System.IO.FileMode.Open);
                 minimap.Texture = Texture2D.FromStream(Configuration.GraphicsDevice, stream);
                 stream.Close();
-                minimap.Init = true;
+                minimap.Init = false;
             }
 
             minimap.Size.X = ((parent as GraphicObject).Size.X / 100 * minimap.iSize.X);
@@ -567,6 +568,11 @@ namespace VOiD.Components
             currentScreen = Screens.MainMenu;
             lastScreen = Screens.BLANK;
             dm = Game.GraphicsDevice.Adapter.SupportedDisplayModes.ToArray<DisplayMode>();
+        }
+
+        public static void UpdateMiniMap()
+        {
+            minimapUpdate = true;
         }
 
         private void ClickableComponent(GraphicObject component)

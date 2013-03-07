@@ -19,7 +19,7 @@ namespace VOiD.Components
         {
             Tile,
             Item,
-            Nest
+            Nest,
         }
 
         TimeSpan timeSinceLastSave = TimeSpan.Zero;
