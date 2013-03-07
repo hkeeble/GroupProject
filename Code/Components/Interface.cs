@@ -471,14 +471,9 @@ namespace VOiD.Components
                 #region Main Menu Actions
                 if (component.Action.Equals("continue"))
                 {
-                    if (SaveHandler.LoadSave(GraphicsDevice, Game.Content) == false) // If no save exists, open the customizer
-                        currentScreen = Screens.CreatureCustomizer;
-                    else
-                    {
-                        currentScreen = Screens.LevelMenu;
-                        GameHandler.Enabled = true;
-                        GameHandler.Visible = true;
-                    }
+                    currentScreen = Screens.Loading;
+                    lastScreen = Screens.Loading;
+                    temp = (Game.Content.Load<GameLibrary.Interface>("Interface/LoadingScreen"));
                 }
                 if (component.Action.Equals("Quit"))
                     Game.Exit();
@@ -657,6 +652,17 @@ namespace VOiD.Components
 
         public override void Update(GameTime gameTime)
         {
+            if (currentScreen == Screens.Loading)
+            {
+                if (SaveHandler.LoadSave(GraphicsDevice, Game.Content) == false) // If no save exists, open the customizer
+                    currentScreen = Screens.CreatureCustomizer;
+                else
+                {
+                    currentScreen = Screens.LevelMenu;
+                    GameHandler.Enabled = true;
+                    GameHandler.Visible = true;
+                }
+            }
             if (currentScreen != lastScreen)
             {
                 // if screen has changed
