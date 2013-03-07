@@ -47,6 +47,9 @@ Content\Interface\Assets\gridSquare.xnb
 Content\Interface\Assets\UseButton.xnb
 Content\Interface\Assets\dnaInventoryTitle.xnb
 Content\Interface\Assets\creatureInfoTitle.xnb
+Content\Interface\Assets\Flee.xnb
+Content\Interface\Assets\Level\Level_Interface.xnb
+Content\Interface\Assets\Level\DNANull.xnb
 Content\Sprites\NullItems\NullApple.xnb
 Content\Sprites\NullItems\NullChilli.xnb
 Content\Sprites\NullItems\NullGoldenApple.xnb
@@ -64,9 +67,6 @@ Content\Interface\SubMenuDNAInventory.xnb
 Content\Interface\CreatureCustomization.xnb
 Content\Interface\LoadingScreen.xnb
 Content\SegoeUI.xnb
-Content\Interface\Assets\Flee.xnb
-Content\Interface\Assets\Level\Level_Interface.xnb
-Content\Interface\Assets\Level\DNANull.xnb
 Content\Tilesets\Tileset.png
 Content\Maps\Level1.map
 Content\Maps\Level2.map

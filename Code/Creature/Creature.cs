@@ -20,6 +20,44 @@ namespace VOiD
         protected Traits Recessive;//A recessive allele only shows if the individual has two copies of the recessive allele.
         #endregion
 
+        #region Statistics
+        public ushort Health=0;
+        public ushort Strength=0;
+        public ushort Dexterity=0;
+        public ushort Endurance=0;
+        public ushort Speed=0;
+        #endregion
+
+        #region Behaviour
+        public ushort Aggressiveness=0;
+        public ushort Focus=0;
+        public ushort Obedience=0;
+        #endregion
+
+        #region Abilities
+        public bool canFly
+        {
+            get
+            {
+                return Dominant.Weight.Level <= 4 && Endurance >= 4;
+            }
+        }
+        public bool canSwim
+        {
+            get
+            {
+                return Dominant.Wings.Active && Endurance >= 4;
+            }
+        }
+        public bool canClimb
+        {
+            get
+            {
+                return Dominant.Claws.Active && Dominant.Arms.Active && Endurance >= 2;
+            }
+        }
+        #endregion
+
 	    protected UInt16 BattlesLost;
         private AttackTypes avTacks;
 
