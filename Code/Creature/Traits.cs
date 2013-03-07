@@ -41,6 +41,22 @@ namespace VOiD
 
     struct Traits
     {
+        public int NumberOfActiveTraits()
+        {
+            int numberOfTraits = 0;
+            if (Head.Active)
+                numberOfTraits++;
+            if (Legs.Active)
+                numberOfTraits++;
+            if (Arms.Active)
+                numberOfTraits++;
+            if (Wings.Active)
+                numberOfTraits++;
+            if (Claws.Active)
+                numberOfTraits++;
+            return numberOfTraits;
+        }
+
         // Physical
         public StatsBool Head, Legs, Arms, Wings, Claws;
         public StatsUShort SpinalColumns;

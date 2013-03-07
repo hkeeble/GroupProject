@@ -128,48 +128,96 @@ namespace VOiD.Components
                 // -- HOOK UP PLAYER STATISTICS HERE -- \\
                 // Player Statistics
                 if (component.Text == "@PlayerWeight")
-                    temp = "Weight: ";
+                    temp = "Weight: " + GameHandler.Player.Dominant.Weight.Level + "/" + GameHandler.Player.Dominant.Weight.Maximum;
                 if (component.Text == "@PlayerStrength")
-                    temp = "Strength: ";
+                    temp = "Strength: " + GameHandler.Player.Dominant.Strength.Level + "/" + GameHandler.Player.Dominant.Strength.Maximum;
                 if (component.Text == "@PlayerDexterity")
-                    temp = "Dexterity: ";
+                    temp = "Dexterity: " + GameHandler.Player.Dominant.Dexterity.Level + "/" + GameHandler.Player.Dominant.Dexterity.Maximum;
                 if (component.Text == "@PlayerEndurance")
-                    temp = "Endurance: ";
+                    temp = "Endurance: " + GameHandler.Player.Dominant.Endurance.Level + "/" + GameHandler.Player.Dominant.Endurance.Maximum;
                 if (component.Text == "@PlayerHealth")
-                    temp = "Health: ";
+                    temp = "Health: " + GameHandler.Player.Dominant.Health.Level + "/" + GameHandler.Player.Dominant.Health.Maximum;
                 if (component.Text == "@PlayerSpeed")
-                    temp = "Speed: ";
+                    temp = "Speed: " + GameHandler.Player.Dominant.Speed.Level + "/" + GameHandler.Player.Dominant.Speed.Maximum;
                 
                 // Behavioural Traits
                 if (component.Text == "@PlayerObedience")
-                    temp = "Obedience: ";
+                    temp = "Obedience: " + GameHandler.Player.Dominant.Obedience.Level + "/" + GameHandler.Player.Dominant.Obedience.Maximum;
                 if (component.Text == "@PlayerAggressiveness")
-                    temp = "Aggressiveness: ";
+                    temp = "Aggressiveness: " + GameHandler.Player.Dominant.Agressiveness.Level + "/" + GameHandler.Player.Dominant.Agressiveness.Maximum;
                 if (component.Text == "@PlayerFocus")
-                    temp = "Focus: ";
+                    temp = "Focus: " + GameHandler.Player.Dominant.Focus.Level + "/" + GameHandler.Player.Dominant.Strength.Maximum;
+
+                // Physical Traits
+                if (component.Text == "@PlayerSpinalColumns")
+                    temp = "Spinal Columns: " + GameHandler.Player.Dominant.SpinalColumns.Level + "/"
+                        + GameHandler.Player.Dominant.SpinalColumns.Maximum;
+                if (component.Text == "@PlayerTailColumns")
+                    temp = "Tail Columns: " + GameHandler.Player.Dominant.SpinalColumns.Level + "/"
+                        + GameHandler.Player.Dominant.SpinalColumns.Maximum;
 
                 // -- HOOK UP SELECTED STATISTICS HERE (USING GAMEHANDLER.INVENTORY.SelectedDNA) -- \\
                 // Selected DNA Statistics
-                if (component.Text == "@SelectedWeight")
-                    temp = "Weight: ";
-                if (component.Text == "@SelectedStrength")
-                    temp = "Strength: ";
-                if (component.Text == "@SelectedDexterity")
-                    temp = "Dexterity: ";
-                if (component.Text == "@SelectedEndurance")
-                    temp = "Endurance: ";
-                if (component.Text == "@SelectedHealth")
-                    temp = "Health: ";
-                if (component.Text == "@SelectedSpeed")
-                    temp = "Speed: ";
+                if (GameHandler.Inventory.SelectedDNA != null)
+                {
+                    if (component.Text == "@SelectedWeight")
+                        temp = "Weight: " + GameHandler.Inventory.SelectedDNA.Dominant.Weight.Level + "/" + GameHandler.Inventory.SelectedDNA.Dominant.Weight.Maximum;
+                    if (component.Text == "@SelectedStrength")
+                        temp = "Strength: " + GameHandler.Inventory.SelectedDNA.Dominant.Strength.Level + "/" + GameHandler.Inventory.SelectedDNA.Dominant.Strength.Maximum;
+                    if (component.Text == "@SelectedDexterity")
+                        temp = "Dexterity: " + GameHandler.Inventory.SelectedDNA.Dominant.Dexterity.Level + "/" + GameHandler.Inventory.SelectedDNA.Dominant.Dexterity.Maximum;
+                    if (component.Text == "@SelectedEndurance")
+                        temp = "Endurance: " + GameHandler.Inventory.SelectedDNA.Dominant.Endurance.Level + "/" + GameHandler.Inventory.SelectedDNA.Dominant.Endurance.Maximum;
+                    if (component.Text == "@SelectedHealth")
+                        temp = "Health: " + GameHandler.Inventory.SelectedDNA.Dominant.Health.Level + "/" + GameHandler.Inventory.SelectedDNA.Dominant.Health.Maximum;
+                    if (component.Text == "@SelectedSpeed")
+                        temp = "Speed: " + GameHandler.Inventory.SelectedDNA.Dominant.Speed.Level + "/" + GameHandler.Inventory.SelectedDNA.Dominant.Speed.Maximum;
 
-                // Selected DNA Behavioural Traits
-                if (component.Text == "@SelectedObedience")
-                    temp = "Obedience: ";
-                if (component.Text == "@SelectedAggressiveness")
-                    temp = "Aggressiveness: ";
-                if (component.Text == "@SelectedFocus")
-                    temp = "Focus: ";
+                    // Selected DNA Behavioural Traits
+                    if (component.Text == "@SelectedObedience")
+                        temp = "Obedience: " + GameHandler.Inventory.SelectedDNA.Dominant.Obedience.Level + "/" + GameHandler.Inventory.SelectedDNA.Dominant.Obedience.Maximum;
+                    if (component.Text == "@SelectedAggressiveness")
+                        temp = "Aggressiveness: " + GameHandler.Inventory.SelectedDNA.Dominant.Agressiveness.Level + "/" + GameHandler.Inventory.SelectedDNA.Dominant.Agressiveness.Maximum;
+                    if (component.Text == "@SelectedFocus")
+                        temp = "Focus: " + GameHandler.Inventory.SelectedDNA.Dominant.Focus.Level + "/" + GameHandler.Inventory.SelectedDNA.Dominant.Focus.Maximum;
+
+                    // Physical Traits
+                    if (component.Text == "@SelectedSpinalColumns")
+                        temp = "Spinal Columns: " + GameHandler.Inventory.SelectedDNA.Dominant.SpinalColumns.Level + "/"
+                            + GameHandler.Player.Dominant.SpinalColumns.Maximum;
+                    if (component.Text == "@SelectedTailColumns")
+                        temp = "Tail Columns: " + GameHandler.Inventory.SelectedDNA.Dominant.SpinalColumns.Level + "/"
+                            + GameHandler.Player.Dominant.SpinalColumns.Maximum;
+                }
+                else
+                {
+                    if (component.Text == "@SelectedWeight")
+                        temp = "Weight: -";
+                    if (component.Text == "@SelectedStrength")
+                        temp = "Strength: -";
+                    if (component.Text == "@SelectedDexterity")
+                        temp = "Dexterity: -";
+                    if (component.Text == "@SelectedEndurance")
+                        temp = "Endurance: -";
+                    if (component.Text == "@SelectedHealth")
+                        temp = "Health: -";
+                    if (component.Text == "@SelectedSpeed")
+                        temp = "Speed: -";
+
+                    // Selected DNA Behavioural Traits
+                    if (component.Text == "@SelectedObedience")
+                        temp = "Obedience: -";
+                    if (component.Text == "@SelectedAggressiveness")
+                        temp = "Aggressiveness: -";
+                    if (component.Text == "@SelectedFocus")
+                        temp = "Focus: -";
+
+                    // Physical Traits
+                    if (component.Text == "@SelectedSpinalColumns")
+                        temp = "Spinal Columns: -";
+                    if (component.Text == "@SelectedTailColumns")
+                        temp = "Tail Columns: -";
+                }
 
                 // Selected Item
                 if (GameHandler.Inventory.SelectedItem != null)
@@ -250,6 +298,36 @@ namespace VOiD.Components
                 if (component.ListContentType == "PlayerTraits")
                 {
                     // -- DISPLAY TRAITS HERE \\
+                    itemText = new string[GameHandler.Player.Dominant.NumberOfActiveTraits()];
+                    actions = new string[itemText.Length];
+
+                    int currentTrait = 0;
+
+                    if (GameHandler.Player.Dominant.Head.Active)
+                    {
+                        itemText[currentTrait] = "Head";
+                        currentTrait++;
+                    }
+                    if (GameHandler.Player.Dominant.Legs.Active)
+                    {
+                        itemText[currentTrait] = "Legs";
+                        currentTrait++;
+                    }
+                    if (GameHandler.Player.Dominant.Arms.Active)
+                    {
+                        itemText[currentTrait] = "Arms";
+                        currentTrait++;
+                    }
+                    if (GameHandler.Player.Dominant.Wings.Active)
+                    {
+                        itemText[currentTrait] = "Wings";
+                        currentTrait++;
+                    }
+                    if (GameHandler.Player.Dominant.Claws.Active)
+                    {
+                        itemText[currentTrait] = "Claws";
+                        currentTrait++;
+                    }
                 }
 
                 // Displays player's owned DNA
@@ -268,7 +346,40 @@ namespace VOiD.Components
                 // Displays currently selected DNA's traits
                 if (component.ListContentType == "SelectedDNATraits")
                 {
-                    // -- DISPLAY SELECTED CREATURE'S TRAITS HERE -- \\
+                    if (GameHandler.Inventory.SelectedDNA != null)
+                    {
+                        // -- DISPLAY SELECTED CREATURE'S TRAITS HERE -- \\
+                        itemText = new string[GameHandler.Inventory.SelectedDNA.Dominant.NumberOfActiveTraits()];
+                        actions = new string[itemText.Length];
+
+                        int currentTrait = 0;
+
+                        if (GameHandler.Inventory.SelectedDNA.Dominant.Head.Active)
+                        {
+                            itemText[currentTrait] = "Head";
+                            currentTrait++;
+                        }
+                        if (GameHandler.Inventory.SelectedDNA.Dominant.Legs.Active)
+                        {
+                            itemText[currentTrait] = "Legs";
+                            currentTrait++;
+                        }
+                        if (GameHandler.Inventory.SelectedDNA.Dominant.Arms.Active)
+                        {
+                            itemText[currentTrait] = "Arms";
+                            currentTrait++;
+                        }
+                        if (GameHandler.Inventory.SelectedDNA.Dominant.Wings.Active)
+                        {
+                            itemText[currentTrait] = "Wings";
+                            currentTrait++;
+                        }
+                        if (GameHandler.Inventory.SelectedDNA.Dominant.Claws.Active)
+                        {
+                            itemText[currentTrait] = "Claws";
+                            currentTrait++;
+                        }
+                    }
                 }
 
                 // The following will render the text to their own individual textures with bounding rects
@@ -329,6 +440,9 @@ namespace VOiD.Components
                     component.currentOffset.Y = maxY;
                 else if (component.currentOffset.Y < minY)
                     component.currentOffset.Y = minY;
+
+                DrawGraphicComponent(component.UpScroller, ref parent);
+                DrawGraphicComponent(component.DownScroller, ref parent);
             }
 
             // Set Scissor rectangle
@@ -344,9 +458,6 @@ namespace VOiD.Components
 
             // Revert Scissor Rectangle
             SpriteManager.ScissorRectangle = currentRect;
-
-            DrawGraphicComponent(component.UpScroller, ref parent);
-            DrawGraphicComponent(component.DownScroller, ref parent);
         }
 
         private void DrawGraphicComponent(GraphicObject component, ref Object2D parent)
