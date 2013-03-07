@@ -31,7 +31,7 @@ namespace VOiD
             get { return _Health; }
             set
             {
-                if (Health - value <= Dominant.Health.Level)
+                if (Health + value <= Dominant.Health.Level)
                     Health += value;
                 else
                 {
@@ -46,7 +46,6 @@ namespace VOiD
                 }
             }
         }
-
         public ushort Strength = 0;
         public ushort Dexterity = 0;
         public ushort Endurance = 0;
