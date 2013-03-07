@@ -54,6 +54,8 @@ namespace VOiD
                 numberOfTraits++;
             if (Claws.Active)
                 numberOfTraits++;
+            if (TailColumns.Level >= 0)
+                numberOfTraits++;
             return numberOfTraits;
         }
 

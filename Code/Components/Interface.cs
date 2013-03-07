@@ -180,14 +180,6 @@ namespace VOiD.Components
                         temp = "Aggressiveness: " + GameHandler.Inventory.SelectedDNA.Dominant.Agressiveness.Level + "/" + GameHandler.Inventory.SelectedDNA.Dominant.Agressiveness.Maximum;
                     if (component.Text == "@SelectedFocus")
                         temp = "Focus: " + GameHandler.Inventory.SelectedDNA.Dominant.Focus.Level + "/" + GameHandler.Inventory.SelectedDNA.Dominant.Focus.Maximum;
-
-                    // Physical Traits
-                    if (component.Text == "@SelectedSpinalColumns")
-                        temp = "Spinal Columns: " + GameHandler.Inventory.SelectedDNA.Dominant.SpinalColumns.Level + "/"
-                            + GameHandler.Player.Dominant.SpinalColumns.Maximum;
-                    if (component.Text == "@SelectedTailColumns")
-                        temp = "Tail Columns: " + GameHandler.Inventory.SelectedDNA.Dominant.SpinalColumns.Level + "/"
-                            + GameHandler.Player.Dominant.SpinalColumns.Maximum;
                 }
                 else
                 {
@@ -211,12 +203,6 @@ namespace VOiD.Components
                         temp = "Aggressiveness: -";
                     if (component.Text == "@SelectedFocus")
                         temp = "Focus: -";
-
-                    // Physical Traits
-                    if (component.Text == "@SelectedSpinalColumns")
-                        temp = "Spinal Columns: -";
-                    if (component.Text == "@SelectedTailColumns")
-                        temp = "Tail Columns: -";
                 }
 
                 // Selected Item
@@ -328,6 +314,11 @@ namespace VOiD.Components
                         itemText[currentTrait] = "Claws";
                         currentTrait++;
                     }
+                    if(GameHandler.Player.Dominant.TailColumns.Level >= 0)
+                    {
+                        itemText[currentTrait] = "Tail";
+                        currentTrait++;
+                    }
                 }
 
                 // Displays player's owned DNA
@@ -377,6 +368,11 @@ namespace VOiD.Components
                         if (GameHandler.Inventory.SelectedDNA.Dominant.Claws.Active)
                         {
                             itemText[currentTrait] = "Claws";
+                            currentTrait++;
+                        }
+                        if(GameHandler.Inventory.SelectedDNA.Dominant.TailColumns.Level >= 0)
+                        {
+                            itemText[currentTrait] = "Tail";
                             currentTrait++;
                         }
                     }

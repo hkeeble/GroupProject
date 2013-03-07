@@ -127,20 +127,6 @@
                 </Children>
               </Item>
               <Item Type="GameLibrary.TextObject">
-                <Text>@SelectedSpinalColumns</Text>
-                <Font>SegoeUI</Font>
-                <fontColor>255 255 255</fontColor>
-                <isCentered>false</isCentered>
-                <ioffset>28 75</ioffset>
-              </Item>
-              <Item Type="GameLibrary.TextObject">
-                <Text>@SelectedTailColumns</Text>
-                <Font>SegoeUI</Font>
-                <fontColor>255 255 255</fontColor>
-                <isCentered>false</isCentered>
-                <ioffset>28 80</ioffset>
-              </Item>
-              <Item Type="GameLibrary.TextObject">
                 <Text>STATISTICS</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>255 255 0</fontColor>
