@@ -430,7 +430,7 @@ namespace VOiD
                 {
                     if ((i != Dominant.SpinalColumns.Maximum))
                     {
-                        tmp.children.Add(new CreatureModel(new SpherePrimitive(Configuration.GraphicsDevice, 0.6f, 8), Vector3.Up / Dominant.SpinalColumns.Maximum, Vector3.Zero));
+                        tmp.children.Add(new CreatureModel(new SpherePrimitive(Configuration.GraphicsDevice, 0.3f, 8), Vector3.Up / Dominant.SpinalColumns.Maximum, Vector3.Zero));
                         tmp = tmp.children[0];
                     }
                     else
