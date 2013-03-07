@@ -15,18 +15,64 @@
         <iSize>0 0</iSize>
         <iPosition>0 0</iPosition>
         <isClickable>false</isClickable>
-        <TextureLocation>Level</TextureLocation>
+        <TextureLocation>Level/Level_Interface</TextureLocation>
         <fullscreen>true</fullscreen>
         <Action></Action>
         <Children>
           <Item Type="GameLibrary.MinimapObject">
-            <iSize>13 18</iSize>
-            <iPosition>5 77</iPosition>
+            <iSize>17 22</iSize>
+            <iPosition>82 75</iPosition>
             <isClickable>false</isClickable>
             <TextureLocation>~minimap</TextureLocation>
             <fullscreen>true</fullscreen>
             <Action></Action>
             <Children></Children>
+          </Item>
+          <Item Type="GameLibrary.GraphicObject">
+            <iSize>23 23</iSize>
+            <iPosition>12 88</iPosition>
+            <isClickable>false</isClickable>
+            <TextureLocation>Dial</TextureLocation>
+            <fullscreen>false</fullscreen>
+            <Action></Action>
+            <Children>
+              <Item Type="GameLibrary.GraphicObject">
+                <iSize>35 35</iSize>
+                <iPosition>32 27</iPosition>
+                <isClickable>true</isClickable>
+                <TextureLocation>Backpack</TextureLocation>
+                <fullscreen>false</fullscreen>
+                <Action>Inventory</Action>
+                <Children></Children>
+              </Item>
+              <Item Type="GameLibrary.GraphicObject">
+                <iSize>35 35</iSize>
+                <iPosition>32 73</iPosition>
+                <isClickable>true</isClickable>
+                <TextureLocation>Lab/Exit</TextureLocation>
+                <fullscreen>false</fullscreen>
+                <Action>exitGame</Action>
+                <Children></Children>
+              </Item>
+              <Item Type="GameLibrary.GraphicObject">
+                <iSize>35 35</iSize>
+                <iPosition>67 27</iPosition>
+                <isClickable>true</isClickable>
+                <TextureLocation>Lab/Creature</TextureLocation>
+                <fullscreen>false</fullscreen>
+                <Action>Creature</Action>
+                <Children></Children>
+              </Item>
+              <Item Type="GameLibrary.GraphicObject">
+                <iSize>35 35</iSize>
+                <iPosition>69 73</iPosition>
+                <isClickable>true</isClickable>
+                <TextureLocation>Level/DNANull</TextureLocation>
+                <fullscreen>false</fullscreen>
+                <Action></Action>
+                <Children></Children>
+              </Item>
+            </Children>
           </Item>
         </Children>
       </Item>

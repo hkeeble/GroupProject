@@ -625,12 +625,19 @@ namespace VOiD.Components
 
                 #region Customizer Actions
                 // ADD BUILD IDs HERE
-                if(component.Action.Equals("SelectStrengthBuild"))
-                    GameHandler.Player = new Creature(1234, Game.Content.Load<Texture2D>("Sprites/handler"), Vector2.Zero, 2f);
-                if (component.Action.Equals("SelectSpeedBuild"))
-                    GameHandler.Player = new Creature(1234, Game.Content.Load<Texture2D>("Sprites/handler"), Vector2.Zero, 2f);
-                if (component.Action.Equals("SelectEnduranceBuild"))
-                    GameHandler.Player = new Creature(1234, Game.Content.Load<Texture2D>("Sprites/handler"), Vector2.Zero, 2f);
+                if (component.Action.Equals("SelectStrengthBuild") || component.Action.Equals("SelectSpeedBuild") || component.Action.Equals("SelectEnduranceBuild"))
+                {
+                    if (component.Action.Equals("SelectStrengthBuild"))
+                        GameHandler.Player = new Creature(1234, Game.Content.Load<Texture2D>("Sprites/handler"), Vector2.Zero, 2f); // Strength Build
+                    if (component.Action.Equals("SelectSpeedBuild"))
+                        GameHandler.Player = new Creature(1234, Game.Content.Load<Texture2D>("Sprites/handler"), Vector2.Zero, 2f); // Speed Build
+                    if (component.Action.Equals("SelectEnduranceBuild"))
+                        GameHandler.Player = new Creature(1234, Game.Content.Load<Texture2D>("Sprites/handler"), Vector2.Zero, 2f); // Endurance Build
+
+                    currentScreen = Screens.Loading;
+                    lastScreen = Screens.Loading;
+                    temp = (Game.Content.Load<GameLibrary.Interface>("Interface/LoadingScreen"));
+                }
                 #endregion
 
                 #region Lab Menu Actions

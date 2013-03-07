@@ -64,6 +64,9 @@ Content\Interface\SubMenuDNAInventory.xnb
 Content\Interface\CreatureCustomization.xnb
 Content\Interface\LoadingScreen.xnb
 Content\SegoeUI.xnb
+Content\Interface\Assets\Flee.xnb
+Content\Interface\Assets\Level\Level_Interface.xnb
+Content\Interface\Assets\Level\DNANull.xnb
 Content\Tilesets\Tileset.png
 Content\Maps\Level1.map
 Content\Maps\Level2.map
