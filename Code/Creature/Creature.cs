@@ -35,9 +35,13 @@ namespace VOiD
                     Health += value;
                 else
                 {
-                    if (Health + value <= Dominant.Health.Maximum - Dominant.Health.Level)
+                    if (value < Dominant.Health.Maximum - Dominant.Health.Level)
                     {
-
+                        Health += value;
+                        if (Health > Dominant.Health.Level)
+                        {
+                            Dominant.Health.Level = Health;
+                        }
                     }
                 }
             }
@@ -82,7 +86,7 @@ namespace VOiD
         protected UInt16 BattlesLost;
         private AttackTypes avTacks;
 
-        //Constructors
+        #region Constructors
         /// <summary>
         /// Generates a creature based on seed value.
         /// </summary>
@@ -301,7 +305,7 @@ namespace VOiD
             avTacks = new AttackTypes(Dominant);
             CreateModel();
         }
-
+        #endregion
 
         #region CalculateUtilities
         private StatsBool[] BoolMethod(StatsBool AD, StatsBool BD, StatsBool AR, StatsBool BR, float UsedRAvg)
