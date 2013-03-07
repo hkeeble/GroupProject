@@ -16,7 +16,7 @@ namespace VOiD
 
 	    // Variables
         #region DNA
-        protected Traits Dominant;//A dominant allele always shows, even if the individual only has one copy of the allele.
+        public Traits Dominant;//A dominant allele always shows, even if the individual only has one copy of the allele.
         protected Traits Recessive;//A recessive allele only shows if the individual has two copies of the recessive allele.
         #endregion
 
