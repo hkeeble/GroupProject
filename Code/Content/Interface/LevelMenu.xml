@@ -19,6 +19,15 @@
         <fullscreen>true</fullscreen>
         <Action></Action>
         <Children>
+          <Item Type="GameLibrary.GraphicObject">
+            <iSize>5 5</iSize>
+            <iPosition>3 3</iPosition>
+            <isClickable>true</isClickable>
+            <TextureLocation>Level/OptionsButton</TextureLocation>
+            <fullscreen>false</fullscreen>
+            <Action>Options</Action>
+            <Children></Children>
+          </Item>
           <Item Type="GameLibrary.MinimapObject">
             <iSize>17 22</iSize>
             <iPosition>82 75</iPosition>
@@ -51,7 +60,7 @@
                 <isClickable>true</isClickable>
                 <TextureLocation>Lab/Exit</TextureLocation>
                 <fullscreen>false</fullscreen>
-                <Action>exitGame</Action>
+                <Action>openExitBox</Action>
                 <Children></Children>
               </Item>
               <Item Type="GameLibrary.GraphicObject">

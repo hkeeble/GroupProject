@@ -624,15 +624,15 @@ namespace VOiD.Components
                 if (component.Action.Equals("SelectStrengthBuild") || component.Action.Equals("SelectSpeedBuild") || component.Action.Equals("SelectEnduranceBuild"))
                 {
                     if (component.Action.Equals("SelectStrengthBuild"))
-                        GameHandler.Player = new Creature(1234, Game.Content.Load<Texture2D>("Sprites/handler"), Vector2.Zero, 2f); // Strength Build
+                        GameHandler.Player = new Creature(1234, Game.Content.Load<Texture2D>("Sprites/handler"), GameHandler.TileMap.PlayerSpawn, 2f); // Strength Build
                     if (component.Action.Equals("SelectSpeedBuild"))
-                        GameHandler.Player = new Creature(1234, Game.Content.Load<Texture2D>("Sprites/handler"), Vector2.Zero, 2f); // Speed Build
+                        GameHandler.Player = new Creature(1234, Game.Content.Load<Texture2D>("Sprites/handler"), GameHandler.TileMap.PlayerSpawn, 2f); // Speed Build
                     if (component.Action.Equals("SelectEnduranceBuild"))
-                        GameHandler.Player = new Creature(1234, Game.Content.Load<Texture2D>("Sprites/handler"), Vector2.Zero, 2f); // Endurance Build
+                        GameHandler.Player = new Creature(1234, Game.Content.Load<Texture2D>("Sprites/handler"), GameHandler.TileMap.PlayerSpawn, 2f); // Endurance Build
 
-                    currentScreen = Screens.Loading;
-                    lastScreen = Screens.Loading;
-                    temp = (Game.Content.Load<GameLibrary.Interface>("Interface/LoadingScreen"));
+                    GameHandler.Enabled = true;
+                    GameHandler.Visible = true;
+                    Interface.currentScreen = Screens.LevelMenu;
                 }
                 #endregion
 
@@ -671,6 +671,13 @@ namespace VOiD.Components
                 if (component.Action.Equals("SelectHoney"))
                     if (GameHandler.Inventory.NumberOfHoney > 0)
                         GameHandler.Inventory.SetItem((int)Item.ItemName.Honey, Game.Content);
+                #endregion
+
+                #region Level Menu Actions
+                if (component.Action.Equals("openExitBox"))
+                    subMenu = Game.Content.Load<GameLibrary.Interface>("Interface/ExitBox");
+                if (component.Action.Equals("exitGame"))
+                    Game.Exit();
                 #endregion
 
                 DebugLog.WriteLine(string.Format("Button Clicked Action =  {0} ", component.Action));
