@@ -471,8 +471,6 @@ namespace VOiD.Components
                 #region Main Menu Actions
                 if (component.Action.Equals("continue"))
                 {
-                    currentScreen = Screens.Loading;
-
                     if (SaveHandler.LoadSave(GraphicsDevice, Game.Content) == false) // If no save exists, open the customizer
                         currentScreen = Screens.CreatureCustomizer;
                     else

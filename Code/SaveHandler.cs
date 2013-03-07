@@ -18,6 +18,8 @@ namespace VOiD
         /// </summary>
         public static bool LoadSave(GraphicsDevice graphics, ContentManager content)
         {
+            Interface.currentScreen = Screens.Loading;
+
             string cDir = Directory.GetCurrentDirectory();
             string[] files = Directory.GetFiles(cDir);
 
