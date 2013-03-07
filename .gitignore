@@ -7,6 +7,7 @@
 
 # Our files
 Build/debugLog.txt
+Build/Adventures of Dr.Lazarus.exe
 *.exe
 *.dll
 

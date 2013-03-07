@@ -14,24 +14,45 @@ namespace VOiD
         private short _ID;
         public short ID { get { return _ID; } }
 
-	    // Variables
+        // Variables
         #region DNA
         public Traits Dominant;//A dominant allele always shows, even if the individual only has one copy of the allele.
         protected Traits Recessive;//A recessive allele only shows if the individual has two copies of the recessive allele.
         #endregion
 
         #region Statistics
-        public ushort Health=0;
-        public ushort Strength=0;
-        public ushort Dexterity=0;
-        public ushort Endurance=0;
-        public ushort Speed=0;
+        private ushort _Health = 0;
+        private ushort _Strength = 0;
+        private ushort _Dexterity = 0;
+        private ushort _Endurance = 0;
+        private ushort _Speed = 0;
+        public ushort Health
+        {
+            get { return _Health; }
+            set
+            {
+                if (Health - value <= Dominant.Health.Level)
+                    Health += value;
+                else
+                {
+                    if (Health + value <= Dominant.Health.Maximum - Dominant.Health.Level)
+                    {
+
+                    }
+                }
+            }
+        }
+
+        public ushort Strength = 0;
+        public ushort Dexterity = 0;
+        public ushort Endurance = 0;
+        public ushort Speed = 0;
         #endregion
 
         #region Behaviour
-        public ushort Aggressiveness=0;
-        public ushort Focus=0;
-        public ushort Obedience=0;
+        public ushort Aggressiveness = 0;
+        public ushort Focus = 0;
+        public ushort Obedience = 0;
         #endregion
 
         #region Abilities
@@ -58,10 +79,10 @@ namespace VOiD
         }
         #endregion
 
-	    protected UInt16 BattlesLost;
+        protected UInt16 BattlesLost;
         private AttackTypes avTacks;
 
-	    //Constructors
+        //Constructors
         /// <summary>
         /// Generates a creature based on seed value.
         /// </summary>
@@ -281,7 +302,7 @@ namespace VOiD
             CreateModel();
         }
 
-        
+
         #region CalculateUtilities
         private StatsBool[] BoolMethod(StatsBool AD, StatsBool BD, StatsBool AR, StatsBool BR, float UsedRAvg)
         {
@@ -398,8 +419,8 @@ namespace VOiD
         {
             // Make the model from the set up Dominant traits
             creatureModel = new CreatureModel(new CubePrimitive(Configuration.GraphicsDevice, 0.2f), Vector3.Zero, Vector3.Zero);
-            CreatureModel tmp =  creatureModel;
-            if (Dominant.SpinalColumns.Maximum>0)
+            CreatureModel tmp = creatureModel;
+            if (Dominant.SpinalColumns.Maximum > 0)
             {
                 for (int i = 0; i <= Dominant.SpinalColumns.Maximum; i++)
                 {
@@ -421,14 +442,14 @@ namespace VOiD
 
                 }
             }
-            
-            if (Dominant.TailColumns.Maximum>0)
+
+            if (Dominant.TailColumns.Maximum > 0)
             {
                 tmp = creatureModel;
                 for (int i = 0; i < Dominant.TailColumns.Maximum; i++)
                 {
                     tmp.children.Add(new CreatureModel(new SpherePrimitive(Configuration.GraphicsDevice, .2f, 8), Vector3.Forward / Dominant.TailColumns.Maximum, new Vector3(0, 0, 0.2f)));
-                    tmp = tmp.children[tmp.children.Count-1];
+                    tmp = tmp.children[tmp.children.Count - 1];
                 }
             }
         }
@@ -444,13 +465,13 @@ namespace VOiD
         }
 
         public void Draw(GraphicsDevice graphicsDevice, Matrix world)
-	    {
+        {
             if (creatureModel == null)
             {
                 CreateModel();
             }
             else
                 creatureModel.Draw(world);
-	    }
+        }
     }
 }
