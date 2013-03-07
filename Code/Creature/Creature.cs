@@ -24,7 +24,7 @@ namespace VOiD
         private ushort _Health = 0;
         private ushort _Strength = 0;
         private ushort _Dexterity = 0;
-        private ushort _Endurance = 0;
+        private ushort _Endurance = 50;
         private ushort _Speed = 0;
         public ushort Health
         {
@@ -63,14 +63,14 @@ namespace VOiD
         {
             get
             {
-                return Dominant.Weight.Level <= 4 && Endurance >= 4;
+                return Dominant.Wings.Active && Dominant.Weight.Level <= 4 && Endurance >= 4;
             }
         }
         public bool canSwim
         {
             get
             {
-                return Dominant.Wings.Active && Endurance >= 4;
+                return Dominant.Weight.Level <= 4 && Endurance >= 4;
             }
         }
         public bool canClimb
