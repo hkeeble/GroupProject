@@ -94,7 +94,7 @@ namespace GameLibrary
             }
         }
 
-        [ContentSerializerIgnore] public Item[] Items;
+        [ContentSerializerIgnore] public Item[] Items = new Item[0];
         [ContentSerializerIgnore] public Rectangle BoundingRect;
         [ContentSerializerIgnore] public Vector2 currentOffset;
         [ContentSerializerIgnore] public Vector2 offset;

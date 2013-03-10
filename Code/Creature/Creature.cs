@@ -21,29 +21,35 @@ namespace VOiD
         #endregion
 
         #region Statistics
-        private ushort _Health = 0;
+        private int _Health = 60;
         private ushort _Strength = 0;
         private ushort _Dexterity = 0;
         private ushort _Endurance = 50;
         private ushort _Speed = 0;
-        public ushort Health
+        public int Health
         {
             get { return _Health; }
             set
             {
-                if (Health + value <= Dominant.Health.Level)
-                    Health += value;
-                else
+                /*
+                if (value > 0)
                 {
-                    if (value < Dominant.Health.Maximum - Dominant.Health.Level)
+                    if (value <= Dominant.Health.Level)
+                        _Health = value;
+                    else
                     {
-                        Health += value;
-                        if (Health > Dominant.Health.Level)
+                        if (value < Dominant.Health.Maximum - Dominant.Health.Level)
                         {
-                            Dominant.Health.Level = Health;
+                            _Health += value;
+                            if (_Health > Dominant.Health.Level)
+                            {
+                                Dominant.Health.Level = (ushort)_Health;
+                            }
                         }
                     }
                 }
+                else*/
+                    _Health = value;
             }
         }
         public ushort Strength = 0;

@@ -797,33 +797,20 @@ namespace VOiD.Components
                 temp = new GameLibrary.Interface();
 
                 if (currentScreen == Screens.MainMenu)
-                {
                     temp = (Game.Content.Load<GameLibrary.Interface>("Interface/MainMenu"));
-                }
                 else if (currentScreen == Screens.CreatureCustomizer)
-                {
                     temp = (Game.Content.Load<GameLibrary.Interface>("Interface/CreatureCustomization"));
-                }
                 else if (currentScreen == Screens.LevelMenu)
-                {
                     temp = (Game.Content.Load<GameLibrary.Interface>("Interface/LevelMenu"));
-                }
                 else if (currentScreen == Screens.Loading)
-                {
                     temp = (Game.Content.Load<GameLibrary.Interface>("Interface/LoadingScreen"));
-                }
                 else if (currentScreen == Screens.Battle)
-                {
                     temp = (Game.Content.Load<GameLibrary.Interface>("Interface/BattleScreen"));
-                }
                 else if (currentScreen == Screens.Lab)
-                {
                     temp = (Game.Content.Load<GameLibrary.Interface>("Interface/LabScreen"));
-                }
                 else
-                {
                     temp = new GameLibrary.Interface();
-                }
+
                 subMenu = new GameLibrary.Interface();
             }
 

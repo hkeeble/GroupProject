@@ -14,9 +14,11 @@ namespace VOiD.Components
 {
     class BattleHandler : DrawableGameComponent
     {
+        private static Random random = new Random();
         private static bool InSession;
-        private static Creature A;
+        private static bool PlayerMove;
         private static Creature B;
+        private static bool Win=false;
 
         public BattleHandler(Game game)
             : base(game)
@@ -28,29 +30,54 @@ namespace VOiD.Components
             base.Initialize();
         }
 
-        public static void InitiateBattle(Creature a,Creature b)
+        public static void InitiateBattle(Creature b)
         {
             Interface.currentScreen=Screens.Battle;
-            A = a;
             B = b;
             InSession = true;
+            PlayerMove = false;
         }
 
         public override void Update(GameTime gameTime)
         {
             if (InSession)
             {
-                //do battle logic here
-                GameHandler.Enabled = false;
-                bool BattleEnd = false;
-                if (BattleEnd)
+                if (PlayerMove && B.Health > 0)
                 {
-                    InSession = false;
+                    //Select Attack
+                    B.Health -= (int)GameHandler.Player.AvailableAttacks[0].Damage;
+                    Console.WriteLine("Player Used - " + GameHandler.Player.AvailableAttacks[0].Name);
+                    Console.WriteLine("AI Health - " + B.Health);
+                    PlayerMove = false;
+                }
+                else if (GameHandler.Player.Health > 0)
+                {
+                    int AttackPatternSigma = random.Next(B.AvailableAttacks.Count);
+                    GameHandler.Player.Health -= (int)B.AvailableAttacks[AttackPatternSigma].Damage;
+                    Console.WriteLine("AI Used - " + B.AvailableAttacks[AttackPatternSigma].Name);
+                    Console.WriteLine("Player Health - " + GameHandler.Player.Health);
+                    PlayerMove = true;
+                }
+
+
+                if (B.Health <= 0 || GameHandler.Player.Health <= 0)
+                {
+                    GameHandler.Player.Position = Vector2.Zero;
                     Interface.currentScreen = Screens.LevelMenu;
+                    InSession = false;
+                    if (B.Health <= 0 && GameHandler.Player.Health > 0)
+                        Win = true;
+                    else
+                        Win = false;
+
+                    Console.WriteLine("Did you Win - " + Win);
                     GameHandler.Enabled = true;
                 }
+                else
+                {
+                    GameHandler.Enabled = false;
+                }
             }
-
 
             base.Update(gameTime);
         }
@@ -59,7 +86,7 @@ namespace VOiD.Components
         {
             if (InSession)
             {
-                A.Draw(Game.GraphicsDevice, Matrix.CreateRotationY(MathHelper.ToRadians(45.0f)) * Matrix.CreateTranslation(new Vector3(1, 0, -4)));
+                GameHandler.Player.Draw(Game.GraphicsDevice, Matrix.CreateRotationY(MathHelper.ToRadians(45.0f)) * Matrix.CreateTranslation(new Vector3(1, 0, -4)));
                 B.Draw(Game.GraphicsDevice, Matrix.CreateRotationY(MathHelper.ToRadians(-45.0f)) * Matrix.CreateTranslation(new Vector3(-1, 0, -4)));
             }
             base.Draw(gameTime);
