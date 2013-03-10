@@ -98,7 +98,7 @@
                   <scrollDirection>0 -5</scrollDirection>
                 </DownScroller>
                 <ioffset>5 2</ioffset>
-                <isClickable>false</isClickable>
+                <isClickable>true</isClickable>
               </Item>
             </Children>
           </Item>

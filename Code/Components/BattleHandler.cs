@@ -19,6 +19,8 @@ namespace VOiD.Components
         private static bool PlayerMove;
         private static Creature B;
         private static bool Win=false;
+        public static int AttackSelection = 0;
+        public static bool AttackSelected = false;
 
         public BattleHandler(Game game)
             : base(game)
@@ -45,10 +47,14 @@ namespace VOiD.Components
                 if (PlayerMove && B.Health > 0)
                 {
                     //Select Attack
-                    B.Health -= (int)GameHandler.Player.AvailableAttacks[0].Damage;
-                    Console.WriteLine("Player Used - " + GameHandler.Player.AvailableAttacks[0].Name);
-                    Console.WriteLine("AI Health - " + B.Health);
-                    PlayerMove = false;
+                    if (AttackSelected)
+                    {
+                        B.Health -= (int)GameHandler.Player.AvailableAttacks[AttackSelection].Damage;
+                        Console.WriteLine("Player Used - " + GameHandler.Player.AvailableAttacks[AttackSelection].Name);
+                        Console.WriteLine("AI Health - " + B.Health);
+                        PlayerMove = false;
+                        AttackSelected = false;
+                    }
                 }
                 else if (GameHandler.Player.Health > 0)
                 {
@@ -62,7 +68,7 @@ namespace VOiD.Components
 
                 if (B.Health <= 0 || GameHandler.Player.Health <= 0)
                 {
-                    GameHandler.Player.Position = Vector2.Zero;
+                    GameHandler.Player.Position = GameHandler.Lab.Position + new Vector2(GameHandler.TileMap.TileWidth, GameHandler.TileMap.TileHeight * 3);
                     Interface.currentScreen = Screens.LevelMenu;
                     InSession = false;
                     if (B.Health <= 0 && GameHandler.Player.Health > 0)

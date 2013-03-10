@@ -770,7 +770,11 @@ namespace VOiD.Components
                             if (component.ListContentType == "PlayerDNAInventory")
                                 GameHandler.Inventory.SetDNA(i);
                             #endregion
-                            
+                            if (currentScreen == Screens.Battle)
+                            {
+                                BattleHandler.AttackSelected = true;
+                                BattleHandler.AttackSelection = i;
+                            }
                             // Add if statements for other list actions here
                         }
                     }
