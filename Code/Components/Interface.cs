@@ -844,7 +844,7 @@ namespace VOiD.Components
             {
                 // if screen has changed
                 if(temp != null)
-                    ResetListBoxes(temp.content); // Reset current screen listboxes
+                    ResetListBoxes(temp.content); // Reset current screen ListBoxes
                 temp = new GameLibrary.Interface();
 
                 if (currentScreen == Screens.MainMenu)

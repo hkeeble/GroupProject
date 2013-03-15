@@ -51,6 +51,40 @@ namespace VOiD
             if (selectedItem.ID == items[ID - 1].ID)
                 if (items[ID - 1].Amount == 0)
                     selectedItem = null;
+
+            if (ID == (int)Item.ItemName.Apple)
+            {
+                GameHandler.Player.Health += (GameHandler.Player.Health / 100) * 10;
+                if (GameHandler.Player.Health >= GameHandler.Player.Dominant.Health.Level)
+                    GameHandler.Player.Health = GameHandler.Player.Dominant.Health.Level-1;
+            }
+
+            if (ID == (int)Item.ItemName.Golden_Apple)
+            {
+                GameHandler.Player.Health += (GameHandler.Player.Health / 100) * 50;
+                GameHandler.Player.Dominant.Health.Level += (ushort)((GameHandler.Player.Dominant.Health.Maximum - GameHandler.Player.Dominant.Health.Level) * 0.25);
+
+                // Ensure values inside bounds
+                if (GameHandler.Player.Health >= GameHandler.Player.Dominant.Health.Level)
+                    GameHandler.Player.Health = GameHandler.Player.Dominant.Health.Level - 1;
+                if (GameHandler.Player.Dominant.Health.Level > GameHandler.Player.Dominant.Health.Maximum)
+                    GameHandler.Player.Dominant.Health.Level = GameHandler.Player.Dominant.Health.Maximum;
+            }
+
+            if (ID == (int)Item.ItemName.Spring_Water)
+            {
+
+            }
+
+            if (ID == (int)Item.ItemName.Honey)
+            {
+
+            }
+
+            if (ID == (int)Item.ItemName.Chilli)
+            {
+
+            }
         }
         
         /// <summary>
