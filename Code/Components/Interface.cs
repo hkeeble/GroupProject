@@ -540,7 +540,16 @@ namespace VOiD.Components
             }
             else
             {
-                SpriteManager.Draw(component.Texture, new Rectangle((int)component.Position.X, (int)component.Position.Y, (int)component.Size.X, (int)component.Size.Y), null, Color.White);
+                if (component.isClickable)
+                {
+                    Rectangle textureRect = new Rectangle((int)component.Position.X, (int)component.Position.Y, (int)component.Size.X, (int)component.Size.Y);
+                    if(textureRect.Contains(new Point(InputHandler.MouseX, InputHandler.MouseY)))
+                        SpriteManager.Draw(component.Texture, new Rectangle((int)component.Position.X - 10, (int)component.Position.Y - 10, (int)component.Size.X+20, (int)component.Size.Y+20), null, Color.White);
+                    else
+                        SpriteManager.Draw(component.Texture, new Rectangle((int)component.Position.X, (int)component.Position.Y, (int)component.Size.X, (int)component.Size.Y), null, Color.White);
+                }
+                else
+                    SpriteManager.Draw(component.Texture, new Rectangle((int)component.Position.X, (int)component.Position.Y, (int)component.Size.X, (int)component.Size.Y), null, Color.White);
             }
         }
 

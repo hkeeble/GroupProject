@@ -79,6 +79,8 @@ namespace GameLibrary
         public string ListContentType;
         public string Font;
         public Vector3 fontColor;
+        public Vector3 highlightColor;
+        public Vector3 selectedColor;
         public Scroller UpScroller, DownScroller;
         public Vector2 ioffset;
         public bool isClickable;
@@ -99,6 +101,7 @@ namespace GameLibrary
         [ContentSerializerIgnore] public Rectangle BoundingRect;
         [ContentSerializerIgnore] public Vector2 currentOffset;
         [ContentSerializerIgnore] public Vector2 offset;
+        [ContentSerializerIgnore] public int selectedItem;
 
         public void Scroll(Vector2 offset)
         {

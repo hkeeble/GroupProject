@@ -48,7 +48,7 @@
               <Item Type="GameLibrary.GraphicObject">
                 <iSize>10 25</iSize>
                 <iPosition>15 43</iPosition>
-                <isClickable>true</isClickable>
+                <isClickable>false</isClickable>
                 <TextureLocation>gridSquare</TextureLocation>
                 <fullscreen>false</fullscreen>
                 <Action>SelectApple</Action>
@@ -56,7 +56,7 @@
                   <Item Type="GameLibrary.GraphicObject">
                     <iSize>100 100</iSize>
                     <iPosition>45 45</iPosition>
-                    <isClickable>false</isClickable>
+                    <isClickable>true</isClickable>
                     <TextureLocation>@AppleTexture</TextureLocation>
                     <fullscreen>false</fullscreen>
                     <Action></Action>
@@ -76,7 +76,7 @@
               <Item Type="GameLibrary.GraphicObject">
                 <iSize>10 25</iSize>
                 <iPosition>25 43</iPosition>
-                <isClickable>true</isClickable>
+                <isClickable>false</isClickable>
                 <TextureLocation>gridSquare</TextureLocation>
                 <fullscreen>false</fullscreen>
                 <Action>SelectGoldenApple</Action>
@@ -84,7 +84,7 @@
                   <Item Type="GameLibrary.GraphicObject">
                     <iSize>100 100</iSize>
                     <iPosition>45 45</iPosition>
-                    <isClickable>false</isClickable>
+                    <isClickable>true</isClickable>
                     <TextureLocation>@GoldenAppleTexture</TextureLocation>
                     <fullscreen>false</fullscreen>
                     <Action></Action>
@@ -104,7 +104,7 @@
               <Item Type="GameLibrary.GraphicObject">
                 <iSize>10 25</iSize>
                 <iPosition>35 43</iPosition>
-                <isClickable>true</isClickable>
+                <isClickable>false</isClickable>
                 <TextureLocation>gridSquare</TextureLocation>
                 <fullscreen>false</fullscreen>
                 <Action>SelectSpringWater</Action>
@@ -112,7 +112,7 @@
                   <Item Type="GameLibrary.GraphicObject">
                     <iSize>100 100</iSize>
                     <iPosition>45 45</iPosition>
-                    <isClickable>false</isClickable>
+                    <isClickable>true</isClickable>
                     <TextureLocation>@SpringWaterTexture</TextureLocation>
                     <fullscreen>false</fullscreen>
                     <Action></Action>
@@ -132,7 +132,7 @@
               <Item Type="GameLibrary.GraphicObject">
                 <iSize>10 25</iSize>
                 <iPosition>45 43</iPosition>
-                <isClickable>true</isClickable>
+                <isClickable>false</isClickable>
                 <TextureLocation>gridSquare</TextureLocation>
                 <fullscreen>false</fullscreen>
                 <Action>SelectHoney</Action>
@@ -140,7 +140,7 @@
                   <Item Type="GameLibrary.GraphicObject">
                     <iSize>100 100</iSize>
                     <iPosition>45 45</iPosition>
-                    <isClickable>false</isClickable>
+                    <isClickable>true</isClickable>
                     <TextureLocation>@HoneyTexture</TextureLocation>
                     <fullscreen>false</fullscreen>
                     <Action></Action>
@@ -160,7 +160,7 @@
               <Item Type="GameLibrary.GraphicObject">
                 <iSize>10 25</iSize>
                 <iPosition>54 43</iPosition>
-                <isClickable>true</isClickable>
+                <isClickable>false</isClickable>
                 <TextureLocation>gridSquare</TextureLocation>
                 <fullscreen>false</fullscreen>
                 <Action>SelectChilli</Action>
@@ -168,7 +168,7 @@
                   <Item Type="GameLibrary.GraphicObject">
                     <iSize>100 100</iSize>
                     <iPosition>45 45</iPosition>
-                    <isClickable>false</isClickable>
+                    <isClickable>true</isClickable>
                     <TextureLocation>@ChilliTexture</TextureLocation>
                     <fullscreen>false</fullscreen>
                     <Action></Action>
@@ -188,7 +188,7 @@
                 <Item Type="GameLibrary.GraphicObject">
                   <iSize>10 25</iSize>
                   <iPosition>64 43</iPosition>
-                  <isClickable>true</isClickable>
+                  <isClickable>false</isClickable>
                   <TextureLocation>gridSquare</TextureLocation>
                   <fullscreen>false</fullscreen>
                   <Action></Action>
@@ -197,7 +197,7 @@
                 <Item Type="GameLibrary.GraphicObject">
                   <iSize>10 25</iSize>
                   <iPosition>74 43</iPosition>
-                  <isClickable>true</isClickable>
+                  <isClickable>false</isClickable>
                   <TextureLocation>gridSquare</TextureLocation>
                   <fullscreen>false</fullscreen>
                   <Action></Action>
@@ -206,7 +206,7 @@
                 <Item Type="GameLibrary.GraphicObject">
                   <iSize>10 25</iSize>
                   <iPosition>84 43</iPosition>
-                  <isClickable>true</isClickable>
+                  <isClickable>false</isClickable>
                   <TextureLocation>gridSquare</TextureLocation>
                   <fullscreen>false</fullscreen>
                   <Action></Action>

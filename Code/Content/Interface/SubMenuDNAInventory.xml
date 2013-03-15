@@ -57,6 +57,8 @@
                     <ListContentType>PlayerDNAInventory</ListContentType>
                     <Font>SegoeUI</Font>
                     <fontColor>255 255 255</fontColor>
+                    <highlightColor>0 0 0</highlightColor>
+                    <selectedColor>255 255 0</selectedColor>
                     <UpScroller>
                       <iSize>15 5</iSize>
                       <iPosition>85 10</iPosition>
@@ -103,6 +105,8 @@
                     <ListContentType>SelectedDNATraits</ListContentType>
                     <Font>SegoeUI</Font>
                     <fontColor>255 255 255</fontColor>
+                    <highlightColor>0 0 0</highlightColor>
+                    <selectedColor>255 255 0</selectedColor>
                     <UpScroller>
                       <iSize>15 10</iSize>
                       <iPosition>85 10</iPosition>
