@@ -76,10 +76,6 @@ namespace VOiD.Components
 
                 Color[] currentTileData = new Color[GameHandler.TileMap.TileWidth * GameHandler.TileMap.TileHeight];
 
-                // Get TileSet dimensions
-                int xTiles = GameHandler.TileMap.TileSet.Width/GameHandler.TileMap.TileWidth;
-                int yTiles = GameHandler.TileMap.TileSet.Height/GameHandler.TileMap.TileHeight;
-
                 // Get Tileset Data
                 Color[] tileSetData = new Color[GameHandler.TileMap.TileSet.Width*GameHandler.TileMap.TileSet.Height];
                 tileSetRender = new Texture2D(GraphicsDevice, GameHandler.TileMap.TileSet.Width, GameHandler.TileMap.TileSet.Height);
@@ -95,6 +91,10 @@ namespace VOiD.Components
                 tileSetRender.SetData<Color>(tileSetData);
                 tileSetRenderRect = new Rectangle((Configuration.Width - tileSetRender.Width), (Configuration.Height - tileSetRender.Height), tileSetRender.Width, tileSetRender.Height);
                 tileSetRenderDrawOffset = new Vector2(Configuration.Width - tileSetRender.Width, Configuration.Height - tileSetRender.Height);
+
+                // Get TileSet dimensions
+                int xTiles = GameHandler.TileMap.TileSet.Width / GameHandler.TileMap.TileWidth;
+                int yTiles = GameHandler.TileMap.TileSet.Height / GameHandler.TileMap.TileHeight;
 
                 for (int x = 0; x < xTiles; x++)
                 {
@@ -187,24 +187,6 @@ namespace VOiD.Components
             {
                 switch(currentMode)
                 {
-                    case Mode.Tile:
-                        if (InputHandler.KeyPressed(Keys.Z))
-                            if(currentTile.X != 0)
-                                currentTile.X--;
-                        if (InputHandler.KeyPressed(Keys.X))
-                            currentTile.X++;
-
-                        if (currentTile.X > (GameHandler.TileMap.TileSet.Width / GameHandler.TileMap.TileWidth)-1)
-                        {
-                            currentTile.X = 0;
-                            currentTile.Y++;
-                        }
-
-                        if (currentTile.Y > (GameHandler.TileMap.TileSet.Height / GameHandler.TileMap.TileHeight)-1)
-                            currentTile.Y = 0;
-
-                        tiles[currentTile.X, currentTile.Y].GetData<Color>(selectedTileData);
-                        break;
                     case Mode.Item:
                         if (InputHandler.KeyPressed(Keys.X) || InputHandler.KeyPressed(Keys.Z))
                         {

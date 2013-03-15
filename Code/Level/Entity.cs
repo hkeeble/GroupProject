@@ -193,7 +193,7 @@ namespace VOiD
                     _currentFrame.X = 0;
 
                 _frameRect = new Rectangle(_currentFrame.X * _frameWidth, _currentFrame.Y * _frameHeight, _frameWidth, _frameHeight);
-                _collisionRect = new Rectangle(0, 0, _frameWidth, _frameHeight);
+                _collisionRect = new Rectangle((int)_position.X, (int)_position.Y, _frameWidth, _frameHeight);
             }
             else
                 _collisionRect = new Rectangle((int)_position.X, (int)_position.Y, _texture.Width, _texture.Height);

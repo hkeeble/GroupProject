@@ -96,8 +96,8 @@ namespace VOiD
         /// Generates a creature based on seed value.
         /// </summary>
         /// <param name="Seed">Seed value.</param>
-        public Creature(int Seed, Texture2D texture, Vector2 position2D, float moveSpeed)
-            : base(texture, position2D, moveSpeed)
+        public Creature(int Seed, Texture2D texture, Vector2 position2D, float moveSpeed, int frameWidth, int frameHeight, int millisecondsBetweenFrame)
+            : base(texture, position2D, moveSpeed, frameWidth, frameWidth, millisecondsBetweenFrame)
         {
             int[] Points = new int[2];
             int[] BDMax = new int[2];
@@ -238,12 +238,6 @@ namespace VOiD
 
             avTacks = new AttackTypes(Dominant);
             CreateModel();
-        }
-
-        public Creature(int Seed, Texture2D texture, Vector2 position2D, float moveSpeed, int frameWidth, int frameHeight, int millisecondsBetweenFrame)
-            : base(texture, position2D, moveSpeed, frameWidth, frameHeight, millisecondsBetweenFrame)
-        {
-
         }
 
         /// <summary>

@@ -657,11 +657,11 @@ namespace VOiD.Components
                 if (component.Action.Equals("SelectStrengthBuild") || component.Action.Equals("SelectSpeedBuild") || component.Action.Equals("SelectEnduranceBuild"))
                 {
                     if (component.Action.Equals("SelectStrengthBuild"))
-                        GameHandler.Player = new Creature(0024, Game.Content.Load<Texture2D>("Sprites/handler"), GameHandler.TileMap.PlayerSpawn, 2f); // Strength Build ugh i can't find the strength to continue my search
+                        GameHandler.Player = new Creature(0024, Game.Content.Load<Texture2D>("Sprites/handler"), GameHandler.TileMap.PlayerSpawn, 2f, 32, 32, 100); // Strength Build ugh i can't find the strength to continue my search
                     if (component.Action.Equals("SelectSpeedBuild"))
-                        GameHandler.Player = new Creature(0012, Game.Content.Load<Texture2D>("Sprites/handler"), GameHandler.TileMap.PlayerSpawn, 2f); // Speed Build
+                        GameHandler.Player = new Creature(0012, Game.Content.Load<Texture2D>("Sprites/handler"), GameHandler.TileMap.PlayerSpawn, 2f, 32, 32, 100); // Speed Build
                     if (component.Action.Equals("SelectEnduranceBuild"))
-                        GameHandler.Player = new Creature(0005, Game.Content.Load<Texture2D>("Sprites/handler"), GameHandler.TileMap.PlayerSpawn, 2f); // Endurance Build
+                        GameHandler.Player = new Creature(0005, Game.Content.Load<Texture2D>("Sprites/handler"), GameHandler.TileMap.PlayerSpawn, 2f, 32, 32, 100); // Endurance Build
                     //1024 == All traits
 
                     GameHandler.Enabled = true;

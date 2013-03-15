@@ -48,7 +48,7 @@ namespace VOiD
                         rand.Next(_moveArea.Y, _moveArea.Y + _moveArea.Height));
                 } while ((Position == playerSpawn || Position.X < 0 || Position.X > mapDimensions.X || Position.Y < 0 || Position.Y > mapDimensions.Y || passable[Position.X, Position.Y] == false) && Position == Point.Zero);
 
-                creatures.Add(new Creature(id, creatureTexture, new Vector2(Position.X * tileDimensions.X, Position.Y * tileDimensions.Y), 1f));
+                creatures.Add(new Creature(id, creatureTexture, new Vector2(Position.X * tileDimensions.X, Position.Y * tileDimensions.Y), 1f, 32, 32, 100));
             }
         }
 
