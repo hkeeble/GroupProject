@@ -173,9 +173,9 @@ namespace VOiD
                 if (Direction.X == -1)
                     _currentFrame.Y = (int)AnimDirection.Left;
                 if (Direction.Y == 1)
-                    _currentFrame.Y = (int)AnimDirection.Up;
-                if (Direction.Y == -1)
                     _currentFrame.Y = (int)AnimDirection.Down;
+                if (Direction.Y == -1)
+                    _currentFrame.Y = (int)AnimDirection.Up;
 
                 if (Direction != Vector2.Zero)
                 {
@@ -185,7 +185,7 @@ namespace VOiD
                     {
                         _timeToNextFrame = TimeSpan.Zero;
                         _currentFrame.X++;
-                        if (_currentFrame.X > _sheetFrameWidth)
+                        if (_currentFrame.X > _sheetFrameWidth-1)
                             _currentFrame.X = 0;
                     }
                 }

@@ -240,6 +240,12 @@ namespace VOiD
             CreateModel();
         }
 
+        public Creature(int Seed, Texture2D texture, Vector2 position2D, float moveSpeed, int frameWidth, int frameHeight, int millisecondsBetweenFrame)
+            : base(texture, position2D, moveSpeed, frameWidth, frameHeight, millisecondsBetweenFrame)
+        {
+
+        }
+
         /// <summary>
         /// Breeds two creatures together.
         /// </summary>
