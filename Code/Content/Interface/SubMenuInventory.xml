@@ -51,7 +51,7 @@
                 <isClickable>false</isClickable>
                 <TextureLocation>gridSquare</TextureLocation>
                 <fullscreen>false</fullscreen>
-                <Action>SelectApple</Action>
+                <Action></Action>
                 <Children>
                   <Item Type="GameLibrary.GraphicObject">
                     <iSize>100 100</iSize>
@@ -59,13 +59,13 @@
                     <isClickable>true</isClickable>
                     <TextureLocation>@AppleTexture</TextureLocation>
                     <fullscreen>false</fullscreen>
-                    <Action></Action>
+                    <Action>SelectApple</Action>
                     <Children>
                       <Item Type="GameLibrary.TextObject">
                         <Text>@NumberOfApples</Text>
                         <Font>SegoeUI</Font>
                         <fontColor>255 255 0</fontColor>
-                        <highlightColor>0 0 0</highlightColor>
+                        <highlightColor>255 255 255</highlightColor>
                         <isCentered>false</isCentered>
                         <ioffset>70 75</ioffset>
                       </Item>
@@ -79,7 +79,7 @@
                 <isClickable>false</isClickable>
                 <TextureLocation>gridSquare</TextureLocation>
                 <fullscreen>false</fullscreen>
-                <Action>SelectGoldenApple</Action>
+                <Action></Action>
                 <Children>
                   <Item Type="GameLibrary.GraphicObject">
                     <iSize>100 100</iSize>
@@ -87,13 +87,13 @@
                     <isClickable>true</isClickable>
                     <TextureLocation>@GoldenAppleTexture</TextureLocation>
                     <fullscreen>false</fullscreen>
-                    <Action></Action>
+                    <Action>SelectGoldenApple</Action>
                     <Children>
                       <Item Type="GameLibrary.TextObject">
                         <Text>@NumberOfGoldenApples</Text>
                         <Font>SegoeUI</Font>
                         <fontColor>255 255 0</fontColor>
-                        <highlightColor>0 0 0</highlightColor>
+                        <highlightColor>255 255 255</highlightColor>
                         <isCentered>false</isCentered>
                         <ioffset>70 75</ioffset>
                       </Item>
@@ -107,7 +107,7 @@
                 <isClickable>false</isClickable>
                 <TextureLocation>gridSquare</TextureLocation>
                 <fullscreen>false</fullscreen>
-                <Action>SelectSpringWater</Action>
+                <Action></Action>
                 <Children>
                   <Item Type="GameLibrary.GraphicObject">
                     <iSize>100 100</iSize>
@@ -115,13 +115,13 @@
                     <isClickable>true</isClickable>
                     <TextureLocation>@SpringWaterTexture</TextureLocation>
                     <fullscreen>false</fullscreen>
-                    <Action></Action>
+                    <Action>SelectSpringWater</Action>
                     <Children>
                       <Item Type="GameLibrary.TextObject">
                         <Text>@NumberOfSpringWater</Text>
                         <Font>SegoeUI</Font>
                         <fontColor>255 255 0</fontColor>
-                        <highlightColor>0 0 0</highlightColor>
+                        <highlightColor>255 255 255</highlightColor>
                         <isCentered>false</isCentered>
                         <ioffset>70 75</ioffset>
                       </Item>
@@ -135,7 +135,7 @@
                 <isClickable>false</isClickable>
                 <TextureLocation>gridSquare</TextureLocation>
                 <fullscreen>false</fullscreen>
-                <Action>SelectHoney</Action>
+                <Action></Action>
                 <Children>
                   <Item Type="GameLibrary.GraphicObject">
                     <iSize>100 100</iSize>
@@ -143,13 +143,13 @@
                     <isClickable>true</isClickable>
                     <TextureLocation>@HoneyTexture</TextureLocation>
                     <fullscreen>false</fullscreen>
-                    <Action></Action>
+                    <Action>SelectHoney</Action>
                     <Children>
                       <Item Type="GameLibrary.TextObject">
                         <Text>@NumberOfHoney</Text>
                         <Font>SegoeUI</Font>
                         <fontColor>255 255 0</fontColor>
-                        <highlightColor>0 0 0</highlightColor>
+                        <highlightColor>255 255 255</highlightColor>
                         <isCentered>false</isCentered>
                         <ioffset>70 75</ioffset>
                       </Item>
@@ -163,7 +163,7 @@
                 <isClickable>false</isClickable>
                 <TextureLocation>gridSquare</TextureLocation>
                 <fullscreen>false</fullscreen>
-                <Action>SelectChilli</Action>
+                <Action></Action>
                 <Children>
                   <Item Type="GameLibrary.GraphicObject">
                     <iSize>100 100</iSize>
@@ -171,13 +171,13 @@
                     <isClickable>true</isClickable>
                     <TextureLocation>@ChilliTexture</TextureLocation>
                     <fullscreen>false</fullscreen>
-                    <Action></Action>
+                    <Action>SelectChilli</Action>
                     <Children>
                       <Item Type="GameLibrary.TextObject">
                         <Text>@NumberOfChilli</Text>
                         <Font>SegoeUI</Font>
                         <fontColor>255 255 0</fontColor>
-                        <highlightColor>0 0 0</highlightColor>
+                        <highlightColor>255 255 255</highlightColor>
                         <isCentered>false</isCentered>
                         <ioffset>70 75</ioffset>
                       </Item>
