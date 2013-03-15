@@ -26,10 +26,13 @@ namespace VOiD.Components
         TimeSpan timeSinceLastSave = TimeSpan.Zero;
 
         Texture2D[,] tiles;
-        Texture2D tileSetRender;
         Texture2D tilePointer;
         Point currentTile;
         Color[] selectedTileData;
+
+        Texture2D tileSetRender;
+        Rectangle tileSetRenderRect;
+        Vector2 tileSetRenderDrawOffset;
 
         Attributes currentAttribute = Attributes.Climbing;
 
@@ -82,9 +85,17 @@ namespace VOiD.Components
                 tileSetRender = new Texture2D(GraphicsDevice, GameHandler.TileMap.TileSet.Width, GameHandler.TileMap.TileSet.Height);
                 GameHandler.TileMap.TileSet.GetData<Color>(tileSetData);
                 for (int i = 0; i < tileSetData.Length; i++)
-                    tileSetData[i].A = 50;
+                    if (tileSetData[i].A == 0)
+                    {
+                        tileSetData[i].A = 255;
+                        tileSetData[i].R = 0;
+                        tileSetData[i].G = 0;
+                        tileSetData[i].B = 0;
+                    }
                 tileSetRender.SetData<Color>(tileSetData);
-                
+                tileSetRenderRect = new Rectangle((Configuration.Width - tileSetRender.Width), (Configuration.Height - tileSetRender.Height), tileSetRender.Width, tileSetRender.Height);
+                tileSetRenderDrawOffset = new Vector2(Configuration.Width - tileSetRender.Width, Configuration.Height - tileSetRender.Height);
+
                 for (int x = 0; x < xTiles; x++)
                 {
                     for (int y = 0; y < yTiles; y++)
@@ -255,9 +266,16 @@ namespace VOiD.Components
                         case Mode.Tile:
                             if (InputHandler.LeftClickDown)
                             {
-                                GameHandler.TileMap.Map.SetData<Color>(0, new Rectangle((int)MousePosPixels.X, (int)MousePosPixels.Y, tiles[currentTile.X, currentTile.Y].Width,
-                                    tiles[currentTile.X, currentTile.Y].Height), selectedTileData, 0, selectedTileData.Length);
-                                GameHandler.TileMap.SetTile(new Point((int)MousePos.X, (int)MousePos.Y), currentTile);
+                                if (tileSetRenderRect.Contains(new Point(InputHandler.MouseX, InputHandler.MouseY)) && renderTileSet)
+                                {
+                                    currentTile = new Point(((InputHandler.MouseX-(int)tileSetRenderDrawOffset.X) / GameHandler.TileMap.TileWidth),
+                                                            ((InputHandler.MouseY-(int)tileSetRenderDrawOffset.Y) / GameHandler.TileMap.TileHeight));
+                                    tiles[currentTile.X, currentTile.Y].GetData<Color>(selectedTileData);
+                                }
+                                else
+                                    GameHandler.TileMap.Map.SetData<Color>(0, new Rectangle((int)MousePosPixels.X, (int)MousePosPixels.Y, tiles[currentTile.X, currentTile.Y].Width,
+                                        tiles[currentTile.X, currentTile.Y].Height), selectedTileData, 0, selectedTileData.Length);
+                                    GameHandler.TileMap.SetTile(new Point((int)MousePos.X, (int)MousePos.Y), currentTile);
                             }
                             else if (InputHandler.RightClickPressed)
                                 GameHandler.TileMap.TogglePassable(new Point((int)MousePos.X, (int)MousePos.Y));
@@ -311,14 +329,14 @@ namespace VOiD.Components
             SpriteManager.Begin();
             if (currentMode == Mode.Tile)
             {
-                SpriteManager.Draw(tiles[currentTile.X, currentTile.Y], new Vector2(InputHandler.MouseX, InputHandler.MouseY), null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
+                if(!(renderTileSet && tileSetRenderRect.Contains(new Point(InputHandler.MouseX, InputHandler.MouseY))))
+                    SpriteManager.Draw(tiles[currentTile.X, currentTile.Y], new Vector2(InputHandler.MouseX, InputHandler.MouseY), null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
 
                 if (renderTileSet) // Render the tileset
                 {
-                    Vector2 drawOffset = new Vector2(Configuration.Width - tileSetRender.Width, Configuration.Height - tileSetRender.Height);
-                    SpriteManager.Draw(tileSetRender, drawOffset, Color.White);
+                    SpriteManager.Draw(tileSetRender, tileSetRenderDrawOffset, Color.White);
                     SpriteManager.Draw(tilePointer, new Vector2((currentTile.X * GameHandler.TileMap.TileWidth) + (tilePointer.Width / 2),
-                        (currentTile.Y * GameHandler.TileMap.TileHeight) + (tilePointer.Height / 2)) + drawOffset, Color.White);
+                        (currentTile.Y * GameHandler.TileMap.TileHeight) + (tilePointer.Height / 2)) + tileSetRenderDrawOffset, Color.White);
                 }
             }
             if(currentMode != Mode.Attribute)

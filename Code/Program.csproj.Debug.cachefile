@@ -64,6 +64,7 @@ Content\Sprites\SwimmingTexture.xnb
 Content\Sprites\FlyingClimbingTexture.xnb
 Content\Sprites\FlyingSwimmingTexture.xnb
 Content\Sprites\tileSelected.xnb
+Content\Tilesets\testSet.xnb
 Content\SegoeUI.xnb
 Content\Interface\BattleScreen.xnb
 Content\Interface\Configuration.xnb
@@ -77,6 +78,7 @@ Content\Interface\SubMenuCreatureInfo.xnb
 Content\Interface\SubMenuDNAInventory.xnb
 Content\Interface\SubMenuInventory.xnb
 Content\Interface\SubMenuOptions.xnb
+Content\Tilesets\MainTileset.xnb
 Content\Tilesets\Tileset.png
 Content\Maps\Level1.map
 Content\Maps\Level2.map
