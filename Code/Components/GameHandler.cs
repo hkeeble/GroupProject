@@ -64,7 +64,7 @@ namespace VOiD.Components
             {
                 if (nests.Count > 0)
                     foreach (Nest n in nests)
-                        n.Update();
+                        n.Update(gameTime);
                 
                 Camera.Position = new Vector2((GameHandler.Player.Position.X + (GameHandler.Player.Texture.Width / 2)) - (Configuration.Width / 2),
                                      (GameHandler.Player.Position.Y + (GameHandler.Player.Texture.Height / 2)) - (Configuration.Height / 2));
@@ -118,8 +118,8 @@ namespace VOiD.Components
                 }
                 #endregion
 
-                Player.Update();
-                Boss.Update();
+                Player.Update(gameTime);
+                Boss.Update(gameTime);
 
                 base.Update(gameTime);
             }

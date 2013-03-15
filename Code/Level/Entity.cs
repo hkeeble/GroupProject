@@ -10,6 +10,14 @@ namespace VOiD
 {
     public class Entity
     {
+        private enum AnimDirection
+        {
+            Down,
+            Left,
+            Up,
+            Right
+        }
+
         private Texture2D _texture;
         private Vector2 _position;
         protected Point _currentTile;
@@ -17,6 +25,17 @@ namespace VOiD
         private float _moveSpeed = 0.0f;
         public Vector2 Direction = Vector2.Zero;
         private Rectangle _collisionRect;
+
+        #region Animation Declarations
+        bool _animated;
+        private TimeSpan _timeToNextFrame;
+        private int _millisecondsBetweenFrame;
+        private Point _currentFrame;
+
+        private Rectangle _frameRect;
+        private int _frameWidth, _frameHeight;
+        private int _sheetFrameWidth, _sheetFrameHeight;
+        #endregion
 
         public Entity()
         {
@@ -26,6 +45,9 @@ namespace VOiD
             _currentTile = Point.Zero;
         }
 
+        /// <summary>
+        /// Creates a new visible, non-animated entity.
+        /// </summary>
         public Entity(Texture2D texture, Vector2 position, float moveSpeed)
         {
             _texture = texture;
@@ -33,16 +55,43 @@ namespace VOiD
             _moveSpeed = moveSpeed;
             _currentTile = Point.Zero;
             _collisionRect = new Rectangle((int)_position.X, (int)_position.Y, _texture.Width, _texture.Height);
+            _animated = false;
+        }
+
+        /// <summary>
+        /// Overloaded constructor. Creates an animated world entity.
+        /// </summary>
+        /// <param name="texture"></param>
+        /// <param name="position"></param>
+        /// <param name="moveSpeed"></param>
+        public Entity(Texture2D texture, Vector2 position, float moveSpeed, int frameWidth, int frameHeight, int millisecondsBetweenFrame)
+            : this(texture, position, moveSpeed)
+        {
+            _animated = true;
+
+            _frameWidth = frameWidth;
+            _frameHeight = frameHeight;
+            _currentFrame = Point.Zero;
+            _frameRect = new Rectangle(_currentFrame.X * _frameWidth, _currentFrame.Y * _frameHeight, _frameWidth, _frameHeight);
+            _collisionRect = new Rectangle(0, 0, _frameWidth, _frameHeight);
+            _millisecondsBetweenFrame = millisecondsBetweenFrame;
+
+            _sheetFrameWidth = _texture.Width / frameWidth;
+            _sheetFrameHeight = _texture.Height / frameHeight;
         }
 
         public void Draw()
         {
-            //if(Camera.ObjectVisible(_collisionRect))
-                if (_texture != null)
+            if (_texture != null)
+            {
+                if(!_animated)
                     SpriteManager.Draw(_texture, Camera.Transform(_position), null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
+                else
+                    SpriteManager.Draw(_texture, Camera.Transform(_position), _frameRect, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
+            }
         }
 
-        public virtual void Update()
+        public virtual void Update(GameTime gameTime)
         {
             if (_position.X % GameHandler.TileMap.TileWidth == 0 && _position.Y % GameHandler.TileMap.TileHeight == 0)
             {
@@ -116,7 +165,39 @@ namespace VOiD
             if (_position.Y > GameHandler.TileMap.Map.Height - GameHandler.TileMap.TileHeight)
                 _position.Y = GameHandler.TileMap.Map.Height - GameHandler.TileMap.TileHeight;
 
-            _collisionRect = new Rectangle((int)_position.X, (int)_position.Y, _texture.Width, _texture.Height);
+            #region Update Animation
+            if (_animated)
+            {
+                if (Direction.X == 1)
+                    _currentFrame.Y = (int)AnimDirection.Right;
+                if (Direction.X == -1)
+                    _currentFrame.Y = (int)AnimDirection.Left;
+                if (Direction.Y == 1)
+                    _currentFrame.Y = (int)AnimDirection.Up;
+                if (Direction.Y == -1)
+                    _currentFrame.Y = (int)AnimDirection.Down;
+
+                if (Direction != Vector2.Zero)
+                {
+                    _timeToNextFrame += gameTime.ElapsedGameTime;
+
+                    if (_timeToNextFrame >= TimeSpan.FromMilliseconds(_millisecondsBetweenFrame))
+                    {
+                        _timeToNextFrame = TimeSpan.Zero;
+                        _currentFrame.X++;
+                        if (_currentFrame.X > _sheetFrameWidth)
+                            _currentFrame.X = 0;
+                    }
+                }
+                else
+                    _currentFrame.X = 0;
+
+                _frameRect = new Rectangle(_currentFrame.X * _frameWidth, _currentFrame.Y * _frameHeight, _frameWidth, _frameHeight);
+                _collisionRect = new Rectangle(0, 0, _frameWidth, _frameHeight);
+            }
+            else
+                _collisionRect = new Rectangle((int)_position.X, (int)_position.Y, _texture.Width, _texture.Height);
+            #endregion
         }
 
         public Texture2D Texture { get { return _texture; } }

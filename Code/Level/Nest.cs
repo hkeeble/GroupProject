@@ -52,7 +52,7 @@ namespace VOiD
             }
         }
 
-        public void Update()
+        public void Update(GameTime gameTime)
         {
             Vector2 direction;
             rand = new Random(DateTime.Now.Millisecond);
@@ -76,7 +76,7 @@ namespace VOiD
 
                         c.Direction = direction;
                     }
-                    c.Update();
+                    c.Update(gameTime);
                 }
         }
 

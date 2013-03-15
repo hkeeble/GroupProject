@@ -41,7 +41,7 @@ namespace VOiD
             GameHandler.CurrentLevel = Convert.ToInt32(sr.ReadLine());
             GameHandler.TileMap = new TileMap("Level" + GameHandler.CurrentLevel, graphics, content);
             GameHandler.Player = new Creature(Convert.ToInt16(sr.ReadLine()), content.Load<Texture2D>("Sprites\\handler"), GameHandler.TileMap.PlayerSpawn, 2f);
-            GameHandler.Lab = new Entity(content.Load<Texture2D>("Sprites\\Lab"), GameHandler.TileMap.LabPosition, 0f);
+            GameHandler.Lab = new Entity(content.Load<Texture2D>("Sprites\\Lab"), GameHandler.TileMap.LabPosition, 0f, 32, 32, 100);
             GameHandler.Minimap = new Minimap(GameHandler.TileMap.Map, content.Load<Texture2D>("Sprites\\Nest"), content.Load<Texture2D>("Sprites\\Lab"), graphics);
 
             int currentID = Convert.ToInt32(sr.ReadLine());
