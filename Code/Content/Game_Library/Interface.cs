@@ -87,6 +87,7 @@ namespace GameLibrary
 
         public class Item
         {
+            public string Text;
             public Texture2D Texture;
             public Vector2 offset;
             public Rectangle BoundingRect;
@@ -101,7 +102,7 @@ namespace GameLibrary
         [ContentSerializerIgnore] public Rectangle BoundingRect;
         [ContentSerializerIgnore] public Vector2 currentOffset;
         [ContentSerializerIgnore] public Vector2 offset;
-        [ContentSerializerIgnore] public int selectedItem;
+        [ContentSerializerIgnore] public int selectedItem = -1;
 
         public void Scroll(Vector2 offset)
         {

@@ -389,34 +389,13 @@ namespace VOiD.Components
                 }
 
                 // The following will render the text to their own individual textures with bounding rects
-                SpriteFont font = Game.Content.Load<SpriteFont>(component.Font);
-
                 component.Items = new ListBox.Item[itemText.Length];
 
                 for (int i = 0; i < component.Items.Length; i++)
                 {
                     // Create RenderTarget of correct size
-                    RenderTarget2D target = new RenderTarget2D(Configuration.GraphicsDevice, (int)font.MeasureString(itemText[i]).X,
-                                                (int)font.MeasureString(itemText[i]).Y, false, Configuration.GraphicsDevice.DisplayMode.Format, DepthFormat.Depth24);
-                    component.Items[i] = new ListBox.Item();
-                        
-                    // Render string to RenderTarget
-                    Configuration.GraphicsDevice.SetRenderTarget(target);
-                    Configuration.GraphicsDevice.Clear(Color.Transparent);
-                    SpriteManager.End();
-                    SpriteManager.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend, SamplerState.PointClamp, null, null);
-                    SpriteManager.DrawString(font, itemText[i], Vector2.Zero, new Color(component.fontColor));
-                    SpriteManager.End();
-                    SpriteManager.Begin();
-                    Configuration.GraphicsDevice.SetRenderTarget(null);
-
-                    // Move RenderTarget data to Texture2D
-                    Color[] data = new Color[target.Width * target.Height];
-                    Texture2D temp = new Texture2D(Configuration.GraphicsDevice, target.Width, target.Height);
-                    target.GetData<Color>(data);
-                    temp.SetData<Color>(data);
-                    component.Items[i].Texture = temp;
-                    target.Dispose();
+                    RenderListTextToTexture(component, i, itemText[i]);
+                    component.Items[i].Text = itemText[i];
 
                     // Set Inividual element's offset
                     component.Items[i].offset = new Vector2(0, i > 0 ? component.Items[i - 1].Texture.Height*i : 0);
@@ -464,6 +443,33 @@ namespace VOiD.Components
 
             // Revert Scissor Rectangle
             SpriteManager.ScissorRectangle = currentRect;
+        }
+
+        private void RenderListTextToTexture(ListBox component, int itemIndex, string text)
+        {
+            SpriteFont font = Game.Content.Load<SpriteFont>(component.Font);
+
+            RenderTarget2D target = new RenderTarget2D(Configuration.GraphicsDevice, (int)font.MeasureString(text).X,
+                                                (int)font.MeasureString(text).Y, false, Configuration.GraphicsDevice.DisplayMode.Format, DepthFormat.Depth24);
+            component.Items[itemIndex] = new ListBox.Item();
+
+            // Render string to RenderTarget
+            Configuration.GraphicsDevice.SetRenderTarget(target);
+            Configuration.GraphicsDevice.Clear(Color.Transparent);
+            SpriteManager.End();
+            SpriteManager.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend, SamplerState.PointClamp, null, null);
+            SpriteManager.DrawString(font, text, Vector2.Zero, new Color(component.fontColor));
+            SpriteManager.End();
+            SpriteManager.Begin();
+            Configuration.GraphicsDevice.SetRenderTarget(null);
+
+            // Move RenderTarget data to Texture2D
+            Color[] data = new Color[target.Width * target.Height];
+            Texture2D temp = new Texture2D(Configuration.GraphicsDevice, target.Width, target.Height);
+            target.GetData<Color>(data);
+            temp.SetData<Color>(data);
+            component.Items[itemIndex].Texture = temp;
+            target.Dispose();
         }
 
         private void DrawGraphicComponent(GraphicObject component, ref Object2D parent)

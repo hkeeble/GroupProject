@@ -63,6 +63,7 @@ Content\Sprites\ClimbingTexture.xnb
 Content\Sprites\SwimmingTexture.xnb
 Content\Sprites\FlyingClimbingTexture.xnb
 Content\Sprites\FlyingSwimmingTexture.xnb
+Content\Sprites\tileSelected.xnb
 Content\SegoeUI.xnb
 Content\Interface\BattleScreen.xnb
 Content\Interface\Configuration.xnb

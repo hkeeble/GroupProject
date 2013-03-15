@@ -26,6 +26,8 @@ namespace VOiD.Components
         TimeSpan timeSinceLastSave = TimeSpan.Zero;
 
         Texture2D[,] tiles;
+        Texture2D tileSetRender;
+        Texture2D tilePointer;
         Point currentTile;
         Color[] selectedTileData;
 
@@ -38,6 +40,8 @@ namespace VOiD.Components
         short currentCreatureID;
 
         string workingDirectory;
+
+        bool renderTileSet = true;
 
         public LevelEditor(Game game)
             : base(game)
@@ -58,6 +62,9 @@ namespace VOiD.Components
         {
             if (this.Enabled == true && Interface.currentScreen == Screens.LevelMenu)
             {
+                if (tilePointer == null)
+                    tilePointer = Game.Content.Load<Texture2D>("Sprites/tileSelected");
+
                 Console.WriteLine("----- Entering Level Editor -----\n");
                 Interface.currentScreen = Screens.BLANK;
                 GameHandler.EditMode = true;
@@ -71,6 +78,13 @@ namespace VOiD.Components
                 int yTiles = GameHandler.TileMap.TileSet.Height/GameHandler.TileMap.TileHeight;
 
                 // Get Tileset Data
+                Color[] tileSetData = new Color[GameHandler.TileMap.TileSet.Width*GameHandler.TileMap.TileSet.Height];
+                tileSetRender = new Texture2D(GraphicsDevice, GameHandler.TileMap.TileSet.Width, GameHandler.TileMap.TileSet.Height);
+                GameHandler.TileMap.TileSet.GetData<Color>(tileSetData);
+                for (int i = 0; i < tileSetData.Length; i++)
+                    tileSetData[i].A = 50;
+                tileSetRender.SetData<Color>(tileSetData);
+                
                 for (int x = 0; x < xTiles; x++)
                 {
                     for (int y = 0; y < yTiles; y++)
@@ -153,6 +167,10 @@ namespace VOiD.Components
                 Console.WriteLine("Atrribute Mode. \n");
                 Console.WriteLine("Current Attribute: " + currentAttribute.ToString());
             }
+
+            if (InputHandler.KeyPressed(Keys.T))
+                if (currentMode == Mode.Tile)
+                    renderTileSet = !renderTileSet;
 
             if(InputHandler.KeyPressed(Keys.Z) || InputHandler.KeyPressed(Keys.X))
             {
@@ -291,8 +309,18 @@ namespace VOiD.Components
         public override void Draw(GameTime gameTime)
         {
             SpriteManager.Begin();
-            if(currentMode == Mode.Tile)
+            if (currentMode == Mode.Tile)
+            {
                 SpriteManager.Draw(tiles[currentTile.X, currentTile.Y], new Vector2(InputHandler.MouseX, InputHandler.MouseY), null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
+
+                if (renderTileSet) // Render the tileset
+                {
+                    Vector2 drawOffset = new Vector2(Configuration.Width - tileSetRender.Width, Configuration.Height - tileSetRender.Height);
+                    SpriteManager.Draw(tileSetRender, drawOffset, Color.White);
+                    SpriteManager.Draw(tilePointer, new Vector2((currentTile.X * GameHandler.TileMap.TileWidth) + (tilePointer.Width / 2),
+                        (currentTile.Y * GameHandler.TileMap.TileHeight) + (tilePointer.Height / 2)) + drawOffset, Color.White);
+                }
+            }
             if(currentMode != Mode.Attribute)
                 GameHandler.TileMap.DrawCollisionLayer();
             if (currentMode == Mode.Attribute)
