@@ -222,7 +222,16 @@ namespace VOiD.Components
             if (component.isCentered)
                 off -= Game.Content.Load<SpriteFont>(component.Font).MeasureString(temp) / 2;
 
-            SpriteManager.DrawString(Game.Content.Load<SpriteFont>(component.Font), temp, parent.Position + off, new Color(component.fontColor));
+            if (parent.isClickable)
+            {
+                Rectangle TextureRectangle = new Rectangle((int)parent.Position.X, (int)parent.Position.Y, (int)parent.Size.X, (int)parent.Size.Y);
+                if (TextureRectangle.Contains(new Point(InputHandler.MouseX, InputHandler.MouseY)))
+                    SpriteManager.DrawString(Game.Content.Load<SpriteFont>(component.Font), temp, parent.Position + off, new Color(component.highlightColor));
+                else
+                    SpriteManager.DrawString(Game.Content.Load<SpriteFont>(component.Font), temp, parent.Position + off, new Color(component.fontColor));
+            }
+            else
+                SpriteManager.DrawString(Game.Content.Load<SpriteFont>(component.Font), temp, parent.Position + off, new Color(component.fontColor));
         }
 
         private void DrawTextBoxComponent(TextBoxObject component, Object2D parent)

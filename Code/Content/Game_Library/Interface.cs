@@ -48,6 +48,7 @@ namespace GameLibrary
         public string Text;
         public string Font;
         public Vector3 fontColor;
+        public Vector3 highlightColor;
         public bool isCentered = false;
         public Vector2 ioffset;
         [ContentSerializerIgnore]

@@ -42,6 +42,7 @@
                 <Text>STATISTICS</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>255 255 0</fontColor>
+                <highlightColor>0 0 0</highlightColor>
                 <isCentered>false</isCentered>
                 <ioffset>43 25</ioffset>
               </Item>
@@ -49,6 +50,7 @@
                 <Text>@PlayerWeight</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>255 255 255</fontColor>
+                <highlightColor>0 0 0</highlightColor>
                 <isCentered>false</isCentered>
                 <ioffset>43 30</ioffset>
               </Item>
@@ -56,6 +58,7 @@
                 <Text>@PlayerStrength</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>255 255 255</fontColor>
+                <highlightColor>0 0 0</highlightColor>
                 <isCentered>false</isCentered>
                 <ioffset>43 35</ioffset>
               </Item>
@@ -63,6 +66,7 @@
                 <Text>@PlayerDexterity</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>255 255 255</fontColor>
+                <highlightColor>0 0 0</highlightColor>
                 <isCentered>false</isCentered>
                 <ioffset>43 40</ioffset>
               </Item>
@@ -70,6 +74,7 @@
                 <Text>@PlayerHealth</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>255 255 255</fontColor>
+                <highlightColor>0 0 0</highlightColor>
                 <isCentered>false</isCentered>
                 <ioffset>70 30</ioffset>
               </Item>
@@ -77,6 +82,7 @@
                 <Text>@PlayerEndurance</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>255 255 255</fontColor>
+                <highlightColor>0 0 0</highlightColor>
                 <isCentered>false</isCentered>
                 <ioffset>70 35</ioffset>
               </Item>
@@ -84,6 +90,7 @@
                 <Text>@PlayerSpeed</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>255 255 255</fontColor>
+                <highlightColor>0 0 0</highlightColor>
                 <isCentered>false</isCentered>
                 <ioffset>70 40</ioffset>
               </Item>
@@ -92,6 +99,7 @@
                 <Text>BEHAVIOUR</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>255 255 0</fontColor>
+                <highlightColor>0 0 0</highlightColor>
                 <isCentered>false</isCentered>
                 <ioffset>43 45</ioffset>
               </Item>
@@ -99,6 +107,7 @@
                 <Text>@PlayerAggressiveness</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>255 255 255</fontColor>
+                <highlightColor>0 0 0</highlightColor>
                 <isCentered>false</isCentered>
                 <ioffset>43 50</ioffset>
               </Item>
@@ -106,6 +115,7 @@
                 <Text>@PlayerFocus</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>255 255 255</fontColor>
+                <highlightColor>0 0 0</highlightColor>
                 <isCentered>false</isCentered>
                 <ioffset>43 55</ioffset>
               </Item>
@@ -113,6 +123,7 @@
                 <Text>@PlayerObedience</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>255 255 255</fontColor>
+                <highlightColor>0 0 0</highlightColor>
                 <isCentered>false</isCentered>
                 <ioffset>43 60</ioffset>
               </Item>
@@ -129,6 +140,7 @@
                 <Text>ATTACKS</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>255 255 0</fontColor>
+                <highlightColor>0 0 0</highlightColor>
                 <isCentered>false</isCentered>
                 <ioffset>70 45</ioffset>
               </Item>
@@ -175,6 +187,7 @@
                 <Text>TRAITS</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>255 255 0</fontColor>
+                <highlightColor>0 0 0</highlightColor>
                 <isCentered>false</isCentered>
                 <ioffset>8 25</ioffset>
               </Item>

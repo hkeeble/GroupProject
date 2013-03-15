@@ -41,6 +41,7 @@
                 <Text>DNA</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>255 255 0</fontColor>
+                <highlightColor>0 0 0</highlightColor>
                 <isCentered>false</isCentered>
                 <ioffset>6 16</ioffset>
               </Item>
@@ -86,6 +87,7 @@
                 <Text>TRAITS</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>255 255 0</fontColor>
+                <highlightColor>0 0 0</highlightColor>
                 <isCentered>false</isCentered>
                 <ioffset>28 16</ioffset>
               </Item>
@@ -130,6 +132,7 @@
                 <Text>STATISTICS</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>255 255 0</fontColor>
+                <highlightColor>0 0 0</highlightColor>
                 <isCentered>false</isCentered>
                 <ioffset>60 16</ioffset>
               </Item>
@@ -137,6 +140,7 @@
                 <Text>@SelectedHealth</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>255 255 255</fontColor>
+                <highlightColor>0 0 0</highlightColor>
                 <isCentered>false</isCentered>
                 <ioffset>60 21</ioffset>
               </Item>
@@ -144,6 +148,7 @@
                 <Text>@SelectedWeight</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>255 255 255</fontColor>
+                <highlightColor>0 0 0</highlightColor>
                 <isCentered>false</isCentered>
                 <ioffset>60 26</ioffset>
               </Item>
@@ -151,6 +156,7 @@
                 <Text>@SelectedStrength</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>255 255 255</fontColor>
+                <highlightColor>0 0 0</highlightColor>
                 <isCentered>false</isCentered>
                 <ioffset>60 31</ioffset>
               </Item>
@@ -158,6 +164,7 @@
                 <Text>@SelectedEndurance</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>255 255 255</fontColor>
+                <highlightColor>0 0 0</highlightColor>
                 <isCentered>false</isCentered>
                 <ioffset>60 36</ioffset>
               </Item>
@@ -165,6 +172,7 @@
                 <Text>@SelectedDexterity</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>255 255 255</fontColor>
+                <highlightColor>0 0 0</highlightColor>
                 <isCentered>false</isCentered>
                 <ioffset>60 41</ioffset>
               </Item>
@@ -172,6 +180,7 @@
                 <Text>@SelectedSpeed</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>255 255 255</fontColor>
+                <highlightColor>0 0 0</highlightColor>
                 <isCentered>false</isCentered>
                 <ioffset>60 46</ioffset>
               </Item>
@@ -179,6 +188,7 @@
                 <Text>BEHAVIOUR</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>255 255 0</fontColor>
+                <highlightColor>0 0 0</highlightColor>
                 <isCentered>false</isCentered>
                 <ioffset>60 51</ioffset>
               </Item>
@@ -186,6 +196,7 @@
                 <Text>@SelectedObedience</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>255 255 255</fontColor>
+                <highlightColor>0 0 0</highlightColor>
                 <isCentered>false</isCentered>
                 <ioffset>60 56</ioffset>
               </Item>
@@ -193,6 +204,7 @@
                 <Text>@SelectedAggressiveness</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>255 255 255</fontColor>
+                <highlightColor>0 0 0</highlightColor>
                 <isCentered>false</isCentered>
                 <ioffset>60 61</ioffset>
               </Item>
@@ -200,6 +212,7 @@
                 <Text>@SelectedFocus</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>255 255 255</fontColor>
+                <highlightColor>0 0 0</highlightColor>
                 <isCentered>false</isCentered>
                 <ioffset>60 66</ioffset>
               </Item>

@@ -37,26 +37,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interface\Configuration.xml">
-      <Name>Configuration</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-      <SubType>Designer</SubType>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="Game_Library\Content_Library.csproj">
       <Project>{bb82b312-04be-4bc0-ab60-0295ae56365b}</Project>
       <Name>Content_Library</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Interface\MainMenu.xml">
-      <Name>MainMenu</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-      <SubType>Designer</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interface\Assets\DNA.png">
@@ -84,21 +68,6 @@
       <Name>Level</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Interface\LevelMenu.xml">
-      <Name>LevelMenu</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Interface\SubMenuOptions.xml">
-      <Name>SubMenuOptions</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-      <SubType>Designer</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -202,18 +171,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interface\BattleScreen.xml">
-      <Name>BattleScreen</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-      <SubType>Designer</SubType>
-    </Compile>
-    <Compile Include="Interface\LabScreen.xml">
-      <Name>LabScreen</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-      <SubType>Designer</SubType>
-    </Compile>
     <Compile Include="Interface\Assets\Battle\Attack.png">
       <Name>Attack</Name>
       <Importer>TextureImporter</Importer>
@@ -274,12 +231,6 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Interface\SubMenuCreatureInfo.xml">
-      <Name>SubMenuCreatureInfo</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-      <SubType>Designer</SubType>
-    </Compile>
     <Compile Include="Interface\Assets\downArrow.png">
       <Name>downArrow</Name>
       <Importer>TextureImporter</Importer>
@@ -295,12 +246,6 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Interface\SubMenuInventory.xml">
-      <SubType>Designer</SubType>
-      <Name>SubMenuInventory</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </Compile>
     <Compile Include="Interface\Assets\InventoryScreen.png">
       <Name>InventoryScreen</Name>
       <Importer>TextureImporter</Importer>
@@ -311,21 +256,10 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Interface\SubMenuDNAInventory.xml">
-      <Name>SubMenuDNAInventory</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-      <SubType>Designer</SubType>
-    </Compile>
     <Compile Include="Interface\Assets\Lab\BreedButton.png">
       <Name>BreedButton</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Interface\CreatureCustomization.xml">
-      <Name>CreatureCustomization</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
     </Compile>
     <Compile Include="Interface\Assets\CreatureCustomizer\Background.png">
       <Name>Background</Name>
@@ -346,11 +280,6 @@
       <Name>strengthButton</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Interface\LoadingScreen.xml">
-      <Name>LoadingScreen</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
     </Compile>
     <Compile Include="Interface\Assets\LoadingScreen.png">
       <Name>LoadingScreen</Name>
@@ -417,15 +346,70 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
+    <Compile Include="Interface\Assets\Level\OptionsButton.png">
+      <Name>OptionsButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Interface\BattleScreen.xml">
+      <Name>BattleScreen</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+    <Compile Include="Interface\Configuration.xml">
+      <Name>Configuration</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+    <Compile Include="Interface\CreatureCustomization.xml">
+      <Name>CreatureCustomization</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
     <Compile Include="Interface\ExitBox.xml">
       <Name>ExitBox</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </Compile>
-    <Compile Include="Interface\Assets\Level\OptionsButton.png">
-      <Name>OptionsButton</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
+    <Compile Include="Interface\LabScreen.xml">
+      <Name>LabScreen</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+    <Compile Include="Interface\LevelMenu.xml">
+      <Name>LevelMenu</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+    <Compile Include="Interface\LoadingScreen.xml">
+      <Name>LoadingScreen</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+    <Compile Include="Interface\MainMenu.xml">
+      <Name>MainMenu</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+    <Compile Include="Interface\SubMenuCreatureInfo.xml">
+      <Name>SubMenuCreatureInfo</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+    <Compile Include="Interface\SubMenuDNAInventory.xml">
+      <Name>SubMenuDNAInventory</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+    <Compile Include="Interface\SubMenuInventory.xml">
+      <Name>SubMenuInventory</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+    <Compile Include="Interface\SubMenuOptions.xml">
+      <Name>SubMenuOptions</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
     </Compile>
     <Content Include="Maps\Level1.map">
       <Name>Level1</Name>

@@ -65,6 +65,7 @@
                         <Text>@NumberOfApples</Text>
                         <Font>SegoeUI</Font>
                         <fontColor>255 255 0</fontColor>
+                        <highlightColor>0 0 0</highlightColor>
                         <isCentered>false</isCentered>
                         <ioffset>70 75</ioffset>
                       </Item>
@@ -92,6 +93,7 @@
                         <Text>@NumberOfGoldenApples</Text>
                         <Font>SegoeUI</Font>
                         <fontColor>255 255 0</fontColor>
+                        <highlightColor>0 0 0</highlightColor>
                         <isCentered>false</isCentered>
                         <ioffset>70 75</ioffset>
                       </Item>
@@ -119,6 +121,7 @@
                         <Text>@NumberOfSpringWater</Text>
                         <Font>SegoeUI</Font>
                         <fontColor>255 255 0</fontColor>
+                        <highlightColor>0 0 0</highlightColor>
                         <isCentered>false</isCentered>
                         <ioffset>70 75</ioffset>
                       </Item>
@@ -146,6 +149,7 @@
                         <Text>@NumberOfHoney</Text>
                         <Font>SegoeUI</Font>
                         <fontColor>255 255 0</fontColor>
+                        <highlightColor>0 0 0</highlightColor>
                         <isCentered>false</isCentered>
                         <ioffset>70 75</ioffset>
                       </Item>
@@ -173,6 +177,7 @@
                         <Text>@NumberOfChilli</Text>
                         <Font>SegoeUI</Font>
                         <fontColor>255 255 0</fontColor>
+                        <highlightColor>0 0 0</highlightColor>
                         <isCentered>false</isCentered>
                         <ioffset>70 75</ioffset>
                       </Item>
@@ -211,6 +216,7 @@
                 <Text>@SelectedItemName</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>255 255 255</fontColor>
+                <highlightColor>0 0 0</highlightColor>
                 <isCentered>false</isCentered>
                 <ioffset>10 55</ioffset>
               </Item>
@@ -218,6 +224,7 @@
                   <Text>@SelectedItemDescription</Text>
                   <Font>SegoeUI</Font>
                   <fontColor>255 255 255</fontColor>
+                  <highlightColor>0 0 0</highlightColor>
                   <isCentered>false</isCentered>
                   <ioffset>10 65</ioffset>
                 </Item>
