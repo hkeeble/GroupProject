@@ -618,6 +618,9 @@ namespace VOiD.Components
                     subMenu = Game.Content.Load<GameLibrary.Interface>("Interface/SubMenuOptions");
                 if (component.Action.Equals("DeleteSubMenu"))
                 {
+                    // Resets listboxes in case of a change in information (extra attacks etc)
+                    ResetListBoxes(subMenu.content);
+
                     subMenu = new GameLibrary.Interface();
                     if (GameHandler.Inventory.SelectedItem != null) // Clear any selections made
                         GameHandler.Inventory.ClearSelections();
@@ -673,7 +676,10 @@ namespace VOiD.Components
                 if (component.Action.Equals("OpenDNAInventory"))
                     subMenu = Game.Content.Load<GameLibrary.Interface>("Interface/SubMenuDNAInventory");
                 if (component.Action.Equals("BreedCurrentSelection"))
+                {
                     GameHandler.Inventory.UseDNA();
+                    ResetListBoxes(subMenu.content); // Reset listboxes in current window
+                }
                 if (component.Action.Equals("exit"))
                     Interface.currentScreen = Screens.LevelMenu;
                 #endregion
@@ -712,6 +718,21 @@ namespace VOiD.Components
                 #endregion
 
                 DebugLog.WriteLine(string.Format("Button Clicked Action =  {0} ", component.Action));
+            }
+        }
+
+        /// <summary>
+        /// Resets the listboxes in a content list. This is so that they are re-rendered with any changed data.
+        /// </summary>
+        /// <param name="content">The list of content to search for ListBoxes to reset.</param>
+        private void ResetListBoxes(List<Object2D> content)
+        {
+            foreach (Object2D obj in content)
+            {
+                if (obj.GetType() == typeof(GraphicObject))
+                    ResetListBoxes((obj as GraphicObject).Children);
+                else if (obj.GetType() == typeof(ListBox))
+                    (obj as ListBox).Init = false;
             }
         }
 
@@ -822,6 +843,8 @@ namespace VOiD.Components
             if (currentScreen != lastScreen)
             {
                 // if screen has changed
+                if(temp != null)
+                    ResetListBoxes(temp.content); // Reset current screen listboxes
                 temp = new GameLibrary.Interface();
 
                 if (currentScreen == Screens.MainMenu)
