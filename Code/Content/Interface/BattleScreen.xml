@@ -36,15 +36,15 @@
                 <Action>Inventory</Action>
                 <Children></Children>
               </Item>
-              <!--<Item Type="GameLibrary.GraphicObject">
+              <Item Type="GameLibrary.GraphicObject">
                 <iSize>35 35</iSize>
                 <iPosition>32 73</iPosition>
                 <isClickable>true</isClickable>
-                <TextureLocation></TextureLocation>
+                <TextureLocation>Battle/Flee</TextureLocation>
                 <fullscreen>false</fullscreen>
-                <Action>Inventory</Action>
+                <Action>Flee</Action>
                 <Children></Children>
-              </Item>-->
+              </Item>
               <Item Type="GameLibrary.GraphicObject">
                 <iSize>35 35</iSize>
                 <iPosition>69 27</iPosition>
@@ -67,7 +67,7 @@
           </Item>
           <Item Type="GameLibrary.GraphicObject">
             <iSize>20 20</iSize>
-            <iPosition>40 87</iPosition>
+            <iPosition>35 88</iPosition>
             <isClickable>false</isClickable>
             <TextureLocation>TextBoxBackground</TextureLocation>
             <fullscreen>false</fullscreen>
@@ -103,6 +103,38 @@
                 <isClickable>true</isClickable>
               </Item>
             </Children>
+          </Item>
+          <Item Type="GameLibrary.TextObject">
+            <Text>@EnemyCurrentHealth</Text>
+            <Font>Courier</Font>
+            <fontColor>200 0 0</fontColor>
+            <highlightColor>0 0 0</highlightColor>
+            <isCentered>false</isCentered>
+            <ioffset>25 5</ioffset>
+          </Item>
+          <Item Type="GameLibrary.TextObject">
+            <Text>@PlayerCurrentHealth</Text>
+            <Font>Courier</Font>
+            <fontColor>0 0 200</fontColor>
+            <highlightColor>0 0 0</highlightColor>
+            <isCentered>false</isCentered>
+            <ioffset>70 5</ioffset>
+          </Item>
+          <Item Type="GameLibrary.TextObject">
+            <Text>@LastPlayerMove</Text>
+            <Font>Courier</Font>
+            <fontColor>0 0 200</fontColor>
+            <highlightColor>0 0 0</highlightColor>
+            <isCentered>false</isCentered>
+            <ioffset>50 90</ioffset>
+          </Item>
+          <Item Type="GameLibrary.TextObject">
+            <Text>@LastEnemyMove</Text>
+            <Font>Courier</Font>
+            <fontColor>200 0 0</fontColor>
+            <highlightColor>0 0 0</highlightColor>
+            <isCentered>false</isCentered>
+            <ioffset>50 80</ioffset>
           </Item>
         </Children>
       </Item>

@@ -86,9 +86,9 @@ namespace VOiD
             if (_texture != null)
             {
                 if(!_animated)
-                    SpriteManager.Draw(_texture, Camera.Transform(_position), null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
+                    SpriteManager.Draw(_texture, Camera.Transform(_position), null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0.9f);
                 else
-                    SpriteManager.Draw(_texture, Camera.Transform(_position), _frameRect, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
+                    SpriteManager.Draw(_texture, Camera.Transform(_position), _frameRect, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0.9f);
             }
         }
 

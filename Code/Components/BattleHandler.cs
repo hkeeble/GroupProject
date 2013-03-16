@@ -22,9 +22,15 @@ namespace VOiD.Components
         public static int AttackSelection = 0;
         public static bool AttackSelected = false;
 
+        private static string _lastPlayerMove;
+        private static string _lastEnemyMove;
+
+        private Texture2D background;
+
         public BattleHandler(Game game)
             : base(game)
         {
+            background = game.Content.Load<Texture2D>("Interface/Assets/Battle/background");
         }
 
         public override void Initialize()
@@ -50,7 +56,8 @@ namespace VOiD.Components
                     if (AttackSelected)
                     {
                         B.Health -= (int)GameHandler.Player.AvailableAttacks[AttackSelection].Damage;
-                        Console.WriteLine("Player Used - " + GameHandler.Player.AvailableAttacks[AttackSelection].Name);
+                        _lastPlayerMove = "You attack with a " + GameHandler.Player.AvailableAttacks[AttackSelection].Name
+                            + "\ndealing " + GameHandler.Player.AvailableAttacks[AttackSelection].Damage + " points of damage!";
                         Console.WriteLine("AI Health - " + B.Health);
                         PlayerMove = false;
                         AttackSelected = false;
@@ -59,8 +66,8 @@ namespace VOiD.Components
                 else if (GameHandler.Player.Health > 0)
                 {
                     int AttackPatternSigma = random.Next(B.AvailableAttacks.Count);
+                    _lastEnemyMove = "Enemy attacks with a " + B.AvailableAttacks[AttackPatternSigma].Name + "\ndealing " + B.AvailableAttacks[AttackPatternSigma].Damage + " points of damage!";
                     GameHandler.Player.Health -= (int)B.AvailableAttacks[AttackPatternSigma].Damage;
-                    Console.WriteLine("AI Used - " + B.AvailableAttacks[AttackPatternSigma].Name);
                     Console.WriteLine("Player Health - " + GameHandler.Player.Health);
                     PlayerMove = true;
                 }
@@ -92,10 +99,17 @@ namespace VOiD.Components
         {
             if (InSession)
             {
+                SpriteManager.Begin();
+                SpriteManager.Draw(background, Configuration.Bounds, Color.White);
+                SpriteManager.End();
                 GameHandler.Player.Draw(Game.GraphicsDevice, Matrix.CreateRotationY(MathHelper.ToRadians(45.0f)) * Matrix.CreateTranslation(new Vector3(1, 0, -4)));
                 B.Draw(Game.GraphicsDevice, Matrix.CreateRotationY(MathHelper.ToRadians(-45.0f)) * Matrix.CreateTranslation(new Vector3(-1, 0, -4)));
             }
             base.Draw(gameTime);
         }
+
+        public static string LastPlayerMove { get {return _lastPlayerMove; } }
+        public static string LastEnemyMove { get { return _lastEnemyMove; } }
+        public static Creature Enemy { get { return B; } }
     }
 }

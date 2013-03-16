@@ -212,6 +212,15 @@ namespace VOiD.Components
                         temp = "Focus: -";
                 }
 
+                // Player CURRENT Health
+                if (component.Text == "@PlayerCurrentHealth")
+                    temp = Convert.ToString(GameHandler.Player.Health) + "/" + GameHandler.Player.Dominant.Health.Level;
+
+                // Enemy CURRENT Health
+                if (component.Text == "@EnemyCurrentHealth")
+                    temp = Convert.ToString(BattleHandler.Enemy.Health) + "/" + BattleHandler.Enemy.Dominant.Health.Level;
+
+
                 // Selected Item
                 if (GameHandler.Inventory.SelectedItem != null)
                 {
@@ -223,10 +232,24 @@ namespace VOiD.Components
 
                 // Sign text
                 if (component.Text == "@CurrentSignText")
-                {
                     temp = GameHandler.CurrentSignText;
+
+                // Battle text
+                if (component.Text == "@LastPlayerMove")
+                {
+                    if (BattleHandler.LastPlayerMove != null)
+                        temp = BattleHandler.LastPlayerMove;
+                    else
+                        temp = " ";
                 }
 
+                if (component.Text == "@LastEnemyMove")
+                {
+                    if (BattleHandler.LastEnemyMove != null)
+                        temp = BattleHandler.LastEnemyMove;
+                    else
+                        temp = " ";
+                }
             }
             else
                 temp = component.Text;

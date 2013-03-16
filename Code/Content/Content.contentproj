@@ -321,7 +321,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Interface\Assets\Flee.png">
+    <Compile Include="Interface\Assets\Battle\Flee.png">
       <Name>Flee</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
@@ -380,6 +380,7 @@
       <Name>LevelMenu</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
+      <SubType>Designer</SubType>
     </Compile>
     <Compile Include="Interface\LoadingScreen.xml">
       <Name>LoadingScreen</Name>
@@ -395,6 +396,7 @@
       <Name>SubMenuCreatureInfo</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
+      <SubType>Designer</SubType>
     </Compile>
     <Compile Include="Interface\SubMenuDNAInventory.xml">
       <Name>SubMenuDNAInventory</Name>
@@ -420,6 +422,11 @@
       <Name>Sign</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
+    </Compile>
+    <Compile Include="Interface\Assets\Battle\background.png">
+      <Name>background</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
     </Compile>
     <Content Include="Maps\Level1.map">
       <Name>Level1</Name>
@@ -532,6 +539,11 @@
     </Compile>
     <Compile Include="Sprites\Sign.png">
       <Name>Sign</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Sprites\exclamation.png">
+      <Name>exclamation</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

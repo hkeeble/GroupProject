@@ -33,6 +33,8 @@ namespace VOiD.Components
 
         private static Attributes _currentAttributeInUse = Attributes.None;
 
+        private Texture2D exclamationSprite;
+
         const int NUMBER_OF_ITEM_TYPES = 5;
         #endregion
 
@@ -40,6 +42,7 @@ namespace VOiD.Components
             : base(game)
         {
             Inventory = new Inventory(NUMBER_OF_ITEM_TYPES, game.Content);
+            exclamationSprite = game.Content.Load<Texture2D>("Sprites/exclamation");
             Enabled = false;
             Visible = false;
         }
@@ -92,11 +95,9 @@ namespace VOiD.Components
                 
                 Camera.Position = new Vector2((GameHandler.Player.Position.X + (GameHandler.Player.Texture.Width / 2)) - (Configuration.Width / 2),
                                      (GameHandler.Player.Position.Y + (GameHandler.Player.Texture.Height / 2)) - (Configuration.Height / 2));
-                
+
                 if (Interface.currentScreen == Screens.LevelMenu)
-                {
                     HandlePlayerMovement();
-                }
 
                 for (int i = 0; i < Items.Count; i++) // NOT VERY EFFICIENT - MAY NEED REPLACING
                 {
@@ -159,9 +160,7 @@ namespace VOiD.Components
                 base.Update(gameTime);
             }
             else if (EditMode)
-            {
                 HandleCameraMovement();
-            }
         }
 
          public override void Draw(GameTime gameTime)
@@ -174,6 +173,12 @@ namespace VOiD.Components
                     if (Enabled || EditMode)
                     {
                         SpriteManager.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend);
+
+                                                // Check for adjacent sign, show exclamation if so
+                        Sign sign = CheckSign(new Point((int)Player.Position.X + ((int)Player.PreviousDirection.X * TileMap.TileWidth),
+                                 (int)Player.Position.Y + ((int)Player.PreviousDirection.Y * TileMap.TileHeight)));
+                        if (sign != null)
+                            SpriteManager.Draw(exclamationSprite, Camera.Transform(GameHandler.Player.Position - new Vector2(0, exclamationSprite.Height)), null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
 
                         if (!EditMode)
                             Player.Draw();
