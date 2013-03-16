@@ -84,20 +84,88 @@ namespace VOiD.Components
             if (Enabled && !EditMode)
             {
                 // DEV CONSOLE
-                #if DEVBUILD
+#if DEVBUILD
                 if (InputHandler.KeyPressed(Keys.F3))
                     DevConsole.Open(Game.Content, Game.GraphicsDevice);
-                #endif
+#endif
 
-                if (nests.Count > 0)
-                    foreach (Nest n in nests)
-                        n.Update(gameTime);
-                
+                for (int i = 0; i < nests.Count; i++)
+                    nests[i].Update(gameTime);
+
                 Camera.Position = new Vector2((GameHandler.Player.Position.X + (GameHandler.Player.Texture.Width / 2)) - (Configuration.Width / 2),
                                      (GameHandler.Player.Position.Y + (GameHandler.Player.Texture.Height / 2)) - (Configuration.Height / 2));
 
+                #region Player Input
                 if (Interface.currentScreen == Screens.LevelMenu)
-                    HandlePlayerMovement();
+                {
+                    if (Player.Direction.Y == 0 && Player.Position.X % TileMap.TileWidth == 0)
+                    {
+                        if (InputHandler.KeyDown(Keys.Down))
+                            Player.Direction.Y = 1;
+                        else if (InputHandler.KeyDown(Keys.Up))
+                            Player.Direction.Y = -1;
+                    }
+                    else if (Player.Position.Y % TileMap.TileHeight == 0)
+                    {
+                        if (Player.Direction.Y == 1 && !InputHandler.KeyDown(Keys.Down))
+                            Player.Direction.Y = 0;
+                        if (Player.Direction.Y == -1 && !InputHandler.KeyDown(Keys.Up))
+                            Player.Direction.Y = 0;
+                    }
+
+                    if (Player.Direction.X == 0 && Player.Position.Y % TileMap.TileHeight == 0)
+                    {
+                        if (InputHandler.KeyDown(Keys.Left))
+                            Player.Direction.X = -1;
+                        else if (InputHandler.KeyDown(Keys.Right))
+                            Player.Direction.X = 1;
+                    }
+                    else if (Player.Position.X % TileMap.TileWidth == 0)
+                    {
+                        if (Player.Direction.X == 1 && !InputHandler.KeyDown(Keys.Right))
+                            Player.Direction.X = 0;
+                        if (Player.Direction.X == -1 && !InputHandler.KeyDown(Keys.Left))
+                            Player.Direction.X = 0;
+                    }
+
+                    if (InputHandler.KeyPressed(Keys.Enter))
+                    {
+                        Sign s = CheckSign(new Point((int)Player.Position.X + ((int)Player.PreviousDirection.X * TileMap.TileWidth),
+                                                     (int)Player.Position.Y + ((int)Player.PreviousDirection.Y * TileMap.TileHeight)));
+                        Item i = CheckItem(new Point((int)Player.Position.X, (int)Player.Position.Y));
+                        if (s != null)
+                        {
+                            Interface.ShowMessageBox();
+                            _currentMessageBoxText = s.Text;
+                            Console.WriteLine("Read Sign at " + s.Position.X + " - " + s.Position.Y + "\n");
+                        }
+                        if (i != null)
+                        {
+                            if (Inventory.Items[i.ID].Amount == 99)
+                            {
+                                _currentMessageBoxText = "You cannot carry anymore " + i.Name + "s!";
+                                Interface.ShowMessageBox();
+                            }
+                            else
+                            {
+                                Inventory.AddItem(new Item(i.ID, Game.Content));
+                                Items.Remove(Items[i.ID]);
+                                _currentMessageBoxText = "You found: " + i.Name + "!";
+                                Interface.ShowMessageBox();
+                            }
+                        }
+
+                        // Check lab
+                        Rectangle pRect = new Rectangle(Player.CollisionRect.X + (int)(Player.PreviousDirection.X * Player.CollisionRect.Width),
+                                                         Player.CollisionRect.Y + (int)(Player.PreviousDirection.Y * Player.CollisionRect.Height), Player.CollisionRect.Width, Player.CollisionRect.Height);
+                        if (pRect.Intersects(Lab.CollisionRect))
+                        {
+                            Interface.currentScreen = Screens.Lab;
+                            Player.Health = Player.Dominant.Health.Level;
+                        }
+                    }
+                }
+                #endregion
 
                 for (int i = 0; i < nests.Count; i++)
                 {
@@ -148,7 +216,16 @@ namespace VOiD.Components
                 base.Update(gameTime);
             }
             else if (EditMode)
-                HandleCameraMovement();
+            {
+                if (InputHandler.KeyDown(Keys.Down))
+                    Camera.Move(new Vector2(0, 3));
+                if (InputHandler.KeyDown(Keys.Up))
+                    Camera.Move(new Vector2(0, -3));
+                if (InputHandler.KeyDown(Keys.Left))
+                    Camera.Move(new Vector2(-3, 0));
+                if (InputHandler.KeyDown(Keys.Right))
+                    Camera.Move(new Vector2(3, 0));
+            }
         }
 
          public override void Draw(GameTime gameTime)
@@ -176,28 +253,25 @@ namespace VOiD.Components
                         // Check if facing lab, if so show exclamation mark
                         Rectangle pRect = new Rectangle(Player.CollisionRect.X + (int)(Player.PreviousDirection.X * Player.CollisionRect.Width),
                             Player.CollisionRect.Y + (int)(Player.PreviousDirection.Y * Player.CollisionRect.Height), Player.CollisionRect.Width, Player.CollisionRect.Height);
-                        if(pRect.Intersects(Lab.CollisionRect))
+                        if (pRect.Intersects(Lab.CollisionRect))
                             SpriteManager.Draw(exclamationSprite, Camera.Transform(GameHandler.Player.Position - new Vector2(0, exclamationSprite.Height)), null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
 
                         if (!EditMode)
                             Player.Draw();
-                        TileMap.Draw();
 
+                        TileMap.Draw();
                         Lab.Draw();
                         Boss.Draw();
 
-                        if (signs.Count > 0)
-                            foreach (Sign s in signs)
-                                s.Draw();
+                        for(int i = 0; i < signs.Count; i++)
+                                signs[i].Draw();
 
-                        if (nests.Count > 0)
-                            foreach (Nest n in nests)
-                                n.Draw();
+                        for(int i = 0; i < nests.Count; i++)
+                                nests[i].Draw();
 
-                        if (Items.Count > 0)
-                            foreach (ItemEntity i in Items)
-                                i.Draw();
-
+                        for(int i = 0; i < Items.Count; i++)
+                                Items[i].Draw();
+                        
                         SpriteManager.End();
                     }
                     #endregion
@@ -205,90 +279,6 @@ namespace VOiD.Components
                 base.Draw(gameTime);
             }
         }
-
-        #region Handle Input
-         private void HandlePlayerMovement()
-         {
-             if (Player.Direction.Y == 0 && Player.Position.X % TileMap.TileWidth == 0)
-             {
-                 if (InputHandler.KeyDown(Keys.Down))
-                     Player.Direction.Y = 1;
-                 else if (InputHandler.KeyDown(Keys.Up))
-                     Player.Direction.Y = -1;
-             }
-             else if (Player.Position.Y % TileMap.TileHeight == 0)
-             {
-                 if (Player.Direction.Y == 1 && !InputHandler.KeyDown(Keys.Down))
-                     Player.Direction.Y = 0;
-                 if (Player.Direction.Y == -1 && !InputHandler.KeyDown(Keys.Up))
-                     Player.Direction.Y = 0;
-             }
-
-             if (Player.Direction.X == 0 && Player.Position.Y % TileMap.TileHeight == 0)
-             {
-                 if (InputHandler.KeyDown(Keys.Left))
-                     Player.Direction.X = -1;
-                 else if (InputHandler.KeyDown(Keys.Right))
-                     Player.Direction.X = 1;
-             }
-             else if (Player.Position.X % TileMap.TileWidth == 0)
-             {
-                 if (Player.Direction.X == 1 && !InputHandler.KeyDown(Keys.Right))
-                     Player.Direction.X = 0;
-                 if (Player.Direction.X == -1 && !InputHandler.KeyDown(Keys.Left))
-                     Player.Direction.X = 0;
-             }
-
-             if (InputHandler.KeyPressed(Keys.Enter))
-             {
-                 Sign s = CheckSign(new Point((int)Player.Position.X + ((int)Player.PreviousDirection.X * TileMap.TileWidth),
-                                              (int)Player.Position.Y + ((int)Player.PreviousDirection.Y * TileMap.TileHeight)));
-                 Item i = CheckItem(new Point((int)Player.Position.X, (int)Player.Position.Y));
-                 if (s != null)
-                 {
-                     Interface.ShowMessageBox();
-                     _currentMessageBoxText = s.Text;
-                     Console.WriteLine("Read Sign at " + s.Position.X + " - " + s.Position.Y + "\n");
-                 }
-                 if (i != null)
-                 {
-                     if (Inventory.Items[i.ID].Amount == 99)
-                     {
-                         _currentMessageBoxText = "You cannot carry anymore " + i.Name + "s!";
-                         Interface.ShowMessageBox();
-                     }
-                     else
-                     {
-                         Inventory.AddItem(new Item(i.ID, Game.Content));
-                         Items.Remove(Items[i.ID]);
-                         _currentMessageBoxText = "You found: " + i.Name + "!";
-                         Interface.ShowMessageBox();
-                     }
-                 }
-
-                 // Check lab
-                 Rectangle pRect = new Rectangle(Player.CollisionRect.X + (int)(Player.PreviousDirection.X * Player.CollisionRect.Width),
-                                                  Player.CollisionRect.Y + (int)(Player.PreviousDirection.Y * Player.CollisionRect.Height), Player.CollisionRect.Width, Player.CollisionRect.Height);
-                 if (pRect.Intersects(Lab.CollisionRect))
-                 {
-                     Interface.currentScreen = Screens.Lab;
-                     Player.Health = Player.Dominant.Health.Level;
-                 }
-             }
-         }
-
-         private void HandleCameraMovement()
-         {
-             if (InputHandler.KeyDown(Keys.Down))
-                 Camera.Move(new Vector2(0, 3));
-             if (InputHandler.KeyDown(Keys.Up))
-                 Camera.Move(new Vector2(0, -3));
-             if (InputHandler.KeyDown(Keys.Left))
-                 Camera.Move(new Vector2(-3, 0));
-             if (InputHandler.KeyDown(Keys.Right))
-                 Camera.Move(new Vector2(3, 0));
-         }
-         #endregion
 
         #region Check Entity Locations
          public static bool CheckNests(Rectangle area)

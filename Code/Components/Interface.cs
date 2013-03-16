@@ -608,7 +608,7 @@ namespace VOiD.Components
                 if(component.isCentered)
                     component.offset = new Vector2(component.Size.X, component.Size.Y) / 2;
                 */
-            
+
 
             if (component.fullscreen)
             {
@@ -925,7 +925,7 @@ namespace VOiD.Components
             if (currentScreen != lastScreen)
             {
                 // if screen has changed
-                if(temp != null)
+                if (temp != null)
                     ResetListBoxes(temp.content); // Reset current screen ListBoxes
                 temp = new GameLibrary.Interface();
 
