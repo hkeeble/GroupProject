@@ -64,7 +64,6 @@ Content\Sprites\FlyingClimbingTexture.xnb
 Content\Sprites\FlyingSwimmingTexture.xnb
 Content\Sprites\tileSelected.xnb
 Content\Tilesets\testSet.xnb
-Content\SegoeUI.xnb
 Content\Interface\BattleScreen.xnb
 Content\Interface\Configuration.xnb
 Content\Interface\CreatureCustomization.xnb
@@ -87,6 +86,8 @@ Content\Interface\Assets\Icons\FlyingIcon.xnb
 Content\Interface\Assets\Icons\IconBackground.xnb
 Content\Interface\Assets\Icons\SwimmingIcon.xnb
 Content\Interface\Assets\Icons\BlankIcon.xnb
+Content\Courier.xnb
+Content\Sprites\Sign.xnb
 Content\Tilesets\Tileset.png
 Content\Maps\Level1.map
 Content\Maps\Level2.map

@@ -20,7 +20,8 @@ namespace VOiD.Components
             Tile,
             Item,
             Nest,
-            Attribute
+            Attribute,
+            Sign
         }
 
         TimeSpan timeSinceLastSave = TimeSpan.Zero;
@@ -41,6 +42,7 @@ namespace VOiD.Components
         Mode currentMode;
         Item.ItemName CurrentItem;
         short currentCreatureID;
+        string currentSignText;
 
         string workingDirectory;
 
@@ -179,6 +181,14 @@ namespace VOiD.Components
                 Console.WriteLine("Current Attribute: " + currentAttribute.ToString());
             }
 
+            if (InputHandler.KeyPressed(Keys.D5))
+            {
+                currentMode = Mode.Sign;
+                Console.WriteLine("Sign Mode.\n");
+                Console.Write("Enter a string for this sign: ");
+                currentSignText = Console.ReadLine();
+            }
+
             if (InputHandler.KeyPressed(Keys.T))
                 if (currentMode == Mode.Tile)
                     renderTileSet = !renderTileSet;
@@ -232,75 +242,83 @@ namespace VOiD.Components
                 }
             }
 
-            if (InputHandler.LeftClickDown || InputHandler.RightClickPressed)
+            if ((InputHandler.LeftClickDown || InputHandler.RightClickPressed) && Configuration.Bounds.Contains(new Point(InputHandler.MouseX, InputHandler.MouseY)))
             {
-                if (InputHandler.MouseX > 0 && InputHandler.MouseX < Configuration.Width && InputHandler.MouseY > 0 && InputHandler.MouseY < Configuration.Height)
+                Vector2 MousePos = InputHandler.MouseWorldCoords;
+
+                MousePos.X /= GameHandler.TileMap.TileWidth;
+                MousePos.Y /= GameHandler.TileMap.TileHeight;
+
+                Vector2 MousePosPixels = new Vector2((int)MousePos.X * GameHandler.TileMap.TileWidth, ((int)MousePos.Y * GameHandler.TileMap.TileHeight));
+
+                switch(currentMode)
                 {
-                    Vector2 MousePos = InputHandler.MouseWorldCoords;
-
-                    MousePos.X /= GameHandler.TileMap.TileWidth;
-                    MousePos.Y /= GameHandler.TileMap.TileHeight;
-
-                    Vector2 MousePosPixels = new Vector2((int)MousePos.X * GameHandler.TileMap.TileWidth, ((int)MousePos.Y * GameHandler.TileMap.TileHeight));
-
-                    switch(currentMode)
-                    {
-                        case Mode.Tile:
-                            if (InputHandler.LeftClickDown)
+                    case Mode.Tile:
+                        if (InputHandler.LeftClickDown)
+                        {
+                            if (tileSetRenderRect.Contains(new Point(InputHandler.MouseX, InputHandler.MouseY)) && renderTileSet)
                             {
-                                if (tileSetRenderRect.Contains(new Point(InputHandler.MouseX, InputHandler.MouseY)) && renderTileSet)
-                                {
-                                    currentTile = new Point(((InputHandler.MouseX-(int)tileSetRenderDrawOffset.X) / GameHandler.TileMap.TileWidth),
-                                                            ((InputHandler.MouseY-(int)tileSetRenderDrawOffset.Y) / GameHandler.TileMap.TileHeight));
-                                    tiles[currentTile.X, currentTile.Y].GetData<Color>(selectedTileData);
-                                }
-                                else
-                                    GameHandler.TileMap.Map.SetData<Color>(0, new Rectangle((int)MousePosPixels.X, (int)MousePosPixels.Y, tiles[currentTile.X, currentTile.Y].Width,
-                                        tiles[currentTile.X, currentTile.Y].Height), selectedTileData, 0, selectedTileData.Length);
-                                    GameHandler.TileMap.SetTile(new Point((int)MousePos.X, (int)MousePos.Y), currentTile);
+                                currentTile = new Point(((InputHandler.MouseX-(int)tileSetRenderDrawOffset.X) / GameHandler.TileMap.TileWidth),
+                                                        ((InputHandler.MouseY-(int)tileSetRenderDrawOffset.Y) / GameHandler.TileMap.TileHeight));
+                                tiles[currentTile.X, currentTile.Y].GetData<Color>(selectedTileData);
                             }
-                            else if (InputHandler.RightClickPressed)
-                                GameHandler.TileMap.TogglePassable(new Point((int)MousePos.X, (int)MousePos.Y));
-                            break;
-                        case Mode.Item:
-                            if (InputHandler.LeftClickPressed)
-                            {
-                                if(GameHandler.CheckItem(new Point((int)MousePos.X, (int)MousePos.Y)) != null)
-                                {
-                                    ItemEntity i = GameHandler.CheckItem(new Point((int)MousePosPixels.X, (int)MousePosPixels.Y));
-                                     GameHandler.RemoveItem(i);
-                                }
-                                if(GameHandler.CheckItem(new Point((int)MousePos.X, (int)MousePos.Y)) == null)
-                                    GameHandler.AddItem(new ItemEntity(new Vector2(MousePosPixels.X, MousePosPixels.Y), (int)CurrentItem, Game.Content));
-                            }
-                            if (InputHandler.RightClickPressed)
+                            else
+                                GameHandler.TileMap.Map.SetData<Color>(0, new Rectangle((int)MousePosPixels.X, (int)MousePosPixels.Y, tiles[currentTile.X, currentTile.Y].Width,
+                                    tiles[currentTile.X, currentTile.Y].Height), selectedTileData, 0, selectedTileData.Length);
+                                GameHandler.TileMap.SetTile(new Point((int)MousePos.X, (int)MousePos.Y), currentTile);
+                        }
+                        else if (InputHandler.RightClickPressed)
+                            GameHandler.TileMap.TogglePassable(new Point((int)MousePos.X, (int)MousePos.Y));
+                        break;
+                    case Mode.Item:
+                        if (InputHandler.LeftClickPressed)
+                        {
+                            if(GameHandler.CheckItem(new Point((int)MousePos.X, (int)MousePos.Y)) != null)
                             {
                                 ItemEntity i = GameHandler.CheckItem(new Point((int)MousePosPixels.X, (int)MousePosPixels.Y));
-                                if (i != null)
                                     GameHandler.RemoveItem(i);
                             }
-                            break;
-                        case Mode.Nest:
-                            if (InputHandler.LeftClickPressed)
-                                GameHandler.AddNest(new Nest(Game.Content.Load<Texture2D>("Sprites\\Nest"), Game.Content,
-                                    new Point((int)MousePos.X * GameHandler.TileMap.TileWidth, (int)MousePos.Y * GameHandler.TileMap.TileHeight), currentCreatureID,
-                                    new Point(GameHandler.TileMap.TileWidth, GameHandler.TileMap.TileHeight), new Point(GameHandler.TileMap.TileWidth, GameHandler.TileMap.TileHeight),
-                                    new Point((int)GameHandler.TileMap.PlayerSpawn.X, (int)GameHandler.TileMap.PlayerSpawn.Y), GameHandler.TileMap.Passable));
-                            if (InputHandler.RightClickPressed)
-                            {
-                                Nest n = GameHandler.CheckNests(new Point((int)MousePos.X * GameHandler.TileMap.TileWidth, (int)MousePos.Y * GameHandler.TileMap.TileHeight));
-                                if(n != null)
-                                    GameHandler.RemoveNest(n);
-                            }
-                            break;
-                        case Mode.Attribute:
-                            if (InputHandler.LeftClickPressed)
-                                GameHandler.TileMap.SetAttribute(new Point((int)MousePos.X, (int)MousePos.Y), currentAttribute);
-
+                            if(GameHandler.CheckItem(new Point((int)MousePos.X, (int)MousePos.Y)) == null)
+                                GameHandler.AddItem(new ItemEntity(new Vector2(MousePosPixels.X, MousePosPixels.Y), (int)CurrentItem, Game.Content));
+                        }
+                        if (InputHandler.RightClickPressed)
+                        {
+                            ItemEntity i = GameHandler.CheckItem(new Point((int)MousePosPixels.X, (int)MousePosPixels.Y));
+                            if (i != null)
+                                GameHandler.RemoveItem(i);
+                        }
                         break;
-                    }
-                    AddModifiedTile(new Point((int)MousePos.X, (int)MousePos.Y)); // Add the tile to the modified list
+                    case Mode.Nest:
+                        if (InputHandler.LeftClickPressed)
+                            GameHandler.AddNest(new Nest(Game.Content.Load<Texture2D>("Sprites\\Nest"), Game.Content,
+                                new Point((int)MousePos.X * GameHandler.TileMap.TileWidth, (int)MousePos.Y * GameHandler.TileMap.TileHeight), currentCreatureID,
+                                new Point(GameHandler.TileMap.TileWidth, GameHandler.TileMap.TileHeight), new Point(GameHandler.TileMap.TileWidth, GameHandler.TileMap.TileHeight),
+                                new Point((int)GameHandler.TileMap.PlayerSpawn.X, (int)GameHandler.TileMap.PlayerSpawn.Y), GameHandler.TileMap.Passable));
+                        if (InputHandler.RightClickPressed)
+                        {
+                            Nest n = GameHandler.CheckNests(new Point((int)MousePos.X * GameHandler.TileMap.TileWidth, (int)MousePos.Y * GameHandler.TileMap.TileHeight));
+                            if(n != null)
+                                GameHandler.RemoveNest(n);
+                        }
+                        break;
+                    case Mode.Sign:
+                        if (InputHandler.LeftClickPressed)
+                            GameHandler.AddSign(new Sign(Game.Content.Load<Texture2D>("Sprites/Sign"),
+                                new Vector2((int)MousePos.X * GameHandler.TileMap.TileWidth, (int)MousePos.Y * GameHandler.TileMap.TileHeight), currentSignText));
+                        if (InputHandler.RightClickPressed)
+                        {
+                            Sign s = GameHandler.CheckSign(new Point((int)MousePos.X * GameHandler.TileMap.TileWidth, (int)MousePos.Y * GameHandler.TileMap.TileHeight));
+                            if (s != null)
+                                GameHandler.RemoveSign(s);
+                        }
+                        break;
+                    case Mode.Attribute:
+                        if (InputHandler.LeftClickPressed)
+                            GameHandler.TileMap.SetAttribute(new Point((int)MousePos.X, (int)MousePos.Y), currentAttribute);
+
+                    break;
                 }
+                AddModifiedTile(new Point((int)MousePos.X, (int)MousePos.Y)); // Add the tile to the modified list
             }
 
             base.Update(gameTime);
@@ -392,14 +410,22 @@ namespace VOiD.Components
             for (int i = 0; i < GameHandler.Nests.Count; i++) // Create new nest data
                 NestData += (GameHandler.Nests[i].CollisionRect.X / GameHandler.TileMap.TileWidth) + "-" + (GameHandler.Nests[i].CollisionRect.Y / GameHandler.TileMap.TileHeight) + "\n" + GameHandler.Nests[i].ID + "\n";
 
+            // Create new sign data
+            string SignData = Convert.ToString(GameHandler.Signs.Count) + "\n";
+            for (int i = 0; i < GameHandler.Signs.Count; i++)
+                SignData += (GameHandler.Signs[i].CollisionRect.X / GameHandler.TileMap.TileWidth) + "-" + (GameHandler.Signs[i].CollisionRect.Y / GameHandler.TileMap.TileHeight) + "\n" + GameHandler.Signs[i].Text + "\n";
+
             sr.Close();
 
             File.Delete(filePath);
+
+            // Write out new data
             StreamWriter sw = new StreamWriter(filePath, false);
             sw.WriteLine(tilesetName);
             sw.Write(tileData);
             sw.Write(spawnData);
             sw.Write(NestData);
+            sw.Write(SignData);
             sw.Close();
         }
 

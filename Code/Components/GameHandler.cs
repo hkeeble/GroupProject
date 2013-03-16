@@ -24,6 +24,7 @@ namespace VOiD.Components
         
         private static List<Nest> nests = new List<Nest>();
         private static List<ItemEntity> Items = new List<ItemEntity>();
+        private static List<Sign> signs = new List<Sign>();
 
         const int NUMBER_OF_ITEM_TYPES = 5;
         #endregion
@@ -55,6 +56,16 @@ namespace VOiD.Components
         public static void RemoveNest(Nest nest)
         {
             nests.Remove(nest);
+        }
+
+        public static void AddSign(Sign sign)
+        {
+            signs.Add(sign);
+        }
+
+        public static void RemoveSign(Sign sign)
+        {
+            signs.Remove(sign);
         }
         #endregion
 
@@ -147,6 +158,10 @@ namespace VOiD.Components
                         Lab.Draw();
                         Boss.Draw();
 
+                        if (signs.Count > 0)
+                            foreach (Sign s in signs)
+                                s.Draw();
+
                         if (nests.Count > 0)
                             foreach (Nest n in nests)
                                 n.Draw();
@@ -195,6 +210,14 @@ namespace VOiD.Components
                  if (Player.Direction.X == -1 && !InputHandler.KeyDown(Keys.Left))
                      Player.Direction.X = 0;
              }
+
+             if (InputHandler.KeyPressed(Keys.Enter))
+             {
+                 Sign s = CheckSign(new Point((int)Player.Position.X + ((int)Player.PreviousDirection.X * TileMap.TileWidth),
+                                              (int)Player.Position.Y + ((int)Player.PreviousDirection.Y * TileMap.TileHeight)));
+                 if(s != null)
+                    Console.WriteLine("Read Sign at " + s.Position.X + " - " + s.Position.Y + "\n");
+             }
          }
 
          private void HandleCameraMovement()
@@ -234,6 +257,14 @@ namespace VOiD.Components
                     return i;
             return null;
         }
+
+        public static Sign CheckSign(Point position)
+        {
+            foreach (Sign s in signs)
+                if (new Point(s.CollisionRect.X, s.CollisionRect.Y) == position)
+                    return s;
+            return null;
+        }
         #endregion
 
         #region Load Level
@@ -249,6 +280,8 @@ namespace VOiD.Components
             }
             if(Items.Count > 0)
                 Items.Clear();
+            if (signs.Count > 0)
+                signs.Clear();
 
             TileMap = new TileMap("Level" + levelNumber, GraphicsDevice, Game.Content);
             Minimap = new Minimap(TileMap.Map, Game.Content.Load<Texture2D>("Sprites\\Nest"), Game.Content.Load<Texture2D>("Sprites\\Lab"), GraphicsDevice);
@@ -261,5 +294,6 @@ namespace VOiD.Components
         #endregion
 
         public static List<Nest> Nests { get { return nests; } }
+        public static List<Sign> Signs { get { return signs; } }
     }
 }

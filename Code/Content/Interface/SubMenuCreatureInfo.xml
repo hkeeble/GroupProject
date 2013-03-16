@@ -40,7 +40,7 @@
               <!--Statistics-->
               <Item Type="GameLibrary.TextObject">
                 <Text>STATISTICS</Text>
-                <Font>SegoeUI</Font>
+                <Font>Courier</Font>
                 <fontColor>255 255 0</fontColor>
                 <highlightColor>0 0 0</highlightColor>
                 <isCentered>false</isCentered>
@@ -48,7 +48,7 @@
               </Item>
               <Item Type="GameLibrary.TextObject">
                 <Text>@PlayerWeight</Text>
-                <Font>SegoeUI</Font>
+                <Font>Courier</Font>
                 <fontColor>255 255 255</fontColor>
                 <highlightColor>0 0 0</highlightColor>
                 <isCentered>false</isCentered>
@@ -56,7 +56,7 @@
               </Item>
               <Item Type="GameLibrary.TextObject">
                 <Text>@PlayerStrength</Text>
-                <Font>SegoeUI</Font>
+                <Font>Courier</Font>
                 <fontColor>255 255 255</fontColor>
                 <highlightColor>0 0 0</highlightColor>
                 <isCentered>false</isCentered>
@@ -64,7 +64,7 @@
               </Item>
               <Item Type="GameLibrary.TextObject">
                 <Text>@PlayerDexterity</Text>
-                <Font>SegoeUI</Font>
+                <Font>Courier</Font>
                 <fontColor>255 255 255</fontColor>
                 <highlightColor>0 0 0</highlightColor>
                 <isCentered>false</isCentered>
@@ -72,7 +72,7 @@
               </Item>
               <Item Type="GameLibrary.TextObject">
                 <Text>@PlayerHealth</Text>
-                <Font>SegoeUI</Font>
+                <Font>Courier</Font>
                 <fontColor>255 255 255</fontColor>
                 <highlightColor>0 0 0</highlightColor>
                 <isCentered>false</isCentered>
@@ -80,7 +80,7 @@
               </Item>
               <Item Type="GameLibrary.TextObject">
                 <Text>@PlayerEndurance</Text>
-                <Font>SegoeUI</Font>
+                <Font>Courier</Font>
                 <fontColor>255 255 255</fontColor>
                 <highlightColor>0 0 0</highlightColor>
                 <isCentered>false</isCentered>
@@ -88,7 +88,7 @@
               </Item>
               <Item Type="GameLibrary.TextObject">
                 <Text>@PlayerSpeed</Text>
-                <Font>SegoeUI</Font>
+                <Font>Courier</Font>
                 <fontColor>255 255 255</fontColor>
                 <highlightColor>0 0 0</highlightColor>
                 <isCentered>false</isCentered>
@@ -97,7 +97,7 @@
               <!--Behaviour-->
               <Item Type="GameLibrary.TextObject">
                 <Text>BEHAVIOUR</Text>
-                <Font>SegoeUI</Font>
+                <Font>Courier</Font>
                 <fontColor>255 255 0</fontColor>
                 <highlightColor>0 0 0</highlightColor>
                 <isCentered>false</isCentered>
@@ -105,7 +105,7 @@
               </Item>
               <Item Type="GameLibrary.TextObject">
                 <Text>@PlayerAggressiveness</Text>
-                <Font>SegoeUI</Font>
+                <Font>Courier</Font>
                 <fontColor>255 255 255</fontColor>
                 <highlightColor>0 0 0</highlightColor>
                 <isCentered>false</isCentered>
@@ -113,7 +113,7 @@
               </Item>
               <Item Type="GameLibrary.TextObject">
                 <Text>@PlayerFocus</Text>
-                <Font>SegoeUI</Font>
+                <Font>Courier</Font>
                 <fontColor>255 255 255</fontColor>
                 <highlightColor>0 0 0</highlightColor>
                 <isCentered>false</isCentered>
@@ -121,7 +121,7 @@
               </Item>
               <Item Type="GameLibrary.TextObject">
                 <Text>@PlayerObedience</Text>
-                <Font>SegoeUI</Font>
+                <Font>Courier</Font>
                 <fontColor>255 255 255</fontColor>
                 <highlightColor>0 0 0</highlightColor>
                 <isCentered>false</isCentered>
@@ -130,7 +130,7 @@
               <!-- Abillities -->
               <Item Type="GameLibrary.TextObject">
                 <Text>ABILITIES</Text>
-                <Font>SegoeUI</Font>
+                <Font>Courier</Font>
                 <fontColor>255 255 0</fontColor>
                 <highlightColor>0 0 0</highlightColor>
                 <isCentered>false</isCentered>
@@ -196,7 +196,7 @@
               <!-- Attacks -->
               <Item Type="GameLibrary.TextObject">
                 <Text>ATTACKS</Text>
-                <Font>SegoeUI</Font>
+                <Font>Courier</Font>
                 <fontColor>255 255 0</fontColor>
                 <highlightColor>0 0 0</highlightColor>
                 <isCentered>false</isCentered>
@@ -213,7 +213,7 @@
                 <Children>
                   <Item Type="GameLibrary.ListBox">
                     <ListContentType>PlayerAttacks</ListContentType>
-                    <Font>SegoeUI</Font>
+                    <Font>Courier</Font>
                     <fontColor>255 255 255</fontColor>
                     <highlightColor>0 0 0</highlightColor>
                     <selectedColor>255 255 0</selectedColor>
@@ -245,7 +245,7 @@
                <!--Traits Title--> 
               <Item Type="GameLibrary.TextObject">
                 <Text>TRAITS</Text>
-                <Font>SegoeUI</Font>
+                <Font>Courier</Font>
                 <fontColor>255 255 0</fontColor>
                 <highlightColor>0 0 0</highlightColor>
                 <isCentered>false</isCentered>
@@ -262,7 +262,7 @@
                 <Children>
                   <Item Type="GameLibrary.ListBox">
                     <ListContentType>PlayerTraits</ListContentType>
-                    <Font>SegoeUI</Font>
+                    <Font>Courier</Font>
                     <fontColor>255 255 255</fontColor>
                     <highlightColor>0 0 0</highlightColor>
                     <selectedColor>255 255 0</selectedColor>

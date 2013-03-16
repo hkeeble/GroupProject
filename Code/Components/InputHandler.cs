@@ -15,15 +15,18 @@ namespace VOiD.Components
         /// </summary>
         /// <param name="game">The game which you want to attch this to.</param>
         public InputHandler(Game game) : base(game) { }
-
+        
         public override void Update(GameTime gameTime)
         {
-            lastKeyboardState = keyboardState;
-            keyboardState = Keyboard.GetState();
-            lastMouseState = mouseState;
-            mouseState = Mouse.GetState();
-            if (keyboardState.IsKeyDown(Keys.Escape))
-                Game.Exit();
+            if (Game.IsActive)
+            {
+                lastKeyboardState = keyboardState;
+                keyboardState = Keyboard.GetState();
+                lastMouseState = mouseState;
+                mouseState = Mouse.GetState();
+                if (keyboardState.IsKeyDown(Keys.Escape))
+                    Game.Exit();
+            }
             base.Update(gameTime);
         }
 

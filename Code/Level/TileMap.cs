@@ -23,7 +23,7 @@ namespace VOiD
         public int TileWidth = 32;
         public int TileHeight = 32;
 
-        private int _width, _height, _numberOfNests;
+        private int _width, _height, _numberOfNests, _numberOfSigns;
         Texture2D _tileSet;
         private string _tileSetPath;
         private Point[,] _tiles;
@@ -161,6 +161,16 @@ namespace VOiD
                     GameHandler.AddNest(new Nest(content.Load<Texture2D>("Sprites\\Nest"), content,
                         new Point(Convert.ToInt32(split[0])*TileWidth,Convert.ToInt32(split[1])*TileHeight), Convert.ToInt16(sr.ReadLine()), new Point(_width, _height),
                         new Point(TileWidth, TileHeight), new Point((int)_playerSpawn.X, (int)_playerSpawn.Y), _passable));
+                }
+
+                // Load Signs
+                _numberOfSigns = Convert.ToInt32(sr.ReadLine());
+                for (int i = 0; i < _numberOfSigns; i++)
+                {
+                    string cPos = sr.ReadLine();
+                    split = cPos.Split('-');
+                    GameHandler.AddSign(new Sign(content.Load<Texture2D>("Sprites/Sign"),
+                        new Vector2(Convert.ToInt32(split[0]) * TileWidth, Convert.ToInt32(split[1]) * TileHeight), sr.ReadLine()));
                 }
 
                 sr.Close();

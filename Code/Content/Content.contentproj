@@ -57,8 +57,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SegoeUI.spritefont">
-      <Name>SegoeUI</Name>
+    <Compile Include="Courier.spritefont">
+      <Name>Courier</Name>
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
     </Compile>
@@ -522,6 +522,11 @@
     </Compile>
     <Compile Include="Interface\Assets\Icons\SwimmingIcon.png">
       <Name>SwimmingIcon</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Sprites\Sign.png">
+      <Name>Sign</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

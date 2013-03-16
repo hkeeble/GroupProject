@@ -24,6 +24,7 @@ namespace VOiD
         private Point _newLoc;
         private float _moveSpeed = 0.0f;
         public Vector2 Direction = Vector2.Zero;
+        private Vector2 _previousDirection = Vector2.Zero;
         private Rectangle _collisionRect;
 
         #region Animation Declarations
@@ -93,6 +94,10 @@ namespace VOiD
 
         public virtual void Update(GameTime gameTime)
         {
+            if(Direction != Vector2.Zero)
+                if (Direction != _previousDirection)
+                    _previousDirection = Direction;
+
             if (_position.X % GameHandler.TileMap.TileWidth == 0 && _position.Y % GameHandler.TileMap.TileHeight == 0)
             {
                 _newLoc = NewLocation;
@@ -185,12 +190,22 @@ namespace VOiD
                     {
                         _timeToNextFrame = TimeSpan.Zero;
                         _currentFrame.X++;
-                        if (_currentFrame.X > _sheetFrameWidth-1)
+                        if (_currentFrame.X > _sheetFrameWidth - 1)
                             _currentFrame.X = 0;
                     }
                 }
                 else
+                {
                     _currentFrame.X = 0;
+                    if (_previousDirection.X == 1)
+                        _currentFrame.Y = (int)AnimDirection.Right;
+                    if (_previousDirection.X == -1)
+                        _currentFrame.Y = (int)AnimDirection.Left;
+                    if (_previousDirection.Y == 1)
+                        _currentFrame.Y = (int)AnimDirection.Down;
+                    if (_previousDirection.Y == -1)
+                        _currentFrame.Y = (int)AnimDirection.Up;
+                }
 
                 _frameRect = new Rectangle(_currentFrame.X * _frameWidth, _currentFrame.Y * _frameHeight, _frameWidth, _frameHeight);
                 _collisionRect = new Rectangle((int)_position.X, (int)_position.Y, _frameWidth, _frameHeight);
@@ -237,5 +252,7 @@ namespace VOiD
                  return new Point((int)(_position.X / GameHandler.TileMap.TileWidth), (int)(_position.Y / GameHandler.TileMap.TileHeight));
             }
         }
+
+        public Vector2 PreviousDirection { get { return _previousDirection; } }
     }
 }

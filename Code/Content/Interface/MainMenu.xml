@@ -29,7 +29,7 @@
             <Children>
               <Item Type="GameLibrary.TextObject">
                 <Text>Continue</Text>
-                <Font>SegoeUI</Font>
+                <Font>Courier</Font>
                 <fontColor>255 255 0</fontColor>
                 <highlightColor>255 255 255</highlightColor>
                 <isCentered>true</isCentered>
@@ -47,7 +47,7 @@
             <Children>
               <Item Type="GameLibrary.TextObject">
                 <Text>Quit</Text>
-                <Font>SegoeUI</Font>
+                <Font>Courier</Font>
                 <fontColor>255 255 0</fontColor>
                 <highlightColor>255 255 255</highlightColor>
                 <isCentered>true</isCentered>
@@ -65,7 +65,7 @@
             <Children>
               <Item Type="GameLibrary.TextObject">
                 <Text>Options</Text>
-                <Font>SegoeUI</Font>
+                <Font>Courier</Font>
                 <fontColor>255 255 0</fontColor>
                 <highlightColor>255 255 255</highlightColor>
                 <isCentered>true</isCentered>

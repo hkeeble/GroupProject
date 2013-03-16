@@ -63,7 +63,7 @@
                     <Children>
                       <Item Type="GameLibrary.TextObject">
                         <Text>@NumberOfApples</Text>
-                        <Font>SegoeUI</Font>
+                        <Font>Courier</Font>
                         <fontColor>255 255 0</fontColor>
                         <highlightColor>255 255 255</highlightColor>
                         <isCentered>false</isCentered>
@@ -91,7 +91,7 @@
                     <Children>
                       <Item Type="GameLibrary.TextObject">
                         <Text>@NumberOfGoldenApples</Text>
-                        <Font>SegoeUI</Font>
+                        <Font>Courier</Font>
                         <fontColor>255 255 0</fontColor>
                         <highlightColor>255 255 255</highlightColor>
                         <isCentered>false</isCentered>
@@ -119,7 +119,7 @@
                     <Children>
                       <Item Type="GameLibrary.TextObject">
                         <Text>@NumberOfSpringWater</Text>
-                        <Font>SegoeUI</Font>
+                        <Font>Courier</Font>
                         <fontColor>255 255 0</fontColor>
                         <highlightColor>255 255 255</highlightColor>
                         <isCentered>false</isCentered>
@@ -147,7 +147,7 @@
                     <Children>
                       <Item Type="GameLibrary.TextObject">
                         <Text>@NumberOfHoney</Text>
-                        <Font>SegoeUI</Font>
+                        <Font>Courier</Font>
                         <fontColor>255 255 0</fontColor>
                         <highlightColor>255 255 255</highlightColor>
                         <isCentered>false</isCentered>
@@ -175,7 +175,7 @@
                     <Children>
                       <Item Type="GameLibrary.TextObject">
                         <Text>@NumberOfChilli</Text>
-                        <Font>SegoeUI</Font>
+                        <Font>Courier</Font>
                         <fontColor>255 255 0</fontColor>
                         <highlightColor>255 255 255</highlightColor>
                         <isCentered>false</isCentered>
@@ -214,7 +214,7 @@
                 </Item>
               <Item Type="GameLibrary.TextObject">
                 <Text>@SelectedItemName</Text>
-                <Font>SegoeUI</Font>
+                <Font>Courier</Font>
                 <fontColor>255 255 255</fontColor>
                 <highlightColor>0 0 0</highlightColor>
                 <isCentered>false</isCentered>
@@ -222,7 +222,7 @@
               </Item>
                 <Item Type="GameLibrary.TextObject">
                   <Text>@SelectedItemDescription</Text>
-                  <Font>SegoeUI</Font>
+                  <Font>Courier</Font>
                   <fontColor>255 255 255</fontColor>
                   <highlightColor>0 0 0</highlightColor>
                   <isCentered>false</isCentered>
