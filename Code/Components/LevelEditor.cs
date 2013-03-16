@@ -110,7 +110,7 @@ namespace VOiD.Components
                 }
 
                 // Initialize Current Tile and selectedTileData
-                currentTile = new Point(1, 0);
+                currentTile = new Point(10, 4);
                 selectedTileData = new Color[GameHandler.TileMap.TileWidth * GameHandler.TileMap.TileHeight];
                 tiles[currentTile.X, currentTile.Y].GetData<Color>(selectedTileData);
 
@@ -282,7 +282,7 @@ namespace VOiD.Components
                             break;
                         case Mode.Nest:
                             if (InputHandler.LeftClickPressed)
-                                GameHandler.AddNest(new Nest(Game.Content.Load<Texture2D>("Sprites\\Nest"), Game.Content.Load<Texture2D>("Sprites\\CreatureGeneric"),
+                                GameHandler.AddNest(new Nest(Game.Content.Load<Texture2D>("Sprites\\Nest"), Game.Content,
                                     new Point((int)MousePos.X * GameHandler.TileMap.TileWidth, (int)MousePos.Y * GameHandler.TileMap.TileHeight), currentCreatureID,
                                     new Point(GameHandler.TileMap.TileWidth, GameHandler.TileMap.TileHeight), new Point(GameHandler.TileMap.TileWidth, GameHandler.TileMap.TileHeight),
                                     new Point((int)GameHandler.TileMap.PlayerSpawn.X, (int)GameHandler.TileMap.PlayerSpawn.Y), GameHandler.TileMap.Passable));

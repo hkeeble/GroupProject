@@ -11,7 +11,6 @@ Content\Sprites\Chilli.xnb
 Content\Sprites\GoldenApple.xnb
 Content\Sprites\Honey.xnb
 Content\Sprites\SpringWater.xnb
-Content\Sprites\CreatureGeneric.xnb
 Content\Sprites\Nest.xnb
 Content\Tilesets\Tileset.xnb
 Content\Sprites\Lab.xnb
@@ -79,6 +78,10 @@ Content\Interface\SubMenuDNAInventory.xnb
 Content\Interface\SubMenuInventory.xnb
 Content\Interface\SubMenuOptions.xnb
 Content\Tilesets\MainTileset.xnb
+Content\Sprites\Creatures\CreatureGeneric.xnb
+Content\Sprites\Creatures\flyingCreature.xnb
+Content\Sprites\Creatures\swimmingCreature.xnb
+Content\Sprites\Creatures\bossCreature.xnb
 Content\Tilesets\Tileset.png
 Content\Maps\Level1.map
 Content\Maps\Level2.map

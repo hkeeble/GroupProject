@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Content;
 using VOiD.Components;
 
 namespace VOiD
@@ -21,7 +22,7 @@ namespace VOiD
         const int MAX_CREATURES = 4;
         const int MOVE_AREA_SIZE = 10;
 
-        public Nest(Texture2D texture, Texture2D creatureTexture, Point position, short id, Point mapDimensions, Point tileDimensions, Point playerSpawn, bool[,] passable)
+        public Nest(Texture2D texture, ContentManager content, Point position, short id, Point mapDimensions, Point tileDimensions, Point playerSpawn, bool[,] passable)
         {
             _id = id;
             rand = new Random(DateTime.Now.Millisecond);
@@ -48,7 +49,14 @@ namespace VOiD
                         rand.Next(_moveArea.Y, _moveArea.Y + _moveArea.Height));
                 } while ((Position == playerSpawn || Position.X < 0 || Position.X > mapDimensions.X || Position.Y < 0 || Position.Y > mapDimensions.Y || passable[Position.X, Position.Y] == false) && Position == Point.Zero);
 
-                creatures.Add(new Creature(id, creatureTexture, new Vector2(Position.X * tileDimensions.X, Position.Y * tileDimensions.Y), 1f, 32, 32, 100));
+                // Decide on creature texture based on abillities
+                Creature creature = new Creature(id, content.Load<Texture2D>("Sprites/Creatures/CreatureGeneric"), new Vector2(Position.X * tileDimensions.X, Position.Y * tileDimensions.Y), 1f, 32, 32, 100);
+                if(creature.canFly)
+                    creature.SetTexture(content.Load<Texture2D>("Sprites/Creatures/flyingCreature"));
+                if(creature.canSwim)
+                    creature.SetTexture(content.Load<Texture2D>("Sprites/Creatures/swimmingCreature"));
+
+                creatures.Add(creature);
             }
         }
 

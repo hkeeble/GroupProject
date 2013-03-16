@@ -150,7 +150,7 @@ namespace VOiD
                 _labPos.X = Convert.ToInt32(split[0]) * TileWidth;
                 _labPos.Y = Convert.ToInt32(split[1]) * TileHeight;
 
-                GameHandler.Boss = new Creature(Convert.ToInt16(sr.ReadLine()), content.Load<Texture2D>("Sprites\\CreatureGeneric"),_bossSpawn, 1f, 32, 32, 100);
+                GameHandler.Boss = new Creature(Convert.ToInt16(sr.ReadLine()), content.Load<Texture2D>("Sprites/Creatures/bossCreature"),_bossSpawn, 1f, 47, 48, 100);
 
                 _numberOfNests = Convert.ToInt32(sr.ReadLine());
 
@@ -158,7 +158,7 @@ namespace VOiD
                 {
                     string cPos = sr.ReadLine();
                     split = cPos.Split('-');
-                    GameHandler.AddNest(new Nest(content.Load<Texture2D>("Sprites\\Nest"), content.Load<Texture2D>("Sprites\\CreatureGeneric"),
+                    GameHandler.AddNest(new Nest(content.Load<Texture2D>("Sprites\\Nest"), content,
                         new Point(Convert.ToInt32(split[0])*TileWidth,Convert.ToInt32(split[1])*TileHeight), Convert.ToInt16(sr.ReadLine()), new Point(_width, _height),
                         new Point(TileWidth, TileHeight), new Point((int)_playerSpawn.X, (int)_playerSpawn.Y), _passable));
                 }

@@ -205,6 +205,14 @@ namespace VOiD
         public Rectangle CollisionRect { get { return _collisionRect; } }
         public float MoveSpeed { get { return _moveSpeed; } set { _moveSpeed = value; } }
 
+        /// <summary>
+        /// Sets the creature's texture. If animated, the new texture must have the same dimensions as the previous texture.
+        /// </summary>
+        public void SetTexture(Texture2D texture)
+        {
+            _texture = texture;
+        }
+
         private Point NewLocation
         {
             get
