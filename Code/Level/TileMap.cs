@@ -170,7 +170,7 @@ namespace VOiD
                     string cPos = sr.ReadLine();
                     split = cPos.Split('-');
                     GameHandler.AddSign(new Sign(content.Load<Texture2D>("Sprites/Sign"),
-                        new Vector2(Convert.ToInt32(split[0]) * TileWidth, Convert.ToInt32(split[1]) * TileHeight), sr.ReadLine()));
+                        new Vector2(Convert.ToInt32(split[0]) * TileWidth, Convert.ToInt32(split[1]) * TileHeight), sr.ReadLine().Replace('#', '\n')));
                 }
 
                 sr.Close();

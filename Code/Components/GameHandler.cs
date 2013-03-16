@@ -21,6 +21,8 @@ namespace VOiD.Components
         public static new bool Enabled = true;
         public static new bool Visible = true;
         public static bool EditMode = false;
+       
+        private static string _currentSigntext;
         
         private static List<Nest> nests = new List<Nest>();
         private static List<ItemEntity> Items = new List<ItemEntity>();
@@ -215,8 +217,12 @@ namespace VOiD.Components
              {
                  Sign s = CheckSign(new Point((int)Player.Position.X + ((int)Player.PreviousDirection.X * TileMap.TileWidth),
                                               (int)Player.Position.Y + ((int)Player.PreviousDirection.Y * TileMap.TileHeight)));
-                 if(s != null)
-                    Console.WriteLine("Read Sign at " + s.Position.X + " - " + s.Position.Y + "\n");
+                 if (s != null)
+                 {
+                     Interface.ShowSign();
+                     _currentSigntext = s.Text;
+                     Console.WriteLine("Read Sign at " + s.Position.X + " - " + s.Position.Y + "\n");
+                 }
              }
          }
 
@@ -295,5 +301,6 @@ namespace VOiD.Components
 
         public static List<Nest> Nests { get { return nests; } }
         public static List<Sign> Signs { get { return signs; } }
+        public static string CurrentSignText { get { return _currentSigntext; } }
     }
 }

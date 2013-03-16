@@ -18,15 +18,12 @@ namespace VOiD.Components
         
         public override void Update(GameTime gameTime)
         {
-            if (Game.IsActive)
-            {
-                lastKeyboardState = keyboardState;
-                keyboardState = Keyboard.GetState();
-                lastMouseState = mouseState;
-                mouseState = Mouse.GetState();
-                if (keyboardState.IsKeyDown(Keys.Escape))
-                    Game.Exit();
-            }
+            lastKeyboardState = keyboardState;
+            keyboardState = Keyboard.GetState();
+            lastMouseState = mouseState;
+            mouseState = Mouse.GetState();
+            if (keyboardState.IsKeyDown(Keys.Escape))
+                Game.Exit();
             base.Update(gameTime);
         }
 

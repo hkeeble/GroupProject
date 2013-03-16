@@ -25,12 +25,18 @@ namespace VOiD.Components
         private static GameLibrary.Interface temp;
         private static GameLibrary.Interface subMenu;
         private static bool minimapUpdate = true;
+        private static bool showSign = false;
         public static Color BackgroundColor { get { return temp.backgroundColor; } }
         private static Screens lastScreen;
         public static Screens currentScreen;
         private static short ResID = 0;
         private DisplayMode[] dm;
         RasterizerState _scissorState = new RasterizerState() { ScissorTestEnable = true };
+
+        public static void ShowSign()
+        {
+            showSign = true;
+        }
 
         #region Draw Functions
         private void DrawComponent(List<Object2D> Interface)
@@ -213,6 +219,12 @@ namespace VOiD.Components
                         temp = GameHandler.Inventory.SelectedItem.Name;
                     if (component.Text == "@SelectedItemDescription")
                         temp = GameHandler.Inventory.SelectedItem.Description;
+                }
+
+                // Sign text
+                if (component.Text == "@CurrentSignText")
+                {
+                    temp = GameHandler.CurrentSignText;
                 }
 
             }
@@ -861,6 +873,13 @@ namespace VOiD.Components
                     GameHandler.Visible = true;
                 }
             }
+
+            if (showSign)
+            {
+                subMenu = Game.Content.Load<GameLibrary.Interface>("Interface/Sign");
+                showSign = false;
+            }
+
             if (currentScreen != lastScreen)
             {
                 // if screen has changed

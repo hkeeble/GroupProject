@@ -185,8 +185,8 @@ namespace VOiD.Components
             {
                 currentMode = Mode.Sign;
                 Console.WriteLine("Sign Mode.\n");
-                Console.Write("Enter a string for this sign: ");
-                currentSignText = Console.ReadLine();
+                Console.Write("Enter a string for this sign (# for newline): ");
+                currentSignText = Console.ReadLine().Replace('#','\n');
             }
 
             if (InputHandler.KeyPressed(Keys.T))
@@ -413,7 +413,7 @@ namespace VOiD.Components
             // Create new sign data
             string SignData = Convert.ToString(GameHandler.Signs.Count) + "\n";
             for (int i = 0; i < GameHandler.Signs.Count; i++)
-                SignData += (GameHandler.Signs[i].CollisionRect.X / GameHandler.TileMap.TileWidth) + "-" + (GameHandler.Signs[i].CollisionRect.Y / GameHandler.TileMap.TileHeight) + "\n" + GameHandler.Signs[i].Text + "\n";
+                SignData += (GameHandler.Signs[i].CollisionRect.X / GameHandler.TileMap.TileWidth) + "-" + (GameHandler.Signs[i].CollisionRect.Y / GameHandler.TileMap.TileHeight) + "\n" + GameHandler.Signs[i].Text.Replace('\n', '#') + "\n";
 
             sr.Close();
 
