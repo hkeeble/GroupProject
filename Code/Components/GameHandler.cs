@@ -25,7 +25,7 @@ namespace VOiD.Components
         public static new bool Visible = true;
         public static bool EditMode = false;
        
-        private static string _currentSigntext;
+        private static string _currentMessageBoxText;
         
         private static List<Nest> nests = new List<Nest>();
         private static List<ItemEntity> Items = new List<ItemEntity>();
@@ -99,21 +99,15 @@ namespace VOiD.Components
                 if (Interface.currentScreen == Screens.LevelMenu)
                     HandlePlayerMovement();
 
-                for (int i = 0; i < Items.Count; i++) // NOT VERY EFFICIENT - MAY NEED REPLACING
-                {
-                    if (Player.CollisionRect.Intersects(Items[i].CollisionRect))
-                    {
-                        Inventory.AddItem(Items[i]);
-                        Items.Remove(Items[i]);
-                    }
-                }
-
                 for (int i = 0; i < nests.Count; i++)
                 {
-                    for (int j = 0; j < nests[i].Creatures.Count; j++)
+                    if (Player.CollisionRect.Intersects(nests[i].MoveArea))
                     {
-                        if (nests[i].Creatures[j].CollisionRect.Intersects(Player.CollisionRect))
-                            BattleHandler.InitiateBattle(nests[i].Creatures[j]);
+                        for (int j = 0; j < nests[i].Creatures.Count; j++)
+                        {
+                            if (nests[i].Creatures[j].CollisionRect.Intersects(Player.CollisionRect))
+                                BattleHandler.InitiateBattle(nests[i].Creatures[j]);
+                        }
                     }
                 }
 
@@ -126,12 +120,6 @@ namespace VOiD.Components
                         LoadLevel(CurrentLevel + 1, Game.Content, Game.GraphicsDevice); // Move to next level
                         SaveHandler.SaveGame();
                     }
-
-                // Check lab collision
-                if(Player.CurrentTile.X == Lab.CurrentTile.X - 1 || Player.CurrentTile.X == Lab.CurrentTile.X + 1 ||
-                    Player.CurrentTile.Y == Lab.CurrentTile.Y - 1 || Player.CurrentTile.Y == Lab.CurrentTile.Y + 1)
-                        if(Player.CollisionRect.Intersects(Lab.CollisionRect))
-                            Interface.currentScreen = Screens.Lab;
 
                 // Update currently used attribute
                 if (TileMap.Attribute[Player.CurrentTile.X, Player.CurrentTile.Y] == (int)Attributes.Flying)
@@ -174,10 +162,21 @@ namespace VOiD.Components
                     {
                         SpriteManager.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend);
 
-                                                // Check for adjacent sign, show exclamation if so
+                        // Check for adjacent sign, show exclamation if so
                         Sign sign = CheckSign(new Point((int)Player.Position.X + ((int)Player.PreviousDirection.X * TileMap.TileWidth),
                                  (int)Player.Position.Y + ((int)Player.PreviousDirection.Y * TileMap.TileHeight)));
                         if (sign != null)
+                            SpriteManager.Draw(exclamationSprite, Camera.Transform(GameHandler.Player.Position - new Vector2(0, exclamationSprite.Height)), null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
+
+                        // Check if on an item, show exclamation if so
+                        Item item = CheckItem(new Point((int)Player.Position.X, (int)Player.Position.Y));
+                        if (item != null)
+                            SpriteManager.Draw(exclamationSprite, Camera.Transform(GameHandler.Player.Position - new Vector2(0, exclamationSprite.Height)), null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
+
+                        // Check if facing lab, if so show exclamation mark
+                        Rectangle pRect = new Rectangle(Player.CollisionRect.X + (int)(Player.PreviousDirection.X * Player.CollisionRect.Width),
+                            Player.CollisionRect.Y + (int)(Player.PreviousDirection.Y * Player.CollisionRect.Height), Player.CollisionRect.Width, Player.CollisionRect.Height);
+                        if(pRect.Intersects(Lab.CollisionRect))
                             SpriteManager.Draw(exclamationSprite, Camera.Transform(GameHandler.Player.Position - new Vector2(0, exclamationSprite.Height)), null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
 
                         if (!EditMode)
@@ -244,11 +243,36 @@ namespace VOiD.Components
              {
                  Sign s = CheckSign(new Point((int)Player.Position.X + ((int)Player.PreviousDirection.X * TileMap.TileWidth),
                                               (int)Player.Position.Y + ((int)Player.PreviousDirection.Y * TileMap.TileHeight)));
+                 Item i = CheckItem(new Point((int)Player.Position.X, (int)Player.Position.Y));
                  if (s != null)
                  {
-                     Interface.ShowSign();
-                     _currentSigntext = s.Text;
+                     Interface.ShowMessageBox();
+                     _currentMessageBoxText = s.Text;
                      Console.WriteLine("Read Sign at " + s.Position.X + " - " + s.Position.Y + "\n");
+                 }
+                 if (i != null)
+                 {
+                     if (Inventory.Items[i.ID].Amount == 99)
+                     {
+                         _currentMessageBoxText = "You cannot carry anymore " + i.Name + "s!";
+                         Interface.ShowMessageBox();
+                     }
+                     else
+                     {
+                         Inventory.AddItem(new Item(i.ID, Game.Content));
+                         Items.Remove(Items[i.ID]);
+                         _currentMessageBoxText = "You found: " + i.Name + "!";
+                         Interface.ShowMessageBox();
+                     }
+                 }
+
+                 // Check lab
+                 Rectangle pRect = new Rectangle(Player.CollisionRect.X + (int)(Player.PreviousDirection.X * Player.CollisionRect.Width),
+                                                  Player.CollisionRect.Y + (int)(Player.PreviousDirection.Y * Player.CollisionRect.Height), Player.CollisionRect.Width, Player.CollisionRect.Height);
+                 if (pRect.Intersects(Lab.CollisionRect))
+                 {
+                     Interface.currentScreen = Screens.Lab;
+                     Player.Health = Player.Dominant.Health.Level;
                  }
              }
          }
@@ -328,7 +352,7 @@ namespace VOiD.Components
 
         public static List<Nest> Nests { get { return nests; } }
         public static List<Sign> Signs { get { return signs; } }
-        public static string CurrentSignText { get { return _currentSigntext; } }
+        public static string CurrentSignText { get { return _currentMessageBoxText; } }
         public static Attributes CurrentAttributeInUse { get { return _currentAttributeInUse; } }
     }
 }

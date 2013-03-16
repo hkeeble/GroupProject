@@ -33,7 +33,7 @@ namespace VOiD.Components
         private DisplayMode[] dm;
         RasterizerState _scissorState = new RasterizerState() { ScissorTestEnable = true };
 
-        public static void ShowSign()
+        public static void ShowMessageBox()
         {
             showSign = true;
         }
@@ -374,7 +374,7 @@ namespace VOiD.Components
 
                     for (int i = 0; i < itemText.Length; i++)
                     {
-                        itemText[i] = Convert.ToString(GameHandler.Inventory.DNA[i].ID);
+                        itemText[i] = Convert.ToString(i+1);
                         actions[i] = Convert.ToString(GameHandler.Inventory.DNA[i].ID);
                     }
                 }
@@ -918,7 +918,7 @@ namespace VOiD.Components
 
             if (showSign)
             {
-                subMenu = Game.Content.Load<GameLibrary.Interface>("Interface/Sign");
+                subMenu = Game.Content.Load<GameLibrary.Interface>("Interface/MessageBox");
                 showSign = false;
             }
 

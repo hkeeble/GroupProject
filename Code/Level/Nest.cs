@@ -98,6 +98,10 @@ namespace VOiD
 
         public List<Creature> Creatures { get { return creatures; } }
         public Rectangle CollisionRect { get { return new Rectangle((int)_position.X, (int)_position.Y, _texture.Width, _texture.Height); } }
+
+        public Rectangle MoveArea { get { return new Rectangle((int)_moveArea.X*GameHandler.TileMap.TileWidth, (int)_moveArea.Y*GameHandler.TileMap.TileHeight,
+            (int)_moveArea.Width*GameHandler.TileMap.TileWidth, (int)_moveArea.Height*GameHandler.TileMap.TileHeight); } }
+
         public short ID { get { return _id; } }
     }
 }

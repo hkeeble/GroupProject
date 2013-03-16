@@ -11,7 +11,7 @@
         <Action></Action>
         <Children>
           <Item Type="GameLibrary.GraphicObject">
-            <iSize>55 35</iSize>
+            <iSize>55 25</iSize>
             <iPosition>50 50</iPosition>
             <isClickable>false</isClickable>
             <TextureLocation>PopUp</TextureLocation>

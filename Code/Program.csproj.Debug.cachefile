@@ -87,10 +87,10 @@ Content\Interface\Assets\Icons\SwimmingIcon.xnb
 Content\Interface\Assets\Icons\BlankIcon.xnb
 Content\Courier.xnb
 Content\Sprites\Sign.xnb
-Content\Interface\Sign.xnb
 Content\Sprites\exclamation.xnb
 Content\Interface\Assets\Battle\background.xnb
 Content\Interface\Assets\Battle\Flee.xnb
+Content\Interface\MessageBox.xnb
 Content\Tilesets\Tileset.png
 Content\Maps\Level1.map
 Content\Maps\Level2.map

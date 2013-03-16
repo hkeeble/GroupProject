@@ -418,8 +418,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Interface\Sign.xml">
-      <Name>Sign</Name>
+    <Compile Include="Interface\MessageBox.xml">
+      <Name>MessageBox</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </Compile>
