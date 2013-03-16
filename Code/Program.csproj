@@ -84,6 +84,7 @@
     <Compile Include="Creature\CreatureModel.cs" />
     <Compile Include="Creature\Primitives3D.cs" />
     <Compile Include="Creature\Traits.cs" />
+    <Compile Include="DevConsole.cs" />
     <Compile Include="Inventory.cs" />
     <Compile Include="Level\Camera.cs" />
     <Compile Include="Components\DebugLog.cs" />

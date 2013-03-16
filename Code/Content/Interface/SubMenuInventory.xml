@@ -67,7 +67,7 @@
                         <fontColor>255 255 0</fontColor>
                         <highlightColor>255 255 255</highlightColor>
                         <isCentered>false</isCentered>
-                        <ioffset>70 75</ioffset>
+                        <ioffset>69 75</ioffset>
                       </Item>
                     </Children>
                   </Item>
@@ -95,7 +95,7 @@
                         <fontColor>255 255 0</fontColor>
                         <highlightColor>255 255 255</highlightColor>
                         <isCentered>false</isCentered>
-                        <ioffset>70 75</ioffset>
+                        <ioffset>69 75</ioffset>
                       </Item>
                     </Children>
                   </Item>
@@ -123,7 +123,7 @@
                         <fontColor>255 255 0</fontColor>
                         <highlightColor>255 255 255</highlightColor>
                         <isCentered>false</isCentered>
-                        <ioffset>70 75</ioffset>
+                        <ioffset>69 75</ioffset>
                       </Item>
                     </Children>
                   </Item>
@@ -151,7 +151,7 @@
                         <fontColor>255 255 0</fontColor>
                         <highlightColor>255 255 255</highlightColor>
                         <isCentered>false</isCentered>
-                        <ioffset>70 75</ioffset>
+                        <ioffset>69 75</ioffset>
                       </Item>
                     </Children>
                   </Item>
@@ -179,7 +179,7 @@
                         <fontColor>255 255 0</fontColor>
                         <highlightColor>255 255 255</highlightColor>
                         <isCentered>false</isCentered>
-                        <ioffset>70 75</ioffset>
+                        <ioffset>69 75</ioffset>
                       </Item>
                     </Children>
                   </Item>
@@ -215,7 +215,7 @@
               <Item Type="GameLibrary.TextObject">
                 <Text>@SelectedItemName</Text>
                 <Font>Courier</Font>
-                <fontColor>255 255 255</fontColor>
+                <fontColor>0 0 0</fontColor>
                 <highlightColor>0 0 0</highlightColor>
                 <isCentered>false</isCentered>
                 <ioffset>10 55</ioffset>
@@ -223,7 +223,7 @@
                 <Item Type="GameLibrary.TextObject">
                   <Text>@SelectedItemDescription</Text>
                   <Font>Courier</Font>
-                  <fontColor>255 255 255</fontColor>
+                  <fontColor>0 0 0</fontColor>
                   <highlightColor>0 0 0</highlightColor>
                   <isCentered>false</isCentered>
                   <ioffset>10 65</ioffset>

@@ -1,4 +1,6 @@
-﻿using System;
+﻿#define DEVBUILD
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -75,6 +77,12 @@ namespace VOiD.Components
         {
             if (Enabled && !EditMode)
             {
+                // DEV CONSOLE
+                #if DEVBUILD
+                if (InputHandler.KeyPressed(Keys.F3))
+                    DevConsole.Open(Game.Content);
+                #endif
+
                 if (nests.Count > 0)
                     foreach (Nest n in nests)
                         n.Update(gameTime);
@@ -121,6 +129,7 @@ namespace VOiD.Components
                         if(Player.CollisionRect.Intersects(Lab.CollisionRect))
                             Interface.currentScreen = Screens.Lab;
 
+                #if DEVBUILD
                 #region Level Edit
                 if (InputHandler.KeyPressed(Keys.F1))
                 {
@@ -130,6 +139,7 @@ namespace VOiD.Components
                     EditMode = true;
                 }
                 #endregion
+                #endif
 
                 Player.Update(gameTime);
                 Boss.Update(gameTime);
