@@ -19,7 +19,7 @@ namespace VOiD
         {
             get { return _position; }
             set { _position = new Vector2(MathHelper.Clamp(value.X, 0, GameHandler.TileMap.Map.Width-Configuration.Bounds.Width),
-                    MathHelper.Clamp(value.Y, -GameHandler.TileMap.TileHeight, GameHandler.TileMap.Map.Height-Configuration.Bounds.Height+GameHandler.TileMap.TileHeight*4)); }
+                    MathHelper.Clamp(value.Y, -(GameHandler.TileMap.TileHeight*2), GameHandler.TileMap.Map.Height-Configuration.Bounds.Height+GameHandler.TileMap.TileHeight*6)); }
         }
 
         /// <summary>

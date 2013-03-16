@@ -326,7 +326,15 @@ namespace VOiD.Components
             get { return spriteBatch.GraphicsDevice.ScissorRectangle; }
             set
             {
-                //spriteBatch.GraphicsDevice.ScissorRectangle =new Rectangle((int)MathHelper.Clamp(value.X, 0, Configuration.Width), (int)MathHelper.Clamp(value.Y, 0, Configuration.Height),value.Width, value.Height) ;
+                Rectangle scRect = new Rectangle((int)MathHelper.Clamp(value.X, 0, Configuration.Width),
+                                       (int)MathHelper.Clamp(value.Y, 0, Configuration.Height),
+                                       value.Width,
+                                       value.Height);
+
+                scRect.Width = (int)MathHelper.Clamp(scRect.Width, 0, Configuration.Width - scRect.X);
+                scRect.Height = (int)MathHelper.Clamp(scRect.Height, 0, Configuration.Height - scRect.Y);
+
+                spriteBatch.GraphicsDevice.ScissorRectangle = scRect;
             }
         }
     }

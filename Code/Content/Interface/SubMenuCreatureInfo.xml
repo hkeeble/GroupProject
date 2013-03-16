@@ -127,14 +127,72 @@
                 <isCentered>false</isCentered>
                 <ioffset>43 60</ioffset>
               </Item>
-              <!-- Abilities --><!--
+              <!-- Abillities -->
               <Item Type="GameLibrary.TextObject">
                 <Text>ABILITIES</Text>
                 <Font>SegoeUI</Font>
                 <fontColor>255 255 0</fontColor>
+                <highlightColor>0 0 0</highlightColor>
                 <isCentered>false</isCentered>
-                <ioffset>80 35</ioffset>
-              </Item>-->
+                <ioffset>43 65</ioffset>
+              </Item>
+              <Item Type="GameLibrary.GraphicObject">
+                <iSize>10 10</iSize>
+                <iPosition>50 75</iPosition>
+                <isClickable>false</isClickable>
+                <TextureLocation>Icons/IconBackground</TextureLocation>
+                <fullscreen>false</fullscreen>
+                <Action></Action>
+                <Children>
+                  <Item Type="GameLibrary.GraphicObject">
+                    <iSize>100 100</iSize>
+                    <iPosition>50 50</iPosition>
+                    <isClickable>false</isClickable>
+                    <TextureLocation>@PlayerCanFlyIcon</TextureLocation>
+                    <fullscreen>false</fullscreen>
+                    <Action></Action>
+                    <Children></Children>
+                  </Item>
+                </Children>
+              </Item>
+              <Item Type="GameLibrary.GraphicObject">
+                <iSize>10 10</iSize>
+                <iPosition>60 75</iPosition>
+                <isClickable>false</isClickable>
+                <TextureLocation>Icons/IconBackground</TextureLocation>
+                <fullscreen>false</fullscreen>
+                <Action></Action>
+                <Children>
+                  <Item Type="GameLibrary.GraphicObject">
+                    <iSize>100 100</iSize>
+                    <iPosition>50 50</iPosition>
+                    <isClickable>false</isClickable>
+                    <TextureLocation>@PlayerCanSwimIcon</TextureLocation>
+                    <fullscreen>false</fullscreen>
+                    <Action></Action>
+                    <Children></Children>
+                  </Item>
+                </Children>
+              </Item>
+              <Item Type="GameLibrary.GraphicObject">
+                <iSize>10 10</iSize>
+                <iPosition>55 85</iPosition>
+                <isClickable>false</isClickable>
+                <TextureLocation>Icons/IconBackground</TextureLocation>
+                <fullscreen>false</fullscreen>
+                <Action></Action>
+                <Children>
+                  <Item Type="GameLibrary.GraphicObject">
+                    <iSize>100 100</iSize>
+                    <iPosition>50 50</iPosition>
+                    <isClickable>false</isClickable>
+                    <TextureLocation>@PlayerCanClimbIcon</TextureLocation>
+                    <fullscreen>false</fullscreen>
+                    <Action></Action>
+                    <Children></Children>
+                  </Item>
+                </Children>
+              </Item>
               <!-- Attacks -->
               <Item Type="GameLibrary.TextObject">
                 <Text>ATTACKS</Text>

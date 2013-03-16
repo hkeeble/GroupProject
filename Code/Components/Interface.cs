@@ -513,6 +513,27 @@ namespace VOiD.Components
                         else
                             component.Texture = Game.Content.Load<Texture2D>("Sprites\\NullItems\\NullChilli");
                     }
+                    if (component.TextureLocation == "@PlayerCanFlyIcon")
+                    {
+                        if (GameHandler.Player.canFly)
+                            component.Texture = Game.Content.Load<Texture2D>("Interface/Assets/Icons/FlyingIcon");
+                        else
+                            component.Texture = Game.Content.Load<Texture2D>("Interface/Assets/Icons/BlankIcon");
+                    }
+                    if (component.TextureLocation == "@PlayerCanClimbIcon")
+                    {
+                        if (GameHandler.Player.canClimb)
+                            component.Texture = Game.Content.Load<Texture2D>("Interface/Assets/Icons/ClimingIcon");
+                        else
+                            component.Texture = Game.Content.Load<Texture2D>("Interface/Assets/Icons/BlankIcon");
+                    }
+                    if (component.TextureLocation == "@PlayerCanSwimIcon")
+                    {
+                        if (GameHandler.Player.canSwim)
+                            component.Texture = Game.Content.Load<Texture2D>("Interface/Assets/Icons/SwimmingIcon");
+                        else
+                            component.Texture = Game.Content.Load<Texture2D>("Interface/Assets/Icons/BlankIcon");
+                    }
                 }
                 else if (component.Texture == null)
                     component.Texture = Game.Content.Load<Texture2D>("Interface/Assets/" + (component as GraphicObject).TextureLocation);
@@ -573,8 +594,8 @@ namespace VOiD.Components
             minimap.Size.X = ((parent as GraphicObject).Size.X / 100 * minimap.iSize.X);
             minimap.Size.Y = ((parent as GraphicObject).Size.Y / 100 * minimap.iSize.Y);
             minimap.DrawRect = new Rectangle(
-                              (int)(MathHelper.Clamp(((float)GameHandler.Player.CurrentTile.X * 4) - (minimap.Size.X / 2), 0.0f, minimap.Texture.Width)),
-                              (int)(MathHelper.Clamp((GameHandler.Player.CurrentTile.Y * 4) - ((int)minimap.Size.Y / 2), 0.0f, minimap.Texture.Height)),
+                              (int)(MathHelper.Clamp(((float)GameHandler.Player.CurrentTile.X * 4) - (minimap.Size.X / 2), 0.0f, minimap.Texture.Width-minimap.Size.X)),
+                              (int)(MathHelper.Clamp((GameHandler.Player.CurrentTile.Y * 4) - ((int)minimap.Size.Y / 2), 0.0f, minimap.Texture.Height-minimap.Size.Y)),
                               (int)minimap.Size.X,
                               (int)minimap.Size.Y);
             minimap.Position.X = ((parent as GraphicObject).Size.X / 100 * minimap.iPosition.X);

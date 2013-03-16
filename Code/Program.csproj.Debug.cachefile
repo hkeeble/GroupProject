@@ -82,6 +82,11 @@ Content\Sprites\Creatures\CreatureGeneric.xnb
 Content\Sprites\Creatures\flyingCreature.xnb
 Content\Sprites\Creatures\swimmingCreature.xnb
 Content\Sprites\Creatures\bossCreature.xnb
+Content\Interface\Assets\Icons\ClimbingSprite.xnb
+Content\Interface\Assets\Icons\FlyingIcon.xnb
+Content\Interface\Assets\Icons\IconBackground.xnb
+Content\Interface\Assets\Icons\SwimmingIcon.xnb
+Content\Interface\Assets\Icons\BlankIcon.xnb
 Content\Tilesets\Tileset.png
 Content\Maps\Level1.map
 Content\Maps\Level2.map

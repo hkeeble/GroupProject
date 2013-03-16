@@ -411,6 +411,11 @@
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </Compile>
+    <Compile Include="Interface\Assets\Icons\BlankIcon.png">
+      <Name>BlankIcon</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
     <Content Include="Maps\Level1.map">
       <Name>Level1</Name>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -497,6 +502,26 @@
     </Compile>
     <Compile Include="Sprites\Creatures\bossCreature.png">
       <Name>bossCreature</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Interface\Assets\Icons\ClimbingSprite.png">
+      <Name>ClimbingSprite</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Interface\Assets\Icons\FlyingIcon.png">
+      <Name>FlyingIcon</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Interface\Assets\Icons\IconBackground.png">
+      <Name>IconBackground</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Interface\Assets\Icons\SwimmingIcon.png">
+      <Name>SwimmingIcon</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
