@@ -92,6 +92,13 @@ namespace VOiD
         private AttackTypes avTacks;
 
         #region Constructors
+
+        public Creature(int Seed)
+            : this(Seed, new Texture2D(Configuration.GraphicsDevice,1,1), Vector2.Zero, 1f, 32, 32, 100)
+        {
+
+        }
+
         /// <summary>
         /// Generates a creature based on seed value.
         /// </summary>
@@ -245,8 +252,8 @@ namespace VOiD
         /// </summary>
         /// <param name="A">Parent No1</param>
         /// <param name="B">Parent No2</param>
-        public Creature(Creature A, Creature B)
-            : base(null, Vector2.Zero, 1.0f)
+        public Creature(Creature A, Creature B, Texture2D texture, Vector2 position2D, float moveSpeed, int frameWidth, int frameHeight, int millisecondsBetweenFrame)
+            : base(texture, position2D, moveSpeed, frameWidth, frameWidth, millisecondsBetweenFrame)
         {
             StatsUShort[] Health = IntMethod(A.Dominant.Health, B.Dominant.Health, A.Recessive.Health, B.Recessive.Health);
             Dominant.Health = Health[0];

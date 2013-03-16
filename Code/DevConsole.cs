@@ -43,7 +43,7 @@ namespace VOiD
                         if (args[2] == "breed")
                         {
                             Console.WriteLine("Breeding player creature with ID " + args[3] + "...");
-                            GameHandler.Player = new Creature(GameHandler.Player, new Creature(Convert.ToInt16(args[3]), GameHandler.Player.Texture, Vector2.Zero, 1f, 32, 32, 100));
+                            GameHandler.Player = new Creature(GameHandler.Player, new Creature(Convert.ToInt16(args[3])), GameHandler.Player.Texture, Vector2.Zero, 1f, 32, 32, 100);
                         }
                     }
 
