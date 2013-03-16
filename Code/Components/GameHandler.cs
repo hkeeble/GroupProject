@@ -7,6 +7,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Content;
 
 namespace VOiD.Components
 {
@@ -80,7 +81,7 @@ namespace VOiD.Components
                 // DEV CONSOLE
                 #if DEVBUILD
                 if (InputHandler.KeyPressed(Keys.F3))
-                    DevConsole.Open(Game.Content);
+                    DevConsole.Open(Game.Content, Game.GraphicsDevice);
                 #endif
 
                 if (nests.Count > 0)
@@ -119,7 +120,7 @@ namespace VOiD.Components
                     if (Player.CollisionRect.Intersects(Boss.CollisionRect))
                     {
                         // INVOKE BOSS BATTLE HERE
-                        LoadLevel(CurrentLevel + 1); // Move to next level
+                        LoadLevel(CurrentLevel + 1, Game.Content, Game.GraphicsDevice); // Move to next level
                         SaveHandler.SaveGame();
                     }
 
@@ -133,7 +134,6 @@ namespace VOiD.Components
                 #region Level Edit
                 if (InputHandler.KeyPressed(Keys.F1))
                 {
-                   
                     Game1.LevelEditor.Enabled = true;
                     Game1.LevelEditor.Visible = true;
                     EditMode = true;
@@ -284,7 +284,7 @@ namespace VOiD.Components
         #endregion
 
         #region Load Level
-        private void LoadLevel(int levelNumber)
+        public static void LoadLevel(int levelNumber, ContentManager content, GraphicsDevice graphics)
         {
             // Clear Current Data
             if (nests.Count > 0)
@@ -299,8 +299,8 @@ namespace VOiD.Components
             if (signs.Count > 0)
                 signs.Clear();
 
-            TileMap = new TileMap("Level" + levelNumber, GraphicsDevice, Game.Content);
-            Minimap = new Minimap(TileMap.Map, Game.Content.Load<Texture2D>("Sprites\\Nest"), Game.Content.Load<Texture2D>("Sprites\\Lab"), GraphicsDevice);
+            TileMap = new TileMap("Level" + levelNumber, graphics, content);
+            Minimap = new Minimap(TileMap.Map, content.Load<Texture2D>("Sprites\\Nest"), content.Load<Texture2D>("Sprites\\Lab"), graphics);
             Player.Position = GameHandler.TileMap.PlayerSpawn;
             Lab.Position = GameHandler.TileMap.LabPosition;
             Interface.UpdateMiniMap();
