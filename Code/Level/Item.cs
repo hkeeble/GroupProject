@@ -72,8 +72,22 @@ namespace VOiD
             _amount--;
         }
 
+        public void Add(int amount)
+        {
+            _amount += amount;
+            if (_amount > 99)
+                _amount = 99;
+        }
+
+        public void Remove(int amount)
+        {
+            _amount -= amount;
+            if (_amount < 0)
+                _amount = 0;
+        }
+
         public int ID { get { return _ID; } }
         public Texture2D Texture { get { return _texture; } }
-        public int Amount { get { return _amount; } set { if (_amount + value < 99) _amount += value; } }
+        public int Amount { get { return _amount; } }
     }
 }

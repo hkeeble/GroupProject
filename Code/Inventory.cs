@@ -34,8 +34,14 @@ namespace VOiD
         /// <param name="amount">Amount of the item to add (defaults to 1)</param>
         public void AddItem(Item item, int amount = 1)
         {
-            items[item.ID - 1].Amount += amount;
+            items[item.ID - 1].Add(amount);
             DebugLog.WriteLine("Player collected item ID " + Convert.ToString(item.ID));
+        }
+
+        public void RemoveItem(Item item, int amount = 1)
+        {
+            items[item.ID - 1].Remove(amount);
+            DebugLog.WriteLine("Player lost item ID " + Convert.ToString(item.ID));
         }
 
         /// <summary>
