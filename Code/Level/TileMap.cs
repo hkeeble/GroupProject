@@ -38,7 +38,7 @@ namespace VOiD
         Texture2D _flyTex, _climbTex, _swimTex, _flyClimbTex, _flySwimTex;
 
         public TileMap()
-        {//NEEDS WORK BLANK MAP
+        {
             _width = 0;
             _height = 0;
         }
@@ -185,8 +185,6 @@ namespace VOiD
                 e.ToString();
                 DebugLog.WriteLine("Error loading level named " + fileName + " error message: \n" + e.Message);
             }
-
-          
         }
 
         
@@ -252,19 +250,6 @@ namespace VOiD
             }
             
             return map;
-            /*
-            SpriteManager.Begin();
-            SpriteManager.Draw(image, Vector2.Zero, Color.White);
-            SpriteManager.End();
-            int store = 0;
-            for (int i = 0; i < target.MultiSampleCount; i++)
-                store += (target.Width * target.Height) / i;
-
-            image = new Texture2D(graphicsDevice, target.Width, target.Height, true, SurfaceFormat.Color);
-            Color[] data = new Color[store];
-            target.GetData(data);
-            image.SetData(data);
-            graphicsDevice.SetRenderTarget(null);*/
         }
 
         public void TogglePassable(Point tile)
@@ -290,6 +275,18 @@ namespace VOiD
         public void SetAttribute(Point position, Attributes attribute)
         {
             _attribute[position.X, position.Y] = (int)attribute;
+        }
+
+        /// <summary>
+        /// Finds if the map contains a certain tile in tile coordinates.
+        /// </summary>
+        /// <param name="position">The tile to check in tile coordinates.</param>
+        public bool Contains(Point position)
+        {
+            if (position.X < 0 || position.X > Width || position.Y < 0 || position.Y > Height)
+                return false;
+            else
+                return true;
         }
 
         // Public Accessors
