@@ -66,8 +66,8 @@
             </Children>
           </Item>
           <Item Type="GameLibrary.GraphicObject">
-            <iSize>35 45</iSize>
-            <iPosition>50 104</iPosition>
+            <iSize>20 20</iSize>
+            <iPosition>40 87</iPosition>
             <isClickable>false</isClickable>
             <TextureLocation>TextBoxBackground</TextureLocation>
             <fullscreen>false</fullscreen>

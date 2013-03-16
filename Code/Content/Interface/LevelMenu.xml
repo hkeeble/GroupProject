@@ -21,6 +21,25 @@
         <Children>
           <Item Type="GameLibrary.GraphicObject">
             <iSize>5 5</iSize>
+            <iPosition>95 4</iPosition>
+            <isClickable>false</isClickable>
+            <TextureLocation>Icons/IconBackground</TextureLocation>
+            <fullscreen>false</fullscreen>
+            <Action></Action>
+            <Children>
+              <Item Type="GameLibrary.GraphicObject">
+                <iSize>100 100</iSize>
+                <iPosition>50 50</iPosition>
+                <isClickable>true</isClickable>
+                <TextureLocation>@CurrentAttributeInUse</TextureLocation>
+                <fullscreen>false</fullscreen>
+                <Action></Action>
+                <Children></Children>
+              </Item>
+            </Children>
+          </Item>
+          <Item Type="GameLibrary.GraphicObject">
+            <iSize>5 5</iSize>
             <iPosition>3 3</iPosition>
             <isClickable>true</isClickable>
             <TextureLocation>Level/OptionsButton</TextureLocation>

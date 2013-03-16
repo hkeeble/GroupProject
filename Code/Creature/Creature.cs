@@ -69,7 +69,7 @@ namespace VOiD
         {
             get
             {
-                return Dominant.Wings.Active && Dominant.Weight.Level <= 4 && Endurance >= 4;
+                return Dominant.Wings.Active;
             }
         }
         public bool canSwim

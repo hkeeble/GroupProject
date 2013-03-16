@@ -11,11 +11,10 @@ namespace VOiD
 {
     public enum Attributes
     {
+        None = 0,
         Flying = 1,
-        Climbing = 2,
-        Swimming = 3,
-        FlyingAndSwimming = 4,
-        FlyingAndClimbing = 5
+        FlyingAndSwimming = 2,
+        FlyingAndClimbing = 3
     }
 
     public class TileMap
@@ -214,10 +213,6 @@ namespace VOiD
                     {
                         if(_attribute[x, y] == (int)Attributes.Flying)
                             SpriteManager.Draw(_flyTex, Camera.Transform(new Vector2(x * TileWidth, y * TileHeight)), null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
-                        if (_attribute[x, y] == (int)Attributes.Climbing)
-                            SpriteManager.Draw(_climbTex, Camera.Transform(new Vector2(x * TileWidth, y * TileHeight)), null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
-                        if (_attribute[x, y] == (int)Attributes.Swimming)
-                            SpriteManager.Draw(_swimTex, Camera.Transform(new Vector2(x * TileWidth, y * TileHeight)), null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
                         if (_attribute[x, y] == (int)Attributes.FlyingAndClimbing)
                             SpriteManager.Draw(_flyClimbTex, Camera.Transform(new Vector2(x * TileWidth, y * TileHeight)), null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
                         if (_attribute[x, y] == (int)Attributes.FlyingAndSwimming)

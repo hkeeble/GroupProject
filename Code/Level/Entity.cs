@@ -116,14 +116,6 @@ namespace VOiD
                             if (this.GetType() == typeof(Creature))
                                 if ((this as Creature).canFly)
                                     canMove = true;
-                        if (GameHandler.TileMap.Attribute[_newLoc.X, _newLoc.Y] == (int)Attributes.Climbing)
-                            if (this.GetType() == typeof(Creature))
-                                if ((this as Creature).canClimb)
-                                    canMove = true;
-                        if (GameHandler.TileMap.Attribute[_newLoc.X, _newLoc.Y] == (int)Attributes.Swimming)
-                            if (this.GetType() == typeof(Creature))
-                                if ((this as Creature).canSwim)
-                                    canMove = true;
                         if (GameHandler.TileMap.Attribute[_newLoc.X, _newLoc.Y] == (int)Attributes.FlyingAndSwimming)
                             if (this.GetType() == typeof(Creature))
                                 if ((this as Creature).canSwim || (this as Creature).canFly)

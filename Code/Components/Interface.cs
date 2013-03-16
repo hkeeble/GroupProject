@@ -546,6 +546,25 @@ namespace VOiD.Components
                         else
                             component.Texture = Game.Content.Load<Texture2D>("Interface/Assets/Icons/BlankIcon");
                     }
+                    if (component.TextureLocation == "@CurrentAttributeInUse")
+                    {
+                        if (GameHandler.CurrentAttributeInUse != Attributes.None)
+                        {
+                            if(GameHandler.Player.canFly)
+                                component.Texture = Game.Content.Load<Texture2D>("Interface/Assets/Icons/FlyingIcon");
+                            else
+                            {
+                                if (GameHandler.CurrentAttributeInUse == Attributes.FlyingAndClimbing)
+                                    component.Texture = Game.Content.Load<Texture2D>("Interface/Assets/Icons/ClimingIcon");
+                                if (GameHandler.CurrentAttributeInUse == Attributes.FlyingAndSwimming)
+                                    component.Texture = Game.Content.Load<Texture2D>("Interface/Assets/Icons/SwimmingIcon");
+                            }
+                        }
+                        else
+                        {
+                            component.Texture = Game.Content.Load<Texture2D>("Interface/Assets/Icons/IconBackground");
+                        }
+                    }
                 }
                 else if (component.Texture == null)
                     component.Texture = Game.Content.Load<Texture2D>("Interface/Assets/" + (component as GraphicObject).TextureLocation);

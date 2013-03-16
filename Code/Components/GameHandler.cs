@@ -31,6 +31,8 @@ namespace VOiD.Components
         private static List<ItemEntity> Items = new List<ItemEntity>();
         private static List<Sign> signs = new List<Sign>();
 
+        private static Attributes _currentAttributeInUse = Attributes.None;
+
         const int NUMBER_OF_ITEM_TYPES = 5;
         #endregion
 
@@ -129,6 +131,16 @@ namespace VOiD.Components
                     Player.CurrentTile.Y == Lab.CurrentTile.Y - 1 || Player.CurrentTile.Y == Lab.CurrentTile.Y + 1)
                         if(Player.CollisionRect.Intersects(Lab.CollisionRect))
                             Interface.currentScreen = Screens.Lab;
+
+                // Update currently used attribute
+                if (TileMap.Attribute[Player.CurrentTile.X, Player.CurrentTile.Y] == (int)Attributes.Flying)
+                    _currentAttributeInUse = Attributes.Flying;
+                else if (TileMap.Attribute[Player.CurrentTile.X, Player.CurrentTile.Y] == (int)Attributes.FlyingAndClimbing)
+                    _currentAttributeInUse = Attributes.FlyingAndClimbing;
+                else if (TileMap.Attribute[Player.CurrentTile.X, Player.CurrentTile.Y] == (int)Attributes.FlyingAndSwimming)
+                    _currentAttributeInUse = Attributes.FlyingAndSwimming;
+                else
+                    _currentAttributeInUse = Attributes.None;
 
                 #if DEVBUILD
                 #region Level Edit
@@ -312,5 +324,6 @@ namespace VOiD.Components
         public static List<Nest> Nests { get { return nests; } }
         public static List<Sign> Signs { get { return signs; } }
         public static string CurrentSignText { get { return _currentSigntext; } }
+        public static Attributes CurrentAttributeInUse { get { return _currentAttributeInUse; } }
     }
 }

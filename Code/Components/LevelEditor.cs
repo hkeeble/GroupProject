@@ -35,7 +35,7 @@ namespace VOiD.Components
         Rectangle tileSetRenderRect;
         Vector2 tileSetRenderDrawOffset;
 
-        Attributes currentAttribute = Attributes.Climbing;
+        Attributes currentAttribute = Attributes.FlyingAndClimbing;
 
         List<Point> modifiedTiles;
 
@@ -224,7 +224,7 @@ namespace VOiD.Components
                         {
                             if (InputHandler.KeyPressed(Keys.X))
                             {
-                                if ((int)currentAttribute < 5)
+                                if ((int)currentAttribute < 3)
                                     currentAttribute++;
                                 else
                                     currentAttribute = (Attributes)1;
@@ -234,7 +234,7 @@ namespace VOiD.Components
                                 if ((int)currentAttribute > 1)
                                     currentAttribute--;
                                 else
-                                    currentAttribute = (Attributes)5;
+                                    currentAttribute = (Attributes)3;
                             }
                             Console.WriteLine("Current Attribute: " + currentAttribute.ToString());
                         }
