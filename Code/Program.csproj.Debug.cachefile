@@ -14,7 +14,6 @@ Content\Sprites\SpringWater.xnb
 Content\Sprites\Creatures\CreatureGeneric.xnb
 Content\Sprites\Nest.xnb
 Content\Tilesets\Tileset.xnb
-Content\Sprites\Lab.xnb
 Content\Sprites\LabMinimap.xnb
 Content\Sprites\CollisionTexture.xnb
 Content\Interface\Assets\Battle\Attack.xnb
@@ -92,6 +91,8 @@ Content\Interface\SubMenuInventory.xnb
 Content\Interface\SubMenuOptions.xnb
 Content\Interface\MessageBox.xnb
 Content\Sprites\creatureSelector.xnb
+Content\Sprites\Fight_Cloud.xnb
+Content\Sprites\Lab.xnb
 Content\Tilesets\Tileset.png
 Content\Maps\Level1.map
 Content\Maps\Level2.map

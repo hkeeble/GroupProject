@@ -75,6 +75,7 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Animation.cs" />
     <Compile Include="Components\BattleHandler.cs" />
     <Compile Include="Components\Configuration.cs" />
     <Compile Include="Components\Interface.cs" />

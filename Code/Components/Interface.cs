@@ -908,8 +908,11 @@ namespace VOiD.Components
                             #endregion
                             if (currentScreen == Screens.Battle)
                             {
-                                BattleHandler.AttackSelected = true;
-                                BattleHandler.AttackSelection = i;
+                                if (BattleHandler.CanSelectAttack)
+                                {
+                                    BattleHandler.AttackSelected = true;
+                                    BattleHandler.AttackSelection = i;
+                                }
                             }
                             // Add if statements for other list actions here
                         }
