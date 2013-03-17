@@ -10,7 +10,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
-
 namespace VOiD.Components
 {
     public class LevelEditor : Microsoft.Xna.Framework.DrawableGameComponent
@@ -47,6 +46,7 @@ namespace VOiD.Components
         string workingDirectory;
 
         bool renderTileSet = true;
+        bool renderCollisionLayer = true;
 
         public LevelEditor(Game game)
             : base(game)
@@ -112,7 +112,7 @@ namespace VOiD.Components
                 }
 
                 // Initialize Current Tile and selectedTileData
-                currentTile = new Point(10, 4);
+                currentTile = Point.Zero;
                 selectedTileData = new Color[GameHandler.TileMap.TileWidth * GameHandler.TileMap.TileHeight];
                 tiles[currentTile.X, currentTile.Y].GetData<Color>(selectedTileData);
 
@@ -189,6 +189,9 @@ namespace VOiD.Components
                 currentSignText = Console.ReadLine().Replace('#','\n');
             }
 
+            if (InputHandler.KeyPressed(Keys.B) && currentMode == Mode.Tile)
+                renderCollisionLayer = !renderCollisionLayer;
+
             if (InputHandler.KeyPressed(Keys.T))
                 if (currentMode == Mode.Tile)
                     renderTileSet = !renderTileSet;
@@ -258,14 +261,16 @@ namespace VOiD.Components
                         {
                             if (tileSetRenderRect.Contains(new Point(InputHandler.MouseX, InputHandler.MouseY)) && renderTileSet)
                             {
-                                currentTile = new Point(((InputHandler.MouseX-(int)tileSetRenderDrawOffset.X) / GameHandler.TileMap.TileWidth),
-                                                        ((InputHandler.MouseY-(int)tileSetRenderDrawOffset.Y) / GameHandler.TileMap.TileHeight));
+                                currentTile = new Point(((InputHandler.MouseX - (int)tileSetRenderDrawOffset.X) / GameHandler.TileMap.TileWidth),
+                                                        ((InputHandler.MouseY - (int)tileSetRenderDrawOffset.Y) / GameHandler.TileMap.TileHeight));
                                 tiles[currentTile.X, currentTile.Y].GetData<Color>(selectedTileData);
                             }
                             else
+                            {
                                 GameHandler.TileMap.Map.SetData<Color>(0, new Rectangle((int)MousePosPixels.X, (int)MousePosPixels.Y, tiles[currentTile.X, currentTile.Y].Width,
                                     tiles[currentTile.X, currentTile.Y].Height), selectedTileData, 0, selectedTileData.Length);
                                 GameHandler.TileMap.SetTile(new Point((int)MousePos.X, (int)MousePos.Y), currentTile);
+                            }
                         }
                         else if (InputHandler.RightClickPressed)
                             GameHandler.TileMap.TogglePassable(new Point((int)MousePos.X, (int)MousePos.Y));
@@ -315,6 +320,8 @@ namespace VOiD.Components
                     case Mode.Attribute:
                         if (InputHandler.LeftClickPressed)
                             GameHandler.TileMap.SetAttribute(new Point((int)MousePos.X, (int)MousePos.Y), currentAttribute);
+                        if (InputHandler.RightClickPressed)
+                            GameHandler.TileMap.SetAttribute(new Point((int)MousePos.X, (int)MousePos.Y), Attributes.None);
 
                     break;
                 }
@@ -327,6 +334,10 @@ namespace VOiD.Components
         public override void Draw(GameTime gameTime)
         {
             SpriteManager.Begin();
+            if(currentMode != Mode.Attribute && renderCollisionLayer == true)
+                GameHandler.TileMap.DrawCollisionLayer();
+            if (currentMode == Mode.Attribute)
+                GameHandler.TileMap.DrawAttributeLayer();
             if (currentMode == Mode.Tile)
             {
                 if(!(renderTileSet && tileSetRenderRect.Contains(new Point(InputHandler.MouseX, InputHandler.MouseY))))
@@ -339,10 +350,6 @@ namespace VOiD.Components
                         (currentTile.Y * GameHandler.TileMap.TileHeight) + (tilePointer.Height / 2)) + tileSetRenderDrawOffset, Color.White);
                 }
             }
-            if(currentMode != Mode.Attribute)
-                GameHandler.TileMap.DrawCollisionLayer();
-            if (currentMode == Mode.Attribute)
-                GameHandler.TileMap.DrawAttributeLayer();
             SpriteManager.End();
 
             base.Draw(gameTime);

@@ -145,7 +145,7 @@ namespace VOiD.Components
                         }
                         if (i != null)
                         {
-                            if (Inventory.Items[i.ID].Amount == 99)
+                            if (Inventory.Items[i.ID-1].Amount == 99)
                             {
                                 _currentMessageBoxText = "You cannot carry anymore " + i.Name + "s!";
                                 Interface.ShowMessageBox();

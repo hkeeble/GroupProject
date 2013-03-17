@@ -35,7 +35,7 @@ namespace VOiD
             if(_moveArea.Y < 0)
                 _moveArea.Y = 0;
             if (_moveArea.X + MOVE_AREA_SIZE > mapDimensions.X)
-                _moveArea.Width = mapDimensions.Y;
+                _moveArea.Width = mapDimensions.X;
             if (_moveArea.Y + MOVE_AREA_SIZE > mapDimensions.Y)
                 _moveArea.Height = mapDimensions.Y;
 
