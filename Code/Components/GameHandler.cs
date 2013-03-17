@@ -136,7 +136,7 @@ namespace VOiD.Components
                     {
                         Sign s = CheckSign(new Point((int)Player.Position.X + ((int)Player.PreviousDirection.X * TileMap.TileWidth),
                                                      (int)Player.Position.Y + ((int)Player.PreviousDirection.Y * TileMap.TileHeight)));
-                        Item i = CheckItem(new Point((int)Player.Position.X, (int)Player.Position.Y));
+                        ItemEntity i = CheckItem(new Point((int)Player.Position.X, (int)Player.Position.Y));
                         if (s != null)
                         {
                             Interface.ShowMessageBox();
@@ -153,7 +153,7 @@ namespace VOiD.Components
                             else
                             {
                                 Inventory.AddItem(new Item(i.ID, Game.Content));
-                                Items.Remove(Items[i.ID]);
+                                Items.Remove(i);
                                 _currentMessageBoxText = "You found: " + i.Name + "!";
                                 Interface.ShowMessageBox();
                             }
