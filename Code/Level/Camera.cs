@@ -58,5 +58,10 @@ namespace VOiD
         {
             return new Vector2((int)(mapLocation.X - _position.X), (int)(mapLocation.Y - _position.Y));
         }
+
+        public static Rectangle Transform(Rectangle mapLocation)
+        {
+            return new Rectangle((int)(mapLocation.X - _position.X), (int)(mapLocation.Y - _position.Y), mapLocation.Width, mapLocation.Height);
+        }
     }
 }

@@ -70,8 +70,8 @@ namespace VOiD
                         Console.WriteLine(Convert.ToString(GameHandler.Boss.ID));
                     if (args[1] == "id")
                     {
-                        Console.WriteLine("Generating new boss creature with ID " + args[3] + "...");
-                        GameHandler.Boss = new Creature(Convert.ToInt32(args[3]), GameHandler.Boss.Texture, GameHandler.Boss.Position, GameHandler.Player.MoveSpeed, 47, 48, 100);
+                        Console.WriteLine("Generating new boss creature with ID " + args[2] + "...");
+                        GameHandler.Boss = new Creature(Convert.ToInt32(args[2]), GameHandler.Boss.Texture, GameHandler.Boss.Position, GameHandler.Player.MoveSpeed, 47, 48, 100);
                     }
                 }
             }

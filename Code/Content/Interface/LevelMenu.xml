@@ -102,6 +102,22 @@
               </Item>
             </Children>
           </Item>
+          <Item Type="GameLibrary.TextObject">
+            <Text>@PlayerCurrentHealth</Text>
+            <Font>Courier</Font>
+            <fontColor>0 0 200</fontColor>
+            <highlightColor>0 0 0</highlightColor>
+            <isCentered>false</isCentered>
+            <ioffset>30 80</ioffset>
+          </Item>
+          <Item Type="GameLibrary.TextObject">
+            <Text>@SelectedCreatureHealth</Text>
+            <Font>Courier</Font>
+            <fontColor>200 0 0</fontColor>
+            <highlightColor>0 0 0</highlightColor>
+            <isCentered>false</isCentered>
+            <ioffset>55 80</ioffset>
+          </Item>
         </Children>
       </Item>
     </content>

@@ -129,6 +129,7 @@ namespace VOiD
             {
                 dna.Remove(selectedDNA);
                 GameHandler.Player = new Creature(GameHandler.Player, selectedDNA,GameHandler.Player.Texture,GameHandler.Player.Position,GameHandler.Player.MoveSpeed,32,32,100);
+                selectedDNA = null;
             }
         }
 

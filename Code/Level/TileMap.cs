@@ -33,8 +33,7 @@ namespace VOiD
         bool isLoaded = false;
 
         Texture2D _map;
-        Texture2D _colTex; // Collision Texture
-        Texture2D _flyTex, _climbTex, _swimTex, _flyClimbTex, _flySwimTex;
+        private static Texture2D _colTex, _flyTex, _climbTex, _swimTex, _flyClimbTex, _flySwimTex;
 
         public TileMap()
         {
@@ -186,7 +185,6 @@ namespace VOiD
             }
         }
 
-        
         /// <summary>
         /// Draws the map.
         /// </summary>
@@ -259,7 +257,8 @@ namespace VOiD
         /// <param name="TileXY">Position (in tile coordinates) of the tile in the tileset to use.</param>
         public void SetTile(Point Position, Point TileXY)
         {
-            _tiles[Position.X, Position.Y] = TileXY;
+            if(Contains(Position))
+                _tiles[Position.X, Position.Y] = TileXY;
         }
 
         /// <summary>

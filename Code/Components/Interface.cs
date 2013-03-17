@@ -48,6 +48,7 @@ namespace VOiD.Components
             }
         }
 
+        #region Draw Component
         private void DrawComponent(Object2D component, ref Object2D parent)
         {
             if (component.GetType() == typeof(GraphicObject))
@@ -85,7 +86,9 @@ namespace VOiD.Components
                 DrawComponent(thing, ref parent);
             }
         }
+        #endregion
 
+        #region Draw Text
         private void DrawTextComponent(TextObject component, GraphicObject parent)
         {
 
@@ -214,12 +217,17 @@ namespace VOiD.Components
 
                 // Player CURRENT Health
                 if (component.Text == "@PlayerCurrentHealth")
-                    temp = Convert.ToString(GameHandler.Player.Health) + "/" + GameHandler.Player.Dominant.Health.Level;
+                    temp = "Health: " + Convert.ToString(GameHandler.Player.Health) + "/" + GameHandler.Player.Dominant.Health.Level;
 
                 // Enemy CURRENT Health
                 if (component.Text == "@EnemyCurrentHealth")
-                    temp = Convert.ToString(BattleHandler.Enemy.Health) + "/" + BattleHandler.Enemy.Dominant.Health.Level;
+                    temp = "Health: " + Convert.ToString(BattleHandler.Enemy.Health) + "/" + BattleHandler.Enemy.Dominant.Health.Level;
 
+
+                // Selected Creature Health
+                if (component.Text == "@SelectedCreatureHealth")
+                    if(GameHandler.SelectedCreature != null)
+                        temp = "Health: " + Convert.ToString(GameHandler.SelectedCreature.Health) + "/" + GameHandler.SelectedCreature.Dominant.Health.Level;
 
                 // Selected Item
                 if (GameHandler.Inventory.SelectedItem != null)
@@ -268,7 +276,9 @@ namespace VOiD.Components
             else
                 SpriteManager.DrawString(Game.Content.Load<SpriteFont>(component.Font), temp, parent.Position + off, new Color(component.fontColor));
         }
+        #endregion
 
+        #region Draw Text Box
         private void DrawTextBoxComponent(TextBoxObject component, Object2D parent)
         {
             GraphicObject Parent = (GraphicObject)parent;
@@ -299,7 +309,9 @@ namespace VOiD.Components
             DrawGraphicComponent(component.UpScroller, ref parent);
             DrawGraphicComponent(component.DownScroller, ref parent);
         }
+        #endregion
 
+        #region Draw List Box
         private void DrawListBox(ListBox component, Object2D parent)
         {
             GraphicObject Parent = (GraphicObject)parent;
@@ -506,7 +518,9 @@ namespace VOiD.Components
             component.Items[itemIndex].Texture = temp;
             target.Dispose();
         }
+        #endregion
 
+        #region Draw Graphic Component
         private void DrawGraphicComponent(GraphicObject component, ref Object2D parent)
         {
             if (component.TextureLocation != "")
@@ -592,7 +606,7 @@ namespace VOiD.Components
                 else if (component.Texture == null)
                     component.Texture = Game.Content.Load<Texture2D>("Interface/Assets/" + (component as GraphicObject).TextureLocation);
                 }
-                else
+                else if (component.Texture == null)
                     component.Texture = new Texture2D(Game.GraphicsDevice, 1, 1);
 
                 if (((component.GetType() == typeof(GraphicObject)) || component.GetType() == typeof(Scroller)) && (parent.GetType() == typeof(GraphicObject)))
@@ -633,8 +647,9 @@ namespace VOiD.Components
                     SpriteManager.Draw(component.Texture, new Rectangle((int)component.Position.X, (int)component.Position.Y, (int)component.Size.X, (int)component.Size.Y), null, Color.White);
             }
         }
+        #endregion
 
-        // Draw Minimap
+        #region Draw Minimap
         private void DrawMinimapObject(MinimapObject minimap, ref Object2D parent)
         {
             if (minimapUpdate == true)
@@ -658,6 +673,7 @@ namespace VOiD.Components
 
             SpriteManager.Draw(minimap.Texture, new Vector2(minimap.Position.X, minimap.Position.Y), minimap.DrawRect, Color.White);
         }
+        #endregion
         #endregion
 
         public Interface(Game game)

@@ -36,6 +36,9 @@ namespace VOiD.Components
         private Texture2D exclamationSprite;
 
         const int NUMBER_OF_ITEM_TYPES = 5;
+
+        private static Creature selectedCreature;
+        private Texture2D CreatureSelector; // Used to highlight selected creature
         #endregion
 
         public GameHandler(Game game)
@@ -43,6 +46,7 @@ namespace VOiD.Components
         {
             Inventory = new Inventory(NUMBER_OF_ITEM_TYPES, game.Content);
             exclamationSprite = game.Content.Load<Texture2D>("Sprites/exclamation");
+            CreatureSelector = game.Content.Load<Texture2D>("Sprites/creatureSelector");
             Enabled = false;
             Visible = false;
         }
@@ -164,6 +168,21 @@ namespace VOiD.Components
                             Player.Health = Player.Dominant.Health.Level;
                         }
                     }
+
+                    if (InputHandler.LeftClickPressed && Configuration.Bounds.Contains(new Point(InputHandler.MouseX, InputHandler.MouseY)))
+                    {
+                        for (int i = 0; i < nests.Count; i++)
+                            for (int c = 0; c < nests[i].Creatures.Count; c++)
+                                if (nests[i].Creatures[c].CollisionRect.Contains(new Point((int)(InputHandler.MouseWorldCoords.X), (int)InputHandler.MouseWorldCoords.Y)))
+                                    selectedCreature = nests[i].Creatures[c];
+                        if (Boss.CollisionRect.Contains(new Point((int)(InputHandler.MouseWorldCoords.X), (int)InputHandler.MouseWorldCoords.Y)))
+                            selectedCreature = Boss;
+                    }
+
+                    // If selected creature not visible, deselect
+                    if(selectedCreature != null)
+                        if (!Camera.ObjectVisible(selectedCreature.CollisionRect))
+                            selectedCreature = null;
                 }
                 #endregion
 
@@ -256,6 +275,11 @@ namespace VOiD.Components
                         if (pRect.Intersects(Lab.CollisionRect))
                             SpriteManager.Draw(exclamationSprite, Camera.Transform(GameHandler.Player.Position - new Vector2(0, exclamationSprite.Height)), null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
 
+                        // Draw creature selector
+                        if (selectedCreature != null)
+                            SpriteManager.Draw(CreatureSelector,
+                                Camera.Transform(new Rectangle(selectedCreature.CollisionRect.X, selectedCreature.CollisionRect.Y, selectedCreature.CollisionRect.Width, selectedCreature.CollisionRect.Height)), Color.White);
+
                         if (!EditMode)
                             Player.Draw();
 
@@ -344,5 +368,6 @@ namespace VOiD.Components
         public static List<Sign> Signs { get { return signs; } }
         public static string CurrentSignText { get { return _currentMessageBoxText; } }
         public static Attributes CurrentAttributeInUse { get { return _currentAttributeInUse; } }
+        public static Creature SelectedCreature { get { return selectedCreature; } }
     }
 }
