@@ -100,15 +100,18 @@ namespace VOiD.Components
                     GameHandler.Player.Position = GameHandler.Lab.Position + new Vector2(GameHandler.TileMap.TileWidth, GameHandler.TileMap.TileHeight * 3);
                     Interface.currentScreen = Screens.LevelMenu;
                     InSession = false;
+                    _lastEnemyMove = " ";
+                    _lastPlayerMove = " ";
                     if (B.Health <= 0 && GameHandler.Player.Health > 0)
+                    {
                         Win = true;
+                        Interface.currentScreen = Screens.Victory;
+                    }
                     else
+                    {
                         Win = false;
-
-                    Console.WriteLine("Did you Win - " + Win);
-
-                    if (Win)
-                        GameHandler.Inventory.AddDNA(new Creature(Enemy.ID, GameHandler.Player.Texture, Vector2.Zero, 0f, 32, 32, 100));
+                        Interface.currentScreen = Screens.GameOver;
+                    }
 
                     GameHandler.Enabled = true;
                 }

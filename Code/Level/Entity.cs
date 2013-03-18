@@ -83,128 +83,134 @@ namespace VOiD
 
         public void Draw()
         {
-            if (_texture != null)
+            if(Camera.ObjectVisible(CollisionRect))
             {
-                if(!_animated)
-                    SpriteManager.Draw(_texture, Camera.Transform(_position), null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0.9f);
-                else
-                    SpriteManager.Draw(_texture, Camera.Transform(_position), _frameRect, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0.9f);
+                if (_texture != null)
+                {
+                    if(!_animated)
+                        SpriteManager.Draw(_texture, Camera.Transform(_position), null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0.9f);
+                    else
+                        SpriteManager.Draw(_texture, Camera.Transform(_position), _frameRect, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0.9f);
+                }
             }
         }
 
         public virtual void Update(GameTime gameTime)
         {
-            if(Direction != Vector2.Zero)
-                if (Direction != _previousDirection)
-                    _previousDirection = Direction;
-
-            if (_position.X % GameHandler.TileMap.TileWidth == 0 && _position.Y % GameHandler.TileMap.TileHeight == 0)
+            if (Camera.ObjectVisible(CollisionRect))
             {
-                _newLoc = NewLocation;
-                _currentTile = CurrentTile;
-            }
+                if (Direction != Vector2.Zero)
+                    if (Direction != _previousDirection)
+                        _previousDirection = Direction;
 
-            if(GameHandler.TileMap.Passable[_newLoc.X, _newLoc.Y] == false)
-            {
-                if (GameHandler.TileMap.Attribute[_newLoc.X, _newLoc.Y] != 0)
+                if (_position.X % GameHandler.TileMap.TileWidth == 0 && _position.Y % GameHandler.TileMap.TileHeight == 0)
                 {
-                    if (this.GetType() == typeof(Creature))
+                    _newLoc = NewLocation;
+                    _currentTile = CurrentTile;
+                }
+
+                if (GameHandler.TileMap.Passable[_newLoc.X, _newLoc.Y] == false)
+                {
+                    if (GameHandler.TileMap.Attribute[_newLoc.X, _newLoc.Y] != 0)
                     {
-                        bool canMove = false;
-
-                        if (GameHandler.TileMap.Attribute[_newLoc.X, _newLoc.Y] == (int)Attributes.Flying)
-                            if (this.GetType() == typeof(Creature))
-                                if ((this as Creature).canFly)
-                                    canMove = true;
-                        if (GameHandler.TileMap.Attribute[_newLoc.X, _newLoc.Y] == (int)Attributes.FlyingAndSwimming)
-                            if (this.GetType() == typeof(Creature))
-                                if ((this as Creature).canSwim || (this as Creature).canFly)
-                                    canMove = true;
-                        if (GameHandler.TileMap.Attribute[_newLoc.X, _newLoc.Y] == (int)Attributes.FlyingAndClimbing)
-                            if (this.GetType() == typeof(Creature))
-                                if ((this as Creature).canClimb || (this as Creature).canFly)
-                                    canMove = true;
-
-                        if (!canMove)
+                        if (this.GetType() == typeof(Creature))
                         {
-                            if (Direction.X != 0)
-                                Direction.X = 0;
-                            if (Direction.Y != 0)
-                                Direction.Y = 0;
+                            bool canMove = false;
+
+                            if (GameHandler.TileMap.Attribute[_newLoc.X, _newLoc.Y] == (int)Attributes.Flying)
+                                if (this.GetType() == typeof(Creature))
+                                    if ((this as Creature).canFly)
+                                        canMove = true;
+                            if (GameHandler.TileMap.Attribute[_newLoc.X, _newLoc.Y] == (int)Attributes.FlyingAndSwimming)
+                                if (this.GetType() == typeof(Creature))
+                                    if ((this as Creature).canSwim || (this as Creature).canFly)
+                                        canMove = true;
+                            if (GameHandler.TileMap.Attribute[_newLoc.X, _newLoc.Y] == (int)Attributes.FlyingAndClimbing)
+                                if (this.GetType() == typeof(Creature))
+                                    if ((this as Creature).canClimb || (this as Creature).canFly)
+                                        canMove = true;
+
+                            if (!canMove)
+                            {
+                                if (Direction.X != 0)
+                                    Direction.X = 0;
+                                if (Direction.Y != 0)
+                                    Direction.Y = 0;
+                            }
                         }
                     }
-                }
-                else
-                {
-                    if (Direction.X != 0)
-                        Direction.X = 0;
-                    if (Direction.Y != 0)
-                        Direction.Y = 0;
-                }
-            }
-            else if (Direction.X != 0 && Direction.Y != 0)
-            {
-                if(GameHandler.TileMap.Passable[_currentTile.X, _newLoc.Y] == false)
-                    Direction.Y = 0;
-                if(GameHandler.TileMap.Passable[_newLoc.X, _currentTile.Y] == false)
-                    Direction.X = 0;
-            }
-
-            _position += (Direction * _moveSpeed);
-
-            // Keep in map bounds
-            if (_position.X < 0)
-                _position.X = 0;
-            if (_position.Y < 0)
-                _position.Y = 0;
-            if (_position.X > GameHandler.TileMap.Map.Width - GameHandler.TileMap.TileWidth)
-                _position.X = GameHandler.TileMap.Map.Width - GameHandler.TileMap.TileWidth;
-            if (_position.Y > GameHandler.TileMap.Map.Height - GameHandler.TileMap.TileHeight)
-                _position.Y = GameHandler.TileMap.Map.Height - GameHandler.TileMap.TileHeight;
-
-            #region Update Animation
-            if (_animated)
-            {
-                if (Direction.X == 1)
-                    _currentFrame.Y = (int)AnimDirection.Right;
-                if (Direction.X == -1)
-                    _currentFrame.Y = (int)AnimDirection.Left;
-                if (Direction.Y == 1)
-                    _currentFrame.Y = (int)AnimDirection.Down;
-                if (Direction.Y == -1)
-                    _currentFrame.Y = (int)AnimDirection.Up;
-
-                if (Direction != Vector2.Zero)
-                {
-                    _timeToNextFrame += gameTime.ElapsedGameTime;
-
-                    if (_timeToNextFrame >= TimeSpan.FromMilliseconds(_millisecondsBetweenFrame))
+                    else
                     {
-                        _timeToNextFrame = TimeSpan.Zero;
-                        _currentFrame.X++;
-                        if (_currentFrame.X > _sheetFrameWidth - 1)
-                            _currentFrame.X = 0;
+                        if (Direction.X != 0)
+                            Direction.X = 0;
+                        if (Direction.Y != 0)
+                            Direction.Y = 0;
                     }
                 }
-                else
+                else if (Direction.X != 0 && Direction.Y != 0)
                 {
-                    _currentFrame.X = 0;
-                    if (_previousDirection.X == 1)
-                        _currentFrame.Y = (int)AnimDirection.Right;
-                    if (_previousDirection.X == -1)
-                        _currentFrame.Y = (int)AnimDirection.Left;
-                    if (_previousDirection.Y == 1)
-                        _currentFrame.Y = (int)AnimDirection.Down;
-                    if (_previousDirection.Y == -1)
-                        _currentFrame.Y = (int)AnimDirection.Up;
+                    if (GameHandler.TileMap.Passable[_currentTile.X, _newLoc.Y] == false)
+                        Direction.Y = 0;
+                    if (GameHandler.TileMap.Passable[_newLoc.X, _currentTile.Y] == false)
+                        Direction.X = 0;
                 }
 
-                _frameRect = new Rectangle(_currentFrame.X * _frameWidth, _currentFrame.Y * _frameHeight, _frameWidth, _frameHeight);
-                _collisionRect = new Rectangle((int)_position.X, (int)_position.Y, _frameWidth, _frameHeight);
+                _position += (Direction * _moveSpeed);
+
+                // Keep in map bounds
+                if (_position.X < 0)
+                    _position.X = 0;
+                if (_position.Y < 0)
+                    _position.Y = 0;
+                if (_position.X > GameHandler.TileMap.Map.Width - GameHandler.TileMap.TileWidth)
+                    _position.X = GameHandler.TileMap.Map.Width - GameHandler.TileMap.TileWidth;
+                if (_position.Y > GameHandler.TileMap.Map.Height - GameHandler.TileMap.TileHeight)
+                    _position.Y = GameHandler.TileMap.Map.Height - GameHandler.TileMap.TileHeight;
+
+                #region Update Animation
+                if (_animated)
+                {
+                    if (Direction.X == 1)
+                        _currentFrame.Y = (int)AnimDirection.Right;
+                    if (Direction.X == -1)
+                        _currentFrame.Y = (int)AnimDirection.Left;
+                    if (Direction.Y == 1)
+                        _currentFrame.Y = (int)AnimDirection.Down;
+                    if (Direction.Y == -1)
+                        _currentFrame.Y = (int)AnimDirection.Up;
+
+                    if (Direction != Vector2.Zero)
+                    {
+                        _timeToNextFrame += gameTime.ElapsedGameTime;
+
+                        if (_timeToNextFrame >= TimeSpan.FromMilliseconds(_millisecondsBetweenFrame))
+                        {
+                            _timeToNextFrame = TimeSpan.Zero;
+                            _currentFrame.X++;
+                            if (_currentFrame.X > _sheetFrameWidth - 1)
+                                _currentFrame.X = 0;
+                        }
+                    }
+                    else
+                    {
+                        _currentFrame.X = 0;
+                        if (_previousDirection.X == 1)
+                            _currentFrame.Y = (int)AnimDirection.Right;
+                        if (_previousDirection.X == -1)
+                            _currentFrame.Y = (int)AnimDirection.Left;
+                        if (_previousDirection.Y == 1)
+                            _currentFrame.Y = (int)AnimDirection.Down;
+                        if (_previousDirection.Y == -1)
+                            _currentFrame.Y = (int)AnimDirection.Up;
+                    }
+
+                    _frameRect = new Rectangle(_currentFrame.X * _frameWidth, _currentFrame.Y * _frameHeight, _frameWidth, _frameHeight);
+                    _collisionRect = new Rectangle((int)_position.X, (int)_position.Y, _frameWidth, _frameHeight);
+                }
+                else
+                    _collisionRect = new Rectangle((int)_position.X, (int)_position.Y, _texture.Width, _texture.Height);
+                #endregion
             }
-            else
-                _collisionRect = new Rectangle((int)_position.X, (int)_position.Y, _texture.Width, _texture.Height);
-            #endregion
         }
 
         public Texture2D Texture { get { return _texture; } }

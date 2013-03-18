@@ -341,18 +341,7 @@ namespace VOiD.Components
         #region Load Level
         public static void LoadLevel(int levelNumber, ContentManager content, GraphicsDevice graphics)
         {
-            // Clear Current Data
-            if (nests.Count > 0)
-            {
-                foreach (Nest n in nests)
-                    if(n.Creatures.Count > 0)
-                        n.Creatures.Clear();
-                nests.Clear();
-            }
-            if(Items.Count > 0)
-                Items.Clear();
-            if (signs.Count > 0)
-                signs.Clear();
+            ClearCurrentLevelData();
 
             TileMap = new TileMap("Level" + levelNumber, graphics, content);
             Minimap = new Minimap(TileMap.Map, content.Load<Texture2D>("Sprites\\Nest"), content.Load<Texture2D>("Sprites\\Lab"), graphics);
@@ -363,6 +352,21 @@ namespace VOiD.Components
             SaveHandler.SaveGame();
         }
         #endregion
+
+        public static void ClearCurrentLevelData()
+        {
+            if (nests.Count > 0)
+            {
+                foreach (Nest n in nests)
+                    if (n.Creatures.Count > 0)
+                        n.Creatures.Clear();
+                nests.Clear();
+            }
+            if (Items.Count > 0)
+                Items.Clear();
+            if (signs.Count > 0)
+                signs.Clear();
+        }
 
         public static List<Nest> Nests { get { return nests; } }
         public static List<Sign> Signs { get { return signs; } }

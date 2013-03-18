@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<XnaContent>
+  <Asset Type="GameLibrary.Interface">
+    <content>
+      <Item Type="GameLibrary.GraphicObject">
+        <iSize>0 0</iSize>
+        <iPosition>0 0</iPosition>
+        <isClickable>false</isClickable>
+        <TextureLocation>Vignette</TextureLocation>
+        <fullscreen>true</fullscreen>
+        <Action></Action>
+        <Children></Children>
+      </Item>
+      <Item Type="GameLibrary.GraphicObject">
+        <iSize>100 100</iSize>
+        <iPosition>0 0</iPosition>
+        <isClickable>false</isClickable>
+        <TextureLocation>Battle/GameOverScreen</TextureLocation>
+        <fullscreen>true</fullscreen>
+        <Action></Action>
+        <Children>
+          <Item Type="GameLibrary.GraphicObject">
+            <iSize>10 5</iSize>
+            <iPosition>50 60</iPosition>
+            <isClickable>true</isClickable>
+            <TextureLocation></TextureLocation>
+            <fullscreen>false</fullscreen>
+            <Action>OpenMenu</Action>
+            <Children>
+              <Item Type="GameLibrary.TextObject">
+                <Text>Main Menu</Text>
+                <Font>Courier</Font>
+                <fontColor>255 255 0</fontColor>
+                <highlightColor>255 255 255</highlightColor>
+                <isCentered>true</isCentered>
+                <ioffset>50 50</ioffset>
+              </Item>
+            </Children>
+          </Item>
+          <Item Type="GameLibrary.GraphicObject">
+            <iSize>10 5</iSize>
+            <iPosition>50 70</iPosition>
+            <isClickable>true</isClickable>
+            <TextureLocation></TextureLocation>
+            <fullscreen>false</fullscreen>
+            <Action>openExitBox</Action>
+            <Children>
+              <Item Type="GameLibrary.TextObject">
+                <Text>Quit</Text>
+                <Font>Courier</Font>
+                <fontColor>255 255 0</fontColor>
+                <highlightColor>255 255 255</highlightColor>
+                <isCentered>true</isCentered>
+                <ioffset>50 50</ioffset>
+              </Item>
+            </Children>
+          </Item>
+        </Children>
+      </Item>
+    </content>
+    <backgroundColor>00000000</backgroundColor>
+    <Overlay>true</Overlay>
+  </Asset>
+</XnaContent>

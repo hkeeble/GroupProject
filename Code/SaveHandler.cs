@@ -37,6 +37,8 @@ namespace VOiD
                 sw.Close();
             }
 
+            GameHandler.ClearCurrentLevelData();
+
             StreamReader sr = new StreamReader(SAVE_FILE);
             GameHandler.CurrentLevel = Convert.ToInt32(sr.ReadLine());
             GameHandler.TileMap = new TileMap("Level" + GameHandler.CurrentLevel, graphics, content);

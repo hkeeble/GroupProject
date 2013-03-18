@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<XnaContent>
+  <Asset Type="GameLibrary.Interface">
+    <content>
+      <Item Type="GameLibrary.GraphicObject">
+        <iSize>0 0</iSize>
+        <iPosition>0 0</iPosition>
+        <isClickable>false</isClickable>
+        <TextureLocation>Vignette</TextureLocation>
+        <fullscreen>true</fullscreen>
+        <Action></Action>
+        <Children></Children>
+      </Item>
+      <Item Type="GameLibrary.GraphicObject">
+        <iSize>100 100</iSize>
+        <iPosition>0 0</iPosition>
+        <isClickable>false</isClickable>
+        <TextureLocation>Battle/VictoryScreen</TextureLocation>
+        <fullscreen>true</fullscreen>
+        <Action></Action>
+        <Children></Children>
+      </Item>
+    </content>
+    <backgroundColor>a1bd68ff</backgroundColor>
+    <Overlay>true</Overlay>
+  </Asset>
+</XnaContent>

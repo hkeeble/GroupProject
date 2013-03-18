@@ -16,6 +16,8 @@ namespace VOiD.Components
         Loading,
         LevelMenu,
         Battle,
+        Victory,
+        GameOver,
         Lab,
         BLANK
     }
@@ -808,6 +810,11 @@ namespace VOiD.Components
                     Game.Exit();
                 #endregion
 
+                #region Game Over Actions
+                if (component.Action.Equals("OpenMenu"))
+                    currentScreen = Screens.MainMenu;
+                #endregion
+
                 DebugLog.WriteLine(string.Format("Button Clicked Action =  {0} ", component.Action));
             }
         }
@@ -935,6 +942,12 @@ namespace VOiD.Components
                 }
             }
 
+            if (currentScreen == Screens.Victory)
+            {
+                GameHandler.Inventory.AddDNA(new Creature(BattleHandler.Enemy.ID, GameHandler.Player.Texture, Vector2.Zero, 0f, 32, 32, 100));
+                currentScreen = Screens.LevelMenu;
+            }
+
             if (showSign)
             {
                 subMenu = Game.Content.Load<GameLibrary.Interface>("Interface/MessageBox");
@@ -960,6 +973,10 @@ namespace VOiD.Components
                     temp = (Game.Content.Load<GameLibrary.Interface>("Interface/BattleScreen"));
                 else if (currentScreen == Screens.Lab)
                     temp = (Game.Content.Load<GameLibrary.Interface>("Interface/LabScreen"));
+                else if (currentScreen == Screens.GameOver)
+                    temp = (Game.Content.Load<GameLibrary.Interface>("Interface/GameOverScreen"));
+                else if (currentScreen == Screens.Victory)
+                    temp = (Game.Content.Load<GameLibrary.Interface>("Interface/VictoryScreen"));
                 else
                     temp = new GameLibrary.Interface();
 

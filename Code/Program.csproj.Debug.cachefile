@@ -93,6 +93,10 @@ Content\Interface\MessageBox.xnb
 Content\Sprites\creatureSelector.xnb
 Content\Sprites\Fight_Cloud.xnb
 Content\Sprites\Lab.xnb
+Content\Interface\Assets\Battle\GameOverScreen.xnb
+Content\Interface\Assets\Battle\VictoryScreen.xnb
+Content\Interface\GameOverScreen.xnb
+Content\Interface\VictoryScreen.xnb
 Content\Tilesets\Tileset.png
 Content\Maps\Level1.map
 Content\Maps\Level2.map
