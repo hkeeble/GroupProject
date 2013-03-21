@@ -126,7 +126,7 @@
             <fontColor>0 0 200</fontColor>
             <highlightColor>0 0 0</highlightColor>
             <isCentered>false</isCentered>
-            <ioffset>50 90</ioffset>
+            <ioffset>50 89</ioffset>
           </Item>
           <Item Type="GameLibrary.TextObject">
             <Text>@LastEnemyMove</Text>

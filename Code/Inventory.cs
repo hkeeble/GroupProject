@@ -58,41 +58,22 @@ namespace VOiD
             {
                 if (items[ID - 1].Amount > 0)
                 {
+                    string itemUsed = "";
+                    string effect = "";
                     if (ID == (int)Item.ItemName.Apple)
                     {
                         if (GameHandler.Player.Health < GameHandler.Player.Dominant.Health.Level - 1)
                         {
                             int restoreValue = (int)(GameHandler.Player.Dominant.Health.Level * 0.1f);
                             GameHandler.Player.Health += restoreValue;
+                            itemUsed = "Apple";
                             if (GameHandler.Player.Health >= GameHandler.Player.Dominant.Health.Level)
                             {
                                 GameHandler.Player.Health = GameHandler.Player.Dominant.Health.Level - 1;
-                                if (!BattleHandler.IsInSession)
-                                {
-                                    GameHandler.CurrentMessageBoxText = "You fed your creature the apple!\nwhich restored it to full health!";
-                                    Interface.ShowMessageBox();
-                                }
-                                else
-                                {
-                                    BattleHandler.LastPlayerAction = "You fed your creature the apple,\nwhich restored it too full health!";
-                                    BattleHandler.ActionSelected = true;
-                                    BattleHandler.AttackSelection = -1;
-                                }
+                                effect = "Creature restored to full health!";
                             }
                             else
-                            {
-                                if (!BattleHandler.IsInSession)
-                                {
-                                    GameHandler.CurrentMessageBoxText = "You fed your creature the apple,\nrestoring " + restoreValue + " health points!";
-                                    Interface.ShowMessageBox();
-                                }
-                                else
-                                {
-                                    BattleHandler.LastPlayerAction = "You fed your creature the apple,\nrestoring " + restoreValue + " health points!";
-                                    BattleHandler.ActionSelected = true;
-                                    BattleHandler.AttackSelection = -1;
-                                }
-                            }
+                                effect = "\nRestored " + restoreValue + " health points!";
                         }
                         else
                         {
@@ -104,38 +85,88 @@ namespace VOiD
 
                     if (ID == (int)Item.ItemName.Golden_Apple)
                     {
-
-                        if (GameHandler.Player.Health < GameHandler.Player.Dominant.Health.Level - 1)
+                        itemUsed = "Golden Apple";
+                        if (GameHandler.Player.Health < GameHandler.Player.Dominant.Health.Level - 1 || GameHandler.Player.Dominant.Health.Level < GameHandler.Player.Dominant.Health.Maximum)
                         {
-                            GameHandler.Player.Health += (int)(GameHandler.Player.Dominant.Health.Level * 0.5f);
-                            if (GameHandler.Player.Health >= GameHandler.Player.Dominant.Health.Level)
-                                GameHandler.Player.Health = GameHandler.Player.Dominant.Health.Level - 1;
+                            if (GameHandler.Player.Health < GameHandler.Player.Dominant.Health.Level - 1)
+                            {
+                                int restoreValue = (int)(GameHandler.Player.Dominant.Health.Level * 0.5f);
+                                GameHandler.Player.Health += restoreValue;
+                                if (GameHandler.Player.Health >= GameHandler.Player.Dominant.Health.Level)
+                                    GameHandler.Player.Health = GameHandler.Player.Dominant.Health.Level - 1;
+                                effect = "\nRestored " + restoreValue + " health points!";
+                            }
+
+                            if (GameHandler.Player.Dominant.Health.Level < GameHandler.Player.Dominant.Health.Maximum)
+                            {
+                                ushort healthAdded = (ushort)((GameHandler.Player.Dominant.Health.Maximum - GameHandler.Player.Dominant.Health.Level) * 0.25);
+                                GameHandler.Player.Dominant.Health.Level += healthAdded;
+                                if (GameHandler.Player.Dominant.Health.Level > GameHandler.Player.Dominant.Health.Maximum)
+                                    GameHandler.Player.Dominant.Health.Level = GameHandler.Player.Dominant.Health.Maximum;
+                                effect += "\nMaximum health increased by " + healthAdded + "!";
+                            }
                         }
-
-                        if (GameHandler.Player.Dominant.Health.Level > GameHandler.Player.Dominant.Health.Maximum)
+                        else
                         {
-                            GameHandler.Player.Dominant.Health.Level += (ushort)((GameHandler.Player.Dominant.Health.Maximum - GameHandler.Player.Dominant.Health.Level) * 0.25);
-                            if (GameHandler.Player.Dominant.Health.Level > GameHandler.Player.Dominant.Health.Maximum)
-                                GameHandler.Player.Dominant.Health.Level = GameHandler.Player.Dominant.Health.Maximum;
+                            GameHandler.CurrentMessageBoxText = "That would have no effect!";
+                            Interface.ShowMessageBox();
+                            return;
                         }
                     }
 
                     if (ID == (int)Item.ItemName.Spring_Water)
                     {
-
+                        // What can this do?
                     }
 
                     if (ID == (int)Item.ItemName.Honey)
                     {
-
+                        if (GameHandler.Player.Dominant.Obedience.Level < GameHandler.Player.Dominant.Obedience.Maximum - 1)
+                        {
+                            itemUsed = "Honey";
+                            ushort increase = (ushort)((GameHandler.Player.Dominant.Obedience.Maximum - GameHandler.Player.Dominant.Obedience.Level) * 0.15);
+                            GameHandler.Player.Dominant.Obedience.Level += increase;
+                            effect = "\nYour creature is pleased, it's obedience increased by " + increase + "!";
+                        }
+                        else
+                        {
+                            GameHandler.CurrentMessageBoxText = "That would have no effect!\nYou're creature's obedience cannot improve anymore.";
+                            Interface.ShowMessageBox();
+                            return;
+                        }
                     }
 
                     if (ID == (int)Item.ItemName.Chilli)
                     {
-
+                        if (GameHandler.Player.Dominant.Agressiveness.Level < GameHandler.Player.Dominant.Agressiveness.Maximum - 1)
+                        {
+                            itemUsed = "Chilli";
+                            ushort increase = (ushort)((GameHandler.Player.Dominant.Agressiveness.Maximum - GameHandler.Player.Dominant.Agressiveness.Level) * 0.15);
+                            GameHandler.Player.Dominant.Agressiveness.Level += increase;
+                            effect = "\nSpicy! You're creature's aggressiveness increased by " + increase + "!";
+                        }
+                        else
+                        {
+                            GameHandler.CurrentMessageBoxText = "That would have no effect!\nYou're creature's aggressiveness cannot improve anymore.";
+                            Interface.ShowMessageBox();
+                            return;
+                        }
                     }
 
                     items[ID - 1].Use();
+
+                    if (!BattleHandler.IsInSession)
+                    {
+                        GameHandler.CurrentMessageBoxText = "You fed your creature the " + itemUsed + "!" + effect;
+                        Interface.ShowMessageBox();
+                    }
+                    else if (BattleHandler.IsInSession && BattleHandler.CanSelectAction)
+                    {
+                        BattleHandler.LastPlayerAction = "You fed your creature the " + itemUsed + "!" + effect;
+                        BattleHandler.ActionSelected = true;
+                        BattleHandler.AttackSelection = -1;
+                        Interface.ExitSubMenu();
+                    }
                 }
             }
             else

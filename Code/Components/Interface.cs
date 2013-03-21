@@ -28,6 +28,7 @@ namespace VOiD.Components
         private static GameLibrary.Interface subMenu;
         private static bool minimapUpdate = true;
         private static bool showSign = false;
+        private static bool exitSubMenu = false;
         public static Color BackgroundColor { get { return temp.backgroundColor; } }
         private static Screens lastScreen;
         public static Screens currentScreen;
@@ -714,6 +715,24 @@ namespace VOiD.Components
             minimapUpdate = true;
         }
 
+        public static void ExitSubMenu()
+        {
+            exitSubMenu = true;
+        }
+
+        public void CloseSubMenu()
+        {
+            subMenu = new GameLibrary.Interface();
+
+            // Resets listboxes in case of a change in information (extra attacks etc)
+            ResetListBoxes(subMenu.content);
+
+            subMenu = new GameLibrary.Interface();
+            if (GameHandler.Inventory.SelectedItem != null) // Clear any selections made
+                GameHandler.Inventory.ClearSelections();
+
+        }
+
         private void ClickableComponent(GraphicObject component)
         {
             Rectangle TextureRectangle = new Rectangle((int)component.Position.X, (int)component.Position.Y, (int)component.Size.X, (int)component.Size.Y);
@@ -732,14 +751,7 @@ namespace VOiD.Components
                 if (component.Action.Equals("Options"))
                     subMenu = Game.Content.Load<GameLibrary.Interface>("Interface/SubMenuOptions");
                 if (component.Action.Equals("DeleteSubMenu"))
-                {
-                    // Resets listboxes in case of a change in information (extra attacks etc)
-                    ResetListBoxes(subMenu.content);
-
-                    subMenu = new GameLibrary.Interface();
-                    if (GameHandler.Inventory.SelectedItem != null) // Clear any selections made
-                        GameHandler.Inventory.ClearSelections();
-                }
+                    CloseSubMenu();
                 if (component.Action.Equals("PlusRes"))
                 {
                     DisplayMode tmp = dm[ResID];
@@ -1021,6 +1033,12 @@ namespace VOiD.Components
                     temp = new GameLibrary.Interface();
 
                 subMenu = new GameLibrary.Interface();
+            }
+
+            if (exitSubMenu)
+            {
+                subMenu = new GameLibrary.Interface();
+                exitSubMenu = false;
             }
 
             // Do any logic required for this type of screen
