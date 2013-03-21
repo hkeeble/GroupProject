@@ -440,6 +440,16 @@
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </Compile>
+    <Compile Include="Interface\Assets\Lab\DNAMachine.png">
+      <Name>DNAMachine</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Interface\Assets\Lab\MachineButton.png">
+      <Name>MachineButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
     <Content Include="Maps\Level1.map">
       <Name>Level1</Name>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
