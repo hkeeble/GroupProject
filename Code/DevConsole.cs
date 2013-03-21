@@ -37,7 +37,7 @@ namespace VOiD
                         if (args[2] == "breed")
                         {
                             Console.WriteLine("Breeding player creature with ID " + args[3] + "...");
-                            GameHandler.Player = new Creature(GameHandler.Player, new Creature(Convert.ToInt16(args[3])), GameHandler.Player.Texture, Vector2.Zero, 2f, 32, 32, 100);
+                            GameHandler.Player = new Creature(GameHandler.Player, new Creature(Convert.ToInt16(args[3])), GameHandler.Player.Texture, GameHandler.Player.Position, 2f, 32, 32, 100);
                         }
                     }
                     if (args[1] == "getid")
@@ -56,6 +56,11 @@ namespace VOiD
                             GameHandler.Player.Position = new Vector2(Convert.ToInt32(split[0]) * GameHandler.TileMap.TileWidth, Convert.ToInt32(split[1]) * GameHandler.TileMap.TileHeight);
                         else
                             Console.WriteLine("Map does not contain that tile!\n");
+                    }
+                    if (args[1] == "getposition")
+                    {
+                        Console.WriteLine("Player Tile: " + GameHandler.Player.CurrentTile.X + "-" + GameHandler.Player.CurrentTile.Y + "\n");
+                        Console.WriteLine("Player Position: " + GameHandler.Player.Position.X + "-" + GameHandler.Player.Position.Y + "\n");
                     }
                 }
                 if (args[0] == "loadlevel")

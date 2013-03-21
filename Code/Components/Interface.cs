@@ -942,12 +942,6 @@ namespace VOiD.Components
                 }
             }
 
-            if (currentScreen == Screens.Victory)
-            {
-                GameHandler.Inventory.AddDNA(new Creature(BattleHandler.Enemy.ID, GameHandler.Player.Texture, Vector2.Zero, 0f, 32, 32, 100));
-                currentScreen = Screens.LevelMenu;
-            }
-
             if (showSign)
             {
                 subMenu = Game.Content.Load<GameLibrary.Interface>("Interface/MessageBox");

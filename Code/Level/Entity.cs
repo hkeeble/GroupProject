@@ -97,8 +97,8 @@ namespace VOiD
 
         public virtual void Update(GameTime gameTime)
         {
-            if (Camera.ObjectVisible(CollisionRect))
-            {
+            //if (Camera.ObjectVisible(CollisionRect))
+            //{
                 if (Direction != Vector2.Zero)
                     if (Direction != _previousDirection)
                         _previousDirection = Direction;
@@ -210,7 +210,7 @@ namespace VOiD
                 else
                     _collisionRect = new Rectangle((int)_position.X, (int)_position.Y, _texture.Width, _texture.Height);
                 #endregion
-            }
+            //}
         }
 
         public Texture2D Texture { get { return _texture; } }

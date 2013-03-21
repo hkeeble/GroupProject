@@ -89,9 +89,43 @@ namespace VOiD.Components
                         int AttackPatternSigma = random.Next(B.AvailableAttacks.Count);
                         _lastEnemyMove = "Enemy attacks with a " + B.AvailableAttacks[AttackPatternSigma].Name + "\ndealing " + B.AvailableAttacks[AttackPatternSigma].Damage + " points of damage!";
 
-                        // Distribute Damage
-                        B.Health -= (int)GameHandler.Player.AvailableAttacks[AttackSelection].Damage;
-                        GameHandler.Player.Health -= (int)B.AvailableAttacks[AttackPatternSigma].Damage;
+                        // Distribute Damage (Based on speed)
+                        bool playerFirst = false;
+                        if (B.Speed > GameHandler.Player.Speed)
+                            playerFirst = true;
+
+                        if (B.Speed == GameHandler.Player.Speed) // If equal, randomize
+                            if (random.Next(1) == 1)
+                                playerFirst = true;
+
+                        if (!playerFirst)
+                        {
+                            GameHandler.Player.Health -= (int)B.AvailableAttacks[AttackPatternSigma].Damage;
+                            if (GameHandler.Player.Health < 0)
+                                GameHandler.Player.Health = 0;
+                            if (GameHandler.Player.Health > 0)
+                            {
+                                B.Health -= (int)GameHandler.Player.AvailableAttacks[AttackSelection].Damage;
+                                if (B.Health < 0)
+                                    B.Health = 0;
+                            }
+                            else
+                                _lastPlayerMove = "Player was too slow and is knocked out!";
+                        }
+                        else
+                        {
+                            B.Health -= (int)GameHandler.Player.AvailableAttacks[AttackSelection].Damage;
+                            if (B.Health < 0)
+                                B.Health = 0;
+                            if (B.Health > 0)
+                            {
+                                GameHandler.Player.Health -= (int)B.AvailableAttacks[AttackPatternSigma].Damage;
+                                if (GameHandler.Player.Health < 0)
+                                    GameHandler.Player.Health = 0;
+                            }
+                            else
+                                _lastEnemyMove = "Enemy was too slow and is knocked out!";
+                        }
                     }
                 }
 

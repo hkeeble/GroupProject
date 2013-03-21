@@ -258,30 +258,30 @@ namespace VOiD.Components
                     {
                         SpriteManager.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend);
 
-                        // Check for adjacent sign, show exclamation if so
-                        Sign sign = CheckSign(new Point((int)Player.Position.X + ((int)Player.PreviousDirection.X * TileMap.TileWidth),
-                                 (int)Player.Position.Y + ((int)Player.PreviousDirection.Y * TileMap.TileHeight)));
-                        if (sign != null)
-                            SpriteManager.Draw(exclamationSprite, Camera.Transform(GameHandler.Player.Position - new Vector2(0, exclamationSprite.Height)), null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
-
-                        // Check if on an item, show exclamation if so
-                        Item item = CheckItem(new Point((int)Player.Position.X, (int)Player.Position.Y));
-                        if (item != null)
-                            SpriteManager.Draw(exclamationSprite, Camera.Transform(GameHandler.Player.Position - new Vector2(0, exclamationSprite.Height)), null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
-
-                        // Check if facing lab, if so show exclamation mark
-                        Rectangle pRect = new Rectangle(Player.CollisionRect.X + (int)(Player.PreviousDirection.X * Player.CollisionRect.Width),
-                            Player.CollisionRect.Y + (int)(Player.PreviousDirection.Y * Player.CollisionRect.Height), Player.CollisionRect.Width, Player.CollisionRect.Height);
-                        if (pRect.Intersects(Lab.CollisionRect))
-                            SpriteManager.Draw(exclamationSprite, Camera.Transform(GameHandler.Player.Position - new Vector2(0, exclamationSprite.Height)), null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
-
-                        // Draw creature selector
-                        if (selectedCreature != null)
-                            SpriteManager.Draw(CreatureSelector,
-                                Camera.Transform(new Rectangle(selectedCreature.CollisionRect.X, selectedCreature.CollisionRect.Y, selectedCreature.CollisionRect.Width, selectedCreature.CollisionRect.Height)), Color.White);
-
                         if (!EditMode)
-                            Player.Draw();
+                        {
+                            // Check for adjacent sign, show exclamation if so
+                            Sign sign = CheckSign(new Point((int)Player.Position.X + ((int)Player.PreviousDirection.X * TileMap.TileWidth),
+                                     (int)Player.Position.Y + ((int)Player.PreviousDirection.Y * TileMap.TileHeight)));
+                            if (sign != null)
+                                SpriteManager.Draw(exclamationSprite, Camera.Transform(GameHandler.Player.Position - new Vector2(0, exclamationSprite.Height)), null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
+
+                            // Check if on an item, show exclamation if so
+                            Item item = CheckItem(new Point((int)Player.Position.X, (int)Player.Position.Y));
+                            if (item != null)
+                                SpriteManager.Draw(exclamationSprite, Camera.Transform(GameHandler.Player.Position - new Vector2(0, exclamationSprite.Height)), null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
+
+                            // Check if facing lab, if so show exclamation mark
+                            Rectangle pRect = new Rectangle(Player.CollisionRect.X + (int)(Player.PreviousDirection.X * Player.CollisionRect.Width),
+                                Player.CollisionRect.Y + (int)(Player.PreviousDirection.Y * Player.CollisionRect.Height), Player.CollisionRect.Width, Player.CollisionRect.Height);
+                            if (pRect.Intersects(Lab.CollisionRect))
+                                SpriteManager.Draw(exclamationSprite, Camera.Transform(GameHandler.Player.Position - new Vector2(0, exclamationSprite.Height)), null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
+
+                            // Draw creature selector
+                            if (selectedCreature != null)
+                                SpriteManager.Draw(CreatureSelector,
+                                    Camera.Transform(new Rectangle(selectedCreature.CollisionRect.X, selectedCreature.CollisionRect.Y, selectedCreature.CollisionRect.Width, selectedCreature.CollisionRect.Height)), Color.White);
+                        }
 
                         TileMap.Draw();
                         Lab.Draw();
@@ -295,7 +295,10 @@ namespace VOiD.Components
 
                         for(int i = 0; i < Items.Count; i++)
                                 Items[i].Draw();
-                        
+
+                        if (!EditMode)
+                            Player.Draw();
+   
                         SpriteManager.End();
                     }
                     #endregion
