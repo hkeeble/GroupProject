@@ -82,7 +82,7 @@ namespace VOiD.Components
                         turnTimer = TimeSpan.Zero;
 
                         // Player Attack
-                        if (AttackSelection != null)
+                        if (AttackSelection != -1)
                         {
                             _lastPlayerAction = "You attack with a " + GameHandler.Player.AvailableAttacks[AttackSelection].Name
                                 + "\ndealing " + GameHandler.Player.AvailableAttacks[AttackSelection].Damage + " points of damage!";
@@ -108,18 +108,24 @@ namespace VOiD.Components
                                 GameHandler.Player.Health = 0;
                             if (GameHandler.Player.Health > 0)
                             {
-                                B.Health -= (int)GameHandler.Player.AvailableAttacks[AttackSelection].Damage;
-                                if (B.Health < 0)
-                                    B.Health = 0;
+                                if (AttackSelection != -1)
+                                {
+                                    B.Health -= (int)GameHandler.Player.AvailableAttacks[AttackSelection].Damage;
+                                    if (B.Health < 0)
+                                        B.Health = 0;
+                                }
                             }
                             else
                                 _lastPlayerAction = "Player was too slow and is knocked out!";
                         }
                         else
                         {
-                            B.Health -= (int)GameHandler.Player.AvailableAttacks[AttackSelection].Damage;
-                            if (B.Health < 0)
-                                B.Health = 0;
+                            if (AttackSelection != -1)
+                            {
+                                B.Health -= (int)GameHandler.Player.AvailableAttacks[AttackSelection].Damage;
+                                if (B.Health < 0)
+                                    B.Health = 0;
+                            }
                             if (B.Health > 0)
                             {
                                 GameHandler.Player.Health -= (int)B.AvailableAttacks[AttackPatternSigma].Damage;

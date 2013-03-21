@@ -68,25 +68,31 @@ namespace VOiD
                             {
                                 GameHandler.Player.Health = GameHandler.Player.Dominant.Health.Level - 1;
                                 if (!BattleHandler.IsInSession)
+                                {
                                     GameHandler.CurrentMessageBoxText = "You fed your creature the apple!\nwhich restored it to full health!";
+                                    Interface.ShowMessageBox();
+                                }
                                 else
                                 {
                                     BattleHandler.LastPlayerAction = "You fed your creature the apple,\nwhich restored it too full health!";
                                     BattleHandler.ActionSelected = true;
+                                    BattleHandler.AttackSelection = -1;
                                 }
-
                             }
                             else
                             {
                                 if (!BattleHandler.IsInSession)
+                                {
                                     GameHandler.CurrentMessageBoxText = "You fed your creature the apple,\nrestoring " + restoreValue + " health points!";
+                                    Interface.ShowMessageBox();
+                                }
                                 else
                                 {
                                     BattleHandler.LastPlayerAction = "You fed your creature the apple,\nrestoring " + restoreValue + " health points!";
                                     BattleHandler.ActionSelected = true;
+                                    BattleHandler.AttackSelection = -1;
                                 }
                             }
-                            Interface.ShowMessageBox();
                         }
                         else
                         {
