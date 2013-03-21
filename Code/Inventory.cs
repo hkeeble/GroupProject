@@ -50,46 +50,92 @@ namespace VOiD
         /// <param name="ID">The ID of the item to use (you can use the enum Item.itemName and cast to integer for clarity)</param>
         public void UseItem(int ID)
         {
-            if (items[ID-1].Amount > 0)
-                items[ID-1].Use();
-
             // If none left and item is selected, clear selection
             if (selectedItem.ID == items[ID - 1].ID)
                 if (items[ID - 1].Amount == 0)
                     selectedItem = null;
-
-            if (ID == (int)Item.ItemName.Apple)
+            if(!(BattleHandler.IsInSession && !BattleHandler.CanSelectAction))
             {
-                GameHandler.Player.Health += (GameHandler.Player.Health / 100) * 10;
-                if (GameHandler.Player.Health >= GameHandler.Player.Dominant.Health.Level)
-                    GameHandler.Player.Health = GameHandler.Player.Dominant.Health.Level-1;
+                if (items[ID - 1].Amount > 0)
+                {
+                    if (ID == (int)Item.ItemName.Apple)
+                    {
+                        if (GameHandler.Player.Health < GameHandler.Player.Dominant.Health.Level - 1)
+                        {
+                            int restoreValue = (int)(GameHandler.Player.Dominant.Health.Level * 0.1f);
+                            GameHandler.Player.Health += restoreValue;
+                            if (GameHandler.Player.Health >= GameHandler.Player.Dominant.Health.Level)
+                            {
+                                GameHandler.Player.Health = GameHandler.Player.Dominant.Health.Level - 1;
+                                if (!BattleHandler.IsInSession)
+                                    GameHandler.CurrentMessageBoxText = "You fed your creature the apple!\nwhich restored it to full health!";
+                                else
+                                {
+                                    BattleHandler.LastPlayerAction = "You fed your creature the apple,\nwhich restored it too full health!";
+                                    BattleHandler.ActionSelected = true;
+                                }
+
+                            }
+                            else
+                            {
+                                if (!BattleHandler.IsInSession)
+                                    GameHandler.CurrentMessageBoxText = "You fed your creature the apple,\nrestoring " + restoreValue + " health points!";
+                                else
+                                {
+                                    BattleHandler.LastPlayerAction = "You fed your creature the apple,\nrestoring " + restoreValue + " health points!";
+                                    BattleHandler.ActionSelected = true;
+                                }
+                            }
+                            Interface.ShowMessageBox();
+                        }
+                        else
+                        {
+                            GameHandler.CurrentMessageBoxText = "You're already at max health!";
+                            Interface.ShowMessageBox();
+                            return;
+                        }
+                    }
+
+                    if (ID == (int)Item.ItemName.Golden_Apple)
+                    {
+
+                        if (GameHandler.Player.Health < GameHandler.Player.Dominant.Health.Level - 1)
+                        {
+                            GameHandler.Player.Health += (int)(GameHandler.Player.Dominant.Health.Level * 0.5f);
+                            if (GameHandler.Player.Health >= GameHandler.Player.Dominant.Health.Level)
+                                GameHandler.Player.Health = GameHandler.Player.Dominant.Health.Level - 1;
+                        }
+
+                        if (GameHandler.Player.Dominant.Health.Level > GameHandler.Player.Dominant.Health.Maximum)
+                        {
+                            GameHandler.Player.Dominant.Health.Level += (ushort)((GameHandler.Player.Dominant.Health.Maximum - GameHandler.Player.Dominant.Health.Level) * 0.25);
+                            if (GameHandler.Player.Dominant.Health.Level > GameHandler.Player.Dominant.Health.Maximum)
+                                GameHandler.Player.Dominant.Health.Level = GameHandler.Player.Dominant.Health.Maximum;
+                        }
+                    }
+
+                    if (ID == (int)Item.ItemName.Spring_Water)
+                    {
+
+                    }
+
+                    if (ID == (int)Item.ItemName.Honey)
+                    {
+
+                    }
+
+                    if (ID == (int)Item.ItemName.Chilli)
+                    {
+
+                    }
+
+                    items[ID - 1].Use();
+                }
             }
-
-            if (ID == (int)Item.ItemName.Golden_Apple)
+            else
             {
-                GameHandler.Player.Health += (GameHandler.Player.Health / 100) * 50;
-                GameHandler.Player.Dominant.Health.Level += (ushort)((GameHandler.Player.Dominant.Health.Maximum - GameHandler.Player.Dominant.Health.Level) * 0.25);
-
-                // Ensure values inside bounds
-                if (GameHandler.Player.Health >= GameHandler.Player.Dominant.Health.Level)
-                    GameHandler.Player.Health = GameHandler.Player.Dominant.Health.Level - 1;
-                if (GameHandler.Player.Dominant.Health.Level > GameHandler.Player.Dominant.Health.Maximum)
-                    GameHandler.Player.Dominant.Health.Level = GameHandler.Player.Dominant.Health.Maximum;
-            }
-
-            if (ID == (int)Item.ItemName.Spring_Water)
-            {
-
-            }
-
-            if (ID == (int)Item.ItemName.Honey)
-            {
-
-            }
-
-            if (ID == (int)Item.ItemName.Chilli)
-            {
-
+                GameHandler.CurrentMessageBoxText = "You can't use that right now!";
+                Interface.ShowMessageBox();
             }
         }
         

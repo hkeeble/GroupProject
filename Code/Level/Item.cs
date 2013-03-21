@@ -68,7 +68,6 @@ namespace VOiD
 
         public void Use()
         {
-            // PASS TO PLAYER HERE
             _amount--;
         }
 

@@ -245,21 +245,21 @@ namespace VOiD.Components
 
                 // Sign text
                 if (component.Text == "@CurrentSignText")
-                    temp = GameHandler.CurrentSignText;
+                    temp = GameHandler.CurrentMessageBoxText;
 
                 // Battle text
                 if (component.Text == "@LastPlayerMove")
                 {
-                    if (BattleHandler.LastPlayerMove != null)
-                        temp = BattleHandler.LastPlayerMove;
+                    if (BattleHandler.LastPlayerAction != null)
+                        temp = BattleHandler.LastPlayerAction;
                     else
                         temp = " ";
                 }
 
                 if (component.Text == "@LastEnemyMove")
                 {
-                    if (BattleHandler.LastEnemyMove != null)
-                        temp = BattleHandler.LastEnemyMove;
+                    if (BattleHandler.LastEnemyAction != null)
+                        temp = BattleHandler.LastEnemyAction;
                     else
                         temp = " ";
                 }
@@ -939,9 +939,9 @@ namespace VOiD.Components
                             #endregion
                             if (currentScreen == Screens.Battle)
                             {
-                                if (BattleHandler.CanSelectAttack)
+                                if (BattleHandler.CanSelectAction)
                                 {
-                                    BattleHandler.AttackSelected = true;
+                                    BattleHandler.ActionSelected = true;
                                     BattleHandler.AttackSelection = i;
                                 }
                             }

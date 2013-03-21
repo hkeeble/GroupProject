@@ -373,7 +373,7 @@ namespace VOiD.Components
 
         public static List<Nest> Nests { get { return nests; } }
         public static List<Sign> Signs { get { return signs; } }
-        public static string CurrentSignText { get { return _currentMessageBoxText; } }
+        public static string CurrentMessageBoxText { get { return _currentMessageBoxText; } set { _currentMessageBoxText = value; } }
         public static Attributes CurrentAttributeInUse { get { return _currentAttributeInUse; } }
         public static Creature SelectedCreature { get { return selectedCreature; } }
     }

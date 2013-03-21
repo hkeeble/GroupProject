@@ -237,7 +237,7 @@ namespace VOiD
             Dominant.Claws = Toggles[0, 4];
             Recessive.Claws = Toggles[1, 4];
 
-
+            this.Health = this.Dominant.Health.Level;
 
             //Not Yet Implimented
             Dominant.SpinalColumns.Maximum = 8;

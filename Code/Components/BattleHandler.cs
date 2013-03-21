@@ -18,17 +18,17 @@ namespace VOiD.Components
         private static Creature B;
         private static bool Win=false;
         public static int AttackSelection = 0;
-        public static bool AttackSelected = false;
+        public static bool ActionSelected = false;
 
-        private static string _lastPlayerMove;
-        private static string _lastEnemyMove;
+        private static string _lastPlayerAction;
+        private static string _lastEnemyAction;
 
         private Texture2D background;
 
         private static Texture2D FightCloud;
         private static Animation attackAnim;
         private static TimeSpan turnTimer;
-        private static bool canSelectAttack;
+        private static bool canSelectAction;
 
         public BattleHandler(Game game)
             : base(game)
@@ -48,7 +48,7 @@ namespace VOiD.Components
             Interface.currentScreen = Screens.Battle;
             B = b;
             InSession = true;
-            canSelectAttack = true;
+            canSelectAction = true;
             turnTimer = TimeSpan.Zero;
 
             attackAnim = new Animation(FightCloud, new Rectangle(Configuration.Width / 2, Configuration.Height / 2, Configuration.Width - 350, Configuration.Height - 100), 100, 400, 550);
@@ -63,14 +63,14 @@ namespace VOiD.Components
                 if (GameHandler.Player.Health > 0 && B.Health > 0)
                 {
                     //Select Attack
-                    if (AttackSelected)
+                    if (ActionSelected)
                     {
-                        AttackSelected = false;
-                        canSelectAttack = false;
+                        ActionSelected = false;
+                        canSelectAction = false;
                     }
                 }
 
-                if (canSelectAttack == false)
+                if (canSelectAction == false)
                 {
                     turnTimer += gameTime.ElapsedGameTime;
 
@@ -78,16 +78,19 @@ namespace VOiD.Components
 
                     if (turnTimer >= TimeSpan.FromSeconds(3))
                     {
-                        canSelectAttack = true;
+                        canSelectAction = true;
                         turnTimer = TimeSpan.Zero;
 
                         // Player Attack
-                        _lastPlayerMove = "You attack with a " + GameHandler.Player.AvailableAttacks[AttackSelection].Name
-                            + "\ndealing " + GameHandler.Player.AvailableAttacks[AttackSelection].Damage + " points of damage!";
+                        if (AttackSelection != null)
+                        {
+                            _lastPlayerAction = "You attack with a " + GameHandler.Player.AvailableAttacks[AttackSelection].Name
+                                + "\ndealing " + GameHandler.Player.AvailableAttacks[AttackSelection].Damage + " points of damage!";
+                        }
 
                         // Enemy Attack
                         int AttackPatternSigma = random.Next(B.AvailableAttacks.Count);
-                        _lastEnemyMove = "Enemy attacks with a " + B.AvailableAttacks[AttackPatternSigma].Name + "\ndealing " + B.AvailableAttacks[AttackPatternSigma].Damage + " points of damage!";
+                        _lastEnemyAction = "Enemy attacks with a " + B.AvailableAttacks[AttackPatternSigma].Name + "\ndealing " + B.AvailableAttacks[AttackPatternSigma].Damage + " points of damage!";
 
                         // Distribute Damage (Based on speed)
                         bool playerFirst = false;
@@ -110,7 +113,7 @@ namespace VOiD.Components
                                     B.Health = 0;
                             }
                             else
-                                _lastPlayerMove = "Player was too slow and is knocked out!";
+                                _lastPlayerAction = "Player was too slow and is knocked out!";
                         }
                         else
                         {
@@ -124,7 +127,7 @@ namespace VOiD.Components
                                     GameHandler.Player.Health = 0;
                             }
                             else
-                                _lastEnemyMove = "Enemy was too slow and is knocked out!";
+                                _lastEnemyAction = "Enemy was too slow and is knocked out!";
                         }
                     }
                 }
@@ -134,8 +137,8 @@ namespace VOiD.Components
                     GameHandler.Player.Position = GameHandler.Lab.Position + new Vector2(GameHandler.TileMap.TileWidth, GameHandler.TileMap.TileHeight * 3);
                     Interface.currentScreen = Screens.LevelMenu;
                     InSession = false;
-                    _lastEnemyMove = " ";
-                    _lastPlayerMove = " ";
+                    _lastEnemyAction = " ";
+                    _lastPlayerAction = " ";
                     if (B.Health <= 0 && GameHandler.Player.Health > 0)
                     {
                         Win = true;
@@ -164,10 +167,10 @@ namespace VOiD.Components
             {
                 SpriteManager.Begin();
                 SpriteManager.Draw(background, Configuration.Bounds, Color.White);
-                if (!canSelectAttack)
+                if (!canSelectAction)
                     attackAnim.Draw();
                 SpriteManager.End();
-                if (canSelectAttack)
+                if (canSelectAction)
                 {
                     GameHandler.Player.Draw(Game.GraphicsDevice, Matrix.CreateRotationY(MathHelper.ToRadians(45.0f)) * Matrix.CreateTranslation(new Vector3(1, 0, -4)));
                     B.Draw(Game.GraphicsDevice, Matrix.CreateRotationY(MathHelper.ToRadians(-45.0f)) * Matrix.CreateTranslation(new Vector3(-1, 0, -4)));
@@ -176,9 +179,10 @@ namespace VOiD.Components
             base.Draw(gameTime);
         }
 
-        public static string LastPlayerMove { get {return _lastPlayerMove; } }
-        public static string LastEnemyMove { get { return _lastEnemyMove; } }
-        public static bool CanSelectAttack { get { return canSelectAttack; } }
+        public static string LastPlayerAction { get { return _lastPlayerAction; } set { _lastPlayerAction = value; } }
+        public static string LastEnemyAction { get { return _lastEnemyAction; } set { _lastEnemyAction = value; } }
+        public static bool CanSelectAction { get { return canSelectAction; } }
+        public static bool IsInSession { get { return InSession; } }
         public static Creature Enemy { get { return B; } }
     }
 }
