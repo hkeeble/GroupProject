@@ -76,7 +76,11 @@ namespace VOiD.Components
                 if(parent.GetType() == typeof(GraphicObject))
                     DrawListBox((component as ListBox), (parent as GraphicObject));
             }
-
+            else if (component.GetType() == typeof(AnimatedObject))
+            {
+                if(parent.GetType() == typeof(GraphicObject))
+                    DrawAnimatedObject((component as AnimatedObject), (parent as GraphicObject));
+            }
             if(component.GetType() == typeof(GraphicObject))
                 DrawComponent((component as GraphicObject).Children, ref component);
         }
@@ -93,7 +97,6 @@ namespace VOiD.Components
         #region Draw Text
         private void DrawTextComponent(TextObject component, GraphicObject parent)
         {
-
             component.offset.X = parent.Size.X / 100 * component.ioffset.X;
             component.offset.Y = parent.Size.Y / 100 * component.ioffset.Y;
 
@@ -651,6 +654,25 @@ namespace VOiD.Components
         }
         #endregion
 
+        #region Draw Animation
+        public void DrawAnimatedObject(AnimatedObject component, GraphicObject parent)
+        {
+            if (component.Texture == null)
+            {
+                component.Texture = Game.Content.Load<Texture2D>("Interface/Assets/" + component.TextureLocation);
+                component.FrameRect = new Rectangle(0, 0, component.FrameSize.X, component.FrameSize.Y);
+            }
+            
+            component.Size.X = parent.Size.X / 100 * component.iSize.X;
+            component.Size.Y = parent.Size.Y / 100 * component.iSize.Y;
+            component.Position.X = parent.Size.X / 100 * component.iPosition.X - (component.Size.X / 2);
+            component.Position.Y = parent.Size.Y / 100 * component.iPosition.Y - (component.Size.Y / 2);
+            component.Position += parent.Position;
+
+            SpriteManager.Draw(component.Texture, new Rectangle((int)component.Position.X, (int)component.Position.Y, (int)component.Size.X, (int)component.Size.Y), component.FrameRect, Color.White);
+        }
+        #endregion
+
         #region Draw Minimap
         private void DrawMinimapObject(MinimapObject minimap, ref Object2D parent)
         {
@@ -835,11 +857,11 @@ namespace VOiD.Components
         }
 
         #region Update Functions
-        private void UpdateComponent(List<Object2D> components)
+        private void UpdateComponent(List<Object2D> components, GameTime gameTime)
         {
             foreach (Object2D thing in components)
             {
-                UpdateComponent(thing);
+                UpdateComponent(thing, gameTime);
                 // Scrollable Objects
                 if (thing.GetType() == typeof(TextBoxObject))
                     UpdateTextBox(thing as TextBoxObject);
@@ -848,14 +870,16 @@ namespace VOiD.Components
             }
         }
 
-        private void UpdateComponent(Object2D component)
+        private void UpdateComponent(Object2D component, GameTime gameTime)
         {
             if (component.GetType() == typeof(GraphicObject) || component.GetType() == typeof(Scroller))
             {
-                UpdateComponent((component as GraphicObject).Children);
+                UpdateComponent((component as GraphicObject).Children, gameTime);
                 if ((component as GraphicObject).isClickable)
                     ClickableComponent((component as GraphicObject));
             }
+            if (component.GetType() == typeof(AnimatedObject))
+                UpdateAnimation((component as AnimatedObject), gameTime);
         }
 
         private void UpdateTextBox(TextBoxObject component)
@@ -928,6 +952,28 @@ namespace VOiD.Components
             }
         }
 
+        public void UpdateAnimation(AnimatedObject animation, GameTime gameTime)
+        {
+            animation.TimeSinceLastFrame += gameTime.ElapsedGameTime;
+
+            if (animation.TimeSinceLastFrame >= TimeSpan.FromMilliseconds(animation.MilliecondsBetweenFrames))
+            {
+                animation.CurrentFrame.X++;
+                if (animation.CurrentFrame.X > animation.SheetFrameSize.X-1)
+                {
+                    animation.CurrentFrame.X = 0;
+                    animation.CurrentFrame.Y++;
+                    if (animation.CurrentFrame.Y > animation.SheetFrameSize.Y-1)
+                        animation.CurrentFrame.Y = 0;
+                }
+
+                animation.FrameRect = new Rectangle(animation.CurrentFrame.X*animation.FrameSize.X, animation.CurrentFrame.Y*animation.FrameSize.Y,
+                    animation.FrameSize.X, animation.FrameSize.Y);
+
+                animation.TimeSinceLastFrame = TimeSpan.Zero;
+            }
+        }
+
         public override void Update(GameTime gameTime)
         {
             if (currentScreen == Screens.Loading)
@@ -980,9 +1026,14 @@ namespace VOiD.Components
             // Do any logic required for this type of screen
             lastScreen = currentScreen;
             if (subMenu.content.Count == 0)
-                UpdateComponent(temp.content);
+            {
+                // Check if content contains an animation
+                foreach (Object2D obj in temp.content)
+                    if (obj is AnimatedObject) UpdateAnimation((obj as AnimatedObject), gameTime);
+                UpdateComponent(temp.content, gameTime);
+            }
             else
-                UpdateComponent(subMenu.content);
+                UpdateComponent(subMenu.content, gameTime);
 
             base.Update(gameTime);
         }

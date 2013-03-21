@@ -54,6 +54,10 @@ Content\Interface\Assets\YesButton.xnb
 Content\Interface\Assets\Level\OptionsButton.xnb
 Content\Interface\Assets\Icons\BlankIcon.xnb
 Content\Interface\Assets\Battle\background.xnb
+Content\Interface\Assets\Battle\GameOverScreen.xnb
+Content\Interface\Assets\Battle\VictoryScreen.xnb
+Content\Interface\Assets\Lab\DNAMachine.xnb
+Content\Interface\Assets\Lab\MachineButton.xnb
 Content\Sprites\NullItems\NullApple.xnb
 Content\Sprites\NullItems\NullChilli.xnb
 Content\Sprites\NullItems\NullGoldenApple.xnb
@@ -76,6 +80,9 @@ Content\Interface\Assets\Icons\IconBackground.xnb
 Content\Interface\Assets\Icons\SwimmingIcon.xnb
 Content\Sprites\Sign.xnb
 Content\Sprites\exclamation.xnb
+Content\Sprites\creatureSelector.xnb
+Content\Sprites\Fight_Cloud.xnb
+Content\Sprites\Lab.xnb
 Content\Courier.xnb
 Content\Interface\BattleScreen.xnb
 Content\Interface\Configuration.xnb
@@ -90,11 +97,6 @@ Content\Interface\SubMenuDNAInventory.xnb
 Content\Interface\SubMenuInventory.xnb
 Content\Interface\SubMenuOptions.xnb
 Content\Interface\MessageBox.xnb
-Content\Sprites\creatureSelector.xnb
-Content\Sprites\Fight_Cloud.xnb
-Content\Sprites\Lab.xnb
-Content\Interface\Assets\Battle\GameOverScreen.xnb
-Content\Interface\Assets\Battle\VictoryScreen.xnb
 Content\Interface\GameOverScreen.xnb
 Content\Interface\VictoryScreen.xnb
 Content\Tilesets\Tileset.png

@@ -114,4 +114,15 @@ namespace GameLibrary
     {
         [ContentSerializerIgnore] public Rectangle DrawRect;
     }
+
+    public class AnimatedObject : GraphicObject
+    {
+        public Point FrameSize;
+        public int MilliecondsBetweenFrames;
+        public Point SheetFrameSize;
+
+        [ContentSerializerIgnore] public Point CurrentFrame = Point.Zero;
+        [ContentSerializerIgnore] public Rectangle FrameRect;
+        [ContentSerializerIgnore] public TimeSpan TimeSinceLastFrame = TimeSpan.Zero;
+    }
 }

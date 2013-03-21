@@ -65,6 +65,18 @@
             <Action></Action>
             <Children></Children>
           </Item>
+          <Item Type="GameLibrary.AnimatedObject">
+            <iSize>47 53</iSize>
+            <iPosition>58 50</iPosition>
+            <isClickable>false</isClickable>
+            <TextureLocation>Lab/DNAMachine</TextureLocation>
+            <fullscreen>false</fullscreen>
+            <Action></Action>
+            <Children></Children>
+            <FrameSize>600 500</FrameSize>
+            <MilliecondsBetweenFrames>300</MilliecondsBetweenFrames>
+            <SheetFrameSize>6 2</SheetFrameSize>
+          </Item>
         </Children>
       </Item>
     </content>
