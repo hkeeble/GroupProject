@@ -849,6 +849,14 @@ namespace VOiD.Components
                     currentScreen = Screens.MainMenu;
                 #endregion
 
+                #region Battle Actions
+                if (component.Action.Equals("Defend"))
+                {
+                    BattleHandler.ActionSelected = true;
+                    BattleHandler.PlayerActionType = BattleHandler.ActionType.Defend;
+                }
+                #endregion
+
                 DebugLog.WriteLine(string.Format("Button Clicked Action =  {0} ", component.Action));
             }
         }

@@ -164,7 +164,7 @@ namespace VOiD
                     {
                         BattleHandler.LastPlayerAction = "You fed your creature the " + itemUsed + "!" + effect;
                         BattleHandler.ActionSelected = true;
-                        BattleHandler.AttackSelection = -1;
+                        BattleHandler.PlayerActionType = BattleHandler.ActionType.Item;
                         Interface.ExitSubMenu();
                     }
                 }

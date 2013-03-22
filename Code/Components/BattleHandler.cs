@@ -21,6 +21,7 @@ namespace VOiD.Components
         public static bool ActionSelected = false;
 
         private static string _lastPlayerAction;
+        public static ActionType PlayerActionType;
         private static string _lastEnemyAction;
 
         private Texture2D background;
@@ -29,6 +30,13 @@ namespace VOiD.Components
         private static Animation attackAnim;
         private static TimeSpan turnTimer;
         private static bool canSelectAction;
+
+        public enum ActionType
+        {
+            Attack,
+            Item,
+            Defend
+        }
 
         public BattleHandler(Game game)
             : base(game)
@@ -82,7 +90,7 @@ namespace VOiD.Components
                         turnTimer = TimeSpan.Zero;
 
                         // Player Attack
-                        if (AttackSelection != -1)
+                        if (PlayerActionType == ActionType.Attack) // -1 means an item has been used
                         {
                             _lastPlayerAction = "You attack with a " + GameHandler.Player.AvailableAttacks[AttackSelection].Name
                                 + "\ndealing " + GameHandler.Player.AvailableAttacks[AttackSelection].Damage + " points of damage!";
@@ -90,7 +98,14 @@ namespace VOiD.Components
 
                         // Enemy Attack
                         int AttackPatternSigma = random.Next(B.AvailableAttacks.Count);
-                        _lastEnemyAction = "Enemy attacks with a " + B.AvailableAttacks[AttackPatternSigma].Name + "\ndealing " + B.AvailableAttacks[AttackPatternSigma].Damage + " points of damage!";
+                        if (PlayerActionType == ActionType.Defend)
+                        {
+                            _lastEnemyAction = "Enemy attacks with a " + B.AvailableAttacks[AttackPatternSigma].Name + "\ndealing " +
+                                (B.AvailableAttacks[AttackPatternSigma].Damage - (int)(GameHandler.Player.Endurance * 0.1f)) + " points of damage!";
+                        }
+                        else
+                            _lastEnemyAction = "Enemy attacks with a " + B.AvailableAttacks[AttackPatternSigma].Name + "\ndealing " +
+                                B.AvailableAttacks[AttackPatternSigma].Damage + " points of damage!";
 
                         // Distribute Damage (Based on speed)
                         bool playerFirst = false;
@@ -103,35 +118,17 @@ namespace VOiD.Components
 
                         if (!playerFirst)
                         {
-                            GameHandler.Player.Health -= (int)B.AvailableAttacks[AttackPatternSigma].Damage;
-                            if (GameHandler.Player.Health < 0)
-                                GameHandler.Player.Health = 0;
+                            EnemyAttack(AttackPatternSigma);
                             if (GameHandler.Player.Health > 0)
-                            {
-                                if (AttackSelection != -1)
-                                {
-                                    B.Health -= (int)GameHandler.Player.AvailableAttacks[AttackSelection].Damage;
-                                    if (B.Health < 0)
-                                        B.Health = 0;
-                                }
-                            }
+                                PlayerAttack();
                             else
                                 _lastPlayerAction = "Player was too slow and is knocked out!";
                         }
                         else
                         {
-                            if (AttackSelection != -1)
-                            {
-                                B.Health -= (int)GameHandler.Player.AvailableAttacks[AttackSelection].Damage;
-                                if (B.Health < 0)
-                                    B.Health = 0;
-                            }
+                            PlayerAttack();
                             if (B.Health > 0)
-                            {
-                                GameHandler.Player.Health -= (int)B.AvailableAttacks[AttackPatternSigma].Damage;
-                                if (GameHandler.Player.Health < 0)
-                                    GameHandler.Player.Health = 0;
-                            }
+                                EnemyAttack(AttackPatternSigma);
                             else
                                 _lastEnemyAction = "Enemy was too slow and is knocked out!";
                         }
@@ -165,6 +162,34 @@ namespace VOiD.Components
             }
 
             base.Update(gameTime);
+        }
+
+        private void PlayerAttack()
+        {
+            if (PlayerActionType == ActionType.Attack)
+            {
+                B.Health -= (int)GameHandler.Player.AvailableAttacks[AttackSelection].Damage;
+                if (B.Health < 0)
+                    B.Health = 0;
+            }
+        }
+
+        private void EnemyAttack(int attackNumber)
+        {
+
+            if (PlayerActionType == ActionType.Defend)
+            {
+                GameHandler.Player.Health -= (int)(B.AvailableAttacks[attackNumber].Damage - (int)(GameHandler.Player.Dominant.Endurance.Level * 0.1f));
+                if (GameHandler.Player.Health < 0)
+                    GameHandler.Player.Health = 0;
+                _lastPlayerAction = "Your creature defends itself, reducing damage\ntaken by " + (int)(GameHandler.Player.Dominant.Endurance.Level * 0.1f) + "!";
+            }
+            else
+            {
+                GameHandler.Player.Health -= (int)B.AvailableAttacks[attackNumber].Damage;
+                if (GameHandler.Player.Health < 0)
+                    GameHandler.Player.Health = 0;
+            }
         }
 
         public override void Draw(GameTime gameTime)
