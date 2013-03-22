@@ -144,8 +144,10 @@ namespace VOiD.Components
                     _lastPlayerAction = " ";
                     if (B.Health <= 0 && GameHandler.Player.Health > 0)
                     {
-                        Win = true;
-                        Interface.currentScreen = Screens.Victory;
+                        Interface.currentScreen = Screens.LevelMenu;
+                        GameHandler.CurrentMessageBoxText = "You win! You gained DNA.";
+                        Interface.ShowMessageBox();
+                        Enemy.
                     }
                     else
                     {
