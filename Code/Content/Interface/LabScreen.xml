@@ -74,8 +74,9 @@
             <Action></Action>
             <Children></Children>
             <FrameSize>600 500</FrameSize>
-            <MilliecondsBetweenFrames>300</MilliecondsBetweenFrames>
+            <MillisecondsBetweenFrames>300</MillisecondsBetweenFrames>
             <SheetFrameSize>6 2</SheetFrameSize>
+            <LengthInMilliseconds>3600</LengthInMilliseconds>
           </Item>
         </Children>
       </Item>

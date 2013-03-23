@@ -27,6 +27,14 @@ namespace VOiD
         private Vector2 _previousDirection = Vector2.Zero;
         private Rectangle _collisionRect;
 
+        // Used for creatures
+        public bool Active = true; // Represents if the creature is active on the map or not.
+        public bool CoolDown = false;
+        TimeSpan timeSinceKilled = TimeSpan.Zero;
+        TimeSpan timeSinceSpawned = TimeSpan.Zero;
+        const int secondsUntilRespawn = 10;
+        const int secondsInCooldown = 2;
+
         #region Animation Declarations
         bool _animated;
         private TimeSpan _timeToNextFrame;
@@ -87,10 +95,20 @@ namespace VOiD
             {
                 if (_texture != null)
                 {
-                    if(!_animated)
-                        SpriteManager.Draw(_texture, Camera.Transform(_position), null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0.9f);
+                    if (!_animated)
+                    {
+                        if (CoolDown)
+                            SpriteManager.Draw(_texture, Camera.Transform(_position), null, Color.Blue, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0.9f);
+                        else
+                            SpriteManager.Draw(_texture, Camera.Transform(_position), null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0.9f);
+                    }
                     else
-                        SpriteManager.Draw(_texture, Camera.Transform(_position), _frameRect, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0.9f);
+                    {
+                        if (CoolDown)
+                            SpriteManager.Draw(_texture, Camera.Transform(_position), _frameRect, Color.Blue, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0.9f);
+                        else
+                            SpriteManager.Draw(_texture, Camera.Transform(_position), _frameRect, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0.9f);
+                    }
                 }
             }
         }
@@ -99,6 +117,29 @@ namespace VOiD
         {
             //if (Camera.ObjectVisible(CollisionRect))
             //{
+            if (this.GetType() == typeof(Creature))
+            {
+                if (Active == false)
+                {
+                    timeSinceKilled += gameTime.ElapsedGameTime;
+                    if (timeSinceKilled >= TimeSpan.FromSeconds(secondsUntilRespawn))
+                    {
+                        Active = true;
+                        CoolDown = true;
+                        timeSinceKilled = TimeSpan.Zero;
+                    }
+                }
+                if (CoolDown)
+                {
+                    timeSinceSpawned += gameTime.ElapsedGameTime;
+                    if (timeSinceSpawned >= TimeSpan.FromSeconds(secondsInCooldown))
+                    {
+                        CoolDown = false;
+                        timeSinceSpawned = TimeSpan.Zero;
+                    }
+                }
+            }
+
                 if (Direction != Vector2.Zero)
                     if (Direction != _previousDirection)
                         _previousDirection = Direction;

@@ -30,12 +30,14 @@ namespace VOiD.Components
         private static Animation attackAnim;
         private static TimeSpan turnTimer;
         private static bool canSelectAction;
+        private static bool flee;
 
         public enum ActionType
         {
             Attack,
             Item,
-            Defend
+            Defend,
+            Flee
         }
 
         public BattleHandler(Game game)
@@ -96,6 +98,19 @@ namespace VOiD.Components
                                 + "\ndealing " + GameHandler.Player.AvailableAttacks[AttackSelection].Damage + " points of damage!";
                         }
 
+                        // If player flees
+                        if (PlayerActionType == ActionType.Flee)
+                        {
+                            float fleeChance = (GameHandler.Player.Dominant.Speed.Level * 0.5f) - (GameHandler.Player.Dominant.Agressiveness.Level * 0.1f);
+                            if (random.Next(101) < fleeChance)
+                                flee = true;
+                            else
+                            {
+                                flee = false;
+                                _lastPlayerAction = "You attempt to flee, but your\npath is blocked by the enemy!";
+                            }
+                        }
+
                         // Enemy Attack
                         int AttackPatternSigma = random.Next(B.AvailableAttacks.Count);
                         if (PlayerActionType == ActionType.Defend)
@@ -135,26 +150,33 @@ namespace VOiD.Components
                     }
                 }
 
-                if (B.Health <= 0 || GameHandler.Player.Health <= 0)
+                else if (B.Health <= 0 || GameHandler.Player.Health <= 0 || flee)
                 {
-                    GameHandler.Player.Position = GameHandler.Lab.Position + new Vector2(GameHandler.TileMap.TileWidth, GameHandler.TileMap.TileHeight * 3);
                     Interface.currentScreen = Screens.LevelMenu;
                     InSession = false;
                     _lastEnemyAction = " ";
                     _lastPlayerAction = " ";
                     if (B.Health <= 0 && GameHandler.Player.Health > 0)
                     {
+                        GameHandler.Inventory.AddDNA(Enemy);
                         Interface.currentScreen = Screens.LevelMenu;
-                        GameHandler.CurrentMessageBoxText = "You win! You gained DNA.";
-                        Interface.ShowMessageBox();
-                        Enemy.
+                        Enemy.Health = Enemy.Dominant.Health.Level;
+                        Enemy.Active = false;
+                        GameHandler.Player.CoolDown = true;
+                    }
+                    else if (flee)
+                    {
+                        Interface.currentScreen = Screens.LevelMenu;
+                        Enemy.Health = Enemy.Dominant.Health.Level;
+                        Enemy.CoolDown = true;
+                        GameHandler.Player.CoolDown = true;
                     }
                     else
                     {
                         Win = false;
                         Interface.currentScreen = Screens.GameOver;
+                        return;
                     }
-
                     GameHandler.Enabled = true;
                 }
                 else

@@ -29,12 +29,17 @@ namespace VOiD.Components
         private static bool minimapUpdate = true;
         private static bool showSign = false;
         private static bool exitSubMenu = false;
+        private static bool toggleAnimations = false;
         public static Color BackgroundColor { get { return temp.backgroundColor; } }
         private static Screens lastScreen;
         public static Screens currentScreen;
         private static short ResID = 0;
         private DisplayMode[] dm;
         RasterizerState _scissorState = new RasterizerState() { ScissorTestEnable = true };
+
+        // Used for lab screen
+        private static TimeSpan millisecondsSinceBreed = TimeSpan.Zero;
+        private static int breedLength;
 
         public static void ShowMessageBox()
         {
@@ -710,6 +715,11 @@ namespace VOiD.Components
             dm = Game.GraphicsDevice.Adapter.SupportedDisplayModes.ToArray<DisplayMode>();
         }
 
+        public static void ToggleAnimations()
+        {
+            toggleAnimations = true;
+        }
+
         public static void UpdateMiniMap()
         {
             minimapUpdate = true;
@@ -805,7 +815,9 @@ namespace VOiD.Components
                 if (component.Action.Equals("BreedCurrentSelection"))
                 {
                     GameHandler.Inventory.UseDNA();
-                    ResetListBoxes(subMenu.content); // Reset listboxes in current window
+                    ResetListBoxes(subMenu.content);
+                    subMenu = new GameLibrary.Interface();
+                    ToggleAnimations();
                 }
                 if (component.Action.Equals("exit"))
                     Interface.currentScreen = Screens.LevelMenu;
@@ -853,7 +865,12 @@ namespace VOiD.Components
                 if (component.Action.Equals("Defend"))
                 {
                     BattleHandler.ActionSelected = true;
-                    BattleHandler.PlayerActionType = BattleHandler.ActionType.Defend;
+                    BattleHandler.PlayerActionType = BattleHandler.ActionType.Attack;
+                }
+                if (component.Action.Equals("Flee"))
+                {
+                    BattleHandler.ActionSelected = true;
+                    BattleHandler.PlayerActionType = BattleHandler.ActionType.Flee;
                 }
                 #endregion
 
@@ -874,6 +891,24 @@ namespace VOiD.Components
                 else if (obj.GetType() == typeof(ListBox))
                     (obj as ListBox).Init = false;
             }
+        }
+
+        private void ActivateAnimations(List<Object2D> content)
+        {
+            foreach (Object2D obj in content)
+            {
+                if (obj.GetType() == typeof(GraphicObject))
+                    ActivateAnimations((obj as GraphicObject).Children);
+                else if (obj.GetType() == typeof(AnimatedObject))
+                    (obj as AnimatedObject).Toggle();
+            }
+        }
+
+        private void ResetListBox(Object2D component)
+        {
+            List<Object2D> list = new List<Object2D>();
+            list.Add(component);
+            ResetListBoxes(list);
         }
 
         #region Update Functions
@@ -955,7 +990,10 @@ namespace VOiD.Components
                         {
                             #region PlayerDNAInventory Actions
                             if (component.ListContentType == "PlayerDNAInventory")
+                            {
                                 GameHandler.Inventory.SetDNA(i);
+                                ResetListBoxes(subMenu.content);
+                            }
                             #endregion
                             if (currentScreen == Screens.Battle)
                             {
@@ -974,23 +1012,29 @@ namespace VOiD.Components
 
         public void UpdateAnimation(AnimatedObject animation, GameTime gameTime)
         {
-            animation.TimeSinceLastFrame += gameTime.ElapsedGameTime;
-
-            if (animation.TimeSinceLastFrame >= TimeSpan.FromMilliseconds(animation.MilliecondsBetweenFrames))
+            animation.wasActive = animation.Active;
+            if (animation.Active)
             {
-                animation.CurrentFrame.X++;
-                if (animation.CurrentFrame.X > animation.SheetFrameSize.X-1)
+                animation.TimeSinceLastFrame += gameTime.ElapsedGameTime;
+
+                if (animation.TimeSinceLastFrame >= TimeSpan.FromMilliseconds(animation.MillisecondsBetweenFrames))
                 {
-                    animation.CurrentFrame.X = 0;
-                    animation.CurrentFrame.Y++;
-                    if (animation.CurrentFrame.Y > animation.SheetFrameSize.Y-1)
-                        animation.CurrentFrame.Y = 0;
+                    animation.CurrentFrame.X++;
+                    if (animation.CurrentFrame.X > animation.SheetFrameSize.X - 1)
+                    {
+                        animation.CurrentFrame.X = 0;
+                        animation.CurrentFrame.Y++;
+                        if (animation.CurrentFrame.Y > animation.SheetFrameSize.Y - 1)
+                            animation.CurrentFrame.Y = 0;
+                    }
+
+                    animation.FrameRect = new Rectangle(animation.CurrentFrame.X * animation.FrameSize.X, animation.CurrentFrame.Y * animation.FrameSize.Y,
+                        animation.FrameSize.X, animation.FrameSize.Y);
+
+                    animation.TimeSinceLastFrame = TimeSpan.Zero;
                 }
 
-                animation.FrameRect = new Rectangle(animation.CurrentFrame.X*animation.FrameSize.X, animation.CurrentFrame.Y*animation.FrameSize.Y,
-                    animation.FrameSize.X, animation.FrameSize.Y);
-
-                animation.TimeSinceLastFrame = TimeSpan.Zero;
+                animation.UpdateTimer(gameTime);
             }
         }
 
@@ -1047,6 +1091,12 @@ namespace VOiD.Components
             {
                 subMenu = new GameLibrary.Interface();
                 exitSubMenu = false;
+            }
+
+            if (toggleAnimations)
+            {
+                ActivateAnimations(temp.content);
+                toggleAnimations = false;
             }
 
             // Do any logic required for this type of screen

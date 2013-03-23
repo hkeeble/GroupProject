@@ -47,11 +47,12 @@ namespace VOiD
                 {
                     Position = new Point(rand.Next(_moveArea.X, _moveArea.X + _moveArea.Width),
                         rand.Next(_moveArea.Y, _moveArea.Y + _moveArea.Height));
-                } while ((Position == playerSpawn || Position.X < 0 || Position.X > mapDimensions.X || Position.Y < 0 || Position.Y > mapDimensions.Y || passable[Position.X, Position.Y] == false) && Position == Point.Zero);
+                } while ((Position == playerSpawn || Position.X < 0 || Position.X > mapDimensions.X || Position.Y < 0 || Position.Y > mapDimensions.Y
+                    || passable[Position.X, Position.Y] == false) && Position == Point.Zero);
 
                 // Decide on creature texture based on abillities
                 Creature creature = new Creature(id, content.Load<Texture2D>("Sprites/Creatures/CreatureGeneric"), new Vector2(Position.X * tileDimensions.X, Position.Y * tileDimensions.Y), 1f, 32, 32, 100);
-                if(creature.canFly)
+                if (creature.canFly)
                     creature.SetTexture(content.Load<Texture2D>("Sprites/Creatures/flyingCreature"));
                 if(creature.canSwim)
                     creature.SetTexture(content.Load<Texture2D>("Sprites/Creatures/swimmingCreature"));
@@ -93,7 +94,8 @@ namespace VOiD
             SpriteManager.Draw(_texture, Camera.Transform(_position), null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0.5f);
 
             foreach (Creature e in creatures)
-                e.Draw();
+                if(e.Active)
+                    e.Draw();
         }
 
         public List<Creature> Creatures { get { return creatures; } }

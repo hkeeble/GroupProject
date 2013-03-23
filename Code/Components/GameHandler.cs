@@ -192,8 +192,11 @@ namespace VOiD.Components
                     {
                         for (int j = 0; j < nests[i].Creatures.Count; j++)
                         {
-                            if (nests[i].Creatures[j].CollisionRect.Intersects(Player.CollisionRect))
-                                BattleHandler.InitiateBattle(nests[i].Creatures[j]);
+                            if(nests[i].Creatures[j].Active && nests[i].Creatures[j].CoolDown == false && Player.CoolDown == false)
+                            {
+                                if (nests[i].Creatures[j].CollisionRect.Intersects(Player.CollisionRect))
+                                    BattleHandler.InitiateBattle(nests[i].Creatures[j]);
+                            }
                         }
                     }
                 }

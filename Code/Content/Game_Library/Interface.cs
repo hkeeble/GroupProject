@@ -118,11 +118,35 @@ namespace GameLibrary
     public class AnimatedObject : GraphicObject
     {
         public Point FrameSize;
-        public int MilliecondsBetweenFrames;
+        public int MillisecondsBetweenFrames;
         public Point SheetFrameSize;
+        public int LengthInMilliseconds;
 
+        [ContentSerializerIgnore] public bool Active = false;
+        [ContentSerializerIgnore] public bool wasActive = false;
+        [ContentSerializerIgnore] public TimeSpan ActiveTime = TimeSpan.Zero;
         [ContentSerializerIgnore] public Point CurrentFrame = Point.Zero;
         [ContentSerializerIgnore] public Rectangle FrameRect;
         [ContentSerializerIgnore] public TimeSpan TimeSinceLastFrame = TimeSpan.Zero;
+
+        public void Toggle()
+        {
+            Active = !Active;
+        }
+
+        public void UpdateTimer(GameTime gameTime)
+        {
+            if (LengthInMilliseconds != 0)
+            {
+                ActiveTime += gameTime.ElapsedGameTime;
+                if (ActiveTime >= TimeSpan.FromMilliseconds(LengthInMilliseconds))
+                {
+                    Toggle();
+                    ActiveTime = TimeSpan.Zero;
+                }
+            }
+            else
+                Active = true;
+        }
     }
 }
