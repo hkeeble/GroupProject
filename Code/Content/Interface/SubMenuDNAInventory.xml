@@ -94,8 +94,8 @@
                 <ioffset>28 16</ioffset>
               </Item>
               <Item Type="GameLibrary.GraphicObject">
-                <iSize>30 50</iSize>
-                <iPosition>43 48</iPosition>
+                <iSize>30 35</iSize>
+                <iPosition>43 38</iPosition>
                 <isClickable>false</isClickable>
                 <TextureLocation>TextBoxBackground</TextureLocation>
                 <fullscreen>false</fullscreen>
@@ -129,6 +129,71 @@
                     </DownScroller>
                     <ioffset>5 2</ioffset>
                     <isClickable>true</isClickable>
+                  </Item>
+                </Children>
+              </Item>
+              <Item Type="GameLibrary.TextObject">
+                <Text>ABILITIES</Text>
+                <Font>Courier</Font>
+                <fontColor>255 255 0</fontColor>
+                <highlightColor>0 0 0</highlightColor>
+                <isCentered>false</isCentered>
+                <ioffset>28 55</ioffset>
+              </Item>
+              <Item Type="GameLibrary.GraphicObject">
+                <iSize>10 10</iSize>
+                <iPosition>35 65</iPosition>
+                <isClickable>false</isClickable>
+                <TextureLocation>Icons/IconBackground</TextureLocation>
+                <fullscreen>false</fullscreen>
+                <Action></Action>
+                <Children>
+                  <Item Type="GameLibrary.GraphicObject">
+                    <iSize>100 100</iSize>
+                    <iPosition>50 50</iPosition>
+                    <isClickable>false</isClickable>
+                    <TextureLocation>@SelectedCanFly</TextureLocation>
+                    <fullscreen>false</fullscreen>
+                    <Action></Action>
+                    <Children></Children>
+                  </Item>
+                </Children>
+              </Item>
+              <Item Type="GameLibrary.GraphicObject">
+                <iSize>10 10</iSize>
+                <iPosition>45 65</iPosition>
+                <isClickable>false</isClickable>
+                <TextureLocation>Icons/IconBackground</TextureLocation>
+                <fullscreen>false</fullscreen>
+                <Action></Action>
+                <Children>
+                  <Item Type="GameLibrary.GraphicObject">
+                    <iSize>100 100</iSize>
+                    <iPosition>50 50</iPosition>
+                    <isClickable>false</isClickable>
+                    <TextureLocation>@SelectedCanSwim</TextureLocation>
+                    <fullscreen>false</fullscreen>
+                    <Action></Action>
+                    <Children></Children>
+                  </Item>
+                </Children>
+              </Item>
+              <Item Type="GameLibrary.GraphicObject">
+                <iSize>10 10</iSize>
+                <iPosition>40 75</iPosition>
+                <isClickable>false</isClickable>
+                <TextureLocation>Icons/IconBackground</TextureLocation>
+                <fullscreen>false</fullscreen>
+                <Action></Action>
+                <Children>
+                  <Item Type="GameLibrary.GraphicObject">
+                    <iSize>100 100</iSize>
+                    <iPosition>50 50</iPosition>
+                    <isClickable>false</isClickable>
+                    <TextureLocation>@SelectedCanClimb</TextureLocation>
+                    <fullscreen>false</fullscreen>
+                    <Action></Action>
+                    <Children></Children>
                   </Item>
                 </Children>
               </Item>

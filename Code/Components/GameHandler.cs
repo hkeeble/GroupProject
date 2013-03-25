@@ -378,6 +378,6 @@ namespace VOiD.Components
         public static List<Sign> Signs { get { return signs; } }
         public static string CurrentMessageBoxText { get { return _currentMessageBoxText; } set { _currentMessageBoxText = value; } }
         public static Attributes CurrentAttributeInUse { get { return _currentAttributeInUse; } }
-        public static Creature SelectedCreature { get { return selectedCreature; } }
+        public static Creature SelectedCreature { get { return selectedCreature; } set { selectedCreature = value; } }
     }
 }

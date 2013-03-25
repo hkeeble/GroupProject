@@ -594,6 +594,42 @@ namespace VOiD.Components
                         else
                             component.Texture = Game.Content.Load<Texture2D>("Interface/Assets/Icons/BlankIcon");
                     }
+                    if (component.TextureLocation == "@SelectedCanFly")
+                    {
+                        if (GameHandler.Inventory.SelectedDNA != null)
+                        {
+                            if (GameHandler.Inventory.SelectedDNA.canFly)
+                                component.Texture = Game.Content.Load<Texture2D>("Interface/Assets/Icons/FlyingIcon");
+                            else
+                                component.Texture = Game.Content.Load<Texture2D>("Interface/Assets/Icons/BlankIcon");
+                        }
+                        else
+                            component.Texture = Game.Content.Load<Texture2D>("Interface/Assets/Icons/BlankIcon");
+                    }
+                    if (component.TextureLocation == "@SelectedCanClimb")
+                    {
+                        if (GameHandler.Inventory.SelectedDNA != null)
+                        {
+                            if (GameHandler.Inventory.SelectedDNA.canClimb)
+                                component.Texture = Game.Content.Load<Texture2D>("Interface/Assets/Icons/ClimingIcon");
+                            else
+                                component.Texture = Game.Content.Load<Texture2D>("Interface/Assets/Icons/BlankIcon");
+                        }
+                        else
+                            component.Texture = Game.Content.Load<Texture2D>("Interface/Assets/Icons/BlankIcon");
+                    }
+                    if (component.TextureLocation == "@SelectedCanSwim")
+                    {
+                        if (GameHandler.Inventory.SelectedDNA != null)
+                        {
+                            if (GameHandler.Inventory.SelectedDNA.canSwim)
+                                component.Texture = Game.Content.Load<Texture2D>("Interface/Assets/Icons/SwimmingIcon");
+                            else
+                                component.Texture = Game.Content.Load<Texture2D>("Interface/Assets/Icons/BlankIcon");
+                        }
+                        else
+                            component.Texture = Game.Content.Load<Texture2D>("Interface/Assets/Icons/BlankIcon");
+                    }
                     if (component.TextureLocation == "@CurrentAttributeInUse")
                     {
                         if (GameHandler.CurrentAttributeInUse != Attributes.None)
@@ -732,15 +768,10 @@ namespace VOiD.Components
 
         public void CloseSubMenu()
         {
-            subMenu = new GameLibrary.Interface();
-
             // Resets listboxes in case of a change in information (extra attacks etc)
             ResetListBoxes(subMenu.content);
-
             subMenu = new GameLibrary.Interface();
-            if (GameHandler.Inventory.SelectedItem != null) // Clear any selections made
-                GameHandler.Inventory.ClearSelections();
-
+            GameHandler.Inventory.ClearSelections();
         }
 
         private void ClickableComponent(GraphicObject component)
@@ -869,8 +900,16 @@ namespace VOiD.Components
                 }
                 if (component.Action.Equals("Flee"))
                 {
-                    BattleHandler.ActionSelected = true;
-                    BattleHandler.PlayerActionType = BattleHandler.ActionType.Flee;
+                    if (BattleHandler.CanSelectAction)
+                    {
+                        BattleHandler.ActionSelected = true;
+                        BattleHandler.PlayerActionType = BattleHandler.ActionType.Flee;
+                    }
+                    else
+                    {
+                        GameHandler.CurrentMessageBoxText = "You cannot do that right now!";
+                        ShowMessageBox();
+                    }
                 }
                 #endregion
 
@@ -1057,7 +1096,7 @@ namespace VOiD.Components
                 subMenu = Game.Content.Load<GameLibrary.Interface>("Interface/MessageBox");
                 showSign = false;
             }
-
+            
             if (currentScreen != lastScreen)
             {
                 // if screen has changed

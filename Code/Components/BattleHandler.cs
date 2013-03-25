@@ -61,6 +61,8 @@ namespace VOiD.Components
             canSelectAction = true;
             turnTimer = TimeSpan.Zero;
 
+            GameHandler.SelectedCreature = null;
+
             attackAnim = new Animation(FightCloud, new Rectangle(Configuration.Width / 2, Configuration.Height / 2, Configuration.Width - 350, Configuration.Height - 100), 100, 400, 550);
             attackAnim.DrawRectangle.X = (Configuration.Width / 2) - (attackAnim.DrawRectangle.Width / 2);
             attackAnim.DrawRectangle.Y = (Configuration.Height / 2) - (attackAnim.DrawRectangle.Height / 2);
@@ -170,6 +172,7 @@ namespace VOiD.Components
                         Enemy.Health = Enemy.Dominant.Health.Level;
                         Enemy.CoolDown = true;
                         GameHandler.Player.CoolDown = true;
+                        flee = false;
                     }
                     else
                     {
