@@ -99,6 +99,12 @@ Content\Interface\SubMenuOptions.xnb
 Content\Interface\MessageBox.xnb
 Content\Interface\GameOverScreen.xnb
 Content\Interface\VictoryScreen.xnb
+Content\Sounds\BossFight.xnb
+Content\Sounds\Lab.xnb
+Content\Sounds\WildCreature.xnb
+Content\GroupProjectSounds.xgs
+Content\Wave Bank.xwb
+Content\Sound Bank.xsb
 Content\Tilesets\Tileset.png
 Content\Maps\Level1.map
 Content\Maps\Level2.map
