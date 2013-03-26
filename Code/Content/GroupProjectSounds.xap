@@ -16,8 +16,8 @@ Global Settings
     Header File = C:\Users\Simon\Documents\GroupProjectSounds.h;
     Exclude Category Names = 0;
     Exclude Variable Names = 0;
-    Last Modified Low = 1708717611;
-    Last Modified High = 30288475;
+    Last Modified Low = 3055781900;
+    Last Modified High = 30288495;
 
     Category
     {
@@ -227,10 +227,10 @@ Wave Bank
     Compression Preset Name = <none>;
     Xbox Bank Last Modified Low = 0;
     Xbox Bank Last Modified High = 0;
-    PC Bank Last Modified Low = 878298648;
-    PC Bank Last Modified High = 30288482;
-    Bank Last Revised Low = 837156295;
-    Bank Last Revised High = 30288482;
+    PC Bank Last Modified Low = 3055821903;
+    PC Bank Last Modified High = 30288495;
+    Bank Last Revised Low = 2973707206;
+    Bank Last Revised High = 30288495;
 
     Wave
     {
@@ -350,9 +350,9 @@ Wave Bank
     Wave
     {
         Name = IntroMusic;
-        File = ..\..\..\..\..\Downloads\POL-cyber-factory-short\POL-cyber-factory-short.wav;
-        Build Settings Last Modified Low = 729310127;
-        Build Settings Last Modified High = 30288482;
+        File = Sounds\IntroMusic.wav;
+        Build Settings Last Modified Low = 2950465877;
+        Build Settings Last Modified High = 30288495;
 
         Cache
         {
@@ -378,8 +378,8 @@ Sound Bank
     Windows File = Win\Sound Bank.xsb;
     Xbox Bank Path Edited = 0;
     Windows Bank Path Edited = 0;
-    Bank Last Modified Low = 1696695458;
-    Bank Last Modified High = 30288482;
+    Bank Last Modified Low = 3069382678;
+    Bank Last Modified High = 30288495;
     Header Last Modified High = 0;
     Header Last Modified Low = 0;
 
@@ -642,7 +642,6 @@ Sound Bank
 
             Play Wave Event
             {
-                Loop Count = 255;
                 Break Loop = 0;
                 Use Speaker Position = 0;
                 Use Center Speaker = 1;
