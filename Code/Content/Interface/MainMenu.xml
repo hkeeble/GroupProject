@@ -73,6 +73,15 @@
               </Item>
             </Children>
           </Item>
+          <Item Type="GameLibrary.GraphicObject">
+            <iSize>10 5</iSize>
+            <iPosition>85 85</iPosition>
+            <isClickable>true</isClickable>
+            <TextureLocation>HelpButton</TextureLocation>
+            <fullscreen>false</fullscreen>
+            <Action>OpenHelpMenu</Action>
+            <Children></Children>
+          </Item>
         </Children>
       </Item>
     </content>

@@ -104,31 +104,31 @@ namespace VOiD.Components
                 {
                     if (Player.Direction.Y == 0 && Player.Position.X % TileMap.TileWidth == 0)
                     {
-                        if (InputHandler.KeyDown(Keys.Down))
+                        if (InputHandler.KeyDown(Keys.Down) || InputHandler.KeyDown(Keys.S))
                             Player.Direction.Y = 1;
-                        else if (InputHandler.KeyDown(Keys.Up))
+                        else if (InputHandler.KeyDown(Keys.Up) || InputHandler.KeyDown(Keys.W))
                             Player.Direction.Y = -1;
                     }
                     else if (Player.Position.Y % TileMap.TileHeight == 0)
                     {
-                        if (Player.Direction.Y == 1 && !InputHandler.KeyDown(Keys.Down))
+                        if (Player.Direction.Y == 1 && !(InputHandler.KeyDown(Keys.Down) || InputHandler.KeyDown(Keys.S)))
                             Player.Direction.Y = 0;
-                        if (Player.Direction.Y == -1 && !InputHandler.KeyDown(Keys.Up))
+                        if (Player.Direction.Y == -1 && !(InputHandler.KeyDown(Keys.Up) || InputHandler.KeyDown(Keys.W)))
                             Player.Direction.Y = 0;
                     }
 
                     if (Player.Direction.X == 0 && Player.Position.Y % TileMap.TileHeight == 0)
                     {
-                        if (InputHandler.KeyDown(Keys.Left))
+                        if (InputHandler.KeyDown(Keys.Left) || InputHandler.KeyDown(Keys.A))
                             Player.Direction.X = -1;
-                        else if (InputHandler.KeyDown(Keys.Right))
+                        else if (InputHandler.KeyDown(Keys.Right) || InputHandler.KeyDown(Keys.D))
                             Player.Direction.X = 1;
                     }
                     else if (Player.Position.X % TileMap.TileWidth == 0)
                     {
-                        if (Player.Direction.X == 1 && !InputHandler.KeyDown(Keys.Right))
+                        if (Player.Direction.X == 1 && !(InputHandler.KeyDown(Keys.Right)  || InputHandler.KeyDown(Keys.D)))
                             Player.Direction.X = 0;
-                        if (Player.Direction.X == -1 && !InputHandler.KeyDown(Keys.Left))
+                        if (Player.Direction.X == -1 && !(InputHandler.KeyDown(Keys.Left) || InputHandler.KeyDown(Keys.A)))
                             Player.Direction.X = 0;
                     }
 

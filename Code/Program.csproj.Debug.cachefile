@@ -102,6 +102,16 @@ Content\Interface\VictoryScreen.xnb
 Content\Sounds\BossFight.xnb
 Content\Sounds\Lab.xnb
 Content\Sounds\WildCreature.xnb
+Content\Interface\Assets\Help\backButton.xnb
+Content\Interface\Assets\Help\Controls.xnb
+Content\Interface\Assets\Help\controlsButton.xnb
+Content\Interface\Assets\Help\HelpMenuScreen.xnb
+Content\Interface\Assets\Help\Instructions.xnb
+Content\Interface\Assets\Help\instructionsButton.xnb
+Content\Interface\Help\Controls.xnb
+Content\Interface\Help\HelpMenu.xnb
+Content\Interface\Help\Instructions.xnb
+Content\Interface\Assets\HelpButton.xnb
 Content\GroupProjectSounds.xgs
 Content\Wave Bank.xwb
 Content\Sound Bank.xsb

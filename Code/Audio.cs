@@ -16,26 +16,20 @@ namespace VOID
         public static void Initialize()
         {
             audioEngine = new AudioEngine("GroupProjectSounds.xsb");
-
             soundBank = new SoundBank(audioEngine, "Sound Bank.xsb");
             waveBank = new WaveBank(audioEngine, "Wave Bank.xwb");
         }
 
-        public static void Play()
+        public static void Play(string cueName)
         {
-            Cue wildBattle = soundBank.GetCue("CreatureFight");
-            Cue bossBattle = soundBank.GetCue("BossFight");
-            Cue labEnter = soundBank.GetCue("Lab");
-
-            wildBattle.Play();
-            bossBattle.Play();
-            labEnter.Play();
+            soundBank.PlayCue(cueName);
         }
 
-        public static void Stop()
+        public static void Stop(string cueName)
         {
-                
+            Cue cue = soundBank.GetCue(cueName);
+            if (cue.IsPlaying)
+                cue.Stop(AudioStopOptions.Immediate);
         }
-
     }
 }

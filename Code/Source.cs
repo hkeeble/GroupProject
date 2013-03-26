@@ -46,14 +46,6 @@ namespace VOiD
             if ((GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed) | (InputHandler.KeyPressed(Keys.Escape)))
                 this.Exit();
 
-            if (InputHandler.KeyPressed(Keys.W))
-                Interface.currentScreen=Screens.BLANK;
-            if (InputHandler.KeyPressed(Keys.A))
-                Interface.currentScreen = Screens.Intro;
-            if (InputHandler.KeyPressed(Keys.S))
-                Interface.currentScreen = Screens.MainMenu;
-            if (InputHandler.KeyPressed(Keys.D))
-                Interface.currentScreen = Screens.LevelMenu;
             base.Update(gameTime);
         }
 

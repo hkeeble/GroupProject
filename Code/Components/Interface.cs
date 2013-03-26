@@ -818,6 +818,12 @@ namespace VOiD.Components
                 {
                     Configuration.Toggle();
                 }
+                if (component.Action.Equals("OpenControls"))
+                    temp = Game.Content.Load<GameLibrary.Interface>("Interface/Help/Controls");
+                if (component.Action.Equals("OpenInstructions"))
+                    temp = Game.Content.Load<GameLibrary.Interface>("Interface/Help/Instructions");
+                if (component.Action.Equals("OpenHelpMenu"))
+                    temp = Game.Content.Load<GameLibrary.Interface>("Interface/Help/HelpMenu");
                 #endregion
 
                 #region Customizer Actions
@@ -889,7 +895,7 @@ namespace VOiD.Components
 
                 #region Game Over Actions
                 if (component.Action.Equals("OpenMenu"))
-                    currentScreen = Screens.MainMenu;
+                    temp = Game.Content.Load<GameLibrary.Interface>("Interface/MainMenu");
                 #endregion
 
                 #region Battle Actions
