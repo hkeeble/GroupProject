@@ -112,6 +112,9 @@ Content\Interface\Help\Controls.xnb
 Content\Interface\Help\HelpMenu.xnb
 Content\Interface\Help\Instructions.xnb
 Content\Interface\Assets\HelpButton.xnb
+Content\Sounds\Level1.xnb
+Content\Sounds\Level2.xnb
+Content\Interface\DeleteSaveBox.xnb
 Content\GroupProjectSounds.xgs
 Content\Wave Bank.xwb
 Content\Sound Bank.xsb

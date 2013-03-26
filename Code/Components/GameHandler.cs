@@ -186,6 +186,23 @@ namespace VOiD.Components
                 }
                 #endregion
 
+                #region Sound
+                if (Interface.currentScreen == Screens.LevelMenu)
+                {
+                    if (Audio.IsPlaying(TileMap.BackgroundMusicCue) == false)
+                    {
+                        Audio.StopAll();
+                        Audio.Play(TileMap.BackgroundMusicCue);
+                    }
+                }
+                if (Interface.currentScreen == Screens.Lab)
+                    if (Audio.IsPlaying("Lab") == false)
+                    {
+                        Audio.StopAll();
+                        Audio.Play("Lab");
+                    }
+                #endregion
+
                 for (int i = 0; i < nests.Count; i++)
                 {
                     if (Player.CollisionRect.Intersects(nests[i].MoveArea))
@@ -195,7 +212,11 @@ namespace VOiD.Components
                             if(nests[i].Creatures[j].Active && nests[i].Creatures[j].CoolDown == false && Player.CoolDown == false)
                             {
                                 if (nests[i].Creatures[j].CollisionRect.Intersects(Player.CollisionRect))
+                                {
+                                    Audio.StopAll();
+                                    Audio.Play("CreatureFight");
                                     BattleHandler.InitiateBattle(nests[i].Creatures[j]);
+                                }
                             }
                         }
                     }
@@ -353,6 +374,7 @@ namespace VOiD.Components
             Minimap = new Minimap(TileMap.Map, content.Load<Texture2D>("Sprites\\Nest"), content.Load<Texture2D>("Sprites\\Lab"), graphics);
             Player.Position = GameHandler.TileMap.PlayerSpawn;
             Lab.Position = GameHandler.TileMap.LabPosition;
+            Lab.Update(); // Update lab collision rect
             Interface.UpdateMiniMap();
             CurrentLevel = levelNumber;
             SaveHandler.SaveGame();

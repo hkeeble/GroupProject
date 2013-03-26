@@ -33,6 +33,9 @@ namespace VOiD
             Components.Add(new Interface(this));
             Components.Add(new BattleHandler(this));
 
+            Audio.Initialize();
+            Audio.Play("IntroMusic");
+
             LevelEditor = new LevelEditor(this); 
             Components.Add(LevelEditor);
             LevelEditor.Enabled = false;
@@ -59,6 +62,7 @@ namespace VOiD
         {
             // Delete temporary minimap file from folder.
             File.Delete("~minimap.png");
+            Audio.StopAll();
             base.LoadContent();
         }
     }

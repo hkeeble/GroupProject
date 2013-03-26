@@ -146,6 +146,14 @@ namespace VOiD.Components
                         temp = "x" + Convert.ToString(GameHandler.Inventory.NumberOfSpringWater);
                 }
 
+                if (component.Text == "@Fullscreen")
+                {
+                    if (Configuration.Fullscreen)
+                        temp = "Windowed";
+                    else
+                        temp = "Fullscreen";
+                }
+
                 // -- HOOK UP PLAYER STATISTICS HERE -- \\
                 // Player Statistics
                 if (component.Text == "@PlayerWeight")
@@ -818,6 +826,11 @@ namespace VOiD.Components
                 {
                     Configuration.Toggle();
                 }
+                if (component.Action.Equals("DeleteSaveGame"))
+                    SaveHandler.DeleteSave();
+                if (component.Action.Equals("openDeleteSaveBox"))
+                    subMenu = Game.Content.Load<GameLibrary.Interface>("Interface/DeleteSaveBox");
+
                 if (component.Action.Equals("OpenControls"))
                     temp = Game.Content.Load<GameLibrary.Interface>("Interface/Help/Controls");
                 if (component.Action.Equals("OpenInstructions"))
@@ -902,7 +915,7 @@ namespace VOiD.Components
                 if (component.Action.Equals("Defend"))
                 {
                     BattleHandler.ActionSelected = true;
-                    BattleHandler.PlayerActionType = BattleHandler.ActionType.Attack;
+                    BattleHandler.PlayerActionType = BattleHandler.ActionType.Defend;
                 }
                 if (component.Action.Equals("Flee"))
                 {
@@ -1046,6 +1059,7 @@ namespace VOiD.Components
                                 {
                                     BattleHandler.ActionSelected = true;
                                     BattleHandler.AttackSelection = i;
+                                    BattleHandler.PlayerActionType = BattleHandler.ActionType.Attack;
                                 }
                             }
                             // Add if statements for other list actions here

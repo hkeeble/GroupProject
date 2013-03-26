@@ -254,6 +254,14 @@ namespace VOiD
             //}
         }
 
+        /// <summary>
+        /// Update function that only updates collision rect.
+        /// </summary>
+        public virtual void Update()
+        {
+            _collisionRect = new Rectangle((int)_position.X, (int)_position.Y, _texture.Width, _texture.Height);
+        }
+
         public Texture2D Texture { get { return _texture; } }
         public Vector2 Position { get { return _position; } set { _position = value; } }
         public Rectangle CollisionRect { get { return _collisionRect; } }

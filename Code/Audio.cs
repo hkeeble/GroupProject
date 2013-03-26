@@ -5,7 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 
-namespace VOID
+namespace VOiD
 { 
     class Audio
     {
@@ -13,23 +13,55 @@ namespace VOID
         private static SoundBank soundBank;
         private static WaveBank waveBank;
 
+        private static List<Cue> soundsPlaying;
+
         public static void Initialize()
         {
-            audioEngine = new AudioEngine("GroupProjectSounds.xsb");
-            soundBank = new SoundBank(audioEngine, "Sound Bank.xsb");
-            waveBank = new WaveBank(audioEngine, "Wave Bank.xwb");
+            audioEngine = new AudioEngine("Content/GroupProjectSounds.xgs");
+            soundBank = new SoundBank(audioEngine, "Content/Sound Bank.xsb");
+            waveBank = new WaveBank(audioEngine, "Content/Wave Bank.xwb");
+            soundsPlaying = new List<Cue>();
         }
 
         public static void Play(string cueName)
         {
-            soundBank.PlayCue(cueName);
+            Cue cue = soundBank.GetCue(cueName);
+            cue.Play();
+            soundsPlaying.Add(cue);
         }
 
         public static void Stop(string cueName)
         {
-            Cue cue = soundBank.GetCue(cueName);
-            if (cue.IsPlaying)
-                cue.Stop(AudioStopOptions.Immediate);
+            for(int i = 0; i < soundsPlaying.Count; i++)
+            {
+                if (soundsPlaying[i].Name == cueName)
+                {
+                    soundsPlaying[i].Stop(AudioStopOptions.Immediate);
+                    soundsPlaying.Remove(soundsPlaying[i]);
+                }
+            }
+        }
+
+        public static void StopAll()
+        {
+            for(int i = 0; i < soundsPlaying.Count; i++)
+            {
+                soundsPlaying[i].Stop(AudioStopOptions.Immediate);
+                soundsPlaying.Remove(soundsPlaying[i]);
+            }
+        }
+
+        public static bool IsPlaying(string cueName)
+        {
+            foreach(Cue c in soundsPlaying)
+                if (c.Name == cueName)
+                {
+                    if (c.IsPlaying)
+                        return true;
+                    else
+                        return false;
+                }
+            return false;
         }
     }
 }

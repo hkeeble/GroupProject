@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<XnaContent>
+  <Asset Type="GameLibrary.Interface">
+    <content>
+      <Item Type="GameLibrary.GraphicObject">
+        <iSize>100 100</iSize>
+        <iPosition>0 0</iPosition>
+        <isClickable>false</isClickable>
+        <TextureLocation></TextureLocation>
+        <fullscreen>true</fullscreen>
+        <Action></Action>
+        <Children>
+          <Item Type="GameLibrary.GraphicObject">
+            <iSize>29 15</iSize>
+            <iPosition>50 50</iPosition>
+            <isClickable>false</isClickable>
+            <TextureLocation>PopUp</TextureLocation>
+            <fullscreen>false</fullscreen>
+            <Action></Action>
+            <Children>
+              <Item Type="GameLibrary.TextObject">
+                <Text>Really delete your save?</Text>
+                <Font>Courier</Font>
+                <fontColor>0 0 0</fontColor>
+                <highlightColor>0 0 0</highlightColor>
+                <isCentered>true</isCentered>
+                <ioffset>50 17</ioffset>
+              </Item>
+              <Item Type="GameLibrary.GraphicObject">
+                <iSize>32 30</iSize>
+                <iPosition>23 60</iPosition>
+                <isClickable>true</isClickable>
+                <TextureLocation>NoButton</TextureLocation>
+                <fullscreen>false</fullscreen>
+                <Action>DeleteSubMenu</Action>
+                <Children></Children>
+              </Item>
+              <Item Type="GameLibrary.GraphicObject">
+                <iSize>32 30</iSize>
+                <iPosition>75 60</iPosition>
+                <isClickable>true</isClickable>
+                <TextureLocation>YesButton</TextureLocation>
+                <fullscreen>false</fullscreen>
+                <Action>DeleteSaveGame</Action>
+                <Children></Children>
+              </Item>
+            </Children>
+          </Item>
+        </Children>
+      </Item>
+    </content>
+    <backgroundColor>00000000</backgroundColor>
+    <Overlay>false</Overlay>
+  </Asset>
+</XnaContent>

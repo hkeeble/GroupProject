@@ -74,5 +74,31 @@ namespace VOiD
 
             sw.Close();
         }
+
+        public static void DeleteSave()
+        {
+            string cDir = Directory.GetCurrentDirectory();
+            string[] files = Directory.GetFiles(cDir);
+
+            bool saveExists = false;
+            for (int i = 0; i < files.Length; i++)
+                if (files[i] == cDir + "\\" + SAVE_FILE)
+                {
+                    saveExists = true;
+                    break;
+                }
+
+            if (saveExists)
+            {
+                File.Delete(cDir + "\\" + SAVE_FILE);
+                GameHandler.CurrentMessageBoxText = "Save game deleted.";
+                Interface.ShowMessageBox();
+            }
+            else
+            {
+                GameHandler.CurrentMessageBoxText = "No save game found.";
+                Interface.ShowMessageBox();
+            }
+        }
     }
 }

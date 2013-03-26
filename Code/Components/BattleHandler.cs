@@ -181,6 +181,7 @@ namespace VOiD.Components
                         return;
                     }
                     GameHandler.Enabled = true;
+                    Audio.StopAll();
                 }
                 else
                 {

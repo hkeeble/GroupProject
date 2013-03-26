@@ -23,6 +23,7 @@ namespace VOiD
         public int TileHeight = 32;
 
         private int _width, _height, _numberOfNests, _numberOfSigns;
+        private string _backgroundMusicCue;
         Texture2D _tileSet;
         private string _tileSetPath;
         private Point[,] _tiles;
@@ -63,16 +64,19 @@ namespace VOiD
                 try
                 {
                     _tileSet = content.Load<Texture2D>("Tilesets/"+sr.ReadLine());
-                    isLoaded = true;//CHECK THIS PLEASE
+                    isLoaded = true;
                 }
                 catch (FileNotFoundException e)
                 {
                     DebugLog.WriteLine("Error loading tileset for level " + fileName + " error message: \n" + e.Message);
                 }
 
+                _backgroundMusicCue = sr.ReadLine();
+
                 // Get Map Width
                 sr.Close();
                 sr = new StreamReader(_fileName);
+                sr.ReadLine();
                 sr.ReadLine();
                 string[] widthString = sr.ReadLine().Split(' ');
                 _width = widthString.Length;
@@ -80,6 +84,7 @@ namespace VOiD
                 // Get Map Height
                 sr.Close();
                 sr = new StreamReader(_fileName);
+                sr.ReadLine();
                 sr.ReadLine();
                 int counter = 0;
                 while (!sr.ReadLine().Contains('-'))
@@ -92,6 +97,7 @@ namespace VOiD
                 _map = new Texture2D(graphicsDevice, _width*TileWidth, _height*TileHeight, false, SurfaceFormat.Color);
                 
                 _tileSetPath = sr.ReadLine();
+                sr.ReadLine();
 
                 _tiles = new Point[_width, _height];
                 _passable = new bool[_width, _height];
@@ -294,5 +300,6 @@ namespace VOiD
         public int[,] Attribute { get { return _attribute; } }
         public Texture2D Map { get { return _map; } }
         public Point[,] Tiles { get { return _tiles; } }
+        public string BackgroundMusicCue { get { return _backgroundMusicCue; } }
     }
 }

@@ -63,7 +63,7 @@
                 <Action>Fullscreen</Action>
                 <Children>
                   <Item Type="GameLibrary.TextObject">
-                    <Text>Fullscreen</Text>
+                    <Text>@Fullscreen</Text>
                     <Font>Courier</Font>
                     <fontColor>0 0 0</fontColor>
                     <highlightColor>0 0 0</highlightColor>
@@ -75,6 +75,24 @@
               <Item Type="GameLibrary.GraphicObject">
                 <iSize>80 10</iSize>
                 <iPosition>50 40</iPosition>
+                <isClickable>true</isClickable>
+                <TextureLocation>trans</TextureLocation>
+                <fullscreen>false</fullscreen>
+                <Action>openDeleteSaveBox</Action>
+                <Children>
+                  <Item Type="GameLibrary.TextObject">
+                    <Text>Delete Saved Game</Text>
+                    <Font>Courier</Font>
+                    <fontColor>0 0 0</fontColor>
+                    <highlightColor>0 0 0</highlightColor>
+                    <isCentered>true</isCentered>
+                    <ioffset>50 50</ioffset>
+                  </Item>
+                </Children>
+              </Item>
+              <Item Type="GameLibrary.GraphicObject">
+                <iSize>80 10</iSize>
+                <iPosition>50 55</iPosition>
                 <isClickable>true</isClickable>
                 <TextureLocation>trans</TextureLocation>
                 <fullscreen>false</fullscreen>
