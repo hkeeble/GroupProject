@@ -16,7 +16,7 @@ namespace VOiD.Components
         private static Random random = new Random();
         private static bool InSession;
         private static Creature B;
-        private static bool Win=false;
+        private static bool Win = false;
         public static int AttackSelection = 0;
         public static bool ActionSelected = false;
 
@@ -104,8 +104,13 @@ namespace VOiD.Components
                         if (PlayerActionType == ActionType.Flee)
                         {
                             float fleeChance = (GameHandler.Player.Dominant.Speed.Level * 0.5f) - (GameHandler.Player.Dominant.Agressiveness.Level * 0.1f);
-                            if (random.Next(101) < fleeChance)
+                            if (random.Next(101) < fleeChance && IsFightingBoss == false)
                                 flee = true;
+                            else if (IsFightingBoss)
+                            {
+                                flee = false;
+                                _lastPlayerAction = "The boss is too large to flee from!";
+                            }
                             else
                             {
                                 flee = false;
@@ -161,6 +166,13 @@ namespace VOiD.Components
                     if (B.Health <= 0 && GameHandler.Player.Health > 0)
                     {
                         GameHandler.Inventory.AddDNA(Enemy);
+                        if (IsFightingBoss)
+                        {
+                            GameHandler.CurrentMessageBoxText = "You beat the level! Loading next level...";
+                            Interface.ShowMessageBox();
+                            GameHandler.LoadLevel(GameHandler.CurrentLevel + 1, Game.Content, Game.GraphicsDevice); // Move to next level
+                            SaveHandler.SaveGame();
+                        }
                         Interface.currentScreen = Screens.LevelMenu;
                         Enemy.Health = Enemy.Dominant.Health.Level;
                         Enemy.Active = false;
@@ -178,6 +190,7 @@ namespace VOiD.Components
                     {
                         Win = false;
                         Interface.currentScreen = Screens.GameOver;
+                        Audio.StopAll();
                         return;
                     }
                     GameHandler.Enabled = true;
@@ -243,5 +256,6 @@ namespace VOiD.Components
         public static bool CanSelectAction { get { return canSelectAction; } }
         public static bool IsInSession { get { return InSession; } }
         public static Creature Enemy { get { return B; } }
+        public static bool IsFightingBoss { get; set; }
     }
 }

@@ -227,9 +227,10 @@ namespace VOiD.Components
                     Player.CurrentTile.Y == Boss.CurrentTile.Y - 1 || Player.CurrentTile.Y == Boss.CurrentTile.Y + 1)
                     if (Player.CollisionRect.Intersects(Boss.CollisionRect))
                     {
-                        // INVOKE BOSS BATTLE HERE
-                        LoadLevel(CurrentLevel + 1, Game.Content, Game.GraphicsDevice); // Move to next level
-                        SaveHandler.SaveGame();
+                        Audio.StopAll();
+                        Audio.Play("BossFight");
+                        BattleHandler.InitiateBattle(Boss);
+                        BattleHandler.IsFightingBoss = true;
                     }
 
                 // Update currently used attribute
