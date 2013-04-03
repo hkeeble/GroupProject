@@ -63,7 +63,8 @@ namespace VOiD
         {
             StreamWriter sw = new StreamWriter(SAVE_FILE);
             sw.WriteLine(GameHandler.CurrentLevel);
-            sw.WriteLine(GameHandler.Player.ID);
+
+            sw.WriteLine(GameHandler.Player.Seed);
 
             foreach (Item i in GameHandler.Inventory.Items)
             {

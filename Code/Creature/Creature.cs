@@ -14,6 +14,8 @@ namespace VOiD
         private short _ID;
         public short ID { get { return _ID; } }
 
+        private int _seed;
+
         // Variables
         #region DNA
         public Traits Dominant;//A dominant allele always shows, even if the individual only has one copy of the allele.
@@ -69,7 +71,7 @@ namespace VOiD
         {
             get
             {
-                return Dominant.Wings.Active;
+                return Dominant.Wings.Active && Dominant.Weight.Level <= 4 && Endurance >= 4;
             }
         }
         public bool canSwim
@@ -106,6 +108,8 @@ namespace VOiD
         public Creature(int Seed, Texture2D texture, Vector2 position2D, float moveSpeed, int frameWidth, int frameHeight, int millisecondsBetweenFrame)
             : base(texture, position2D, moveSpeed, frameWidth, frameWidth, millisecondsBetweenFrame)
         {
+            _seed = Seed;
+
             int[] Points = new int[2];
             int[] BDMax = new int[2];
             int[] TUMax = new int[2];
@@ -489,5 +493,7 @@ namespace VOiD
             else
                 creatureModel.Draw(world);
         }
+
+        public int Seed { get { return _seed; } }
     }
 }

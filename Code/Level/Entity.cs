@@ -115,8 +115,8 @@ namespace VOiD
 
         public virtual void Update(GameTime gameTime)
         {
-            //if (Camera.ObjectVisible(CollisionRect))
-            //{
+            if (Camera.ObjectVisible(CollisionRect))
+            {
             if (this.GetType() == typeof(Creature))
             {
                 if (Active == false)
@@ -251,7 +251,7 @@ namespace VOiD
                 else
                     _collisionRect = new Rectangle((int)_position.X, (int)_position.Y, _texture.Width, _texture.Height);
                 #endregion
-            //}
+            }
         }
 
         /// <summary>

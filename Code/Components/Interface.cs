@@ -854,6 +854,7 @@ namespace VOiD.Components
                     GameHandler.Enabled = true;
                     GameHandler.Visible = true;
                     Interface.currentScreen = Screens.LevelMenu;
+                    SaveHandler.SaveGame(); // Save out creature details
                 }
                 #endregion
 
