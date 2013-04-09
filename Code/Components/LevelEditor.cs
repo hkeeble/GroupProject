@@ -381,14 +381,15 @@ namespace VOiD.Components
             string tilesetName = sr.ReadLine();
             int arraySize = ((GameHandler.TileMap.Width * 6) * GameHandler.TileMap.Height) + (GameHandler.TileMap.Height - 1);
             char[] tileData = new char[arraySize];
+            string bgMusic = sr.ReadLine();
             sr.ReadBlock(tileData, 0, arraySize);
 
             foreach (Point tile in modifiedTiles)
             {
                 int[] currentTile = new int[5];
 
-                for (int i = 0; i < 5; i++)
-                    currentTile[i] = UnicodeValueToInt(tileData[(tile.X * 6 + tile.Y * ((GameHandler.TileMap.Width * 6) + 1)) + i]);
+                for (int i = 0; i < currentTile.Length; i++)
+                    currentTile[i] = tileData[(tile.X * 6 + tile.Y * ((GameHandler.TileMap.Width * 6) + 1)) + i];
 
                 currentTile[0] = GameHandler.TileMap.Tiles[tile.X, tile.Y].X;
                 currentTile[1] = GameHandler.TileMap.Tiles[tile.X, tile.Y].Y;
@@ -401,7 +402,7 @@ namespace VOiD.Components
                 else
                     currentTile[4] = 0;
 
-                for (int i = 0; i < 5; i++)
+                for (int i = 0; i < currentTile.Length; i++)
                 {
                     char c = Convert.ToChar(currentTile[i] + (int)'0');
                     tileData[(tile.X * 6 + tile.Y * ((GameHandler.TileMap.Width * 6) + 1)) + i] = c;
@@ -429,6 +430,7 @@ namespace VOiD.Components
             // Write out new data
             StreamWriter sw = new StreamWriter(filePath, false);
             sw.WriteLine(tilesetName);
+            sw.WriteLine(bgMusic);
             sw.Write(tileData);
             sw.Write(spawnData);
             sw.Write(NestData);
