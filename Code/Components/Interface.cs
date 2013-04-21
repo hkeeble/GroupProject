@@ -36,6 +36,7 @@ namespace VOiD.Components
         private static short ResID = 0;
         private DisplayMode[] dm;
         RasterizerState _scissorState = new RasterizerState() { ScissorTestEnable = true };
+        private static Screens prevScreen;
 
         // Used for lab screen
         private static TimeSpan millisecondsSinceBreed = TimeSpan.Zero;
@@ -836,7 +837,10 @@ namespace VOiD.Components
                 if (component.Action.Equals("OpenInstructions"))
                     temp = Game.Content.Load<GameLibrary.Interface>("Interface/Help/Instructions");
                 if (component.Action.Equals("OpenHelpMenu"))
+                {
                     temp = Game.Content.Load<GameLibrary.Interface>("Interface/Help/HelpMenu");
+                    prevScreen = currentScreen;
+                }
                 #endregion
 
                 #region Customizer Actions
@@ -872,6 +876,13 @@ namespace VOiD.Components
                 }
                 if (component.Action.Equals("exit"))
                     Interface.currentScreen = Screens.LevelMenu;
+                if (component.Action.Equals("ExitHelp"))
+                {
+                    if (prevScreen == Screens.MainMenu)
+                        temp = Game.Content.Load<GameLibrary.Interface>("Interface/MainMenu");
+                    else
+                        temp = Game.Content.Load<GameLibrary.Interface>("Interface/LevelMenu");
+                }
                 #endregion
 
                 #region Global Dial Actions

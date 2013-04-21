@@ -170,13 +170,19 @@ namespace VOiD.Components
                         {
                             GameHandler.CurrentMessageBoxText = "You beat the level! Loading next level...";
                             Interface.ShowMessageBox();
-                            GameHandler.LoadLevel(GameHandler.CurrentLevel + 1, Game.Content, Game.GraphicsDevice); // Move to next level
+                            if(GameHandler.CurrentLevel + 1 <= GameHandler.NUMBER_OF_LEVELS)
+                                GameHandler.LoadLevel(GameHandler.CurrentLevel + 1, Game.Content, Game.GraphicsDevice); // Move to next level
                             SaveHandler.SaveGame();
                         }
-                        Interface.currentScreen = Screens.LevelMenu;
-                        Enemy.Health = Enemy.Dominant.Health.Level;
-                        Enemy.Active = false;
-                        GameHandler.Player.CoolDown = true;
+                        if (GameHandler.CurrentLevel + 1 <= GameHandler.NUMBER_OF_LEVELS)
+                        {
+                            Interface.currentScreen = Screens.LevelMenu;
+                            Enemy.Health = Enemy.Dominant.Health.Level;
+                            Enemy.Active = false;
+                            GameHandler.Player.CoolDown = true;
+                        }
+                        else
+                            Interface.currentScreen = Screens.MainMenu;
                     }
                     else if (flee)
                     {

@@ -43,7 +43,7 @@
             <isClickable>true</isClickable>
             <TextureLocation>Help/backButton</TextureLocation>
             <fullscreen>false</fullscreen>
-            <Action>OpenMenu</Action>
+            <Action>ExitHelp</Action>
             <Children></Children>
           </Item>
         </Children>

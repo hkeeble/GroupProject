@@ -35,10 +35,12 @@ namespace VOiD.Components
 
         private Texture2D exclamationSprite;
 
-        const int NUMBER_OF_ITEM_TYPES = 5;
+        private const int NUMBER_OF_ITEM_TYPES = 5;
 
         private static Creature selectedCreature;
         private Texture2D CreatureSelector; // Used to highlight selected creature
+
+        public const int NUMBER_OF_LEVELS = 2;
         #endregion
 
         public GameHandler(Game game)

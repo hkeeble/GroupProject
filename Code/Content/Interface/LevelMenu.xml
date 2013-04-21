@@ -102,6 +102,15 @@
               </Item>
             </Children>
           </Item>
+          <Item Type="GameLibrary.GraphicObject">
+            <iSize>10 5</iSize>
+            <iPosition>70 5</iPosition>
+            <isClickable>true</isClickable>
+            <TextureLocation>HelpButton</TextureLocation>
+            <fullscreen>false</fullscreen>
+            <Action>OpenHelpMenu</Action>
+            <Children></Children>
+          </Item>
           <Item Type="GameLibrary.TextObject">
             <Text>@PlayerCurrentHealth</Text>
             <Font>Courier</Font>
